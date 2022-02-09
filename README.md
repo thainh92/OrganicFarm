@@ -20,7 +20,8 @@ Lúc này đã có nhánh mới, có thể code ngay ở nhánh này
 Nếu không may code nhầm ngay tại nhánh develop khi pull code về thì vẫn có thể dùng (3) để tạo nhánh với nguyên chỗ đã code
 
 
-    ------- Nếu đã có nhánh, khi code xong 1 chức năng ------
+    ------ pull code develop về trước khi code nếu đã merge nhánh vào develop từ lần code trước ------
+    ------- Nếu đã có nhánh, khi code xong 1 chức năng (khi chưa code xong thì chỉ được push lên nhánh của mình) ------
 
 
 1/ git add .
