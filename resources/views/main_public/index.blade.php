@@ -1,32 +1,67 @@
-@extends('layouts.PublicLayout')
-@section('title','Organic Farm')
+@extends('layouts.master')
+@section('title','Home')
 @section('content')
-    <section class="home_container">
-        <div>ddaay la ddang au</div>
+    <section class="home-container">
+        <!-- Start Main Slider Area -->
+        <div class="main-slider-area">
+            <div class="home-slides owl-carousel owl-theme">
+                <div class="main-slider-item main-slider-two">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="container-fluid">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="main-slider-content">
+                                            <span>Take Natural Taste From Our Shop</span>
+                                            <h1>Organic Food Is Good For Health</h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                                            <div class="slider-btn">
+                                                <a href="shop-1.html" class="default-btn">Our Shop</a>
+                                                <a href="cart.html" class="optional-btn">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-lg-6">
+                                        <div class="main-slider-image-wrap">
+                                            <img src="assets/img/main-slider/main-slider-2.jpg" alt="image">
 
-        <!-- Start Main Banner Area -->
-        <div class="main-banner">
-            <div class="main-banner-item banner-item-two">
-                <div class="d-table">
-                    <div class="d-table-cell">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6">
-                                    <div class="main-banner-content">
-                                        <span>Take Natural Taste From Our Shop</span>
-                                        <h1>Lead a Healthier Life with Organic Food</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-                                        <div class="banner-btn">
-                                            <a href="shop-1.html" class="default-btn">Our Shop</a>
-                                            <a href="cart.html" class="optional-btn">Add to Cart</a>
+                                            <div class="slider-shape">
+                                                <img src="assets/img/main-slider/main-slider-shape.png" alt="image">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="main-banner-image">
-                                        <img src="assets/img/banner-woman.png" alt="image">
+                <div class="main-slider-item main-slider-two">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="container-fluid">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="main-slider-content">
+                                            <span>Take Natural Taste From Our Shop</span>
+                                            <h1>Vegetables Good For Health</h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                                            <div class="slider-btn">
+                                                <a href="shop-1.html" class="default-btn">Our Shop</a>
+                                                <a href="cart.html" class="optional-btn">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="main-slider-image-wrap">
+                                            <img src="assets/img/main-slider/main-slider-3.jpg" alt="image">
+
+                                            <div class="slider-shape">
+                                                <img src="assets/img/main-slider/main-slider-shape.png" alt="image">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -35,54 +70,72 @@
                 </div>
             </div>
 
-            <div class="main-banner-shape">
+            <div class="main-slider-shape">
                 <div class="shape-1">
-                    <img src="assets/img/banner-shape/banner-shape-1.png" alt="image">
+                    <img src="assets/img/main-slider/slider-shape-1.png" alt="image">
+                </div>
+
+                <div class="shape-2">
+                    <img src="assets/img/main-slider/slider-shape-2.png" alt="image">
                 </div>
             </div>
         </div>
-        <!-- End Main Banner Area -->
+        <!-- End Main Slider Area -->
 
-        <!-- Start Food Area -->
-        <section class="food-area pb-70">
-            <div class="container-fluid">
+        <!-- Start Special Features Area -->
+        <section class="special-features-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Special Features</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
-                        <div class="food-item">
-                            <div class="food-image">
-                                <img src="assets/img/food/food-1.jpg" alt="image">
+                        <div class="single-special-features">
+                            <div class="image">
+                                <img src="assets/img/special-features/special-features-1.png" alt="image">
                             </div>
-                            <div class="food-content">
-                                <h3>Fresh Fruits</h3>
+
+                            <div class="content">
+                                <h3>Fresh Organic Food Provides</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</p>
+                                <a href="#" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="food-item">
-                            <div class="food-image">
-                                <img src="assets/img/food/food-2.jpg" alt="image">
+                        <div class="single-special-features">
+                            <div class="image">
+                                <img src="assets/img/special-features/special-features-2.png" alt="image">
                             </div>
-                            <div class="food-content">
-                                <h3>Fresh Vegetables</h3>
+
+                            <div class="content">
+                                <h3>Fast & Easy Food Delivery</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</p>
+                                <a href="#" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                        <div class="food-item">
-                            <div class="food-image">
-                                <img src="assets/img/food/food-3.jpg" alt="image">
+                        <div class="single-special-features">
+                            <div class="image">
+                                <img src="assets/img/special-features/special-features-3.png" alt="image">
                             </div>
-                            <div class="food-content">
-                                <h3>Beef Meat</h3>
+
+                            <div class="content">
+                                <h3>Very Easy Payment System</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</p>
+                                <a href="#" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Food Area -->
+        <!-- End Special Features Area -->
 
         <!-- Start Top Products Area -->
         <section class="top-products-area pb-70">
@@ -93,7 +146,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/top-products/top-products-1.jpg" alt="image"></a>
@@ -138,7 +191,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/top-products/top-products-2.jpg" alt="image"></a>
@@ -183,7 +236,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/top-products/top-products-3.jpg" alt="image"></a>
@@ -228,7 +281,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/top-products/top-products-4.jpg" alt="image"></a>
@@ -273,7 +326,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/top-products/top-products-5.jpg" alt="image"></a>
@@ -318,7 +371,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/top-products/top-products-6.jpg" alt="image"></a>
@@ -362,67 +415,252 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="top-products-item">
+                            <div class="products-image">
+                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-7.jpg" alt="image"></a>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="sale">
+                                    <span>Sale</span>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3>
+                                    <a href="shop-details.html">Pineapple</a>
+                                </h3>
+                                <div class="price">
+                                    <span class="new-price">$39.00</span>
+                                    <span class="old-price">$139.00</span>
+                                </div>
+                                <ul class="rating">
+                                    <li>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bx-star'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="top-products-item">
+                            <div class="products-image">
+                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-8.jpg" alt="image"></a>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="sale">
+                                    <span>Sale</span>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3>
+                                    <a href="shop-details.html">Fresh Banana</a>
+                                </h3>
+                                <div class="price">
+                                    <span class="new-price">$17.00</span>
+                                    <span class="old-price">$115.00</span>
+                                </div>
+                                <ul class="rating">
+                                    <li>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bx-star'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- End Top Products Area -->
 
-        <!-- Start Deal Area -->
-        <section class="deal-area ptb-100">
+        <!-- Start Services Area -->
+        <section class="services-area bg-image pt-100 pb-70">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="deal-title">
-                            <h2>Deals Of The Weeks</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-                        </div>
+                <div class="section-title">
+                    <h2>What Services We Provide</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
 
-                        <div class="deal-content">
-                            <div id="timer" class="flex-wrap d-flex justify-content-center">
-                                <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
-                                <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
-                                <div id="minutes" class="align-items-center flex-column d-flex justify-content-center"></div>
-                                <div id="seconds" class="align-items-center flex-column d-flex justify-content-center"></div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-apple"></i>
                             </div>
-
-                            <div class="deal-btn">
-                                <a href="cart.html" class="default-btn">Add to Cart</a>
-                            </div>
+                            <h3>Natural Food</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
-                        <div class="deal-image">
-                            <img src="assets/img/deal/deal-1.png" alt="image">
-
-                            <div class="offer">
-                                <h4>50%</h4>
-                                <span>Off</span>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-nature"></i>
                             </div>
+                            <h3>Biologically Safe</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="deal-shape">
-                <div class="shape-1">
-                    <img src="assets/img/deal/deal-shape-1.png" alt="image">
-                </div>
-                <div class="shape-2">
-                    <img src="assets/img/deal/deal-shape-2.png" alt="image">
-                </div>
-                <div class="shape-3">
-                    <img src="assets/img/deal/deal-shape-3.png" alt="image">
-                </div>
-                <div class="shape-4">
-                    <img src="assets/img/deal/deal-shape-4.png" alt="image">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-forest"></i>
+                            </div>
+                            <h3>Biodiversity</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-organic"></i>
+                            </div>
+                            <h3>100% Organic</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-plant"></i>
+                            </div>
+                            <h3>Gardening</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-leaf"></i>
+                            </div>
+                            <h3>Organic Vegetables</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-heart"></i>
+                            </div>
+                            <h3>Fresh & Organic</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-services-box">
+                            <div class="icon">
+                                <i class="flaticon-apple"></i>
+                            </div>
+                            <h3>Organic Food</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                            <a href="#" class="read-btn">Read More +</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- End Deal Area -->
+        <!-- End Services Area -->
+        
+        <!-- Start Features Area -->
+        <section class="features-area pt-100 pb-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="features-image">
+                            <img src="assets/img/features-2.png" alt="image">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="features-item">
+                            <div class="features-content">
+                                <span>Features</span>
+                                <h3>Special Product For Orgo Loving People</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                            </div>
+
+                            <div class="features-inner-content">
+                                <div class="icon">
+                                    <i class="flaticon-nature"></i>
+                                </div>
+                                <h4>Natural Products</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+
+                            <div class="features-inner-content">
+                                <div class="icon">
+                                    <i class="flaticon-leaf"></i>
+                                </div>
+                                <h4>Best Food For Health</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+
+                            <div class="features-inner-content">
+                                <div class="icon">
+                                    <i class="flaticon-medal"></i>
+                                </div>
+                                <h4>Award-Winning Company</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Features Area -->
 
         <!-- Start Featured Products Area -->
-        <section class="featured-products-area pt-100 pb-70">
+        <section class="featured-products-area pb-70">
             <div class="container">
                 <div class="section-title">
                     <h2>Featured  Products</h2>
@@ -430,7 +668,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-1.jpg" alt="image"></a>
@@ -475,7 +713,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-2.jpg" alt="image"></a>
@@ -520,7 +758,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-3.jpg" alt="image"></a>
@@ -565,7 +803,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-4.jpg" alt="image"></a>
@@ -610,7 +848,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-5.jpg" alt="image"></a>
@@ -655,7 +893,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
                                 <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-6.jpg" alt="image"></a>
@@ -699,154 +937,301 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="featured-products-item">
+                            <div class="products-image">
+                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-7.jpg" alt="image"></a>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="new">
+                                    <span>New</span>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3>
+                                    <a href="shop-details.html">Pea-nut</a>
+                                </h3>
+                                <div class="price">
+                                    <span class="new-price">$65.00</span>
+                                    <span class="old-price">$156.00</span>
+                                </div>
+                                <ul class="rating">
+                                    <li>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bx-star'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="featured-products-item">
+                            <div class="products-image">
+                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-8.jpg" alt="image"></a>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="new">
+                                    <span>New</span>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3>
+                                    <a href="shop-details.html">Mint</a>
+                                </h3>
+                                <div class="price">
+                                    <span class="new-price">$49.00</span>
+                                    <span class="old-price">$133.00</span>
+                                </div>
+                                <ul class="rating">
+                                    <li>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bx-star'></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- End Featured Products Area -->
 
-        <!-- Start Gallery Area -->
-        <section class="gallery-area bg-fafafa pt-100 pb-70">
-            <div class="container-fluid">
+        <!-- Start Deal Area -->
+        <section class="deal-area ptb-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="newsletter-content">
+                            <h2>Subscribe To Our Newsletter</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form class="newsletter-form">
+                            <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL" required autocomplete="off">
+
+                            <button type="submit">Subscribe Now</button>
+                            
+                            <div id="validator-newsletter" class="form-result"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deal-shape">
+                <div class="shape-1">
+                    <img src="assets/img/deal/deal-shape-1.png" alt="image">
+                </div>
+                <div class="shape-2">
+                    <img src="assets/img/deal/deal-shape-2.png" alt="image">
+                </div>
+                <div class="shape-3">
+                    <img src="assets/img/deal/deal-shape-3.png" alt="image">
+                </div>
+                <div class="shape-4">
+                    <img src="assets/img/deal/deal-shape-4.png" alt="image">
+                </div>
+            </div>
+        </section>
+        <!-- End Deal Area -->
+
+        <!-- Start Team Area -->
+        <section class="team-area pt-100 pb-70">
+            <div class="container">
                 <div class="section-title">
-                    <h2>Our Cultivation Farmland Gallery</h2>
+                    <h2>Our Farm Land Farmers</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-gallery-box">
-                            <div class="gallery-image">
-                                <a href="#"><img src="assets/img/gallery/gallery-1.jpg" alt="image"></a>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-team-box">
+                            <div class="image">
+                                <img src="assets/img/team/team-1.jpg" alt="image">
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-facebook'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-twitter'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-linkedin'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-instagram'></i>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div class="gallery-content">
-                                <h3>
-                                    <a href="shop-details.html">Seasoned Tomatoes</a>
-                                </h3>
-                                <span>Farming</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-gallery-box">
-                            <div class="gallery-image">
-                                <a href="#"><img src="assets/img/gallery/gallery-2.jpg" alt="image"></a>
-                            </div>
-
-                            <div class="gallery-content">
-                                <h3>
-                                    <a href="#">Fresh Organic Milk</a>
-                                </h3>
-                                <span>Food</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery-box">
-                            <div class="gallery-image">
-                                <a href="#"><img src="assets/img/gallery/gallery-3.jpg" alt="image"></a>
-                            </div>
-
-                            <div class="gallery-content">
-                                <h3>
-                                    <a href="#">Veterinary Research</a>
-                                </h3>
-                                <span>Cultivation</span>
+                            <div class="content">
+                                <h3>Alex Maxwel</h3>
+                                <span>CEO & Founder</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-gallery-box">
-                            <div class="gallery-image">
-                                <a href="#"><img src="assets/img/gallery/gallery-4.jpg" alt="image"></a>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-team-box">
+                            <div class="image">
+                                <img src="assets/img/team/team-2.jpg" alt="image">
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-facebook'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-twitter'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-linkedin'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-instagram'></i>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div class="gallery-content">
-                                <h3>
-                                    <a href="#">Fresh Vegetables</a>
-                                </h3>
+                            <div class="content">
+                                <h3>Justin Roberto</h3>
+                                <span>Manager</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-team-box">
+                            <div class="image">
+                                <img src="assets/img/team/team-3.jpg" alt="image">
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-facebook'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-twitter'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-linkedin'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-instagram'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="content">
+                                <h3>Louis Agassiz</h3>
+                                <span>Organic Farmer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-team-box">
+                            <div class="image">
+                                <img src="assets/img/team/team-4.jpg" alt="image">
+
+                                <ul class="social">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-facebook'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-twitter'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-linkedin'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-instagram'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="content">
+                                <h3>Carl Anderson</h3>
                                 <span>Agriculturist</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                        <div class="single-gallery-box">
-                            <div class="gallery-image">
-                                <a href="#"><img src="assets/img/gallery/gallery-5.jpg" alt="image"></a>
-                            </div>
-
-                            <div class="gallery-content">
-                                <h3>
-                                    <a href="#">Fresh Strawberry</a>
-                                </h3>
-                                <span>Fresh Food</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
+        <!-- End Team Area -->
+
+        <!-- Start Gallery Area -->
+        
         <!-- End Gallery Area -->
-
-        <!-- Start Video Area -->
-        <div class="video-area ptb-100">
-            <div class="container">
-                <div class="video-content">
-                    <h3>Watch Intro Video</h3>
-                    <a href="https://www.youtube.com/watch?v=Jh5oX0VRnzk" class="video-btn popup-youtube">
-                        <i class='bx bxl-youtube'></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- End Video Area -->
-
-        <!-- Start Others Food Area -->
-        <section class="others-food-area pt-100 pb-70">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Organic Shop of Department</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="others-food-item">
-                            <img src="assets/img/others-food/others-food-1.png" alt="image">
-
-                            <div class="content">
-                                <h3>Fresh Fish</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="others-food-item">
-                            <img src="assets/img/others-food/others-food-2.png" alt="image">
-
-                            <div class="content">
-                                <h3>Fresh Fruits</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                        <div class="others-food-item">
-                            <img src="assets/img/others-food/others-food-3.png" alt="image">
-
-                            <div class="content">
-                                <h3>Fresh Vegetables</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Others Food Area -->
 
         <!-- Start Testimonial Area -->
         <section class="testimonial-area ptb-100">
@@ -913,7 +1298,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-1.jpg" alt="image"></a>
-
+                                
                                 <div class="date">
                                     <span>20 December 2020</span>
                                 </div>
@@ -931,7 +1316,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-2.jpg" alt="image"></a>
-
+                                
                                 <div class="date">
                                     <span>24 December 2020</span>
                                 </div>
@@ -945,11 +1330,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                    <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-3.jpg" alt="image"></a>
-
+                                
                                 <div class="date">
                                     <span>29 December 2020</span>
                                 </div>
@@ -966,59 +1351,6 @@
             </div>
         </section>
         <!-- End Blog Area -->
-
-        <!-- Start Newsletter Area -->
-        <div class="newsletter-area ptb-100">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h2>Subscribe To Our Newsletter</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <form class="newsletter-form">
-                            <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL" required autocomplete="off">
-
-                            <button type="submit">Subscribe Now</button>
-
-                            <div id="validator-newsletter" class="form-result"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Newsletter Area -->
-
-        <!-- Start Partner Area -->
-        <div class="partner-area ptb-100">
-            <div class="container">
-                <div class="partner-slider owl-carousel owl-theme">
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-1.png" alt="image">
-                    </div>
-
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-2.png" alt="image">
-                    </div>
-
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-3.png" alt="image">
-                    </div>
-
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-4.png" alt="image">
-                    </div>
-
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-5.png" alt="image">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Partner Area -->
     </section>
 @endsection
 @section('script-tag')
