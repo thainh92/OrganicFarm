@@ -2,6 +2,9 @@
 @section('title','Organic Farm')
 @section('content')
     <section class="home_container">
+        <div>ddaay la ddang au</div>
+
+
         <!-- Start Main Banner Area -->
         <div class="main-banner">
             <div class="main-banner-item banner-item-two">
