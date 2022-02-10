@@ -1072,166 +1072,153 @@
         </section>
         <!-- End Deal Area -->
 
-        <!-- Start Team Area -->
-        <section class="team-area pt-100 pb-70">
+        <!-- Start Pricing Area -->
+        <section class="pricing-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <h2>Our Farm Land Farmers</h2>
+                    <h2>Pricing Plan</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-team-box">
-                            <div class="image">
-                                <img src="assets/img/team/team-1.jpg" alt="image">
-
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-linkedin'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-pricing-box">
+                            <div class="pricing-header">
+                                <h3>Basic Plan</h3>
                             </div>
 
-                            <div class="content">
-                                <h3>Alex Maxwel</h3>
-                                <span>CEO & Founder</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-team-box">
-                            <div class="image">
-                                <img src="assets/img/team/team-2.jpg" alt="image">
-
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-linkedin'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <div class="price">
+                                $60 <span>Weekly</span>
                             </div>
 
-                            <div class="content">
-                                <h3>Justin Roberto</h3>
-                                <span>Manager</span>
+                            <ul class="pricing-features">
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Cherry Tomatoes
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Imported Snap Peas
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Cucumbers
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    White Potatoes
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Organic Vegetables
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Unlimited Creative Ideas
+                                </li>
+                            </ul>
+
+                            <div class="pricing-btn">
+                                <a href="#" class="default-btn">
+                                    Purchase Plan
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-team-box">
-                            <div class="image">
-                                <img src="assets/img/team/team-3.jpg" alt="image">
-
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-linkedin'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-pricing-box">
+                            <div class="pricing-header">
+                                <h3>Standard Plan</h3>
                             </div>
 
-                            <div class="content">
-                                <h3>Louis Agassiz</h3>
-                                <span>Organic Farmer</span>
+                            <div class="price">
+                                $149 <span>Monthly</span>
+                            </div>
+
+                            <ul class="pricing-features">
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Cherry Tomatoes
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Imported Snap Peas
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Cucumbers
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    White Potatoes
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Organic Vegetables
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Unlimited Creative Ideas
+                                </li>
+                            </ul>
+
+                            <div class="pricing-btn">
+                                <a href="#" class="default-btn">
+                                    Purchase Plan
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-team-box">
-                            <div class="image">
-                                <img src="assets/img/team/team-4.jpg" alt="image">
-
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-linkedin'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-pricing-box">
+                            <div class="pricing-header">
+                                <h3>Premium Plan</h3>
                             </div>
 
-                            <div class="content">
-                                <h3>Carl Anderson</h3>
-                                <span>Agriculturist</span>
+                            <div class="price">
+                                $179 <span>Yearly</span>
+                            </div>
+
+                            <ul class="pricing-features">
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Cherry Tomatoes
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Imported Snap Peas
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Cucumbers
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    White Potatoes
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Organic Vegetables
+                                </li>
+                                <li>
+                                    <i class='bx bx-check'></i>
+                                    Unlimited Creative Ideas
+                                </li>
+                            </ul>
+
+                            <div class="pricing-btn">
+                                <a href="#" class="default-btn">
+                                    Purchase Plan
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Team Area -->
-
-        <!-- Start Gallery Area -->
-        
-        <!-- End Gallery Area -->
+        <!-- End Pricing Area -->
 
         <!-- Start Testimonial Area -->
         <section class="testimonial-area ptb-100">
