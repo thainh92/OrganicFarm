@@ -220,22 +220,9 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="shop-2.html" class="nav-link">
-                                        Gift & Combo
-                                        <i class='bx bx-chevron-down'></i>
+                                    <a href="{{ route('pricing-page') }}" class="nav-link">
+                                        Pricing
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                Gift Box
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                Combo
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </li>
@@ -246,22 +233,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="about.html" class="nav-link">
+                                    <a href="{{ route('about-page') }}" class="nav-link">
                                         About
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="team.html" class="nav-link">
-                                        Team
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pricing.html" class="nav-link">
-                                        Pricing
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="faq.html" class="nav-link">
+                                    <a href="{{ route('faq-page') }}" class="nav-link">
                                         FAQ
                                     </a>
                                 </li>
@@ -284,55 +261,24 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="terms-of-service.html" class="nav-link">
+                                    <a href="{{ route('terms-page') }}" class="nav-link">
                                         Terms of Service
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="privacy-policy.html" class="nav-link">
+                                    <a href="{{ route('private-page') }}" class="nav-link">
                                         Privacy Policy
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Services
-                                <i class='bx bx-chevron-down'></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="services.html" class="nav-link">
-                                        Services
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="services-details.html" class="nav-link">
-                                        Services Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('blog-page') }}" class="nav-link">
                                 Blog
-                                <i class='bx bx-chevron-down'></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="blog-2.html" class="nav-link">
-                                        Blog Three Column
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="blog-details.html" class="nav-link">
-                                        Blog Details
-                                    </a>
-                                </li>
-                            </ul>
+                            </a>                           
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('contact-page')}}" class="nav-link">
+                            <a href="{{ route('contact-page') }}" class="nav-link">
                                 Contact
                             </a>
                         </li>
@@ -340,7 +286,7 @@
                     <div class="others-options d-flex align-items-center">
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="cart.html">
+                                <a href="{{ route('cart-page') }}">
                                     <i class='flaticon-shopping-cart'></i>
                                     <span>0</span>
                                 </a>
@@ -378,7 +324,7 @@
                     <div class="others-options d-flex align-items-center">
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="cart.html">
+                                <a href="{{ route('cart-page') }}">
                                     <i class='flaticon-shopping-cart'></i>
                                     <span>0</span>
                                 </a>
@@ -693,10 +639,10 @@
                 <div class="col-lg-6 col-md-6">
                     <ul>
                         <li>
-                            <a href="terms-of-service.html">Terms & Conditions</a>
+                            <a href="{{ route('terms-page') }}">Terms & Conditions</a>
                         </li>
                         <li>
-                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="{{ route('pricing-page') }}">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>
