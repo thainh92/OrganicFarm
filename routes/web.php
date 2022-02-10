@@ -120,3 +120,4 @@ Route::get('/pricing',function (){
     return view('main_public.pricing');
 })->name('pricing-page');
 /*---------- End Shop Route ----------*/
+

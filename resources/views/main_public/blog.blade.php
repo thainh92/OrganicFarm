@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 @section('title','Blog')
 @section('content')
@@ -21,7 +22,7 @@
             </div>
         </div>
         <!-- End Page Banner -->
-
+        
         <!-- Start Blog Details Area -->
         <section class="blog-details-area ptb-100">
             <div class="container">
@@ -226,7 +227,7 @@
                                             <label>Comment</label>
                                             <textarea name="comment" id="comment" cols="45" placeholder="Your Comment..." rows="5" maxlength="65525" required="required"></textarea>
                                         </p>
-                                        <p class="comment-form-cookies-consent">
+                                         <p class="comment-form-cookies-consent">
                                             <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
                                             <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
                                         </p>
@@ -354,6 +355,7 @@
                 </div>
             </div>
         </section>
+
         <!-- End Blog Details Area -->
     </section>
 @endsection
