@@ -760,8 +760,8 @@ Navbar Area CSS
 
 .main-navbar .navbar .others-options .option-item .cart-btn a span {
   position: absolute;
-  right: -1px;
-  top: 2px;
+  right: -6px;
+  top: -2px;
   width: 18px;
   height: 18px;
   text-align: center;
