@@ -19,7 +19,7 @@ Flaticon icon font: Flaticon
 	}
 }
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
 	font-family: Flaticon;
 	font-style: normal;
 }
@@ -38,3 +38,4 @@ Flaticon icon font: Flaticon
 .flaticon-right-quotes-symbol:before { content: "\f10b"; }
 .flaticon-right-arrow:before { content: "\f10c"; }
 .flaticon-left-arrow:before { content: "\f10d"; }
+.flaticon-add-user-button:before { content: "\f106"; }
