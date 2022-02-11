@@ -47,11 +47,11 @@
                         </div>
 
                         <div class="row">
-                            @foreach($data as $products)
+                            @foreach($meat as $item)
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">
-                                        <a href="shop-details.html"><img src="{{$products->thumbnail}}" alt="image"></a>
+                                        <a href="shop-details.html"><img src="assets/img/meats/{{$item->img}}" alt="image"></a>
 
                                         <ul class="products-action">
                                             <li>
@@ -74,11 +74,11 @@
 
                                     <div class="products-content">
                                         <h3>
-                                            <a href="shop-details.html">{{$products->name}}</a>
+                                            <a href="shop-details.html">{{$item->name}}</a>
                                         </h3>
                                         <div class="price">
-                                            <span class="new-price">{{$products->price}}</span>
-                                            <span class="old-price">{{$products->price}}</span>
+                                            <span class="new-price">${{number_format($item->price,2)}}</span>
+                                            <span class="old-price">$125.00</span>
                                         </div>
                                         <ul class="rating">
                                             <li>
