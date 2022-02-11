@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*---------- Main Route ----------*/
 Route::get('/', function (){
     return view('main_public.index');
 })->name('home-page');
@@ -22,14 +23,32 @@ Route::get('/contact',function (){
     return view('main_public.contact');
 })->name('contact-page');
 
-Route::get('/aboutus',function (){
-    return view('main_public.aboutus');
-})->name('aboutus-page');
+Route::get('/faq',function (){
+    return view('main_public.faq');
+})->name('faq-page');
+
+Route::get('/privatepolicy',function (){
+    return view('main_public.privatepolicy');
+})->name('private-page');
+
+Route::get('/terms',function (){
+    return view('main_public.terms');
+})->name('terms-page');
 
 Route::get('/blog',function (){
     return view('main_public.blog');
-})->name('blog');
+})->name('blog-page');
 
+Route::get('/cart',function (){
+    return view('main_public.cart');
+})->name('cart-page');
+
+Route::get('/aboutus',function (){
+    return view('main_public.about');
+})->name('about-page');
+/*---------- End Main Route ----------*/
+
+/*---------- Shop Route ----------*/
 Route::get('/fruits',function (){
     return view('main_public.fruits');
 })->name('fruits-page');
@@ -99,4 +118,9 @@ Route::get('/juice',function (){
 Route::get('/milk',function (){
     return view('main_public.milk');
 })->name('milk-page');
+
+Route::get('/pricing',function (){
+    return view('main_public.pricing');
+})->name('pricing-page');
+/*---------- End Shop Route ----------*/
 

@@ -77,6 +77,17 @@ body {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
 }
+/*---------- Scroll Bar ----------*/
+html ::-webkit-scrollbar {
+  width: 12px;
+}
+html ::-webkit-scrollbar-thumb {
+  background-color: #f35320;
+  border-radius: 100rem;
+}
+html ::-webkit-scrollbar-track {
+  background-color: #ccc;
+}
 
 a {
     text-decoration: none;
@@ -749,6 +760,7 @@ Navbar Area CSS
 }
 
 .main-navbar .navbar .others-options .option-item .cart-btn a span {
+<<<<<<< HEAD
     position: absolute;
     right: -1px;
     top: 2px;
@@ -761,6 +773,20 @@ Navbar Area CSS
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
+=======
+  position: absolute;
+  right: -6px;
+  top: -2px;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  background: #f35320;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+>>>>>>> 099cbf15e76cd1a81286017647ddb2ccd15d9a3c
 }
 
 .main-navbar .navbar .others-options .option-item .search-box {
@@ -7673,5 +7699,10 @@ Modal CSS
     color: #c13584;
     background-color: transparent;
 }
+<<<<<<< HEAD
 
 /*# sourceMappingURL=style.css.map */
+=======
+/*# sourceMappingURL=style.css.map */
+
+>>>>>>> 099cbf15e76cd1a81286017647ddb2ccd15d9a3c
