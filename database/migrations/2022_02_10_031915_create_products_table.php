@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('thumbnail', 255);
             $table->string('description', 255);
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('discount_id');
+            $table->unsignedBigInteger('discount_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('discount_id')->references('id')->on('discounts');
             $table->decimal('price');

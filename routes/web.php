@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*---------- Main Route ----------*/
+
 Route::get('/', function (){
     return view('main_public.index');
 })->name('home-page');
+
+Route::get('/',[\App\Http\Controllers\HomeController::class, 'showAllSaleProduct'])->name('home-page');
 
 Route::get('/contact',function (){
     return view('main_public.contact');
@@ -64,9 +68,11 @@ Route::get('/mushroom',function (){
     return view('main_public.mushroom');
 })->name('mushroom-page');
 
-Route::get('/meat',function (){
-    return view('main_public.meat');
-})->name('meat-page');
+//Route::get('/meat',function (){
+//    return view('main_public.meat');
+//})->name('meat-page');
+
+Route::get('/meat',[ProductController::class,'index'])->name('meat-page');
 
 Route::get('/pork',function (){
     return view('main_public.pork');
