@@ -174,47 +174,19 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('dryfood-page') }}" class="nav-link">
-                                        Dry Food
+                                    <a href="{{ route('milkproduct-page') }}" class="nav-link">
+                                        Milk & Products
                                         <i class='bx bx-chevron-down'></i>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('nuts-page') }}" class="nav-link">
-                                                Nuts
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('cereals-page') }}" class="nav-link">
-                                                Cereals
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('noodles-page') }}" class="nav-link">
-                                                Noodles
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('rice-page') }}" class="nav-link">
-                                                Rice
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('drinkmilk-page') }}" class="nav-link">
-                                        Drinks & Milk
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('juice-page') }}" class="nav-link">
-                                                Juice
-                                            </a>
-                                        </li>
                                         <li class="nav-item">
                                             <a href="{{ route('milk-page') }}" class="nav-link">
                                                 Fresh Milk
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('product-page') }}" class="nav-link">
+                                                Milk Products
                                             </a>
                                         </li>
                                     </ul>

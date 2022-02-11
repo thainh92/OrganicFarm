@@ -1,19 +1,19 @@
 @extends('layouts.master')
-@section('title','Fruits')
+@section('title','Drinks & Milk')
 @section('content')
-    <section class="fruits-container">
+    <section class="drinkmilk-container">
         <!-- Start Page Banner -->
         <div class="page-banner-area item-bg1">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Fruits</h2>
+                            <h2>Drinks & Milk</h2>
                             <ul>
                                 <li>
                                     <a href="{{ route('home-page') }}">Home</a>
                                 </li>
-                                <li>Fruits</li>
+                                <li>Drinks & Milk</li>
                             </ul>
                         </div>
                     </div>
@@ -47,11 +47,11 @@
                         </div>
 
                         <div class="row">
-                            @foreach ($fruits as $item)
+                            @foreach($milk as $item)
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">
-                                        <a href="shop-details.html"><img src="assets/img/fruits/{{$item->img}}" alt="image"></a>
+                                        <a href="shop-details.html"><img src="assets/img/milk/{{$item->img}}" alt="image"></a>
         
                                         <ul class="products-action">
                                             <li>
@@ -92,8 +92,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach   
-
+                            @endforeach
                             <div class="col-lg-12 col-md-12">
                                 <div class="pagination-area">
                                     <a href="#" class="prev page-numbers">
