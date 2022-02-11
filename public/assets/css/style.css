@@ -760,20 +760,6 @@ Navbar Area CSS
 }
 
 .main-navbar .navbar .others-options .option-item .cart-btn a span {
-<<<<<<< HEAD
-    position: absolute;
-    right: -1px;
-    top: 2px;
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    line-height: 18px;
-    border-radius: 50%;
-    background: #f35320;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-=======
   position: absolute;
   right: -6px;
   top: -2px;
@@ -786,7 +772,6 @@ Navbar Area CSS
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
->>>>>>> 099cbf15e76cd1a81286017647ddb2ccd15d9a3c
 }
 
 .main-navbar .navbar .others-options .option-item .search-box {
@@ -2278,6 +2263,7 @@ Featured Products Area CSS
 .featured-products-item .products-image img {
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    height: 220px;
 }
 
 .featured-products-item .products-image .products-action {
@@ -7699,10 +7685,6 @@ Modal CSS
     color: #c13584;
     background-color: transparent;
 }
-<<<<<<< HEAD
 
 /*# sourceMappingURL=style.css.map */
-=======
-/*# sourceMappingURL=style.css.map */
 
->>>>>>> 099cbf15e76cd1a81286017647ddb2ccd15d9a3c

@@ -15,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*---------- Main Route ----------*/
+
 Route::get('/', function (){
     return view('main_public.index');
 })->name('home-page');
+
+Route::get('/',[\App\Http\Controllers\HomeController::class, 'showAllSaleProduct'])->name('home-page');
 
 Route::get('/contact',function (){
     return view('main_public.contact');
