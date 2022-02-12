@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -14,8 +15,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::all();
-        return view('main_public.meat')->with('data', $data);
+        $fruits = DB::table('products')->where('category_id', '1')->get();
+        return view('main_public.fruits', compact('fruits'));
+
+        $vegetable = DB::table('products')->where('category_id', '2')->get();
+        return view('main_public.vegetable', compact('vegetable'));
+
+        $meat = DB::table('products')->where('category_id', '3')->get();
+        return view('main_public.meat', compact('meat'));
+
+        $milk = DB::table('products')->where('category_id', '4')->get();
+        return view('main_public.milkproduct', compact('milk'));
     }
 
     /**

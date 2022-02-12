@@ -52,13 +52,13 @@ Route::get('/aboutus',function (){
 /*---------- End Main Route ----------*/
 
 /*---------- Shop Route ----------*/
-Route::get('/fruits',function (){
-    return view('main_public.fruits');
-})->name('fruits-page');
+Route::get('/fruits', 'App\Http\Controllers\ProductController@index')->name('fruits-page');
 
-Route::get('/vegetable',function (){
-    return view('main_public.vegetable');
-})->name('vegetable-page');
+Route::get('/vegetable', 'App\Http\Controllers\ProductController@index')->name('vegetable-page');
+
+Route::get('/meat', 'App\Http\Controllers\ProductController@index')->name('meat-page');
+
+Route::get('/milkproduct', 'App\Http\Controllers\ProductController@index')->name('milkproduct-page');
 
 Route::get('/organicvegetable',function (){
     return view('main_public.organicvegetable');
@@ -67,12 +67,6 @@ Route::get('/organicvegetable',function (){
 Route::get('/mushroom',function (){
     return view('main_public.mushroom');
 })->name('mushroom-page');
-
-//Route::get('/meat',function (){
-//    return view('main_public.meat');
-//})->name('meat-page');
-
-Route::get('/meat',[ProductController::class,'index'])->name('meat-page');
 
 Route::get('/pork',function (){
     return view('main_public.pork');
@@ -90,33 +84,9 @@ Route::get('/seafood',function (){
     return view('main_public.seafood');
 })->name('seafood-page');
 
-Route::get('/dryfood',function (){
-    return view('main_public.dryfood');
-})->name('dryfood-page');
-
-Route::get('/nuts',function (){
-    return view('main_public.nuts');
-})->name('nuts-page');
-
-Route::get('/cereals',function (){
-    return view('main_public.cereals');
-})->name('cereals-page');
-
-Route::get('/noodles',function (){
-    return view('main_public.noodles');
-})->name('noodles-page');
-
-Route::get('/rice',function (){
-    return view('main_public.rice');
-})->name('rice-page');
-
-Route::get('/drinkmilk',function (){
-    return view('main_public.drinkmilk');
-})->name('drinkmilk-page');
-
-Route::get('/juice',function (){
-    return view('main_public.juice');
-})->name('juice-page');
+Route::get('/product',function (){
+    return view('main_public.product');
+})->name('product-page');
 
 Route::get('/milk',function (){
     return view('main_public.milk');
