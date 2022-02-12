@@ -126,9 +126,9 @@ Route::get('/pricing',function (){
     return view('main_public.pricing');
 })->name('pricing-page');
 
-//Route::get('/product-detail',function (){
-//    return view('main_public.product_detail');
-//})->name('product-detail');
+Route::get('/product-detail',function (){
+    return view('main_public.product_detail');
+})->name('product-detail');
 
 Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- End Shop Route ----------*/
