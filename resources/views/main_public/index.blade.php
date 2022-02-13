@@ -150,7 +150,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
-                                <a href="shop-details.html"><img src="{{$product->thumbnail}}" alt="image"></a>
+                                <a href="/product-detail/{{$product->id}}"><img src="{{$product->thumbnail}}" alt="image"></a>
 
                                 <ul class="products-action">
                                     <li>
@@ -173,7 +173,7 @@
 
                             <div class="products-content">
                                 <h3>
-                                    <a href="shop-details.html">{{$product->name}}</a>
+                                    <a href="{{route('product-detail')}}">{{$product->name}}</a>
                                 </h3>
                                 <div class="price">
                                     <span class="new-price">{{$product->price}}</span>
@@ -359,7 +359,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
-                                <a href="shop-details.html"><img src="{{$product->thumbnail}}" alt="image"></a>
+                                <a href="{{route('product-detail')}}"><img src="{{$product->thumbnail}}" alt="image"></a>
 
                                 <ul class="products-action">
                                     <li>
@@ -382,7 +382,7 @@
 
                             <div class="products-content">
                                 <h3>
-                                    <a href="shop-details.html">{{$product->name}}</a>
+                                    <a href="{{route('product-detail')}}">{{$product->name}}</a>
                                 </h3>
                                 <div class="price">
                                     <span class="new-price">{{$product->price}}</span>

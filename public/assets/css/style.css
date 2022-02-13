@@ -1643,7 +1643,6 @@ Top Products Area CSS
 .top-products-item .products-image img {
     -webkit-transition: 0.5s;
     transition: 0.5s;
-    height: 220px;
 }
 
 .top-products-item .products-image .products-action {
@@ -5813,10 +5812,10 @@ Checkout Area CSS
 Product Details Area CSS
 =================================================*/
 .product-details-image {
-    background-image: url(../../assets/img/top-products/top-products-7.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-image: url(../../assets/img/top-products/top-products-7.jpg);*/
+    /*background-position: center center;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
     height: 100%;
     width: 100%;
     position: relative;
