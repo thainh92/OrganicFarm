@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Cart;
+use Session;
 
 class ProductController extends Controller
 {
@@ -26,6 +28,36 @@ class ProductController extends Controller
 
         $milk = DB::table('products')->where('category_id', '4')->get();
         return view('main_public.milkproduct', compact('milk'));
+    }
+
+    public function AddCart(Request $req, $id) {
+        $product = DB::table('products')->where('id', $id)->first();
+        if($product != null) {
+            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->AddCart($product, $id);
+
+            $req->session()->put('Cart', $newCart);
+        }
+        return view('cart');
+    }
+
+    public function DeleteItemCart(Request $req, $id) {
+            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->DeleteItemCart($id);
+
+            if(Count($newCart->products)>0) {
+                $req->Session()->put('Cart', $newCart);
+            }
+            else {
+                $req->Session()->forget('Cart');
+            }
+        return view('cart');
+    }
+
+    public function ViewListCart() {
+        return view('list');
     }
 
     /**
