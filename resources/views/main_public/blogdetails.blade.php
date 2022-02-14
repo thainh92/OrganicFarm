@@ -138,7 +138,7 @@
                                         <article class="comment-body">
                                             <footer class="comment-meta">
                                                 <div class="comment-author vcard">
-                                                    <img src="assets/img/client/client-1.jpg" class="avatar" alt="image">
+                                                    <img src="assets/img/client/client-1.png" class="avatar" alt="image">
                                                     <b class="fn">John Jones</b>
                                                 </div>
                                                 <div class="comment-metadata">
