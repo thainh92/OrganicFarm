@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zxx">
+<html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -53,15 +53,14 @@
                 <ul class="top-header-information">
                     <li>
                         <i class='bx bxs-map'></i>
-                        175 5th Ave Premium Area, New York
+                        Số 8 Tôn Thất Thuyết, Mỹ Đình, Thành Phố Hà Nội
                     </li>
                     <li>
                         <i class='bx bx-envelope'></i>
-                        <a href="mailto:hello@orgo.com">hello@orgo.com</a>
+                        <a href="mailto:organicfarm@gmail.com">organicfarm@gmail.com</a>
                     </li>
                 </ul>
             </div>
-
             <div class="col-lg-6">
                 <ul class="top-header-social">
                     <li>
@@ -97,120 +96,135 @@
         <div class="container">
             <div class="main-responsive-menu">
                 <div class="logo">
-                    <a href="index-2.html">
-                        <img src="assets/img/logo.png" alt="image">
+                    <a href="{{ route('home-page') }}">
+                        <img src="{{asset('assets/img/logo.png')}}" alt="image">
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="main-navbar">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index-2.html">
-                    <img src="assets/img/logo.png" alt="image">
+                <a class="navbar-brand" href="{{ route('home-page') }}">
+                    <img src="{{asset('assets/img/logo.png')}}" alt="image">
                 </a>
-
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="{{ route('home-page') }}" class="nav-link active">
                                 Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Shop
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="index.html" class="nav-link">
-                                        Home One
+                                    <a href="{{ route('fruits-page') }}" class="nav-link">
+                                        Fruits
                                     </a>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a href="index-2.html" class="nav-link active">
-                                        Home Two
+                                    <a href="{{ route('vegetable-page') }}" class="nav-link">
+                                        Vegetable
+                                        <i class='bx bx-chevron-down'></i>
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ route('organicvegetable-page') }}" class="nav-link">
+                                                Organic Vegetables
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('mushroom-page') }}" class="nav-link">
+                                                Fresh Mushrooms
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a href="index-3.html" class="nav-link">
-                                        Home Three
+                                    <a href="{{ route('meat-page') }}" class="nav-link">
+                                        Fresh Meat
+                                        <i class='bx bx-chevron-down'></i>
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ route('pork-page') }}" class="nav-link">
+                                                Pork
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('beef-page') }}" class="nav-link">
+                                                Beef
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('poultryegg-page') }}" class="nav-link">
+                                                Poultry - Eggs
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('seafood-page') }}" class="nav-link">
+                                                Sea Food
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a href="index-4.html" class="nav-link">
-                                        Home Four
+                                    <a href="{{ route('milkproduct-page') }}" class="nav-link">
+                                        Milk & Products
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{ route('milk-page') }}" class="nav-link">
+                                                Fresh Milk
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('product-page') }}" class="nav-link">
+                                                Milk Products
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('pricing-page') }}" class="nav-link">
+                                        Pricing
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 Pages
                                 <i class='bx bx-chevron-down'></i>
                             </a>
-
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="about.html" class="nav-link">
+                                    <a href="{{ route('about-page') }}" class="nav-link">
                                         About
                                     </a>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a href="team.html" class="nav-link">
-                                        Team
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="pricing.html" class="nav-link">
-                                        Pricing
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Gallery
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="gallery.html" class="nav-link">
-                                                Gallery
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="gallery-details.html" class="nav-link">
-                                                Gallery Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="faq.html" class="nav-link">
+                                    <a href="{{ route('faq-page') }}" class="nav-link">
                                         FAQ
                                     </a>
                                 </li>
-
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         Account
                                         <i class='bx bx-chevron-down'></i>
                                     </a>
-
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
                                             <a href="login.html" class="nav-link">
                                                 Login
                                             </a>
                                         </li>
-
                                         <li class="nav-item">
                                             <a href="register.html" class="nav-link">
                                                 Register
@@ -218,156 +232,108 @@
                                         </li>
                                     </ul>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a href="error-404.html" class="nav-link">
-                                        Error Page
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="terms-of-service.html" class="nav-link">
+                                    <a href="{{ route('terms-page') }}" class="nav-link">
                                         Terms of Service
                                     </a>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a href="privacy-policy.html" class="nav-link">
+                                    <a href="{{ route('private-page') }}" class="nav-link">
                                         Privacy Policy
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Services
-                                <i class='bx bx-chevron-down'></i>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="services.html" class="nav-link">
-                                        Services
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="services-details.html" class="nav-link">
-                                        Services Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Shop
-                                <i class='bx bx-chevron-down'></i>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="shop-1.html" class="nav-link">
-                                        Shop List One
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="shop-2.html" class="nav-link">
-                                        Shop List Two
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="cart.html" class="nav-link">
-                                        Cart
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="checkout.html" class="nav-link">
-                                        Checkout
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="shop-details.html" class="nav-link">
-                                        Shop Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('blog-page') }}" class="nav-link">
                                 Blog
-                                <i class='bx bx-chevron-down'></i>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="blog-1.html" class="nav-link">
-                                        Blog Two Column
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-2.html" class="nav-link">
-                                        Blog Three Column
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-3.html" class="nav-link">
-                                        Blog Four Column
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-details.html" class="nav-link">
-                                        Blog Details
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-
                         <li class="nav-item">
-                            <a href="{{route('contact-page')}}" class="nav-link">
+                            <a href="{{ route('contact-page') }}" class="nav-link">
                                 Contact
                             </a>
                         </li>
                     </ul>
-
                     <div class="others-options d-flex align-items-center">
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="cart.html">
+                                <a href="#">
+                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 13.4815C12.5663 13.441 13.8649 12.8793 14.8958 11.7963C15.9268 10.7133 16.4615 9.34909 16.5 7.7037C16.4615 6.05832 15.9268 4.69412 14.8958 3.61111C13.8649 2.5281 12.5663 1.96637 11 1.92593C9.43372 1.96637 8.13511 2.5281 7.10417 3.61111C6.07322 4.69412 5.5385 6.05832 5.5 7.7037C5.5385 9.34909 6.07322 10.7133 7.10417 11.7963C8.13511 12.8793 9.43372 13.441 11 13.4815ZM11 15.4074C8.91856 15.3471 7.19033 14.5947 5.81533 13.1502C4.44033 11.7058 3.72411 9.89027 3.66667 7.7037C3.72411 5.51714 4.44033 3.70163 5.81533 2.25718C7.19033 0.81274 8.91856 0.0603457 11 0C13.0814 0.0603457 14.8097 0.81274 16.1847 2.25718C17.5597 3.70163 18.2759 5.51714 18.3333 7.7037C18.2759 9.89027 17.5597 11.7058 16.1847 13.1502C14.8097 14.5947 13.0814 15.3471 11 15.4074ZM20.1667 25.037V22.1481C20.1477 21.3258 19.8804 20.6437 19.3646 20.1019C18.8488 19.56 18.1995 19.2792 17.4167 19.2593H4.58333C3.8005 19.2792 3.15119 19.56 2.63542 20.1019C2.11964 20.6437 1.85228 21.3258 1.83333 22.1481V25.037C1.83333 25.3182 1.74747 25.549 1.57575 25.7294C1.40403 25.9098 1.18433 26 0.916667 26C0.649 26 0.429306 25.9098 0.257583 25.7294C0.0858613 25.549 0 25.3182 0 25.037V22.1481C0.0385 20.7839 0.487361 19.6505 1.34658 18.7479C2.20581 17.8453 3.28472 17.3738 4.58333 17.3333H17.4167C18.7153 17.3738 19.7942 17.8453 20.6534 18.7479C21.5126 19.6505 21.9615 20.7839 22 22.1481V25.037C22 25.3182 21.9141 25.549 21.7424 25.7294C21.5707 25.9098 21.351 26 21.0833 26C20.8157 26 20.596 25.9098 20.4242 25.7294C20.2525 25.549 20.1667 25.3182 20.1667 25.037Z" fill="#08080A" fill-opacity="0.96"/>
+                                    </svg>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ route('about-page') }}" class="nav-link">
+                                            About
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faq-page') }}" class="nav-link">
+                                            FAQ
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            Account
+                                            <i class='bx bx-chevron-down'></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="login.html" class="nav-link">
+                                                    Login
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="register.html" class="nav-link">
+                                                    Register
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('terms-page') }}" class="nav-link">
+                                            Terms of Service
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('private-page') }}" class="nav-link">
+                                            Privacy Policy
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a href="{{ route('cart-page') }}">
                                     <i class='flaticon-shopping-cart'></i>
                                     <span>0</span>
                                 </a>
                             </div>
                         </div>
-
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a href="#">
+                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z" stroke="#222222" stroke-width="1.8"/>
+                                    </svg>
+                                    <span>0</span>
+                                </a>
+                            </div>
+                        </div>
                         <div class="option-item">
                             <form class="search-box">
                                 <input type="text" class="form-control" placeholder="Search">
                                 <button type="submit"><i class="flaticon-search"></i></button>
                             </form>
                         </div>
-
-                        <div class="option-item">
-                            <div class="burger-menu">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
-
     <div class="others-option-for-responsive">
         <div class="container">
             <div class="dot-menu">
@@ -377,33 +343,41 @@
                     <div class="circle circle-three"></div>
                 </div>
             </div>
-
             <div class="container">
                 <div class="option-inner">
                     <div class="others-options d-flex align-items-center">
-
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="cart.html">
+                                <a href="#">
+                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 13.4815C12.5663 13.441 13.8649 12.8793 14.8958 11.7963C15.9268 10.7133 16.4615 9.34909 16.5 7.7037C16.4615 6.05832 15.9268 4.69412 14.8958 3.61111C13.8649 2.5281 12.5663 1.96637 11 1.92593C9.43372 1.96637 8.13511 2.5281 7.10417 3.61111C6.07322 4.69412 5.5385 6.05832 5.5 7.7037C5.5385 9.34909 6.07322 10.7133 7.10417 11.7963C8.13511 12.8793 9.43372 13.441 11 13.4815ZM11 15.4074C8.91856 15.3471 7.19033 14.5947 5.81533 13.1502C4.44033 11.7058 3.72411 9.89027 3.66667 7.7037C3.72411 5.51714 4.44033 3.70163 5.81533 2.25718C7.19033 0.81274 8.91856 0.0603457 11 0C13.0814 0.0603457 14.8097 0.81274 16.1847 2.25718C17.5597 3.70163 18.2759 5.51714 18.3333 7.7037C18.2759 9.89027 17.5597 11.7058 16.1847 13.1502C14.8097 14.5947 13.0814 15.3471 11 15.4074ZM20.1667 25.037V22.1481C20.1477 21.3258 19.8804 20.6437 19.3646 20.1019C18.8488 19.56 18.1995 19.2792 17.4167 19.2593H4.58333C3.8005 19.2792 3.15119 19.56 2.63542 20.1019C2.11964 20.6437 1.85228 21.3258 1.83333 22.1481V25.037C1.83333 25.3182 1.74747 25.549 1.57575 25.7294C1.40403 25.9098 1.18433 26 0.916667 26C0.649 26 0.429306 25.9098 0.257583 25.7294C0.0858613 25.549 0 25.3182 0 25.037V22.1481C0.0385 20.7839 0.487361 19.6505 1.34658 18.7479C2.20581 17.8453 3.28472 17.3738 4.58333 17.3333H17.4167C18.7153 17.3738 19.7942 17.8453 20.6534 18.7479C21.5126 19.6505 21.9615 20.7839 22 22.1481V25.037C22 25.3182 21.9141 25.549 21.7424 25.7294C21.5707 25.9098 21.351 26 21.0833 26C20.8157 26 20.596 25.9098 20.4242 25.7294C20.2525 25.549 20.1667 25.3182 20.1667 25.037Z" fill="#08080A" fill-opacity="0.96"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a href="{{ route('cart-page') }}">
                                     <i class='flaticon-shopping-cart'></i>
                                     <span>0</span>
                                 </a>
                             </div>
                         </div>
-
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a href="#">
+                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z" stroke="#222222" stroke-width="1.8"/>
+                                    </svg>
+                                    <span>0</span>
+                                </a>
+                            </div>
+                        </div>
                         <div class="option-item">
                             <form class="search-box">
                                 <input type="text" class="form-control" placeholder="Search">
                                 <button type="submit"><i class="flaticon-search"></i></button>
                             </form>
-                        </div>
-
-                        <div class="option-item">
-                            <div class="burger-menu">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -422,7 +396,6 @@
                 <p>We believe brand interaction is key in communication. Real innovations and a positive customer experience are the heart of successful communication. No fake products and services. The customer is king, their lives and needs are the inspiration.</p>
             </div>
         </div>
-
         <div class="sidebar-instagram-feed">
             <h2>Instagram</h2>
             <ul>
@@ -468,7 +441,6 @@
                 </li>
             </ul>
         </div>
-
         <div class="sidebar-contact-area">
             <div class="contact-info">
                 <div class="contact-info-content">
@@ -481,7 +453,6 @@
                             orgo@gmail.com
                         </a>
                     </h2>
-
                     <ul class="social">
                         <li>
                             <a href="#" target="_blank">
@@ -517,10 +488,9 @@
                 </div>
             </div>
         </div>
-
         <span class="close-btn sidebar-modal-close-btn">
-                    <i class="flaticon-cancel"></i>
-                </span>
+            <i class="flaticon-cancel"></i>
+        </span>
     </div>
 </div>
 <!-- End Sidebar Modal -->
@@ -537,7 +507,7 @@
                 <div class="single-footer-widget">
                     <div class="logo">
                         <h2>
-                            <a href="index.html">Orgo</a>
+                            <a href="{{ route('home-page') }}">Orgo</a>
                         </h2>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -565,79 +535,69 @@
                     </ul>
                 </div>
             </div>
-
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget">
                     <h3>Instagram</h3>
-
                     <ul class="instagram-list">
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram1.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram1.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram2.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram2.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram3.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram3.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram4.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram4.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram5.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram5.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram6.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram6.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram7.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram7.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram8.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram8.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
                         </li>
-
                         <li>
                             <div class="box">
-                                <img src="assets/img/instagram/instagram1.jpg" alt="image">
+                                <img src="{{asset('assets/img/instagram/instagram1.jpg')}}" alt="image">
                                 <i class="bx bxl-instagram"></i>
                                 <a href="#" target="_blank" class="link-btn"></a>
                             </div>
@@ -645,11 +605,9 @@
                     </ul>
                 </div>
             </div>
-
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget pl-5">
                     <h3>Quick Links</h3>
-
                     <ul class="quick-links">
                         <li>
                             <a href="#">About Us</a>
@@ -672,26 +630,24 @@
                     </ul>
                 </div>
             </div>
-
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget">
                     <h3>Contact Us</h3>
-
                     <ul class="footer-contact-info">
                         <li>
                             <i class='bx bxs-phone'></i>
                             <span>Phone</span>
-                            <a href="tel:407409202288">(+40) 74 0920 2288</a>
+                            <a href="tel:0123456789">(+84) 12 3456 789</a>
                         </li>
                         <li>
                             <i class='bx bx-envelope'></i>
                             <span>Email</span>
-                            <a href="mailto:hello@orgo.com">hello@orgo.com</a>
+                            <a href="mailto:organicfarm@gmail.com">organicfarm@gmail.com</a>
                         </li>
                         <li>
                             <i class='bx bx-map'></i>
                             <span>Address</span>
-                            175 5th Ave Premium Area, New York, NY 10010, United States
+                            Số 8 Tôn Thất Thuyết, Mỹ Đình, Thành Phố Hà Nội
                         </li>
                     </ul>
                 </div>
@@ -709,9 +665,9 @@
                 <div class="col-lg-6 col-md-6">
                     <p>
                         <i class="far fa-copyright"></i>
-                        Copyright @2020 Orgo. All Rights Reserved by
-                        <a href="https://envytheme.com/" target="_blank">
-                            EnvyTheme
+                        Copyright @2020 OrganicFarm. All Rights Reserved by
+                        <a href="#" target="_blank">
+                            OrganicFarm
                         </a>
                     </p>
                 </div>
@@ -719,10 +675,10 @@
                 <div class="col-lg-6 col-md-6">
                     <ul>
                         <li>
-                            <a href="terms-of-service.html">Terms & Conditions</a>
+                            <a href="{{ route('terms-page') }}">Terms & Conditions</a>
                         </li>
                         <li>
-                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="{{ route('pricing-page') }}">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>
@@ -737,94 +693,6 @@
     <i class='bx bx-up-arrow-alt'></i>
 </div>
 <!-- End Go Top Area -->
-
-<!-- Start QuickView Modal Area -->
-<div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="flaticon-cancel"></i></span>
-            </button>
-
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="products-image"></div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="product-content">
-                        <h3>Seasoned Tomatoes</h3>
-                        <div class="price">
-                            <span class="new-price">$541.00</span>
-                            <span class="old-price">$652.00</span>
-                        </div>
-                        <div class="product-review">
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                            </div>
-                            <a href="#" class="rating-count">5 reviews</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                        <div class="product-add-to-cart">
-                            <div class="input-counter">
-                                        <span class="minus-btn">
-                                            <i class='bx bx-minus'></i>
-                                        </span>
-                                <input type="text" value="1">
-                                <span class="plus-btn">
-                                            <i class='bx bx-plus'></i>
-                                        </span>
-                            </div>
-                            <button type="submit" class="default-btn">
-                                Add to cart
-                            </button>
-                        </div>
-
-                        <div class="buy-checkbox-btn">
-                            <div class="item">
-                                <input class="inp-cbx" id="cbx" type="checkbox">
-                                <label class="cbx" for="cbx">
-                                            <span>
-                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                                </svg>
-                                            </span>
-                                    <span>I agree with the terms and conditions</span>
-                                </label>
-                            </div>
-                            <div class="item">
-                                <a href="#" class="btn btn-light">Buy it now!</a>
-                            </div>
-                        </div>
-
-                        <div class="products-share">
-                            <ul class="social">
-                                <li><span>Share:</span></li>
-                                <li>
-                                    <a href="#" class="facebook" target="_blank"><i class='bx bxl-facebook'></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="twitter" target="_blank"><i class='bx bxl-twitter'></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="linkedin" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="instagram" target="_blank"><i class='bx bxl-instagram'></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End QuickView Modal Area -->
 
 <!-- Jquery Slim JS -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
