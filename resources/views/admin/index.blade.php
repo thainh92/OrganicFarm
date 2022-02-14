@@ -1,407 +1,549 @@
 @extends('layouts.admin')
 @section('title', 'Administrator')
 @section('content')
-    <div class="admin-dashboard__container">
-        <div class="content mt-3">
-
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                    <span class="badge badge-pill badge-success">Success</span> You successfully read this important
-                    alert message.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="dashboard-ecommerce">
+        <div class="container-fluid dashboard-content ">
+            <!-- ============================================================== -->
+            <!-- pageheader  -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
+                        <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel
+                            mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard
+                                        Template
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- ============================================================== -->
+            <!-- end pageheader  -->
+            <!-- ============================================================== -->
+            <div class="ecommerce-widget">
 
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Total Revenue</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$12099</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Affiliate Revenue</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$12099</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue2"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Refunds</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">0.00</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
+                                    <span>N/A</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue3"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">Avg. Revenue Per User</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$28000</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                                    <span>-2.00%</span>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- ============================================================== -->
 
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-1">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
-                                    id="dropdownMenuButton1" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                    <!-- ============================================================== -->
+
+                    <!-- recent orders  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Recent Orders</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">#</th>
+                                            <th class="border-0">Image</th>
+                                            <th class="border-0">Name</th>
+                                            <th class="border-0">Code</th>
+                                            <th class="border-0">Create At</th>
+                                            <th class="border-0">Update At</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $id = 1;
+                                        @endphp
+                                        @foreach($categories as $category)
+
+                                        <tr>
+                                            <td>{{$id}}</td>
+                                            @php
+                                                $id++;
+                                            @endphp
+                                            <td>
+                                                <div class="m-r-10"><img src="{{$category->thumbnail}}" alt="user"
+                                                                         class="rounded" width="45"></div>
+                                            </td>
+                                            <td>{{$category->name}}</td>
+                                            <td>{{$category->code}}</td>
+                                            <td>{{$category->created_at}}</td>
+                                            <td>{{$category->updated_at}}</td>
+                                        </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                            <canvas id="widgetChart1"></canvas>
-                        </div>
-
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- end recent orders  -->
 
-                </div>
-            </div>
-            <!--/.col-->
 
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-2">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
-                                    id="dropdownMenuButton2" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- customer acquistion  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Customer Acquisition</h5>
+                            <div class="card-body">
+                                <div class="ct-chart ct-golden-section" style="height: 354px;"></div>
+                                <div class="text-center">
+                                            <span class="legend-item mr-2">
+                                                    <span class="fa-xs text-primary mr-1 legend-tile"><i
+                                                            class="fa fa-fw fa-square-full"></i></span>
+                                            <span class="legend-text">Returning</span>
+                                            </span>
+                                    <span class="legend-item mr-2">
+
+                                                    <span class="fa-xs text-secondary mr-1 legend-tile"><i
+                                                            class="fa fa-fw fa-square-full"></i></span>
+                                            <span class="legend-text">First Time</span>
+                                            </span>
                                 </div>
                             </div>
                         </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                            <canvas id="widgetChart2"></canvas>
-                        </div>
-
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- end customer acquistion  -->
+                    <!-- ============================================================== -->
                 </div>
-            </div>
-            <!--/.col-->
-
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-3">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
-                                    id="dropdownMenuButton3" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- product category  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header"> Product Category</h5>
+                            <div class="card-body">
+                                <div class="ct-chart-category ct-golden-section" style="height: 315px;"></div>
+                                <div class="text-center m-t-40">
+                                            <span class="legend-item mr-3">
+                                                    <span class="fa-xs text-primary mr-1 legend-tile"><i
+                                                            class="fa fa-fw fa-square-full "></i></span><span
+                                                    class="legend-text">Man</span>
+                                            </span>
+                                    <span class="legend-item mr-3">
+                                                <span class="fa-xs text-secondary mr-1 legend-tile"><i
+                                                        class="fa fa-fw fa-square-full"></i></span>
+                                            <span class="legend-text">Woman</span>
+                                            </span>
+                                    <span class="legend-item mr-3">
+                                                <span class="fa-xs text-info mr-1 legend-tile"><i
+                                                        class="fa fa-fw fa-square-full"></i></span>
+                                            <span class="legend-text">Accessories</span>
+                                            </span>
                                 </div>
                             </div>
                         </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
                     </div>
-
-                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                        <canvas id="widgetChart3"></canvas>
-                    </div>
-                </div>
-            </div>
-            <!--/.col-->
-
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-4">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
-                                    id="dropdownMenuButton4" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+                    <!-- ============================================================== -->
+                    <!-- end product category  -->
+                    <!-- product sales  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- <div class="float-right">
+                                        <select class="custom-select">
+                                            <option selected>Today</option>
+                                            <option value="1">Weekly</option>
+                                            <option value="2">Monthly</option>
+                                            <option value="3">Yearly</option>
+                                        </select>
+                                    </div> -->
+                                <h5 class="mb-0"> Product Sales</h5>
                             </div>
-                        </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                        <div class="chart-wrapper px-3" style="height:70px;" height="70">
-                            <canvas id="widgetChart4"></canvas>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--/.col-->
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box facebook">
-                    <i class="fa fa-facebook"></i>
-                    <ul>
-                        <li>
-                            <span class="count">40</span> k
-                            <span>friends</span>
-                        </li>
-                        <li>
-                            <span class="count">450</span>
-                            <span>feeds</span>
-                        </li>
-                    </ul>
-                </div>
-                <!--/social-box-->
-            </div>
-            <!--/.col-->
-
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box twitter">
-                    <i class="fa fa-twitter"></i>
-                    <ul>
-                        <li>
-                            <span class="count">30</span> k
-                            <span>friends</span>
-                        </li>
-                        <li>
-                            <span class="count">450</span>
-                            <span>tweets</span>
-                        </li>
-                    </ul>
-                </div>
-                <!--/social-box-->
-            </div>
-            <!--/.col-->
-
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box linkedin">
-                    <i class="fa fa-linkedin"></i>
-                    <ul>
-                        <li>
-                            <span class="count">40</span> +
-                            <span>contacts</span>
-                        </li>
-                        <li>
-                            <span class="count">250</span>
-                            <span>feeds</span>
-                        </li>
-                    </ul>
-                </div>
-                <!--/social-box-->
-            </div>
-            <!--/.col-->
-
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box google-plus">
-                    <i class="fa fa-google-plus"></i>
-                    <ul>
-                        <li>
-                            <span class="count">94</span> k
-                            <span>followers</span>
-                        </li>
-                        <li>
-                            <span class="count">92</span>
-                            <span>circles</span>
-                        </li>
-                    </ul>
-                </div>
-                <!--/social-box-->
-            </div>
-            <!--/.col-->
-
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h4 class="card-title mb-0">Traffic</h4>
-                                <div class="small text-muted">October 2017</div>
-                            </div>
-                            <!--/.col-->
-                            <div class="col-sm-8 hidden-sm-down">
-                                <button type="button" class="btn btn-primary float-right bg-flat-color-1"><i
-                                        class="fa fa-cloud-download"></i></button>
-                                <div class="btn-toolbar float-right" role="toolbar"
-                                     aria-label="Toolbar with button groups">
-                                    <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
-                                        <label class="btn btn-outline-secondary">
-                                            <input type="radio" name="options" id="option1"> Day
-                                        </label>
-                                        <label class="btn btn-outline-secondary active">
-                                            <input type="radio" name="options" id="option2" checked=""> Month
-                                        </label>
-                                        <label class="btn btn-outline-secondary">
-                                            <input type="radio" name="options" id="option3"> Year
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/.col-->
-
-
-                        </div>
-                        <!--/.row-->
-                        <div class="chart-wrapper mt-4">
-                            <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
-                        </div>
-
-                    </div>
-                    <div class="card-footer">
-                        <ul>
-                            <li>
-                                <div class="text-muted">Visits</div>
-                                <strong>29.703 Users (40%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%;"
-                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">Unique</div>
-                                <strong>24.093 Users (20%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%;"
-                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="text-muted">Pageviews</div>
-                                <strong>78.706 Views (60%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;"
-                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">New Users</div>
-                                <strong>22.123 Users (80%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%;"
-                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">Bounce Rate</div>
-                                <strong>40.15%</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-6">
-                <section class="card">
-                    <div class="twt-feed blue-bg">
-                        <div class="corner-ribon black-ribon">
-                            <i class="fa fa-twitter"></i>
-                        </div>
-                        <div class="fa fa-twitter wtt-mark"></div>
-
-                        <div class="media">
-                            <a href="#">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;"
-                                     alt="" src="{{asset('admin/images/admin.jpg')}}">
-                            </a>
-                            <div class="media-body">
-                                <h2 class="text-white display-6">Jim Doe</h2>
-                                <p class="text-light">Project Manager</p>
+                            <div class="card-body">
+                                <div class="ct-chart-product ct-golden-section"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="weather-category twt-category">
-                        <ul>
-                            <li class="active">
-                                <h5>750</h5>
-                                Tweets
-                            </li>
-                            <li>
-                                <h5>865</h5>
-                                Following
-                            </li>
-                            <li>
-                                <h5>3645</h5>
-                                Followers
-                            </li>
-                        </ul>
+                    <!-- ============================================================== -->
+                    <!-- end product sales  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-12 col-md-6 col-sm-12 col-12">
+                        <!-- ============================================================== -->
+                        <!-- top perfomimg  -->
+                        <!-- ============================================================== -->
+                        <div class="card">
+                            <h5 class="card-header">Top Performing Campaigns</h5>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table no-wrap p-table">
+                                        <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">Campaign</th>
+                                            <th class="border-0">Visits</th>
+                                            <th class="border-0">Revenue</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Campaign#1</td>
+                                            <td>98,789</td>
+                                            <td>$4563</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaign#2</td>
+                                            <td>2,789</td>
+                                            <td>$325</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaign#3</td>
+                                            <td>1,459</td>
+                                            <td>$225</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaign#4</td>
+                                            <td>5,035</td>
+                                            <td>$856</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaign#5</td>
+                                            <td>10,000</td>
+                                            <td>$1000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaign#5</td>
+                                            <td>10,000</td>
+                                            <td>$1000</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <a href="#" class="btn btn-outline-light float-right">Details</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end top perfomimg  -->
+                        <!-- ============================================================== -->
                     </div>
-                    <div class="twt-write col-sm-12">
-                        <textarea placeholder="Write your Tweet and Enter" rows="1"
-                                  class="form-control t-text-area"></textarea>
+                </div>
+
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- sales  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Sales</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">$12099</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <footer class="twt-footer">
-                        <a href="#"><i class="fa fa-camera"></i></a>
-                        <a href="#"><i class="fa fa-map-marker"></i></a>
-                        New Castle, UK
-                        <span class="pull-right">
-                            32
-                        </span>
-                    </footer>
-                </section>
-            </div>
+                    <!-- ============================================================== -->
+                    <!-- end sales  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- new customer  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">New Customer</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">1245</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end new customer  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- visitor  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Visitor</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">13000</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end visitor  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- total orders  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Total Orders</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">1340</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                                    <span
+                                        class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i
+                                            class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end total orders  -->
+                    <!-- ============================================================== -->
+                </div>
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- total revenue  -->
+                    <!-- ============================================================== -->
 
 
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Total Profit</div>
-                                <div class="stat-digit">1,012</div>
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- category revenue  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Revenue by Category</h5>
+                            <div class="card-body">
+                                <div id="c3chart_category" style="height: 420px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end category revenue  -->
+                    <!-- ============================================================== -->
+
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header"> Total Revenue</h5>
+                            <div class="card-body">
+                                <div id="morris_totalrevenue"></div>
+                            </div>
+                            <div class="card-footer">
+                                <p class="display-7 font-weight-bold"><span
+                                        class="text-primary d-inline-block">$26,000</span><span
+                                        class="text-success float-right">+9.45%</span></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div class="stat-digit">961</div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <!-- ============================================================== -->
+                        <!-- social source  -->
+                        <!-- ============================================================== -->
+                        <div class="card">
+                            <h5 class="card-header"> Sales By Social Source</h5>
+                            <div class="card-body p-0">
+                                <ul class="social-sales list-group list-group-flush">
+                                    <li class="list-group-item social-sales-content"><span
+                                            class="social-sales-icon-circle facebook-bgcolor mr-2"><i
+                                                class="fab fa-facebook-f"></i></span><span class="social-sales-name">Facebook</span><span
+                                            class="social-sales-count text-dark">120 Sales</span>
+                                    </li>
+                                    <li class="list-group-item social-sales-content"><span
+                                            class="social-sales-icon-circle twitter-bgcolor mr-2"><i
+                                                class="fab fa-twitter"></i></span><span class="social-sales-name">Twitter</span><span
+                                            class="social-sales-count text-dark">99 Sales</span>
+                                    </li>
+                                    <li class="list-group-item social-sales-content"><span
+                                            class="social-sales-icon-circle instagram-bgcolor mr-2"><i
+                                                class="fab fa-instagram"></i></span><span class="social-sales-name">Instagram</span><span
+                                            class="social-sales-count text-dark">76 Sales</span>
+                                    </li>
+                                    <li class="list-group-item social-sales-content"><span
+                                            class="social-sales-icon-circle pinterest-bgcolor mr-2"><i
+                                                class="fab fa-pinterest-p"></i></span><span class="social-sales-name">Pinterest</span><span
+                                            class="social-sales-count text-dark">56 Sales</span>
+                                    </li>
+                                    <li class="list-group-item social-sales-content"><span
+                                            class="social-sales-icon-circle googleplus-bgcolor mr-2"><i
+                                                class="fab fa-google-plus-g"></i></span><span class="social-sales-name">Google Plus</span><span
+                                            class="social-sales-count text-dark">36 Sales</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="#" class="btn-primary-link">View Details</a>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end social source  -->
+                        <!-- ============================================================== -->
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <!-- ============================================================== -->
+                        <!-- sales traffice source  -->
+                        <!-- ============================================================== -->
+                        <div class="card">
+                            <h5 class="card-header"> Sales By Traffic Source</h5>
+                            <div class="card-body p-0">
+                                <ul class="traffic-sales list-group list-group-flush">
+                                    <li class="traffic-sales-content list-group-item "><span class="traffic-sales-name">Direct</span><span
+                                            class="traffic-sales-amount">$4000.00  <span
+                                                class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
+                                                    class="fa fa-fw fa-arrow-up"></i></span><span
+                                                class="ml-1 text-success">5.86%</span></span>
+                                    </li>
+                                    <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Search<span
+                                                class="traffic-sales-amount">$3123.00  <span
+                                                    class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
+                                                        class="fa fa-fw fa-arrow-up"></i></span><span
+                                                    class="ml-1 text-success">5.86%</span></span>
+                                                </span>
+                                    </li>
+                                    <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Social<span
+                                                class="traffic-sales-amount ">$3099.00  <span
+                                                    class="icon-circle-small icon-box-xs text-success ml-4 bg-success-light"><i
+                                                        class="fa fa-fw fa-arrow-up"></i></span><span
+                                                    class="ml-1 text-success">5.86%</span></span>
+                                                </span>
+                                    </li>
+                                    <li class="traffic-sales-content list-group-item"><span class="traffic-sales-name">Referrals<span
+                                                class="traffic-sales-amount ">$2220.00   <span
+                                                    class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
+                                                        class="fa fa-fw fa-arrow-down"></i></span><span
+                                                    class="ml-1 text-danger">4.02%</span></span>
+                                                </span>
+                                    </li>
+                                    <li class="traffic-sales-content list-group-item "><span class="traffic-sales-name">Email<span
+                                                class="traffic-sales-amount">$1567.00   <span
+                                                    class="icon-circle-small icon-box-xs text-danger ml-4 bg-danger-light"><i
+                                                        class="fa fa-fw fa-arrow-down"></i></span><span
+                                                    class="ml-1 text-danger">3.86%</span></span>
+                                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="#" class="btn-primary-link">View Details</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Active Projects</div>
-                                <div class="stat-digit">770</div>
+                    <!-- ============================================================== -->
+                    <!-- end sales traffice source  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- sales traffic country source  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-3 col-lg-12 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Sales By Country Traffic Source</h5>
+                            <div class="card-body p-0">
+                                <ul class="country-sales list-group list-group-flush">
+                                    <li class="country-sales-content list-group-item"><span class="mr-2"><i
+                                                class="flag-icon flag-icon-us" title="us" id="us"></i> </span>
+                                        <span class="">United States</span><span
+                                            class="float-right text-dark">78%</span>
+                                    </li>
+                                    <li class="list-group-item country-sales-content"><span class="mr-2"><i
+                                                class="flag-icon flag-icon-ca" title="ca" id="ca"></i></span><span
+                                            class="">Canada</span><span class="float-right text-dark">7%</span>
+                                    </li>
+                                    <li class="list-group-item country-sales-content"><span class="mr-2"><i
+                                                class="flag-icon flag-icon-ru" title="ru" id="ru"></i></span><span
+                                            class="">Russia</span><span class="float-right text-dark">4%</span>
+                                    </li>
+                                    <li class="list-group-item country-sales-content"><span class=" mr-2"><i
+                                                class="flag-icon flag-icon-in" title="in" id="in"></i></span><span
+                                            class="">India</span><span class="float-right text-dark">12%</span>
+                                    </li>
+                                    <li class="list-group-item country-sales-content"><span class=" mr-2"><i
+                                                class="flag-icon flag-icon-fr" title="fr" id="fr"></i></span><span
+                                            class="">France</span><span class="float-right text-dark">16%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="#" class="btn-primary-link">View Details</a>
                             </div>
                         </div>
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- end sales traffice country source  -->
+                    <!-- ============================================================== -->
                 </div>
             </div>
-
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>World</h4>
-                    </div>
-                    <div class="Vector-map-js">
-                        <div id="vmap" class="vmap" style="height: 265px;"></div>
-                    </div>
-                </div>
-                <!-- /# card -->
-            </div>
-
-
         </div>
     </div>
 @endsection

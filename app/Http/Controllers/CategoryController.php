@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        //for admin
+        $categories = Category::all();
+        return view('admin.index', compact('categories'));
     }
 
     /**
@@ -80,6 +82,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+
     }
 }

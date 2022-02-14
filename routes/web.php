@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('main_public.index');
 //})->name('home-page');
 
-Route::get('/',[\App\Http\Controllers\HomeController::class, 'showAllSaleProduct'])->name('home-page');
+Route::get('/',[HomeController::class, 'showAllSaleProduct'])->name('home-page');
 
 Route::get('/contact',function (){
     return view('main_public.contact');
@@ -104,9 +106,6 @@ Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- End Shop Route ----------*/
 
 /*---------- Admin Route ----------*/
-Route::get('/admin/index', function (){
-    return view('admin.index');
-})->name('administrator');
-
+Route::get('/admin/index', [CategoryController::class, 'index'])->name('administrator');
 /*---------- End Admin Route ----------*/
 
