@@ -31,7 +31,7 @@
                             <div class="col-lg-6 col-md-6 result-count">
                                 <p>We found <span class="count">15</span> products available for you</p>
                             </div>
-            
+
                             <div class="col-lg-6 col-md-6 ordering">
                                 <div class="select-box">
                                     <label>Sort By:</label>
@@ -51,8 +51,8 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">
-                                        <a href="shop-details.html"><img src="assets/img/milk/{{$item->thumbnail}}" alt="image"></a>
-        
+                                        <a href="shop-details.html"><img src="assets/img/product/milk/{{$item->thumbnail}}" alt="image"></a>
+
                                         <ul class="products-action">
                                             <li>
                                                 <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
@@ -66,12 +66,12 @@
                                                 </a>
                                             </li>
                                         </ul>
-        
+
                                         <div class="sale">
                                             <span>Sale</span>
                                         </div>
                                     </div>
-        
+
                                     <div class="products-content">
                                         <h3>
                                             <a href="shop-details.html">{{$item->name}}</a>

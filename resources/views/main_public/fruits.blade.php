@@ -31,7 +31,7 @@
                             <div class="col-lg-6 col-md-6 result-count">
                                 <p>We found <span class="count">15</span> products available for you</p>
                             </div>
-            
+
                             <div class="col-lg-6 col-md-6 ordering">
                                 <div class="select-box">
                                     <label>Sort By:</label>
@@ -52,7 +52,7 @@
                                 <div class="top-products-item">
                                     <div class="products-image">
                                         <a href="shop-details.html"><img src="assets/img/product/fruit/{{$item->thumbnail}}" alt="image"></a>
-        
+
                                         <ul class="products-action">
                                             <li>
                                                 <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
@@ -66,19 +66,19 @@
                                                 </a>
                                             </li>
                                         </ul>
-        
+
                                         <div class="sale">
                                             <span>Sale</span>
                                         </div>
                                     </div>
-        
+
                                     <div class="products-content">
                                         <h3>
                                             <a href="shop-details.html">{{$item->name}}</a>
                                         </h3>
                                         <div class="price">
                                             <span class="new-price">${{number_format($item->price,2)}}</span>
-                                            <span class="old-price">$125.00</span>
+                                            <span class="old-price">${{number_format($item->price * 1.1,2)}}</span>
                                         </div>
                                         <ul class="rating">
                                             <li>
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach   
+                            @endforeach
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="pagination-area">

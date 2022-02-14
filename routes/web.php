@@ -76,13 +76,13 @@ Route::get('/aboutus',function (){
 /*---------- End Main Route ----------*/
 
 /*---------- Shop Route ----------*/
-Route::get('/fruits', 'App\Http\Controllers\ProductController@index')->name('fruits-page');
+Route::get('/fruits', 'App\Http\Controllers\ProductController@getFruits')->name('fruits-page');
 
-Route::get('/vegetable', 'App\Http\Controllers\ProductController@index')->name('vegetable-page');
+Route::get('/vegetable', 'App\Http\Controllers\ProductController@getVegetables')->name('vegetable-page');
 
-Route::get('/meat', 'App\Http\Controllers\ProductController@index')->name('meat-page');
+Route::get('/meat', 'App\Http\Controllers\ProductController@getMeats')->name('meat-page');
 
-Route::get('/milkproduct', 'App\Http\Controllers\ProductController@index')->name('milkproduct-page');
+Route::get('/milk', 'App\Http\Controllers\ProductController@getMilks')->name('milk-page');
 
 Route::get('/organicvegetable',function (){
     return view('main_public.organicvegetable');

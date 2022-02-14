@@ -174,7 +174,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('milkproduct-page') }}" class="nav-link">
+                                    <a href="{{ route('milk-page') }}" class="nav-link">
                                         Milk & Products
                                         <i class='bx bx-chevron-down'></i>
                                     </a>
