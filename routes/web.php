@@ -16,6 +16,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/', function (){
+    return view('main_public.index');
+});
+    Route::get('/contact',function (){
+        return view('main_public.contact');
+    })->name('contact-page');
+
+    Route::get('/aboutus',function (){
+        return view('main_public.aboutus');
+    })->name('aboutus-page');
+
+
+    Route::get('/blog',function (){
+        return view('main_public.blog');
+    })->name('blog-page');
+
+    Route::get('/blogdetails',function (){
+        return view('main_public.blogdetails');
+    })->name('blog-details-page');
+
+
 /*---------- Main Route ----------*/
 
 //Route::get('/', function (){
@@ -108,4 +130,3 @@ Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- Admin Route ----------*/
 Route::get('/admin/index', [CategoryController::class, 'index'])->name('administrator');
 /*---------- End Admin Route ----------*/
-
