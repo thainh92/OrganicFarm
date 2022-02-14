@@ -209,7 +209,7 @@
                                         <div id="submenu-1-1" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="index.html">List Categories</a>
+                                                    <a class="nav-link" href="index.html">Categories List</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="ecommerce-product.html">Create New Category</a>
