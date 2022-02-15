@@ -28,7 +28,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="index.html">Concept</a>
+            <a class="navbar-brand" href="{{route('admin-index')}}">Concept</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -223,10 +223,10 @@
                                         <div id="submenu-1-3" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="index.html">List Products</a>
+                                                    <a class="nav-link" href="{{route('admin-product-index')}}">List Products</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="ecommerce-product.html">Create New Product</a>
+                                                    <a class="nav-link" href="{{route('admin-create-product')}}">Create New Product</a>
                                                 </li>
                                             </ul>
                                         </div>

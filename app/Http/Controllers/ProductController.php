@@ -19,6 +19,12 @@ class ProductController extends Controller
         return view('main_public.vegetable', compact('vegetable'));
     }
 
+    public function indexAdmin()
+    {
+        $products = Product::all();
+        return view('admin.product.index', compact('products'));
+    }
+
     public function getFruits()
     {
         $fruits = DB::table('products')->where('category_id', '=', 1)->get();
@@ -51,7 +57,7 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('main_public.product-create');
+        return view('admin.product.create');
     }
 
     /**
@@ -62,9 +68,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = $request->all();
-        Product::create($product);
-        return redirect('main_public.product');
+
     }
 
     /**

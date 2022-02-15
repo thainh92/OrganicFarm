@@ -7,30 +7,43 @@
         <!-- ============================================================== -->
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
-                <h5 class="card-header">Create new category</h5>
+                <h5 class="card-header mt-3">Create new category</h5>
                 <div class="card-body">
-                    <form action="{{route('admin-store-category')}}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+                    <form action="{{route('admin-store-category')}}" enctype="multipart/form-data" method="post"
+                          class="needs-validation" novalidate>
                         @csrf
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                <label for="validationCustom01"></label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Category Name" value="" name="name" required>
+                                <label for="validationCustom01">Name</label>
+                                <input type="text" class="form-control" id="validationCustom01"
+                                       placeholder="Category Name" value="" name="name" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
-                            </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                <label for="validationCustom02"></label>
-                                <input type="text" class="form-control" id="validationCustom02" placeholder="Category code" value="" name="code" required>
-                                <div class="valid-feedback">
-                                    Looks good!
+                                <div class="invalid-feedback">
+                                    Please input category name.
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                <label for="validationCustom03"></label>
-                                <input type="file" class="form-control" id="validationCustom02" placeholder="File input" value="" name="thumbnail" required>
+                                <label class="pt-2" for="validationCustom01">Code</label>
+                                <input type="text" class="form-control" id="validationCustom02"
+                                       placeholder="Category code" value="" name="code" required>
                                 <div class="valid-feedback">
                                     Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please input category code.
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <label class="pt-2" for="validationCustom01">Image upload</label>
+                                <input type="file" class="form-control" id="validationCustom02" placeholder="File input"
+                                       value="" name="thumbnail" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please upload category image.
                                 </div>
                             </div>
                         </div>
@@ -51,5 +64,24 @@
     </div>
 @endsection
 @section('script-tag')
-    <script></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                let forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                let validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 @endsection
