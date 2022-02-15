@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +16,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/', function (){
+    return view('main_public.index');
+});
+    Route::get('/contact',function (){
+        return view('main_public.contact');
+    })->name('contact-page');
+
+    Route::get('/aboutus',function (){
+        return view('main_public.aboutus');
+    })->name('aboutus-page');
+
+
+    Route::get('/blog',function (){
+        return view('main_public.blog');
+    })->name('blog-page');
+
+    Route::get('/blogdetails',function (){
+        return view('main_public.blogdetails');
+    })->name('blog-details-page');
+
+
 /*---------- Main Route ----------*/
 
 //Route::get('/', function (){
 //    return view('main_public.index');
 //})->name('home-page');
 
-Route::get('/',[\App\Http\Controllers\HomeController::class, 'showAllSaleProduct'])->name('home-page');
+Route::get('/',[HomeController::class, 'showAllSaleProduct'])->name('home-page');
 
 Route::get('/contact',function (){
     return view('main_public.contact');
@@ -52,13 +76,13 @@ Route::get('/aboutus',function (){
 /*---------- End Main Route ----------*/
 
 /*---------- Shop Route ----------*/
-Route::get('/fruits', 'App\Http\Controllers\ProductController@index')->name('fruits-page');
+Route::get('/fruits', 'App\Http\Controllers\ProductController@getFruits')->name('fruits-page');
 
-Route::get('/vegetable', 'App\Http\Controllers\ProductController@index')->name('vegetable-page');
+Route::get('/vegetable', 'App\Http\Controllers\ProductController@getVegetables')->name('vegetable-page');
 
-Route::get('/meat', 'App\Http\Controllers\ProductController@index')->name('meat-page');
+Route::get('/meat', 'App\Http\Controllers\ProductController@getMeats')->name('meat-page');
 
-Route::get('/milkproduct', 'App\Http\Controllers\ProductController@index')->name('milkproduct-page');
+Route::get('/milk', 'App\Http\Controllers\ProductController@getMilks')->name('milk-page');
 
 Route::get('/organicvegetable',function (){
     return view('main_public.organicvegetable');
@@ -103,3 +127,6 @@ Route::get('/product-detail',function (){
 Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- End Shop Route ----------*/
 
+/*---------- Admin Route ----------*/
+Route::get('/admin/index', [CategoryController::class, 'index'])->name('administrator');
+/*---------- End Admin Route ----------*/
