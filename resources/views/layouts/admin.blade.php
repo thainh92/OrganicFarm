@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link href="{{asset('admin/assets/vendor/fonts/circular-std/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('admin/assets/libs/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/charts/chartist-bundle/chartist.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/charts/morris-bundle/morris.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/charts/c3charts/c3.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
 </head>
 
@@ -52,7 +52,7 @@
                                         <a href="#" class="list-group-item list-group-item-action active">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-2.jpg" alt=""
+                                                        src="{{asset('admin/assets/images/avatar-2.jpg')}}" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">Jeremy Rakestraw</span>accepted
@@ -64,7 +64,7 @@
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-3.jpg" alt=""
+                                                        src="{{asset('admin/assets/images/avatar-3.jpg')}}" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">John Abraham </span>is now
@@ -76,7 +76,7 @@
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-4.jpg" alt=""
+                                                        src="{{asset('admin/assets/images/avatar-4.jpg')}}" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">Monaan Pechi</span> is
@@ -88,7 +88,7 @@
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-5.jpg" alt=""
+                                                        src="{{asset('admin/assets/images/avatar-5.jpg')}}" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">Jessica Caruso</span>accepted
@@ -112,29 +112,29 @@
                             <li class="connection-list">
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/github.png" alt="">
+                                        <a href="#" class="connection-item"><img src="{{asset('admin/assets/images/github.png')}}" alt="">
                                             <span>Github</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dribbble.png"
+                                        <a href="#" class="connection-item"><img src="{{asset('admin/assets/images/dribbble.png')}}"
                                                                                  alt=""> <span>Dribbble</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt="">
+                                        <a href="#" class="connection-item"><img src="{{asset('admin/assets/images/dropbox.png')}}" alt="">
                                             <span>Dropbox</span></a>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/bitbucket.png"
+                                        <a href="#" class="connection-item"><img src="{{asset('admin/assets/images/bitbucket.png')}}"
                                                                                  alt=""> <span>Bitbucket</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png"
+                                        <a href="#" class="connection-item"><img src="{{asset('admin/assets/images/mail_chimp.png')}}"
                                                                                  alt=""><span>Mail chimp</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/slack.png" alt="">
+                                        <a href="#" class="connection-item"><img src="{{asset('admin/assets/images/slack.png')}}" alt="">
                                             <span>Slack</span></a>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                     </li>
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt=""
+                           aria-haspopup="true" aria-expanded="false"><img src="{{asset('admin/assets/images/avatar-1.jpg')}}" alt=""
                                                                            class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                              aria-labelledby="navbarDropdownMenuLink2">
@@ -195,7 +195,7 @@
                                         <div id="submenu-1-2" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="index.html">List Users</a>
+                                                    <a class="nav-link" href="#">List Users</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="ecommerce-product.html">Create New User</a>
@@ -209,10 +209,10 @@
                                         <div id="submenu-1-1" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="index.html">Categories List</a>
+                                                    <a class="nav-link" href="{{route('admin-category-index')}}">Categories List</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="ecommerce-product.html">Create New Category</a>
+                                                    <a class="nav-link" href="{{route('admin-create-category')}}">Create New Category</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -306,25 +306,25 @@
 <!-- ============================================================== -->
 <!-- Optional JavaScript -->
 <!-- jquery 3.3.1 -->
-<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="{{asset('admin/assets/vendor/jquery/jquery-3.3.1.min.js')}}"></script>
 <!-- bootstap bundle js -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="{{asset('admin/assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
 <!-- slimscroll js -->
-<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="{{asset('admin/assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
 <!-- main js -->
-<script src="assets/libs/js/main-js.js"></script>
+<script src="{{asset('admin/assets/libs/js/main-js.js')}}"></script>
 <!-- chart chartist js -->
-<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<script src="{{asset('admin/assets/vendor/charts/chartist-bundle/chartist.min.js')}}"></script>
 <!-- sparkline js -->
-<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<script src="{{asset('admin/assets/vendor/charts/sparkline/jquery.sparkline.js')}}"></script>
 <!-- morris js -->
-<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+<script src="{{asset('admin/assets/vendor/charts/morris-bundle/raphael.min.js')}}"></script>
+<script src="{{asset('admin/assets/vendor/charts/morris-bundle/morris.js')}}"></script>
 <!-- chart c3 js -->
-<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-<script src="assets/libs/js/dashboard-ecommerce.js"></script>
+<script src="{{asset('admin/assets/vendor/charts/c3charts/c3.min.js')}}"></script>
+<script src="{{asset('admin/assets/vendor/charts/c3charts/d3-5.4.0.min.js')}}"></script>
+<script src="{{asset('admin/assets/vendor/charts/c3charts/C3chartjs.js')}}"></script>
+<script src="{{asset('admin/assets/libs/js/dashboard-ecommerce.js')}}"></script>
 {{--Script Tag--}}
 @yield('script-tag')
 </body>
