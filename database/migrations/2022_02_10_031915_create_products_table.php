@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->foreign('discount_id')->references('id')->on('discounts');
             $table->decimal('price');
             $table->integer('status');
+            $table->softDeletes();
         });
     }
 
