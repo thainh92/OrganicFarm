@@ -21,7 +21,9 @@ class ProductController extends Controller
 
     public function indexAdmin()
     {
-        $products = Product::all();
+        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
+            ->select('categories.name as category_name', 'products.*')
+            ->get();
         return view('admin.product.index', compact('products'));
     }
 
@@ -64,11 +66,27 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-
+        if($request->hasFile('thumbnail'))
+        {
+            $file = $request->file('thumbnail');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('assets/img/category', $filename);
+        }
+        Product::create([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'category_id'=>$request->category_id,
+            'discount_id'=>$request->discount_id,
+            'price'=>$request->price,
+            'status'=>$request->status,
+            'thumbnail'=> $filename
+        ]);
+        return redirect()->route('admin-product-index');
     }
 
     /**
@@ -91,6 +109,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+
     }
 
     /**
