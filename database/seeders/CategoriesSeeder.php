@@ -39,8 +39,8 @@ class CategoriesSeeder extends Seeder
             [
                 'id' => 4,
                 'thumbnail' => 'milk-1.jpg',
-                'code' => '@gmail.com',
-                'name' => '04',
+                'code' => '04',
+                'name' => 'milk',
                 'parent_id' => 0, 
             ],
             [
