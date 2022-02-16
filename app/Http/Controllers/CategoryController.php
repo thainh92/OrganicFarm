@@ -24,6 +24,14 @@ class CategoryController extends Controller
         return view('admin.category.index', compact('categories'));
     }
 
+    public function getCategoriesName()
+    {
+        $categories_name = DB::table('users')
+            ->select('name', 'id')
+            ->get();
+        return view('admin.product.create', compact('categories_name'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
