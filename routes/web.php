@@ -120,6 +120,4 @@ Route::get('/product-detail',function (){
 Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- End Shop Route ----------*/
 
-/*---------- Admin Route ----------*/
-Route::get('/admin/index', [CategoryController::class, 'index'])->name('administrator');
-/*---------- End Admin Route ----------*/
+
