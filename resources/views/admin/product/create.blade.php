@@ -5,6 +5,7 @@
         <!-- ============================================================== -->
         <!-- validation form -->
         <!-- ============================================================== -->
+
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <h5 class="card-header mt-3">Create new product</h5>
@@ -45,7 +46,7 @@
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="input-select">Select Category</label>
-                                <select class="form-control form-control-sm" id="input-select">
+                                <select class="form-control form-control-sm" id="sub-input-category" disabled="disabled">
                                     <option>Choose Example</option>
                                 </select>
                                 <div class="valid-feedback">
@@ -57,14 +58,25 @@
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="input-select">Select Discount</label>
-                                <select class="form-control form-control-sm" id="input-select">
-                                    <option>Choose Example</option>
+                                <select class="form-control form-control-sm" id="input-select" >
+                                    @foreach($data as $key => $dat)
+                                        <option value="{{$key}}" onclick="getSubCategory({{$key}})">{{$dat}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label for="validationCustom01">Status</label>
                                 <input type="text" class="form-control" id="validationCustom01" placeholder="Status"
                                        value="" name="status" required>
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" name="radio-inline" checked=""
+                                           class="custom-control-input"><span
+                                        class="custom-control-label">Option 1</span>
+                                </label>
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" name="radio-inline" class="custom-control-input"><span
+                                        class="custom-control-label">Option 2</span>
+                                </label>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -120,5 +132,40 @@
                 });
             }, false);
         })();
+        function getSubCategory(id){
+            $.ajax({
+                url:`getSubCategoryProduct`,
+                data:{id:id},
+                method:'GET',
+                success:(result)=>{
+                    // let optList = ``;
+                    // for(let i = 0; i < result.length;i++){
+                    //     let optItem = `<option value="${result[i]}">${ten}</option>`;
+                    //     optList += optItem;
+                    // }
+                    // $('#sub-input-category').html('').append(optList);
+                }
+            })
+            $('#sub-input-category').removeAttr("disabled");
+        }
+        function getParentId(id) {
+            let obj = {};
+            obj.id = id;
+            obj._method = "get";
+            obj._token = $("input[name='_token']").val();
+            $.ajax({
+                url: '/admin/product/trash/' + id,
+                method: "get",
+                data: obj,
+                success: function (response) {
+                    if (response.indexOf('Success')) {
+                        alert("Deleted success");
+                        location.reload();
+                    } else {
+                        alert("Deleted not success");
+                    }
+                }
+            });
+        }
     </script>
 @endsection
