@@ -14,7 +14,7 @@ class ProductsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        DB::table('products')->insert([
             /*--- fruits ---*/
             [
                 'id' => 1,
