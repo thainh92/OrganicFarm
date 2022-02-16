@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-       
+
     }
 
     public function getTrending()
@@ -58,7 +58,7 @@ class ProductController extends Controller
     }
 
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -68,7 +68,13 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('admin.product.create');
+        $data = array(
+            0 => "Thit",
+            1 => "Rau",
+            2 => "Ca",
+            3 => "Fruit"
+        );
+        return view('admin.product.create',compact('data'));
     }
 
     /**
