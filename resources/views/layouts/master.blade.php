@@ -52,12 +52,8 @@
             <div class="col-lg-6">
                 <ul class="top-header-information">
                     <li>
-                        <i class='bx bxs-map'></i>
-                        Số 8 Tôn Thất Thuyết, Mỹ Đình, Thành Phố Hà Nội
-                    </li>
-                    <li>
-                        <i class='bx bx-envelope'></i>
-                        <a href="mailto:organicfarm@gmail.com">organicfarm@gmail.com</a>
+                        <i class='bx bxs-phone'></i>
+                        (+84) 12 3456 789
                     </li>
                 </ul>
             </div>
@@ -176,20 +172,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('milk-page') }}" class="nav-link">
                                         Milk & Products
-                                        <i class='bx bx-chevron-down'></i>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('milk-page') }}" class="nav-link">
-                                                Fresh Milk
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('product-page') }}" class="nav-link">
-                                                Milk Products
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('pricing-page') }}" class="nav-link">

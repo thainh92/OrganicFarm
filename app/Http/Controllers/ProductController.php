@@ -15,8 +15,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $vegetable = DB::table('products')->where('category_id', '=', 2)->get();
-        return view('main_public.vegetable', compact('vegetable'));
+       
+    }
+
+    public function getTrending()
+    {
+        $trending = DB::table('products')->inRandomOrder()->limit(8)->get();
+        $featured = DB::table('products')->inRandomOrder()->limit(8)->get();
+        return view('main_public.index ', compact('trending','featured'));
     }
 
     public function indexAdmin()
@@ -48,8 +54,11 @@ class ProductController extends Controller
     public function getMilks()
     {
         $milk = DB::table('products')->where('category_id', '=', 4)->get();
-        return view('main_public.milkproduct', compact('milk'));
+        return view('main_public.milk', compact('milk'));
     }
+
+
+    
 
     /**
      * Show the form for creating a new resource.
