@@ -34,7 +34,6 @@
                                     $id = 1;
                                 @endphp
                                 @foreach($products as $product)
-
                                     <tr>
                                         <td>{{$id}}</td>
                                         @php
@@ -48,14 +47,14 @@
                                         </td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->description}}</td>
-                                        <td>{{$product->category_id}}</td>
-                                        <td>{{($product->discount_id != null) ? $product->discount : 'None'}}</td>
+                                        <td>{{$product->category_name}}</td>
+                                        <td>{{($product->discount_id != null) ? $item->discount : 'None'}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>{{ ($product->status == 1) ? 'Active' : 'Disable'}}</td>
                                         <td>{{$product->created_at}}</td>
                                         <td>{{$product->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('admin-edit-category', $product)}}"
+                                            <a href="{{route('admin-edit-product', $product)}}"
                                                class="p-1 f-icon fas fa-edit text-primary"></a>
                                             <a href="javascript:void(0)" onclick="deleteRecord({{$product->id}})"
                                                class="p-1 f-icon fas fa-trash-alt text-danger"></a>

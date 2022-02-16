@@ -21,7 +21,17 @@ class ProductController extends Controller
 
     public function indexAdmin()
     {
-        $products = Product::all();
+//        $products = DB::table('products')
+//            ->join('categories', 'products.category_id', '=', 'category.id')
+//            ->select('products.*', 'categories.name as category_name')
+//            ->get();
+//        dd($products);
+//        $products = Product::select(DB::raw('categories.name as category_name'))
+//            ->join('products', 'products.id', '=', 'categories.id')
+//            ->get();
+        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
+            ->select('categories.name as category_name', 'products.*')
+            ->get();
         return view('admin.product.index', compact('products'));
     }
 

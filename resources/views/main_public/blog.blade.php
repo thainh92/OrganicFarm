@@ -1,4 +1,4 @@
-@extends('layouts.PublicLayout')
+@extends('layouts.master')
 @section('title','Blog')
 @section('content')
     <section class="blog-container">
@@ -30,7 +30,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-1.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>20 December 2020</span>
                                 </div>
@@ -48,7 +48,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-2.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>24 December 2020</span>
                                 </div>
@@ -66,7 +66,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-3.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>29 December 2020</span>
                                 </div>
@@ -84,7 +84,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-4.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>20 December 2020</span>
                                 </div>
@@ -102,7 +102,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-5.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>24 December 2020</span>
                                 </div>
@@ -116,13 +116,13 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-7.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>20 December 2020</span>
                                 </div>
@@ -140,7 +140,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-8.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>24 December 2020</span>
                                 </div>
@@ -158,7 +158,7 @@
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-9.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>29 December 2020</span>
                                 </div>
@@ -171,12 +171,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
                             <div class="image">
                                 <a href="blog-details.html"><img src="assets/img/blog/blog-10.jpg" alt="image"></a>
-                                
+
                                 <div class="date">
                                     <span>29 December 2020</span>
                                 </div>
