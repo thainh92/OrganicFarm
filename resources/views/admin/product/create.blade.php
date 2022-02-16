@@ -88,7 +88,7 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <button class="btn btn-primary" type="submit">Submit form</button>
                                 <button class="btn btn-success" type="submit">Clear</button>
-                                <button class="btn btn-danger" type="submit">Back</button>
+                                <a href="{{route('admin-category-index')}}" class="btn btn-danger">Back</a>
                             </div>
                         </div>
                     </form>

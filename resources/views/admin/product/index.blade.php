@@ -55,7 +55,7 @@
                                         <td>{{$product->created_at}}</td>
                                         <td>{{$product->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('admin-edit-product', $product)}}"
+                                            <a href="{{route('admin-edit-product', $product->id)}}"
                                                class="p-1 f-icon fas fa-edit text-primary"></a>
                                             <a href="javascript:void(0)" onclick="deleteRecord({{$product->id}})"
                                                class="p-1 f-icon fas fa-trash-alt text-danger"></a>
