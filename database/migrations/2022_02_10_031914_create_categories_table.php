@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('thumbnail', 255);
             $table->string('code', 10);
             $table->string('name', 50);
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->softDeletes();
         });
     }
