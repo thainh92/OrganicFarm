@@ -65,6 +65,12 @@
                                 <label for="validationCustom01">Status</label>
                                 <input type="text" class="form-control" id="validationCustom01" placeholder="Status"
                                        value="" name="status" required>
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">Option 1</span>
+                                </label>
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">Option 2</span>
+                                </label>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
