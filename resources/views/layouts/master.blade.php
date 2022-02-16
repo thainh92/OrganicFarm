@@ -52,12 +52,9 @@
             <div class="col-lg-6">
                 <ul class="top-header-information">
                     <li>
-                        <i class='bx bxs-map'></i>
-                        Số 8 Tôn Thất Thuyết, Mỹ Đình, Thành Phố Hà Nội
-                    </li>
-                    <li>
-                        <i class='bx bx-envelope'></i>
-                        <a href="mailto:organicfarm@gmail.com">organicfarm@gmail.com</a>
+                        <i class='bx bxs-phone'></i>
+                        <span>HOT LINE:</span>
+                        <a href="tel:0123456789">(+84) 12 3456 789</a>
                     </li>
                 </ul>
             </div>
