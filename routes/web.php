@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', 'App\Http\Controllers\ProductController@getTrending')->name('home-page');
 
-Route::get('/', function (){
-    return view('main_public.index');
-});
     Route::get('/contact',function (){
         return view('main_public.contact');
     })->name('contact-page');
@@ -44,7 +42,6 @@ Route::get('/', function (){
 //    return view('main_public.index');
 //})->name('home-page');
 
-Route::get('/',[HomeController::class, 'showAllSaleProduct'])->name('home-page');
 
 Route::get('/contact',function (){
     return view('main_public.contact');
@@ -111,10 +108,6 @@ Route::get('/seafood',function (){
 Route::get('/product',function (){
     return view('main_public.product');
 })->name('product-page');
-
-Route::get('/milk',function (){
-    return view('main_public.milk');
-})->name('milk-page');
 
 Route::get('/pricing',function (){
     return view('main_public.pricing');
