@@ -46,9 +46,16 @@
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="input-select">Select Category</label>
-                                <select class="form-control form-control-sm" id="sub-input-category" disabled="disabled">
-                                    <option>Choose Example</option>
+                                <select class="form-control form-control-sm" name="parent_category" id="input-select">
+                                    @foreach($get_parent_category as $item)
+                                        <option value="{{$item->id}}" onclick="getSubCategory({{$item->id}})">{{$item->name}}</option>
+                                    @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                                <label class="pt-2" for="input-select">Select Sub-Category</label>
+                                <select class="form-control form-control-sm" name="sub_category" id="sub-input-category"
+                                        disabled="disabled"></select>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -56,26 +63,25 @@
                                     Please input category.
                                 </div>
                             </div>
-                            <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
-                                <label class="pt-2" for="input-select">Select Discount</label>
-                                <select class="form-control form-control-sm" id="input-select" >
-                                    @foreach($data as $key => $dat)
-                                        <option value="{{$key}}" onclick="getSubCategory({{$key}})">{{$dat}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+{{--                            <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">--}}
+{{--                                <label class="pt-2" for="input-select">Select Discount</label>--}}
+{{--                                <select class="form-control form-control-sm" id="input-select">--}}
+{{--                                    @foreach($data as $key => $val)--}}
+{{--                                        <option value="{{$key}}" onclick=""></option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label for="validationCustom01">Status</label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Status"
-                                       value="" name="status" required>
-                                <label class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" name="radio-inline" checked=""
-                                           class="custom-control-input"><span
-                                        class="custom-control-label">Option 1</span>
+                                <label class="custom-control custom-radio">
+                                    <input type="radio" value="1" name="status" checked=""
+                                           class="form-control custom-control-input">
+                                    <span class="custom-control-label">Active</span>
                                 </label>
-                                <label class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" name="radio-inline" class="custom-control-input"><span
-                                        class="custom-control-label">Option 2</span>
+                                <label class="custom-control custom-radio">
+                                    <input type="radio" value="0" name="status"
+                                           class="form-control custom-control-input"><span
+                                        class="custom-control-label">Inactive</span>
                                 </label>
                                 <div class="valid-feedback">
                                     Looks good!
@@ -132,22 +138,47 @@
                 });
             }, false);
         })();
-        function getSubCategory(id){
+
+
+        // function getSubCategory(id) {
+        //     $.ajax({
+        //         url: `getSubCategoryProduct`,
+        //         data: {id: id},
+        //         method: 'GET',
+        //         success: (result) => {
+        //             // let optList = ``;
+        //             // for(let i = 0; i < result.length;i++){
+        //             //     let optItem = `<option value="${result[i]}">${ten}</option>`;
+        //             //     optList += optItem;
+        //             // }
+        //             // $('#sub-input-category').html('').append(optList);
+        //         }
+        //     })
+        //     $('#sub-input-category').removeAttr("disabled");
+        // }
+        function getSubCategory(id) {
             $.ajax({
-                url:`getSubCategoryProduct`,
-                data:{id:id},
-                method:'GET',
-                success:(result)=>{
-                    // let optList = ``;
-                    // for(let i = 0; i < result.length;i++){
-                    //     let optItem = `<option value="${result[i]}">${ten}</option>`;
-                    //     optList += optItem;
-                    // }
-                    // $('#sub-input-category').html('').append(optList);
+                url: `/admin/product/getSubCategoryProduct`,
+                data: {id: id},
+                method: 'GET',
+                success: (result) => {
+                    if(result.length != 0){
+                        let optList = ``;
+                        for(let i = 0; i < result.length;i++){
+                            let optItem = `<option value="${result[i].id}">${result[i].name}</option>`;
+                            optList += optItem;
+                        }
+                        $('#sub-input-category').html('').append(optList);
+                        $('#sub-input-category').removeAttr("disabled");
+                    }else{
+                        $('#sub-input-category').attr("disabled","disabled");
+                        $('#sub-input-category').html('').append(`<option value=""></option>`)
+                    }
+
                 }
             })
-            $('#sub-input-category').removeAttr("disabled");
         }
+
         function getParentId(id) {
             let obj = {};
             obj.id = id;

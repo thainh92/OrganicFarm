@@ -23,4 +23,5 @@ Route::get('/admin/product/edit/{id}', [ProductController::class, 'edit'])->name
 Route::put('/admin/product/update/{id}', [ProductController::class, 'update'])->name('admin-update-product');
 Route::get('/admin/product/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-product');
 
+Route::get('/admin/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
 /*---------- End Admin Route ----------*/
