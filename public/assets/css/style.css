@@ -712,7 +712,7 @@ Navbar Area CSS
     font-size: 30px;
     color: #111111;
     position: relative;
-    padding: 1rem 0.5rem;
+    padding: 0 0 1rem 0.5rem;
 }
 
 .cart-btn a:hover {
@@ -742,8 +742,8 @@ Navbar Area CSS
     position: absolute;
     background-color: white;
     width: 400px;
-    -webkit-transition: all 1s linear;
-    transition: all 1s linear;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     z-index: 99;
@@ -782,7 +782,6 @@ Navbar Area CSS
 }
 .cart-btn-dropdown:hover {
     background: rgb(236, 236, 236);
-    width: 450px;
 }
 .cart-btn:hover .cart-btn-dropdown {
     display: block;

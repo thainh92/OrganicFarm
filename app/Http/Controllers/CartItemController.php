@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\CartItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartItemController extends Controller
 {
+
+    public function AddCart($id) {
+        $product = DB::table('products')->where('id',$id)->first();
+        dd($product);
+    }
+
     /**
      * Display a listing of the resource.
      *
