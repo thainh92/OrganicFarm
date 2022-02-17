@@ -1,19 +1,19 @@
 @extends('layouts.master')
-@section('title','Fresh Mushrooms')
+@section('title','Poultry')
 @section('content')
-    <section class="mushrooms-container">
+    <section class="fruits-container">
         <!-- Start Page Banner -->
         <div class="page-banner-area item-bg1">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Fresh Mushrooms</h2>
+                            <h2>Fruits</h2>
                             <ul>
                                 <li>
                                     <a href="{{ route('home-page') }}">Home</a>
                                 </li>
-                                <li>Fresh Mushrooms</li>
+                                <li>Fruits</li>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             <div class="col-lg-6 col-md-6 result-count">
                                 <p>We found <span class="count">15</span> products available for you</p>
                             </div>
-            
+
                             <div class="col-lg-6 col-md-6 ordering">
                                 <div class="select-box">
                                     <label>Sort By:</label>
@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="row">
-                            @foreach ($mushroom as $item)
+                            @foreach ($poultry as $item)
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">

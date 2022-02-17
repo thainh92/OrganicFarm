@@ -113,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('product-page') }}" class="nav-link">
                                 Shop
                                 <i class='bx bx-chevron-down'></i>
                             </a>
@@ -130,7 +130,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="{{ route('organicvegetable-page') }}" class="nav-link">
+                                            <a href="{{ route('organic-vegetable-page') }}" class="nav-link">
                                                 Organic Vegetables
                                             </a>
                                         </li>
@@ -158,13 +158,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('poultryegg-page') }}" class="nav-link">
+                                            <a href="{{ route('poultry-page') }}" class="nav-link">
                                                 Poultry - Eggs
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('seafood-page') }}" class="nav-link">
-                                                Sea Food
                                             </a>
                                         </li>
                                     </ul>
