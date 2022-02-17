@@ -18,19 +18,127 @@ class ProductController extends Controller
 
     }
 
-    public function getTrending()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function create()
     {
-        $trending = DB::table('products')->inRandomOrder()->limit(8)->get();
-        $featured = DB::table('products')->inRandomOrder()->limit(8)->get();
-        return view('main_public.index ', compact('trending','featured'));
+//        $data = DB::table('products')
+//            ->join('categories', 'products.category_id', '=', 'categories.id')
+//            ->select('products.*', 'categories.name as category_name')
+//            ->get();
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
+        return view('admin.product.create', compact('get_parent_category'));
+//        $data = DB::table('products')
+//            ->join('categories', 'products.category_id', '=', 'categories.id')
+//            ->join('discounts', 'products.discount_id', '=', 'discounts.id')
+//            ->select('products.*', 'categories.name as category_name', 'discounts.name as discount_name')
+//            ->get();
+//        dd($data);
+//        return view('admin.product.create',compact('data'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
+    {
+
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('assets/img/product', $filename);
+        }
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->category_id = $request->parent_category;
+        if ($request->sub_category) {
+            $product->category_id = $request->sub_category;
+        }
+        $product->discount_id = $request->discount_id;
+        $product->price = $request->price;
+        $product->status = $request->status;
+        $product->thumbnail = $filename;
+        $product->save();
+
+//        Product::create([
+//            'name' => $request->name,
+//            'description' => $request->description,
+//            'category_id' => $request->category_id,
+//            'discount_id' => $request->discount_id,
+//            'price' => $request->price,
+//            'status' => $request->status,
+//            'thumbnail' => $filename
+//        ]);
+        return redirect()->route('admin-product-index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Models\Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Product $product)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param \App\Models\Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        return view('admin.product.edit', compact('product'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Product $product)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param \App\Models\Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Product $product)
+    {
+        //
     }
 
     public function indexAdmin()
     {
-        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
+        $products = DB::table('products')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
             ->select('categories.name as category_name', 'products.*')
             ->get();
         return view('admin.product.index', compact('products'));
+    }
+
+    public function getProductById($id)
+    {
+        $product = Product::find($id);
+        return view('main_public.product_detail', compact('product'));
     }
 
     public function getFruits()
@@ -57,102 +165,17 @@ class ProductController extends Controller
         return view('main_public.milk', compact('milk'));
     }
 
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getTrending()
     {
-        //
-        $data = array(
-            0 => "Thit",
-            1 => "Rau",
-            2 => "Ca",
-            3 => "Fruit"
-        );
-        return view('admin.product.create',compact('data'));
+        $trending = DB::table('products')->inRandomOrder()->limit(8)->get();
+        $featured = DB::table('products')->inRandomOrder()->limit(8)->get();
+        return view('main_public.index ', compact('trending', 'featured'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request)
+    public function getSubCategoryProduct(Request $request)
     {
-        if($request->hasFile('thumbnail'))
-        {
-            $file = $request->file('thumbnail');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('assets/img/category', $filename);
-        }
-        Product::create([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'category_id'=>$request->category_id,
-            'discount_id'=>$request->discount_id,
-            'price'=>$request->price,
-            'status'=>$request->status,
-            'thumbnail'=> $filename
-        ]);
-        return redirect()->route('admin-product-index');
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
-    }
-
-    public function getProductById($id)
-    {
-        $product = Product::find($id);
-        return view('main_public.product_detail', compact('product'));
+        $get_sub_category = DB::table('categories')->where('parent_id', '=', $request->id)->get();
+        return $get_sub_category;
     }
 }

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/charts/c3charts/c3.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <title>Organic Farm - Admin Dashboard</title>
 </head>
 
 <body>
@@ -198,7 +198,7 @@
                                                     <a class="nav-link" href="#">List Users</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="ecommerce-product.html">Create New User</a>
+                                                    <a class="nav-link" href="#">Create New User</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -209,10 +209,10 @@
                                         <div id="submenu-1-1" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{route('admin-category-index')}}">Categories List</a>
+                                                    <a class="nav-link" onclick="refToCateList()" href="{{route('admin-category-index')}}">Categories List</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{route('admin-create-category')}}">Create New Category</a>
+                                                    <a class="nav-link" onclick="refToCreateCate" href="{{route('admin-create-category')}}">Create New Category</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -325,6 +325,18 @@
 <script src="{{asset('admin/assets/vendor/charts/c3charts/d3-5.4.0.min.js')}}"></script>
 <script src="{{asset('admin/assets/vendor/charts/c3charts/C3chartjs.js')}}"></script>
 <script src="{{asset('admin/assets/libs/js/dashboard-ecommerce.js')}}"></script>
+{{--<script>--}}
+{{--    function refToCateList(){--}}
+{{--        $.ajax({--}}
+{{--            url: '/admin/categories',--}}
+{{--            method: 'GET',--}}
+{{--            success: (result) =>{--}}
+{{--                $('.dashboard-wrapper').html(result);--}}
+{{--                console.log(result);--}}
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
+{{--</script>--}}
 {{--Script Tag--}}
 @yield('script-tag')
 </body>
