@@ -56,7 +56,7 @@ class CategoryController extends Controller
             'code'=>$request->code,
             'thumbnail'=> $newImageName,
         ]);
-        return redirect()->route('admin-category-index');
+        return redirect()->route('admin-category-index')->with('message', 'Create category success');
     }
 
         /**
