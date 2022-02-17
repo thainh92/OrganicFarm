@@ -18,14 +18,6 @@ class ProductController extends Controller
     {
 
     }
-  
-    public function indexAdmin()
-    {
-        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
-            ->select('categories.name as category_name', 'products.*')
-            ->get();
-        return view('admin.product.index', compact('products'));
-    }
 
     /*-- Product --*/
     public function getProducts()
@@ -119,7 +111,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $extension = $file->getClientOriginalExtension();
@@ -188,9 +179,27 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('assets/img/product', $filename);
+        }
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->parent_category;
+        if ($request->sub_category) {
+            $product->category_id = $request->sub_category;
+        }
+        $product->discount_id = $request->discount_id;
+        $product->status = $request->status;
+        $product->thumbnail = $filename;
+        $product->save();
+        return redirect()->route('admin-product-index')->with('message', 'Update product success');
     }
 
     /**
@@ -216,7 +225,7 @@ class ProductController extends Controller
             ->join('categories', function ($join) {
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
-            ->get();
+            ->paginate(10);
 //        $products = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
@@ -228,37 +237,6 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         return view('main_public.product_detail', compact('product'));
-    }
-
-    public function getFruits()
-    {
-        $fruits = DB::table('products')->where('category_id', '=', 1)->get();
-        return view('main_public.fruits', compact('fruits'));
-    }
-
-    public function getVegetables()
-    {
-        $vegetable = DB::table('products')->where('category_id', '=', 2)->get();
-        return view('main_public.vegetable', compact('vegetable'));
-    }
-
-    public function getMeats()
-    {
-        $meat = DB::table('products')->where('category_id', '=', 3)->get();
-        return view('main_public.meat', compact('meat'));
-    }
-
-    public function getMilks()
-    {
-        $milk = DB::table('products')->where('category_id', '=', 4)->get();
-        return view('main_public.milk', compact('milk'));
-    }
-
-    public function getTrending()
-    {
-        $trending = DB::table('products')->inRandomOrder()->limit(8)->get();
-        $featured = DB::table('products')->inRandomOrder()->limit(8)->get();
-        return view('main_public.index ', compact('trending', 'featured'));
     }
 
     public function getSubCategoryProduct(Request $request)

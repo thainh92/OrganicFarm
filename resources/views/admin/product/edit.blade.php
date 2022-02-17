@@ -10,7 +10,7 @@
             <div class="card">
                 <h5 class="card-header mt-3">Create new product</h5>
                 <div class="card-body">
-                    <form action="{{route('admin-store-product')}}" enctype="multipart/form-data" method="post"
+                    <form action="{{route('admin-update-product', $product)}}" enctype="multipart/form-data" method="post"
                           class="needs-validation" novalidate>
                         @csrf
                         @method('PUT')
@@ -29,7 +29,8 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">Description</label>
                                 <input type="text" class="form-control" id="validationCustom02"
-                                       placeholder="Product description" value="{{$product->description}}" name="description">
+                                       placeholder="Product description" value="{{$product->description}}"
+                                       name="description">
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -51,10 +52,9 @@
                                     @foreach($get_parent_category as $item)
                                         <option
                                             value="{{$item->id == $current_parent_category->id ? $current_parent_category->id : $item->id}}"
-                                                {{$item->id == $current_parent_category->id  ? 'selected' : ''}}
-                                                onclick="getSubCategory({{$item->parent_id == $current_parent_category->id ? $current_parent_category->id : $item->id}})">
+                                            {{$item->id == $current_parent_category->id  ? 'selected' : ''}}
+                                            onclick="getSubCategory({{$item->parent_id == $current_parent_category->id ? $current_parent_category->id : $item->id}})">
                                             {{$item->id == $current_parent_category->id ? $current_parent_category->name : $item->name}}</option>
-
                                     @endforeach
                                 </select>
                             </div>
@@ -99,7 +99,7 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">Upload image</label>
                                 <input type="file" class="form-control" id="validationCustom02" placeholder="File input"
-                                       value="" name="thumbnail" required>
+                                       value="{{'assets/img/product'.$product->thumbnail}}" name="thumbnail" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -112,7 +112,7 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <button class="btn btn-primary" type="submit">Submit form</button>
                                 <button class="btn btn-success" type="submit">Clear</button>
-                                <a href="{{route('admin-category-index')}}" class="btn btn-danger">Back</a>
+                                <a href="{{route('admin-product-index')}}" class="btn btn-danger">Back</a>
                             </div>
                         </div>
                     </form>
@@ -164,7 +164,7 @@
         //     })
         //     $('#sub-input-category').removeAttr("disabled");
         // }
-        $(document).ready(function(){
+        $(document).ready(function () {
             console.log('this is run on page load');
             getSubCategory(product2.id);
         });
@@ -175,21 +175,22 @@
                 data: {id: id},
                 method: 'GET',
                 success: (result) => {
-                    if(result.length !== 0){
+                    if (result.length !== 0) {
                         let optList = ``;
-                        for(let i = 0; i < result.length;i++){
+                        for (let i = 0; i < result.length; i++) {
                             let optItem = `<option value="${product.category_id === result[i].id ? product.category_id : result[i].id}" ${product.category_id === result[i].id ? "selected" : ""}>${product.category_id === result[i].id ? product.category.name : result[i].name}</option>`;
                             optList += optItem;
                         }
                         $('#sub-input-category').html('').append(optList);
                         $('#sub-input-category').removeAttr("disabled");
-                    }else{
-                        $('#sub-input-category').attr("disabled","disabled");
+                    } else {
+                        $('#sub-input-category').attr("disabled", "disabled");
                         $('#sub-input-category').html('').append(`<option value=""></option>`)
                     }
                 }
             })
         }
+
         function getParentId(id) {
             let obj = {};
             obj.id = id;

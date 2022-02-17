@@ -106,7 +106,7 @@ class CategoryController extends Controller
                 $category->thumbnail = $filename;
             }
             $category->save();
-            return redirect()->route('admin-category-index','', 201);
+            return redirect()->route('admin-category-index','', 201)->with('message', 'Update category success');
         }
 
         /**
