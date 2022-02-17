@@ -73,41 +73,25 @@ Route::get('/aboutus',function (){
 /*---------- End Main Route ----------*/
 
 /*---------- Shop Route ----------*/
+Route::get('/product', 'App\Http\Controllers\ProductController@getProducts')->name('product-page');
+
 Route::get('/fruits', 'App\Http\Controllers\ProductController@getFruits')->name('fruits-page');
 
 Route::get('/vegetable', 'App\Http\Controllers\ProductController@getVegetables')->name('vegetable-page');
 
+Route::get('/organic-vegetable', 'App\Http\Controllers\ProductController@getOrganicVegetables')->name('organic-vegetable-page');
+
+Route::get('/mushroom', 'App\Http\Controllers\ProductController@getMushrooms')->name('mushroom-page');
+
 Route::get('/meat', 'App\Http\Controllers\ProductController@getMeats')->name('meat-page');
 
+Route::get('/pork', 'App\Http\Controllers\ProductController@getPorks')->name('pork-page');
+
+Route::get('/beef', 'App\Http\Controllers\ProductController@getBeefs')->name('beef-page');
+
+Route::get('/poultry', 'App\Http\Controllers\ProductController@getPoultrys')->name('poultry-page');
+
 Route::get('/milk', 'App\Http\Controllers\ProductController@getMilks')->name('milk-page');
-
-Route::get('/organicvegetable',function (){
-    return view('main_public.organicvegetable');
-})->name('organicvegetable-page');
-
-Route::get('/mushroom',function (){
-    return view('main_public.mushroom');
-})->name('mushroom-page');
-
-Route::get('/pork',function (){
-    return view('main_public.pork');
-})->name('pork-page');
-
-Route::get('/beef',function (){
-    return view('main_public.beef');
-})->name('beef-page');
-
-Route::get('/poultryegg',function (){
-    return view('main_public.poultryegg');
-})->name('poultryegg-page');
-
-Route::get('/seafood',function (){
-    return view('main_public.seafood');
-})->name('seafood-page');
-
-Route::get('/product',function (){
-    return view('main_public.product');
-})->name('product-page');
 
 Route::get('/pricing',function (){
     return view('main_public.pricing');
