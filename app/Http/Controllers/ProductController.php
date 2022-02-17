@@ -230,37 +230,6 @@ class ProductController extends Controller
         return view('main_public.product_detail', compact('product'));
     }
 
-    public function getFruits()
-    {
-        $fruits = DB::table('products')->where('category_id', '=', 1)->get();
-        return view('main_public.fruits', compact('fruits'));
-    }
-
-    public function getVegetables()
-    {
-        $vegetable = DB::table('products')->where('category_id', '=', 2)->get();
-        return view('main_public.vegetable', compact('vegetable'));
-    }
-
-    public function getMeats()
-    {
-        $meat = DB::table('products')->where('category_id', '=', 3)->get();
-        return view('main_public.meat', compact('meat'));
-    }
-
-    public function getMilks()
-    {
-        $milk = DB::table('products')->where('category_id', '=', 4)->get();
-        return view('main_public.milk', compact('milk'));
-    }
-
-    public function getTrending()
-    {
-        $trending = DB::table('products')->inRandomOrder()->limit(8)->get();
-        $featured = DB::table('products')->inRandomOrder()->limit(8)->get();
-        return view('main_public.index ', compact('trending', 'featured'));
-    }
-
     public function getSubCategoryProduct(Request $request)
     {
         $get_sub_category = DB::table('categories')

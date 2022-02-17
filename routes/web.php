@@ -104,4 +104,5 @@ Route::get('/product-detail',function (){
 Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- End Shop Route ----------*/
 
-
+/*---------- Add Cart ----------*/
+Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
