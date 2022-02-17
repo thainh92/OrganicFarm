@@ -77,14 +77,7 @@ class CategoriesSeeder extends Seeder
                 'code' => '09',
                 'name' => 'poultry',
                 'parent_id' => 3, 
-            ],
-            [
-                'id' => 10,
-                'thumbnail' => 'seafood-1.jpg',
-                'code' => '10',
-                'name' => 'fruit',
-                'parent_id' => 3, 
-            ]           
+            ]          
         ]);
     }
 }

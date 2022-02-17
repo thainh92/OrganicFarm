@@ -16,6 +16,7 @@ class Product extends Model
         'thumbnail',
         'description',
         'category_id',
+        'parent_category_id',
         'discount_id',
         'price',
         'status',
