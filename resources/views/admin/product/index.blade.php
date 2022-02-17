@@ -5,12 +5,19 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Products List</h5>
-                    <h5 class="card-header">
-                        <a class="text-success" href="{{route('admin-create-product')}}">
-                            Create new product
-                        </a>
-                    </h5>
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="">
+                            <h5>Products List</h5>
+                            <a class="text-success" href="{{route('admin-create-product')}}">
+                                Create new product
+                            </a>
+                        </div>
+                        <div>
+                            @if(session('message'))
+                                <p id="showMessage" class="alert alert-success"><em>{{session('message')}}</em></p>
+                            @endif
+                        </div>
+                    </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table">
@@ -94,5 +101,10 @@
                 });
             }
         }
+    </script>
+    <script>
+        setTimeout(()=>{
+            document.getElementById('showMessage').style.display = 'none';
+        }, 2000);
     </script>
 @endsection

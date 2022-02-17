@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label for="validationCustom03"></label>
-                                <input type="file" class="form-control" id="validationCustom02" placeholder="File input" value="" name="thumbnail" required>
+                                <input type="file" class="form-control" id="validationCustom02" placeholder="File input" value="{{$category->thumbnail}}" name="thumbnail" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>

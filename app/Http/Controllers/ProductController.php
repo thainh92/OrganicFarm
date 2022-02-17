@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -100,10 +101,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-//        $data = DB::table('products')
-//            ->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->select('products.*', 'categories.name as category_name')
-//            ->get();
         $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
         return view('admin.product.create', compact('get_parent_category'));
 //        $data = DB::table('products')
@@ -111,7 +108,6 @@ class ProductController extends Controller
 //            ->join('discounts', 'products.discount_id', '=', 'discounts.id')
 //            ->select('products.*', 'categories.name as category_name', 'discounts.name as discount_name')
 //            ->get();
-//        dd($data);
 //        return view('admin.product.create',compact('data'));
     }
 
@@ -152,7 +148,7 @@ class ProductController extends Controller
 //            'status' => $request->status,
 //            'thumbnail' => $filename
 //        ]);
-        return redirect()->route('admin-product-index');
+        return redirect()->route('admin-product-index')->with('message', 'Create new product success');
     }
 
     /**
@@ -170,12 +166,19 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        return view('admin.product.edit', compact('product'));
+        $product = Product::with('category')->where('id', '=', $id)->first();
+//        dd($product->category);
+        $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
+        // $product->category
+//        dd($product);
+//        $get_product_category_id = DB::table('products')->where('category_id', '=', $id);
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
+
+        return view('admin.product.edit', compact('product', 'get_parent_category', 'current_parent_category'));
     }
 
     /**
@@ -201,6 +204,26 @@ class ProductController extends Controller
         //
     }
 
+    public function trash($id)
+    {
+        Product::where('id', $id)->delete();
+        return redirect()->route('admin-product-index', '', 201);
+    }
+
+    public function indexAdmin()
+    {
+        $products = DB::table('products')
+            ->join('categories', function ($join) {
+                $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
+            })->select('categories.name as category_name', 'products.*')
+            ->get();
+//        $products = DB::table('products')
+//            ->join('categories', 'products.category_id', '=', 'categories.id')
+//            ->select('categories.name as category_name', 'products.*')
+//            ->get();
+        return view('admin.product.index', compact('products'));
+    }
+
     public function getProductById($id)
     {
         $product = Product::find($id);
@@ -209,8 +232,9 @@ class ProductController extends Controller
 
     public function getSubCategoryProduct(Request $request)
     {
-
-        $get_sub_category = DB::table('categories')->where('parent_id', '=', $request->id)->get();
+        $get_sub_category = DB::table('categories')
+            ->where('parent_id', '=', $request->id)
+            ->get();
         return $get_sub_category;
     }
 }
