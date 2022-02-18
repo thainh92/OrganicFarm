@@ -35,13 +35,14 @@ class ProductController extends Controller
 
     public function getFruits()
     {
-        $fruits = DB::table('products')->where('parent_category_id', '=', 1)->get();
+        $fruits = DB::table('products')->where('category_id', '=', 11)->get();
         return view('main_public.fruits', compact('fruits'));
     }
 
     public function getVegetables()
     {
-        $vegetable = DB::table('products')->where('parent_category_id', '=', 2)->get();
+//        $vegetable = DB::table('products')->where('parent_category_id', '=', 2)->get();
+        $vegetable = DB::table('products')->where('category_id', '=', 1)->get();
         return view('main_public.vegetable', compact('vegetable'));
     }
 

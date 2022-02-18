@@ -106,3 +106,6 @@ Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 
 /*---------- Add Cart ----------*/
 Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
+
+
+/*---------- Home Controller ----------*/

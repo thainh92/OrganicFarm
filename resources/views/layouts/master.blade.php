@@ -118,62 +118,32 @@
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="{{ route('fruits-page') }}" class="nav-link">
-                                        Fruits
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('vegetable-page') }}" class="nav-link">
-                                        Vegetable
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('organic-vegetable-page') }}" class="nav-link">
-                                                Organic Vegetables
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('mushroom-page') }}" class="nav-link">
-                                                Fresh Mushrooms
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('meat-page') }}" class="nav-link">
-                                        Fresh Meat
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('pork-page') }}" class="nav-link">
-                                                Pork
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('beef-page') }}" class="nav-link">
-                                                Beef
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('poultry-page') }}" class="nav-link">
-                                                Poultry - Eggs
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('milk-page') }}" class="nav-link">
-                                        Milk & Products
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pricing-page') }}" class="nav-link">
-                                        Pricing
-                                    </a>
-                                </li>
+                                @php
+                                    $categories_old = DB::table('categories')->where('parent_id', '=', null)->get();
+                                    $categories = [];
+                                    foreach($categories_old as $category) {
+                                        $sub_categories = DB::table('categories')->where('parent_id', '=', $category->id)->get();
+                                        $category->sub_category = $sub_categories;
+                                        array_push($categories ,$category);
+                                    }
+                                @endphp
+
+                                @foreach($categories as $category)
+
+                                    <li class="nav-item">
+                                        <a href="{{url('/test')}}" class="nav-link">
+                                            {{$category->name}}
+                                            <i class='bx bx-chevron-down'></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="{{ route('pork-page') }}" class="nav-link">
+                                                    Pork
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="nav-item">
