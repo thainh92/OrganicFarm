@@ -35,6 +35,14 @@
                                     Please input category code.
                                 </div>
                             </div>
+                            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <label class="pt-2" for="input-select">Select Main Category</label>
+                                <select class="form-control form-control-sm" name="parent_id" id="input-select">
+                                    @foreach($get_parent_category as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">Image upload</label>
                                 <input type="file" class="form-control" id="validationCustom02" placeholder="File input"

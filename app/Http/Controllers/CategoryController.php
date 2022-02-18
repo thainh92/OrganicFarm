@@ -21,7 +21,8 @@ class CategoryController extends Controller
     public function indexAdmin()
     {
         //admin
-        $categories = Category::all();
+//        $categories = Category::all();
+        $categories = DB::table('categories')->paginate(10);
         return view('admin.category.index', compact('categories'));
     }
 
@@ -38,8 +39,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.category.create');
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
+        return view('admin.category.create', compact('get_parent_category'));
     }
 
     /**
@@ -55,6 +56,7 @@ class CategoryController extends Controller
         $category = Category::create([
             'name'=>$request->name,
             'code'=>$request->code,
+            'parent_id'=>$request->parent_id,
             'thumbnail'=> $newImageName,
         ]);
         return redirect()->route('admin-category-index')->with('message', 'Create category success');
@@ -82,7 +84,8 @@ class CategoryController extends Controller
         function edit($id)
         {
             $category = Category::find($id);
-            return view('admin.category.edit', compact('category'));
+            $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
+            return view('admin.category.edit', compact('category', 'get_parent_category'));
         }
 
         /**

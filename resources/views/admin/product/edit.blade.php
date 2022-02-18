@@ -10,7 +10,8 @@
             <div class="card">
                 <h5 class="card-header mt-3">Create new product</h5>
                 <div class="card-body">
-                    <form action="{{route('admin-update-product', $product)}}" enctype="multipart/form-data" method="post"
+                    <form action="{{route('admin-update-product', $product)}}" enctype="multipart/form-data"
+                          method="post"
                           class="needs-validation" novalidate>
                         @csrf
                         @method('PUT')
@@ -50,11 +51,19 @@
                                 <label class="pt-2" for="input-select">Select Category</label>
                                 <select class="form-control form-control-sm" name="parent_category" id="input-select">
                                     @foreach($get_parent_category as $item)
-                                        <option
-                                            value="{{$item->id == $current_parent_category->id ? $current_parent_category->id : $item->id}}"
-                                            {{$item->id == $current_parent_category->id  ? 'selected' : ''}}
-                                            onclick="getSubCategory({{$item->parent_id == $current_parent_category->id ? $current_parent_category->id : $item->id}})">
-                                            {{$item->id == $current_parent_category->id ? $current_parent_category->name : $item->name}}</option>
+{{--                                        @if($current_parent_category != null)--}}
+                                            <option
+                                                value="{{$item->id == $current_parent_category->id ? $current_parent_category->id : $item->id}}"
+                                                {{$item->id == $current_parent_category->id  ? 'selected' : ''}}
+                                                onclick="getSubCategory({{$item->parent_id == $current_parent_category->id ? $current_parent_category->id : $item->id}})">
+                                                {{$item->id == $current_parent_category->id ? $current_parent_category->name : $item->name}}</option>
+{{--                                        @else--}}
+{{--                                            @foreach($product as $item1)--}}
+{{--                                                <option--}}
+{{--                                                    value="{{$item1->category_id}}" selected onclick="getSubCategory({{$item1->category_id}})">--}}
+{{--                                                    {{$item1->category->name}}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        @endif--}}
                                     @endforeach
                                 </select>
                             </div>

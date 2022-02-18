@@ -93,7 +93,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
         return view('admin.product.create', compact('get_parent_category'));
 //        $data = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
@@ -164,10 +164,11 @@ class ProductController extends Controller
         $product = Product::with('category')->where('id', '=', $id)->first();
 //        dd($product->category);
         $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
+
         // $product->category
 //        dd($product);
 //        $get_product_category_id = DB::table('products')->where('category_id', '=', $id);
-        $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
 
         return view('admin.product.edit', compact('product', 'get_parent_category', 'current_parent_category'));
     }
@@ -225,7 +226,10 @@ class ProductController extends Controller
             ->join('categories', function ($join) {
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
-            ->paginate(10);
+            ->paginate(10)->withQueryString();
+//        $products->withPath('/admin/products');
+//        $products->appends(['sort' => 'created_at']);
+
 //        $products = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
