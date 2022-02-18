@@ -129,14 +129,14 @@
                                 @endphp
                                 @foreach($categories as $category)
                                     <li class="nav-item">
-                                        <a href="{{url('/test')}}" class="nav-link">
+                                        <a href="{{url($category->url)}}" class="nav-link">
                                             {{$category->name}}
                                             <i class='bx bx-chevron-down'></i>
                                         </a>
                                         <ul class="dropdown-menu">
                                             @foreach($category->sub_category as $item)
                                                 <li class="nav-item">
-                                                    <a href="{{ route('pork-page') }}" class="nav-link">
+                                                    <a href="{{ url($item->url) }}" class="nav-link">
                                                         {{$item->name}}
                                                     </a>
                                                 </li>

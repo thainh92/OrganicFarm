@@ -16,6 +16,9 @@
                             @if(session('message'))
                                 <p id="showMessage" class="alert alert-success"><em>{{session('message')}}</em></p>
                             @endif
+                            @if(session('failed'))
+                                <p id="showMessage" class="alert alert-danger"><em>{{session('failed')}}</em></p>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body p-0">
@@ -52,9 +55,13 @@
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->code}}</td>
                                         @if($category->parent_id == null)
-                                            <td><div class="btn btn-outline-primary btn-sm">Lv. 1</div></td>
+                                            <td>
+                                                <div class="btn btn-outline-primary btn-sm">Lv. 1</div>
+                                            </td>
                                         @else
-                                            <td><div class="btn btn-outline-secondary btn-sm">Lv. 2</div></td>
+                                            <td>
+                                                <div class="btn btn-outline-secondary btn-sm">Lv. 2</div>
+                                            </td>
                                         @endif
                                         <td>{{$category->created_at}}</td>
                                         <td>{{$category->updated_at}}</td>

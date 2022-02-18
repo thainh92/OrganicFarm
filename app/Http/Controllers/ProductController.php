@@ -130,16 +130,6 @@ class ProductController extends Controller
         $product->status = $request->status;
         $product->thumbnail = $filename;
         $product->save();
-
-//        Product::create([
-//            'name' => $request->name,
-//            'description' => $request->description,
-//            'category_id' => $request->category_id,
-//            'discount_id' => $request->discount_id,
-//            'price' => $request->price,
-//            'status' => $request->status,
-//            'thumbnail' => $filename
-//        ]);
         return redirect()->route('admin-product-index')->with('message', 'Create new product success');
     }
 
@@ -179,7 +169,7 @@ class ProductController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -251,4 +241,5 @@ class ProductController extends Controller
             ->get();
         return $get_sub_category;
     }
+
 }

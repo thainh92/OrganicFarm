@@ -23,6 +23,9 @@
                                 <div class="invalid-feedback">
                                     Please input category name.
                                 </div>
+                                <div class="invalid-feedback">
+                                    {{(isset($message)) ? $message : ''}}
+                                </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">Code</label>
