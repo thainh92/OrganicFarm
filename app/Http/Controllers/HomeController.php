@@ -15,8 +15,9 @@ class HomeController extends Controller
         foreach($categories_old as $category) {
             $sub_categories = DB::table('categories')->where('parent_id', '=', $category->id)->get();
             $category->sub_category = $sub_categories;
-            array_push($categories ,$category);
+            array_push($categories, $category);
         }
+//        dd($categories);
         return view('layouts.master', compact('categories'));
     }
 }

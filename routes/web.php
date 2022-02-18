@@ -109,3 +109,4 @@ Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 
 
 /*---------- Home Controller ----------*/
+//Route::get('/home', [HomeController::class, 'getMainCategory']);
