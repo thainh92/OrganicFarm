@@ -210,6 +210,7 @@ class ProductController extends Controller
         return redirect()->route('admin-product-index', '', 201);
     }
 
+    /*
     public function indexAdmin()
     {
         $products = DB::table('products')
@@ -217,13 +218,14 @@ class ProductController extends Controller
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
             ->get();
+            
 //        $products = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
 //            ->get();
         return view('admin.product.index', compact('products'));
     }
-
+*/
     public function getProductById($id)
     {
         $product = Product::find($id);
