@@ -16,6 +16,9 @@
                             @if(session('message'))
                                 <p id="showMessage" class="alert alert-success"><em>{{session('message')}}</em></p>
                             @endif
+                            @if(session('failed'))
+                                <p id="showMessage" class="alert alert-danger"><em>{{session('failed')}}</em></p>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body p-0">
@@ -27,6 +30,7 @@
                                     <th class="border-0">Image</th>
                                     <th class="border-0">Name</th>
                                     <th class="border-0">Code</th>
+                                    <th class="border-0">Category Level</th>
                                     <th class="border-0">Create At</th>
                                     <th class="border-0">Update At</th>
                                     <th class="border-0">Action</th>
@@ -37,7 +41,6 @@
                                     $id = 1;
                                 @endphp
                                 @foreach($categories as $category)
-
                                     <tr>
                                         <td>{{$id}}</td>
                                         @php
@@ -51,18 +54,32 @@
                                         </td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->code}}</td>
+                                        @if($category->parent_id == null)
+                                            <td>
+                                                <div class="btn btn-outline-primary btn-sm">Lv. 1</div>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <div class="btn btn-outline-secondary btn-sm">Lv. 2</div>
+                                            </td>
+                                        @endif
                                         <td>{{$category->created_at}}</td>
                                         <td>{{$category->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('admin-edit-category', $category)}}"
-                                               class="p-1 f-icon fas fa-edit text-primary"></a>
-                                            <a href="javascript:void(0)" onclick="deleteRecord({{$category->id}})"
-                                               class="p-1 f-icon fas fa-trash-alt text-danger"></a>
+                                            @if($category->parent_id != null)
+                                                <a href="{{route('admin-edit-category', $category->id)}}"
+                                                   class="p-1 f-icon fas fa-edit text-primary"></a>
+                                                <a href="javascript:void(0)" onclick="deleteRecord({{$category->id}})"
+                                                   class="p-1 f-icon fas fa-trash-alt text-danger"></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="mt-3">
+                                {{$categories->links('pagination::bootstrap-4')}}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,8 +112,8 @@
         }
     </script>
     <script>
-        setTimeout(()=>{
+        setTimeout(() => {
             document.getElementById('showMessage').style.display = 'none';
-        },2000)
+        }, 2000)
     </script>
 @endsection

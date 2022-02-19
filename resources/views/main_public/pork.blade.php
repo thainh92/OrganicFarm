@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="row">
-                            @foreach ($porks as $item)
+                            @foreach ($pork as $item)
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">

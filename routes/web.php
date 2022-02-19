@@ -76,13 +76,13 @@ Route::get('/product', 'App\Http\Controllers\ProductController@getProducts')->na
 
 Route::get('/fruits', 'App\Http\Controllers\ProductController@getFruits')->name('fruits-page');
 
-Route::get('/vegetable', 'App\Http\Controllers\ProductController@getVegetables')->name('vegetable-page');
+Route::get('/vegetables', 'App\Http\Controllers\ProductController@getVegetables')->name('vegetable-page');
 
-Route::get('/organic-vegetable', 'App\Http\Controllers\ProductController@getOrganicVegetables')->name('organic-vegetable-page');
+Route::get('/organic-vegetables', 'App\Http\Controllers\ProductController@getOrganicVegetables')->name('organic-vegetable-page');
 
-Route::get('/mushroom', 'App\Http\Controllers\ProductController@getMushrooms')->name('mushroom-page');
+Route::get('/fresh-mushrooms', 'App\Http\Controllers\ProductController@getMushrooms')->name('mushroom-page');
 
-Route::get('/meat', 'App\Http\Controllers\ProductController@getMeats')->name('meat-page');
+Route::get('/meats', 'App\Http\Controllers\ProductController@getMeats')->name('meat-page');
 
 Route::get('/pork', 'App\Http\Controllers\ProductController@getPorks')->name('pork-page');
 
@@ -90,7 +90,7 @@ Route::get('/beef', 'App\Http\Controllers\ProductController@getBeefs')->name('be
 
 Route::get('/poultry', 'App\Http\Controllers\ProductController@getPoultrys')->name('poultry-page');
 
-Route::get('/milk', 'App\Http\Controllers\ProductController@getMilks')->name('milk-page');
+Route::get('/milks', 'App\Http\Controllers\ProductController@getMilks')->name('milk-page');
 
 Route::get('/pricing',function (){
     return view('main_public.pricing');
@@ -109,3 +109,6 @@ Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
 
 Route::get('/cart', 'App\Http\Controllers\CartItemController@ViewListCart')->name('cart-page');
+
+/*---------- Home Controller ----------*/
+//Route::get('/home', [HomeController::class, 'getMainCategory']);

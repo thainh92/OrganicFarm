@@ -18,14 +18,6 @@ class ProductController extends Controller
     {
 
     }
-  
-    public function indexAdmin()
-    {
-        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
-            ->select('categories.name as category_name', 'products.*')
-            ->get();
-        return view('admin.product.index', compact('products'));
-    }
 
     /*-- Product --*/
     public function getProducts()
@@ -43,13 +35,14 @@ class ProductController extends Controller
 
     public function getFruits()
     {
-        $fruits = DB::table('products')->where('parent_category_id', '=', 1)->get();
+        $fruits = DB::table('products')->where('category_id', '=', 11)->get();
         return view('main_public.fruits', compact('fruits'));
     }
 
     public function getVegetables()
     {
-        $vegetable = DB::table('products')->where('parent_category_id', '=', 2)->get();
+//        $vegetable = DB::table('products')->where('parent_category_id', '=', 2)->get();
+        $vegetable = DB::table('products')->where('category_id', '=', 1)->get();
         return view('main_public.vegetable', compact('vegetable'));
     }
 
@@ -101,7 +94,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
         return view('admin.product.create', compact('get_parent_category'));
 //        $data = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
@@ -119,7 +112,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $extension = $file->getClientOriginalExtension();
@@ -138,16 +130,6 @@ class ProductController extends Controller
         $product->status = $request->status;
         $product->thumbnail = $filename;
         $product->save();
-
-//        Product::create([
-//            'name' => $request->name,
-//            'description' => $request->description,
-//            'category_id' => $request->category_id,
-//            'discount_id' => $request->discount_id,
-//            'price' => $request->price,
-//            'status' => $request->status,
-//            'thumbnail' => $filename
-//        ]);
         return redirect()->route('admin-product-index')->with('message', 'Create new product success');
     }
 
@@ -173,10 +155,11 @@ class ProductController extends Controller
         $product = Product::with('category')->where('id', '=', $id)->first();
 //        dd($product->category);
         $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
+
         // $product->category
 //        dd($product);
 //        $get_product_category_id = DB::table('products')->where('category_id', '=', $id);
-        $get_parent_category = DB::table('categories')->where('parent_id', '=', 0)->get();
+        $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
 
         return view('admin.product.edit', compact('product', 'get_parent_category', 'current_parent_category'));
     }
@@ -186,11 +169,29 @@ class ProductController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('assets/img/product', $filename);
+        }
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->parent_category;
+        if ($request->sub_category) {
+            $product->category_id = $request->sub_category;
+        }
+        $product->discount_id = $request->discount_id;
+        $product->status = $request->status;
+        $product->thumbnail = $filename;
+        $product->save();
+        return redirect()->route('admin-product-index')->with('message', 'Update product success');
     }
 
     /**
@@ -219,6 +220,10 @@ class ProductController extends Controller
             })->select('categories.name as category_name', 'products.*')
             ->get();
             
+            ->paginate(10)->withQueryString();
+//        $products->withPath('/admin/products');
+//        $products->appends(['sort' => 'created_at']);
+
 //        $products = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
@@ -239,4 +244,5 @@ class ProductController extends Controller
             ->get();
         return $get_sub_category;
     }
+
 }
