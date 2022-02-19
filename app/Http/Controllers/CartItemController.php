@@ -5,13 +5,38 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Cart;
+use Session;
 
 class CartItemController extends Controller
 {
-
-    public function AddCart($id) {
+    public function AddCart(Request $request, $id) {
         $product = DB::table('products')->where('id',$id)->first();
-        dd($product);
+        if($product != null) {
+            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->AddCart($product, $id);
+
+            $request->session()->put('Cart', $newCart);      
+        }
+        return view('cart');
+    }
+
+    public function DeleteItemCart(Request $request, $id) {
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->DeleteItemCart($id);
+
+        if(Count($newCart->products)>0) {
+            $request->Session()->put('Cart', $newCart);
+        } else{
+            $request->session()->forget('Cart');
+        }
+        return view('cart');
+    }
+
+    public function ViewListCart() {
+        return view('main_public.shoppingcart');
     }
 
     /**

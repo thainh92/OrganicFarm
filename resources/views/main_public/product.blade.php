@@ -1,19 +1,19 @@
 @extends('layouts.master')
-@section('title','Juice')
+@section('title','Product')
 @section('content')
-    <section class="juice-container">
+    <section class="product-container">
         <!-- Start Page Banner -->
         <div class="page-banner-area item-bg1">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Juice</h2>
+                            <h2>Product</h2>
                             <ul>
                                 <li>
                                     <a href="{{ route('home-page') }}">Home</a>
                                 </li>
-                                <li>Juice</li>
+                                <li>Product</li>
                             </ul>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
 
                                         <ul class="products-action">
                                             <li>
-                                                <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                                <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                             </li>
                                             <li>
                                                 <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
@@ -216,6 +216,7 @@
         <!-- End Top Products Area -->
     </section>
 @endsection
+<script>
+</script>
 @section('script-tag')
-    <script></script>
 @endsection

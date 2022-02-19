@@ -18,22 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\ProductController@getTrending')->name('home-page');
 
-    Route::get('/contact',function (){
-        return view('main_public.contact');
-    })->name('contact-page');
+Route::get('/contact',function (){
+    return view('main_public.contact');
+})->name('contact-page');
 
-    Route::get('/aboutus',function (){
-        return view('main_public.aboutus');
-    })->name('aboutus-page');
+Route::get('/aboutus',function (){
+    return view('main_public.aboutus');
+})->name('aboutus-page');
 
+Route::get('/blog',function (){
+    return view('main_public.blog');
+})->name('blog-page');
 
-    Route::get('/blog',function (){
-        return view('main_public.blog');
-    })->name('blog-page');
-
-    Route::get('/blogdetails',function (){
-        return view('main_public.blogdetails');
-    })->name('blog-details-page');
+Route::get('/blogdetails',function (){
+    return view('main_public.blogdetails');
+})->name('blog-details-page');
 
 
 /*---------- Main Route ----------*/
@@ -107,6 +106,9 @@ Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
 /*---------- Add Cart ----------*/
 Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 
+Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
+
+Route::get('/cart', 'App\Http\Controllers\CartItemController@ViewListCart')->name('cart-page');
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);

@@ -28,10 +28,17 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
-
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}" type="text/css">
     <title>@yield('title')</title>
 
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+
+    <style>
+        .si-pic img {
+            width: 70px;
+        }
+    </style>
 </head>
 
 <body>
@@ -163,24 +170,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Account
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="login.html" class="nav-link">
-                                                Login
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="register.html" class="nav-link">
-                                                Register
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
                                     <a href="{{ route('terms-page') }}" class="nav-link">
                                         Terms of Service
                                     </a>
@@ -229,21 +218,47 @@
                         </div>
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="{{ route('cart-page') }}">
+                                <a href="{{ url('/cart') }}">
                                     <i class='flaticon-shopping-cart'></i>
-                                    <span>0</span>
+                                    @if(Session::has('Cart') != null)
+                                        <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
+                                    @else
+                                        <span id="total-quanty-show">0</span>
+                                    @endif 
                                 </a>
-                                <div class="cart-btn-dropdown">
-                                    <p>Shopping Cart</p>
-                                    <div class="cart-btn-dropdown-child">
-                                        <p></p>
-                                        <a href="#" class="cart-btn-dropdown-create">
-                                            <p>CREATE ORGANIC FARM ACCOUNT</p>
-                                        </a>
+                                <div class="cart-hover">
+                                    <div id="change-item-cart">
+                                        @if(Session::has('Cart') != null)
+                                            <div class="select-items">
+                                                <table>
+                                                    <tbody>
+                                                        @foreach(Session::get('Cart')->products as $item)
+                                                            <tr>
+                                                                <td class="si-pic"><img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt=""></td>
+                                                                <td class="si-text">
+                                                                    <div class="product-selected">
+                                                                        <p>${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</p>
+                                                                        <h6>{{$item['productInfo']->name}}</h6>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="si-close">
+                                                                    <i class="ti-close" data-id="{{$item['productInfo']->id}}"></i>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="select-total">
+                                                <span>total:</span>
+                                                <h5>${{number_format(Session::get('Cart')->totalPrice)}}</h5>
+                                            </div>
+                                        @endif
                                     </div>
-                                    <a href="#" class="cart-btn-dropdown-singin">
-                                        <h4>SIGN OUT</h4>
-                                    </a>
+                                    <div class="select-button">
+                                        <a href="{{ url('/cart') }}" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -679,8 +694,41 @@
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+<!-- Alert -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 {{-- Place for script --}}
+<script>
+    function AddCart(id) {
+        $.ajax({
+            url: 'Add-Cart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            RenderCart(response);
+            alertify.success('Add Success');
+        });
+    }
+
+    $("#change-item-cart").on('click', '.si-close i', function() {
+        $.ajax({
+            url: 'Delete-Item-Cart/'+$(this).data('id'),
+            type: 'GET',
+        }).done(function(response) {               
+            RenderCart(response);
+            alertify.error('Delete Success');
+        });
+    });
+
+    function RenderCart(response) {
+        $("#change-item-cart").empty();
+        $("#change-item-cart").html(response);
+        $("#total-quanty-show").text($("#total-quanty-cart").val());
+    }
+</script>
 @yield('script-tag');
 </body>
 </html>
