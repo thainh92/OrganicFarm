@@ -59,7 +59,7 @@
                                                             <span class="minus-btn">
                                                                 <i class='bx bx-minus'></i>
                                                             </span>
-                                                            <input type="text" value="{{$item['quanty']}}">
+                                                            <input data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
                                                             <span class="plus-btn">
                                                                 <i class='bx bx-plus'></i>
                                                             </span>
@@ -68,7 +68,12 @@
                                                     <td class="product-subtotal">
                                                         <span class="subtotal-amount">${{number_format($item['price'])}}</span>
                                                         <a href="#" class="remove">
-                                                            <i class='bx bx-trash'></i>
+                                                            <i class='bx bx-save' onclick="SaveListItemCart({{$item['productInfo']->id}})"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="product-subtotal">
+                                                        <a href="#" class="remove">
+                                                            <i class='bx bx-trash' onclick="DeleteListItemCart({{$item['productInfo']->id}})"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -85,7 +90,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-                                        <a href="#" class="default-btn">
+                                        <a href="#" class="default-btn edit-all">
                                             Update Cart
                                         </a>
                                     </div>
@@ -94,20 +99,22 @@
                             
                             <div class="cart-totals">
                                 <h3>Cart Totals</h3>
-                                <ul>
-                                    <li>Subtotal 
-                                        <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
-                                    </li>
-                                    <li>Shipping 
-                                        <span>$10</span>
-                                    </li>
-                                    <li>Total 
-                                        <span><b>${{number_format($item['price']) + 10}}</b></span>
-                                    </li>
-                                </ul>
-                                <a href="#" class="default-btn">
-                                    Proceed to Checkout
-                                </a>
+                                @if(Session::has("Cart") != null)
+                                    <ul>
+                                        <li>Subtotal 
+                                            <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
+                                        </li>
+                                        <li>Shipping 
+                                            <span>$10</span>
+                                        </li>
+                                        <li>Total 
+                                            <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="default-btn">
+                                        Proceed to Checkout
+                                    </a>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -118,5 +125,81 @@
     </section>
 @endsection
 @section('script-tag')
-    <script></script>
+    <script>
+        function DeleteListItemCart(id) {
+            $.ajax({
+                url: 'Delete-Item-List-Cart/'+id,
+                type: 'GET',
+            }).done(function(response){
+                RenderListCart(response);
+                alertify.error('Delete Success');
+            });
+        }
+        
+        function SaveListItemCart(id) {
+            $.ajax({
+                url: 'Save-Item-List-Cart/'+id+'/'+$("#quanty-item-"+id).val(),
+                type: 'GET',
+            }).done(function(response){
+                RenderListCart(response);
+                alertify.success('Save Success');
+            });
+        }
+
+        function RenderListCart(response) {
+            $("#list-cart").empty();
+            $("#list-cart").html(response);
+
+            $('.input-counter').each(function() {
+                var spinner = jQuery(this),
+                input = spinner.find('input[type="text"]'),
+                btnUp = spinner.find('.plus-btn'),
+                btnDown = spinner.find('.minus-btn'),
+                min = input.attr('min'),
+                max = input.attr('max');
+            
+                btnUp.on('click', function() {
+                    var oldValue = parseFloat(input.val());
+                    if (oldValue >= max) {
+                        var newVal = oldValue;
+                    } else {
+                        var newVal = oldValue + 1;
+                    }
+                    spinner.find("input").val(newVal);
+                    spinner.find("input").trigger("change");
+                });
+                btnDown.on('click', function() {
+                    var oldValue = parseFloat(input.val());
+                    if (oldValue <= min) {
+                        var newVal = oldValue;
+                    } else {
+                        var newVal = oldValue - 1;
+                    }
+                    spinner.find("input").val(newVal);
+                    spinner.find("input").trigger("change");
+                });
+		    });
+        }
+    
+        $(".edit-all").on("click", function(){
+            var lists = [];
+            $("table tbody tr td").each(function(){
+                $(this).find("input").each(function(){
+                    var element = { key: $(this).data("id"), value: $(this).val() };
+                    lists.push(element);
+                });
+            });
+            $.ajax({
+                url: 'Save-All',
+                type: 'POST',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "data": lists
+                }
+            }).done(function(response){
+                location.reload();
+                alertify.success('Update Success');
+            });
+        });
+    </script>
 @endsection
