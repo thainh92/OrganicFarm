@@ -59,7 +59,7 @@
                                                             <span class="minus-btn">
                                                                 <i class='bx bx-minus'></i>
                                                             </span>
-                                                            <input type="text" value="{{$item['quanty']}}">
+                                                            <input id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
                                                             <span class="plus-btn">
                                                                 <i class='bx bx-plus'></i>
                                                             </span>
@@ -67,7 +67,12 @@
                                                     </td>
                                                     <td class="product-subtotal">
                                                         <span class="subtotal-amount">${{number_format($item['price'])}}</span>
-                                                        <a href="#" class="remove">
+                                                        <a href="#" class="remove" onclick="DeleteListItemCart({{$item['productInfo']->id}})">
+                                                            <i class='bx bx-save'></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="product-subtotal">
+                                                        <a href="#" class="remove" onclick="DeleteListItemCart({{$item['productInfo']->id}})">
                                                             <i class='bx bx-trash'></i>
                                                         </a>
                                                     </td>
@@ -94,20 +99,22 @@
                             
                             <div class="cart-totals">
                                 <h3>Cart Totals</h3>
-                                <ul>
-                                    <li>Subtotal 
-                                        <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
-                                    </li>
-                                    <li>Shipping 
-                                        <span>$10</span>
-                                    </li>
-                                    <li>Total 
-                                        <span><b>${{number_format($item['price']) + 10}}</b></span>
-                                    </li>
-                                </ul>
-                                <a href="#" class="default-btn">
-                                    Proceed to Checkout
-                                </a>
+                                @if(Session::has("Cart") != null)
+                                    <ul>
+                                        <li>Subtotal 
+                                            <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
+                                        </li>
+                                        <li>Shipping 
+                                            <span>$10</span>
+                                        </li>
+                                        <li>Total 
+                                            <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="default-btn">
+                                        Proceed to Checkout
+                                    </a>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -118,5 +125,32 @@
     </section>
 @endsection
 @section('script-tag')
-    <script></script>
+    <script>
+        function DeleteListItemCart(id) {
+            $.ajax({
+                url: 'Delete-Item-List-Cart/'+id,
+                type: 'GET',
+            }).done(function(response){
+                RenderListCart(response);
+                alertify.success('Add Success');
+            });
+        }
+        
+        function SaveListItemCart(id) {
+            $.ajax({
+                url: 'Save-Item-List-Cart/'+id+'/'+$("#quanty-item-"+id).val(),
+                type: 'GET',
+            }).done(function(response){
+                RenderListCart(response);
+                alertify.success('Save Success');
+            });
+        }
+
+        function RenderListCart(response) {
+            $("#list-cart").empty();
+            ("#list-cart").html(response);
+        }
+
+
+    </script>
 @endsection

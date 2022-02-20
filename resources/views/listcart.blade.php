@@ -29,15 +29,20 @@
                                 <span class="minus-btn">
                                     <i class='bx bx-minus'></i>
                                 </span>
-                                <input type="text" value="{{$item['quanty']}}">
+                                <input id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
                                 <span class="plus-btn">
                                     <i class='bx bx-plus'></i>
                                 </span>
                             </div>
                         </td>
                         <td class="product-subtotal">
-                            <span class="subtotal-amount">${{number_format($item['price']->price)}}</span>
-                            <a href="#" class="remove">
+                            <span class="subtotal-amount">${{number_format($item['price'])}}</span>
+                            <a href="#" class="remove" onclick="DeleteListItemCart({{$item['productInfo']->id}})">
+                                <i class='bx bx-save'></i>
+                            </a>
+                        </td>
+                        <td class="product-subtotal">
+                            <a href="#" class="remove" onclick="DeleteListItemCart({{$item['productInfo']->id}})">
                                 <i class='bx bx-trash'></i>
                             </a>
                         </td>
@@ -64,18 +69,20 @@
 
 <div class="cart-totals">
     <h3>Cart Totals</h3>
-    <ul>
-        <li>Subtotal 
-            <span>$1683.50</span>
-        </li>
-        <li>Shipping 
-            <span>$30.00</span>
-        </li>
-        <li>Total 
-            <span><b>$1713.50</b></span>
-        </li>
-    </ul>
-    <a href="#" class="default-btn">
-        Proceed to Checkout
-    </a>
+    @if(Session::has("Cart") != null)
+        <ul>
+            <li>Subtotal 
+                <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
+            </li>
+            <li>Shipping 
+                <span>$10</span>
+            </li>
+            <li>Total 
+                <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
+            </li>
+        </ul>
+        <a href="#" class="default-btn">
+            Proceed to Checkout
+        </a>
+    @endif
 </div>

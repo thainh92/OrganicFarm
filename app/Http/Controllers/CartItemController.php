@@ -39,6 +39,28 @@ class CartItemController extends Controller
         return view('main_public.shoppingcart');
     }
 
+    public function DeleteListItemCart(Request $request, $id) {
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->DeleteItemCart($id);
+
+        if(Count($newCart->products)>0) {
+            $request->Session()->put('Cart', $newCart);
+        } else{
+            $request->session()->forget('Cart');
+        }
+        return view('listcart');
+    }
+
+    public function SaveListItemCart(Request $request, $id, $quanty) {
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->UpdateItemCart($id, $quanty);
+
+        $request->Session()->put('Cart', $newCart);
+        
+        return view('listcart');
+    }
     /**
      * Display a listing of the resource.
      *
