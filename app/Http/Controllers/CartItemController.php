@@ -17,7 +17,7 @@ class CartItemController extends Controller
             $newCart = new Cart($oldCart);
             $newCart->AddCart($product, $id);
 
-            $request->session()->put('Cart', $newCart);      
+            $request->Session()->put('Cart', $newCart);      
         }
         return view('cart');
     }
@@ -30,7 +30,7 @@ class CartItemController extends Controller
         if(Count($newCart->products)>0) {
             $request->Session()->put('Cart', $newCart);
         } else{
-            $request->session()->forget('Cart');
+            $request->Session()->forget('Cart');
         }
         return view('cart');
     }
@@ -47,9 +47,9 @@ class CartItemController extends Controller
         if(Count($newCart->products)>0) {
             $request->Session()->put('Cart', $newCart);
         } else{
-            $request->session()->forget('Cart');
+            $request->Session()->forget('Cart');
         }
-        return view('listcart');
+        return view('list-cart');
     }
 
     public function SaveListItemCart(Request $request, $id, $quanty) {
@@ -59,8 +59,18 @@ class CartItemController extends Controller
 
         $request->Session()->put('Cart', $newCart);
         
-        return view('listcart');
+        return view('list-cart');
     }
+
+    public function SaveAllListItemCart(Request $request) {
+        foreach($request->data as $item) {
+            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->UpdateItemCart($item["key"], $item["value"]);
+            $request->Session()->put('Cart', $newCart);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *

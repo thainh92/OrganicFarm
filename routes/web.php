@@ -114,5 +114,7 @@ Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartItemControll
 
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartItemController@SaveListItemCart');
 
+Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListItemCart');
+
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);

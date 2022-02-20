@@ -29,7 +29,7 @@
                                 <span class="minus-btn">
                                     <i class='bx bx-minus'></i>
                                 </span>
-                                <input id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
+                                <input data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
                                 <span class="plus-btn">
                                     <i class='bx bx-plus'></i>
                                 </span>
@@ -37,7 +37,7 @@
                         </td>
                         <td class="product-subtotal">
                             <span class="subtotal-amount">${{number_format($item['price'])}}</span>
-                            <a href="#" class="remove" onclick="DeleteListItemCart({{$item['productInfo']->id}})">
+                            <a href="#" class="remove" onclick="SaveListItemCart({{$item['productInfo']->id}})">
                                 <i class='bx bx-save'></i>
                             </a>
                         </td>
@@ -60,7 +60,7 @@
             </a>
         </div>
         <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-            <a href="#" class="default-btn">
+            <a href="#" class="default-btn edit-all">
                 Update Cart
             </a>
         </div>
