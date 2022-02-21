@@ -242,7 +242,13 @@ class ProductController extends Controller
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
 //            ->get();
-        return view('admin.product.index', compact('products', 'get_categories'));
+        return view('admin.product.index', ['products' => $products,
+            'total' => $products->total(),
+            'perPage' => $products->perPage(),
+            'currentPage' => $products->currentPage(),
+            'get_categories' => $get_categories,
+            ]);
+//        return view('admin.product.index', compact('products', 'get_categories'));
     }
 
     public function getProductById($id)

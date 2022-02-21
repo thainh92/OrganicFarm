@@ -30,7 +30,7 @@
                                         <label for="inputDefault" class="col-form-label">Search by category</label>
                                             <select class="form-control">
                                                 @foreach($get_categories as $categories)
-                                                <option></option>
+                                                <option>{{$categories->name}}</option>
                                                 @endforeach
                                             </select>
 
@@ -67,15 +67,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php
-                                    $id = 1;
-                                @endphp
-                                @foreach($products as $product)
+{{--                                @php--}}
+{{--                                    $id = 1;--}}
+{{--                                @endphp--}}
+                                @foreach($products as $key => $product)
                                     <tr>
-                                        <td>{{$id}}</td>
-                                        @php
-                                            $id++;
-                                        @endphp
+                                        <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
+{{--                                        @php--}}
+{{--                                            $id++;--}}
+{{--                                        @endphp--}}
                                         <td>
                                             <div class="m-r-10"><img
                                                     src="{{asset('assets/img/product/'.$product->thumbnail)}}"

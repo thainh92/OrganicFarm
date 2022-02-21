@@ -118,3 +118,4 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
+

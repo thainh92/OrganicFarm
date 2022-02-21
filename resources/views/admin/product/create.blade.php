@@ -26,9 +26,11 @@
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                <label class="pt-2" for="validationCustom01">Description</label>
-                                <input type="text" class="form-control" id="validationCustom02"
-                                       placeholder="Product description" value="" name="description">
+                                <div class="form-group pt-2">
+                                    <label for="exampleFormControlTextarea1">Description</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                              placeholder="Product description" value="" name="description"></textarea>
+                                </div>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>

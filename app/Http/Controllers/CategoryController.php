@@ -25,7 +25,13 @@ class CategoryController extends Controller
         $categories = DB::table('categories')
             ->where('categories.deleted_at','=',null)
             ->paginate(10);
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index', [
+            'categories' => $categories,
+            'total' => $categories->total(),
+            'perPage' => $categories->perPage(),
+            'currentPage' => $categories->currentPage()
+        ]);
+//        return view('admin.category.index', compact('categories'));
     }
 
     public function getCategoriesName()
