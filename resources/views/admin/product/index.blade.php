@@ -18,6 +18,36 @@
                             @endif
                         </div>
                     </div>
+                    <div class="card-header">
+                        <form>
+                            <div>
+                                <div class="row">
+                                    <div class="form-group col-lg-4 col-sm-6" >
+                                        <label for="inputDefault" class="col-form-label">Search by name</label>
+                                        <input style="height: 38px" id="inputDefault" type="text" value="Default input" class="form-control">
+                                    </div>
+                                    <div class="form-group col-lg-4 col-sm-6">
+                                        <label for="inputDefault" class="col-form-label">Search by category</label>
+                                            <select class="form-control">
+                                                @foreach($get_categories as $categories)
+                                                <option></option>
+                                                @endforeach
+                                            </select>
+
+                                    </div>
+                                    <div class="form-group col-lg-4 col-sm-6">
+                                        <label for="inputDefault" class="col-form-label">Search by status</label>
+                                        <select class="form-control">
+                                            <option>Default select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="btn btn-success">
+                                    Search
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table">
@@ -72,17 +102,6 @@
                             </table>
                             <div class="mt-3">
                                 {{$products->links('pagination::bootstrap-4')}}
-                            </div>
-                            <div class="mt-3">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-{{--                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>--}}
-{{--                                        <li class="page-item"><a class="page-link" href="#">1</a></li>--}}
-{{--                                        <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
-{{--                                        <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
-{{--                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>--}}
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>

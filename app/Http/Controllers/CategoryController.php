@@ -164,7 +164,7 @@ class CategoryController extends Controller
 
     public function convertNameToUrl($name)
     {
-        return ('/' . mb_strtolower(str_replace(' ', '', $name)));
+        return ('/' . mb_strtolower(str_replace(' ', '-', $name)));
     }
 
     public function checkNameExist($name)
