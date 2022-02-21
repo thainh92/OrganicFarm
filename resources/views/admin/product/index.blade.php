@@ -5,12 +5,19 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Products List</h5>
-                    <h5 class="card-header">
-                        <a class="text-success" href="{{route('admin-create-product')}}">
-                            Create new product
-                        </a>
-                    </h5>
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="">
+                            <h5>Products List</h5>
+                            <a class="text-success" href="{{route('admin-create-product')}}">
+                                Create new product
+                            </a>
+                        </div>
+                        <div>
+                            @if(session('message'))
+                                <p id="showMessage" class="alert alert-success"><em>{{session('message')}}</em></p>
+                            @endif
+                        </div>
+                    </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table">
@@ -54,7 +61,7 @@
                                         <td>{{$product->created_at}}</td>
                                         <td>{{$product->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('admin-edit-product', $product)}}"
+                                            <a href="{{route('admin-edit-product', $product->id)}}"
                                                class="p-1 f-icon fas fa-edit text-primary"></a>
                                             <a href="javascript:void(0)" onclick="deleteRecord({{$product->id}})"
                                                class="p-1 f-icon fas fa-trash-alt text-danger"></a>
@@ -63,6 +70,20 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="mt-3">
+                                {{$products->links('pagination::bootstrap-4')}}
+                            </div>
+                            <div class="mt-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+{{--                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>--}}
+{{--                                        <li class="page-item"><a class="page-link" href="#">1</a></li>--}}
+{{--                                        <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+{{--                                        <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+{{--                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>--}}
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,5 +114,10 @@
                 });
             }
         }
+    </script>
+    <script>
+        setTimeout(()=>{
+            document.getElementById('showMessage').style.display = 'none';
+        }, 2000);
     </script>
 @endsection

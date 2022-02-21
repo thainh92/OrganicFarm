@@ -146,15 +146,15 @@
                 </div>
 
                 <div class="row">
-                    @foreach($top_data as $product)
+                    @foreach($featured as $item)
                     <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
-                                <a href="/product-detail/{{$product->id}}"><img src="{{$product->thumbnail}}" alt="image"></a>
+                                <a href="#"><img src="assets/img/product/{{$item->thumbnail}}" alt="image"></a>
 
                                 <ul class="products-action">
                                     <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     <li>
                                         <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
@@ -173,11 +173,11 @@
 
                             <div class="products-content">
                                 <h3>
-                                    <a href="{{route('product-detail')}}">{{$product->name}}</a>
+                                    <a href="#">{{$item->name}}</a>
                                 </h3>
                                 <div class="price">
-                                    <span class="new-price">{{$product->price}}</span>
-                                    <span class="old-price">{{$product->price}}</span>
+                                    <span class="new-price">{{$item->price}}</span>
+                                    <span class="old-price">{{$item->price}}</span>
                                 </div>
                                 <ul class="rating">
                                     <li>
@@ -355,11 +355,11 @@
                 </div>
 
                 <div class="row">
-                    @foreach($bot_data as $product)
+                    @foreach($trending as $item)
                     <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
-                                <a href="{{route('product-detail')}}"><img src="{{$product->thumbnail}}" alt="image"></a>
+                                <a href="#"><img src="assets/img/product/{{$item->thumbnail}}" alt="image"></a>
 
                                 <ul class="products-action">
                                     <li>
@@ -382,11 +382,11 @@
 
                             <div class="products-content">
                                 <h3>
-                                    <a href="{{route('product-detail')}}">{{$product->name}}</a>
+                                    <a href="#">{{$item->name}}</a>
                                 </h3>
                                 <div class="price">
-                                    <span class="new-price">{{$product->price}}</span>
-                                    <span class="old-price">{{$product->price}}</span>
+                                    <span class="new-price">{{$item->price}}</span>
+                                    <span class="old-price">{{$item->price}}</span>
                                 </div>
                                 <ul class="rating">
                                     <li>

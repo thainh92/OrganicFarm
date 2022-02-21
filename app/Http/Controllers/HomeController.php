@@ -8,11 +8,16 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    //
-    public function showAllSaleProduct()
+    public function getMainCategory()
     {
-        $top_data = DB::table('products')->skip(0)->take(8)->get();
-        $bot_data = DB::table('products')->skip(2)->take(8)->get();
-        return view('main_public.index', compact('top_data', 'bot_data'));
+        $categories_old = DB::table('categories')->where('parent_id', '=', null)->get();
+        $categories = [];
+        foreach($categories_old as $category) {
+            $sub_categories = DB::table('categories')->where('parent_id', '=', $category->id)->get();
+            $category->sub_category = $sub_categories;
+            array_push($categories, $category);
+        }
+//        dd($categories);
+        return view('layouts.master', compact('categories'));
     }
 }

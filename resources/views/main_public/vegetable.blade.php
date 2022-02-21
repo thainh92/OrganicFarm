@@ -51,7 +51,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">
-                                        <a href="shop-details.html"><img src="assets/img/product/vegetable/{{$item->thumbnail}}" alt="image"></a>
+                                        <a href="shop-details.html"><img src="assets/img/product/{{$item->thumbnail}}" alt="image"></a>
         
                                         <ul class="products-action">
                                             <li>
