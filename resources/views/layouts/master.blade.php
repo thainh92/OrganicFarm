@@ -28,10 +28,17 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
-
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}" type="text/css">
     <title>@yield('title')</title>
 
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+
+    <style>
+        .si-pic img {
+            width: 70px;
+        }
+    </style>
 </head>
 
 <body>
@@ -114,85 +121,37 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('product-page') }}" class="nav-link">
                                 Shop
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="{{ route('fruits-page') }}" class="nav-link">
-                                        Fruits
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('vegetable-page') }}" class="nav-link">
-                                        Vegetable
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('organicvegetable-page') }}" class="nav-link">
-                                                Organic Vegetables
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('mushroom-page') }}" class="nav-link">
-                                                Fresh Mushrooms
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('meat-page') }}" class="nav-link">
-                                        Fresh Meat
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('pork-page') }}" class="nav-link">
-                                                Pork
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('beef-page') }}" class="nav-link">
-                                                Beef
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('poultryegg-page') }}" class="nav-link">
-                                                Poultry - Eggs
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('seafood-page') }}" class="nav-link">
-                                                Sea Food
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('milk-page') }}" class="nav-link">
-                                        Milk & Products
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ route('milk-page') }}" class="nav-link">
-                                                Fresh Milk
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('product-page') }}" class="nav-link">
-                                                Milk Products
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pricing-page') }}" class="nav-link">
-                                        Pricing
-                                    </a>
-                                </li>
+                                @php
+                                    $categories_old = DB::table('categories')->where([['parent_id', '=', null], ['deleted_at', '=', null]])->get();
+                                    $categories = [];
+                                    foreach($categories_old as $category) {
+                                        $sub_categories = DB::table('categories')->where([['parent_id', '=', $category->id], ['deleted_at', '=', null]])->get();
+                                        $category->sub_category = $sub_categories;
+                                        array_push($categories ,$category);
+                                    }
+                                @endphp
+                                @foreach($categories as $category)
+                                    <li class="nav-item">
+                                        <a href="{{url($category->url)}}" class="nav-link">
+                                            {{$category->name}}
+                                            <i class='bx bx-chevron-down'></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            @foreach($category->sub_category as $item)
+                                                <li class="nav-item">
+                                                    <a href="{{ url($item->url) }}" class="nav-link">
+                                                        {{$item->name}}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -210,24 +169,6 @@
                                     <a href="{{ route('faq-page') }}" class="nav-link">
                                         FAQ
                                     </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Account
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="login.html" class="nav-link">
-                                                Login
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="register.html" class="nav-link">
-                                                Register
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('terms-page') }}" class="nav-link">
@@ -256,8 +197,11 @@
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="#">
-                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11 13.4815C12.5663 13.441 13.8649 12.8793 14.8958 11.7963C15.9268 10.7133 16.4615 9.34909 16.5 7.7037C16.4615 6.05832 15.9268 4.69412 14.8958 3.61111C13.8649 2.5281 12.5663 1.96637 11 1.92593C9.43372 1.96637 8.13511 2.5281 7.10417 3.61111C6.07322 4.69412 5.5385 6.05832 5.5 7.7037C5.5385 9.34909 6.07322 10.7133 7.10417 11.7963C8.13511 12.8793 9.43372 13.441 11 13.4815ZM11 15.4074C8.91856 15.3471 7.19033 14.5947 5.81533 13.1502C4.44033 11.7058 3.72411 9.89027 3.66667 7.7037C3.72411 5.51714 4.44033 3.70163 5.81533 2.25718C7.19033 0.81274 8.91856 0.0603457 11 0C13.0814 0.0603457 14.8097 0.81274 16.1847 2.25718C17.5597 3.70163 18.2759 5.51714 18.3333 7.7037C18.2759 9.89027 17.5597 11.7058 16.1847 13.1502C14.8097 14.5947 13.0814 15.3471 11 15.4074ZM20.1667 25.037V22.1481C20.1477 21.3258 19.8804 20.6437 19.3646 20.1019C18.8488 19.56 18.1995 19.2792 17.4167 19.2593H4.58333C3.8005 19.2792 3.15119 19.56 2.63542 20.1019C2.11964 20.6437 1.85228 21.3258 1.83333 22.1481V25.037C1.83333 25.3182 1.74747 25.549 1.57575 25.7294C1.40403 25.9098 1.18433 26 0.916667 26C0.649 26 0.429306 25.9098 0.257583 25.7294C0.0858613 25.549 0 25.3182 0 25.037V22.1481C0.0385 20.7839 0.487361 19.6505 1.34658 18.7479C2.20581 17.8453 3.28472 17.3738 4.58333 17.3333H17.4167C18.7153 17.3738 19.7942 17.8453 20.6534 18.7479C21.5126 19.6505 21.9615 20.7839 22 22.1481V25.037C22 25.3182 21.9141 25.549 21.7424 25.7294C21.5707 25.9098 21.351 26 21.0833 26C20.8157 26 20.596 25.9098 20.4242 25.7294C20.2525 25.549 20.1667 25.3182 20.1667 25.037Z" fill="#08080A" fill-opacity="0.96"/>
+                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11 13.4815C12.5663 13.441 13.8649 12.8793 14.8958 11.7963C15.9268 10.7133 16.4615 9.34909 16.5 7.7037C16.4615 6.05832 15.9268 4.69412 14.8958 3.61111C13.8649 2.5281 12.5663 1.96637 11 1.92593C9.43372 1.96637 8.13511 2.5281 7.10417 3.61111C6.07322 4.69412 5.5385 6.05832 5.5 7.7037C5.5385 9.34909 6.07322 10.7133 7.10417 11.7963C8.13511 12.8793 9.43372 13.441 11 13.4815ZM11 15.4074C8.91856 15.3471 7.19033 14.5947 5.81533 13.1502C4.44033 11.7058 3.72411 9.89027 3.66667 7.7037C3.72411 5.51714 4.44033 3.70163 5.81533 2.25718C7.19033 0.81274 8.91856 0.0603457 11 0C13.0814 0.0603457 14.8097 0.81274 16.1847 2.25718C17.5597 3.70163 18.2759 5.51714 18.3333 7.7037C18.2759 9.89027 17.5597 11.7058 16.1847 13.1502C14.8097 14.5947 13.0814 15.3471 11 15.4074ZM20.1667 25.037V22.1481C20.1477 21.3258 19.8804 20.6437 19.3646 20.1019C18.8488 19.56 18.1995 19.2792 17.4167 19.2593H4.58333C3.8005 19.2792 3.15119 19.56 2.63542 20.1019C2.11964 20.6437 1.85228 21.3258 1.83333 22.1481V25.037C1.83333 25.3182 1.74747 25.549 1.57575 25.7294C1.40403 25.9098 1.18433 26 0.916667 26C0.649 26 0.429306 25.9098 0.257583 25.7294C0.0858613 25.549 0 25.3182 0 25.037V22.1481C0.0385 20.7839 0.487361 19.6505 1.34658 18.7479C2.20581 17.8453 3.28472 17.3738 4.58333 17.3333H17.4167C18.7153 17.3738 19.7942 17.8453 20.6534 18.7479C21.5126 19.6505 21.9615 20.7839 22 22.1481V25.037C22 25.3182 21.9141 25.549 21.7424 25.7294C21.5707 25.9098 21.351 26 21.0833 26C20.8157 26 20.596 25.9098 20.4242 25.7294C20.2525 25.549 20.1667 25.3182 20.1667 25.037Z"
+                                            fill="#08080A" fill-opacity="0.96"/>
                                     </svg>
                                 </a>
                                 <div class="cart-btn-dropdown">
@@ -275,29 +219,58 @@
                         </div>
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="{{ route('cart-page') }}">
+                                <a href="{{ url('/cart') }}">
                                     <i class='flaticon-shopping-cart'></i>
-                                    <span>0</span>
+                                    @if(Session::has('Cart') != null)
+                                        <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
+                                    @else
+                                        <span id="total-quanty-show">0</span>
+                                    @endif
                                 </a>
-                                <div class="cart-btn-dropdown">
-                                    <p>Shopping Cart</p>
-                                    <div class="cart-btn-dropdown-child">
-                                        <p></p>
-                                        <a href="#" class="cart-btn-dropdown-create">
-                                            <p>CREATE ORGANIC FARM ACCOUNT</p>
-                                        </a>
+                                <div class="cart-hover">
+                                    <div id="change-item-cart">
+                                        @if(Session::has('Cart') != null)
+                                            <div class="select-items">
+                                                <table>
+                                                    <tbody>
+                                                        @foreach(Session::get('Cart')->products as $item)
+                                                            <tr>
+                                                                <td class="si-pic"><img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt=""></td>
+                                                                <td class="si-text">
+                                                                    <div class="product-selected">
+                                                                        <p>${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</p>
+                                                                        <h6>{{$item['productInfo']->name}}</h6>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="si-close">
+                                                                    <i class="ti-close" data-id="{{$item['productInfo']->id}}"></i>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="select-total">
+                                                <span>total:</span>
+                                                <h5>${{number_format(Session::get('Cart')->totalPrice)}}</h5>
+                                            </div>
+                                        @endif
                                     </div>
-                                    <a href="#" class="cart-btn-dropdown-singin">
-                                        <h4>SIGN OUT</h4>
-                                    </a>
+                                    <div class="select-button">
+                                        <a href="{{ url('/cart') }}" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="#">
-                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z" stroke="#222222" stroke-width="1.8"/>
+                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z"
+                                            stroke="#222222" stroke-width="1.8"/>
                                     </svg>
                                     <span>0</span>
                                 </a>
@@ -340,8 +313,11 @@
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="#">
-                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11 13.4815C12.5663 13.441 13.8649 12.8793 14.8958 11.7963C15.9268 10.7133 16.4615 9.34909 16.5 7.7037C16.4615 6.05832 15.9268 4.69412 14.8958 3.61111C13.8649 2.5281 12.5663 1.96637 11 1.92593C9.43372 1.96637 8.13511 2.5281 7.10417 3.61111C6.07322 4.69412 5.5385 6.05832 5.5 7.7037C5.5385 9.34909 6.07322 10.7133 7.10417 11.7963C8.13511 12.8793 9.43372 13.441 11 13.4815ZM11 15.4074C8.91856 15.3471 7.19033 14.5947 5.81533 13.1502C4.44033 11.7058 3.72411 9.89027 3.66667 7.7037C3.72411 5.51714 4.44033 3.70163 5.81533 2.25718C7.19033 0.81274 8.91856 0.0603457 11 0C13.0814 0.0603457 14.8097 0.81274 16.1847 2.25718C17.5597 3.70163 18.2759 5.51714 18.3333 7.7037C18.2759 9.89027 17.5597 11.7058 16.1847 13.1502C14.8097 14.5947 13.0814 15.3471 11 15.4074ZM20.1667 25.037V22.1481C20.1477 21.3258 19.8804 20.6437 19.3646 20.1019C18.8488 19.56 18.1995 19.2792 17.4167 19.2593H4.58333C3.8005 19.2792 3.15119 19.56 2.63542 20.1019C2.11964 20.6437 1.85228 21.3258 1.83333 22.1481V25.037C1.83333 25.3182 1.74747 25.549 1.57575 25.7294C1.40403 25.9098 1.18433 26 0.916667 26C0.649 26 0.429306 25.9098 0.257583 25.7294C0.0858613 25.549 0 25.3182 0 25.037V22.1481C0.0385 20.7839 0.487361 19.6505 1.34658 18.7479C2.20581 17.8453 3.28472 17.3738 4.58333 17.3333H17.4167C18.7153 17.3738 19.7942 17.8453 20.6534 18.7479C21.5126 19.6505 21.9615 20.7839 22 22.1481V25.037C22 25.3182 21.9141 25.549 21.7424 25.7294C21.5707 25.9098 21.351 26 21.0833 26C20.8157 26 20.596 25.9098 20.4242 25.7294C20.2525 25.549 20.1667 25.3182 20.1667 25.037Z" fill="#08080A" fill-opacity="0.96"/>
+                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11 13.4815C12.5663 13.441 13.8649 12.8793 14.8958 11.7963C15.9268 10.7133 16.4615 9.34909 16.5 7.7037C16.4615 6.05832 15.9268 4.69412 14.8958 3.61111C13.8649 2.5281 12.5663 1.96637 11 1.92593C9.43372 1.96637 8.13511 2.5281 7.10417 3.61111C6.07322 4.69412 5.5385 6.05832 5.5 7.7037C5.5385 9.34909 6.07322 10.7133 7.10417 11.7963C8.13511 12.8793 9.43372 13.441 11 13.4815ZM11 15.4074C8.91856 15.3471 7.19033 14.5947 5.81533 13.1502C4.44033 11.7058 3.72411 9.89027 3.66667 7.7037C3.72411 5.51714 4.44033 3.70163 5.81533 2.25718C7.19033 0.81274 8.91856 0.0603457 11 0C13.0814 0.0603457 14.8097 0.81274 16.1847 2.25718C17.5597 3.70163 18.2759 5.51714 18.3333 7.7037C18.2759 9.89027 17.5597 11.7058 16.1847 13.1502C14.8097 14.5947 13.0814 15.3471 11 15.4074ZM20.1667 25.037V22.1481C20.1477 21.3258 19.8804 20.6437 19.3646 20.1019C18.8488 19.56 18.1995 19.2792 17.4167 19.2593H4.58333C3.8005 19.2792 3.15119 19.56 2.63542 20.1019C2.11964 20.6437 1.85228 21.3258 1.83333 22.1481V25.037C1.83333 25.3182 1.74747 25.549 1.57575 25.7294C1.40403 25.9098 1.18433 26 0.916667 26C0.649 26 0.429306 25.9098 0.257583 25.7294C0.0858613 25.549 0 25.3182 0 25.037V22.1481C0.0385 20.7839 0.487361 19.6505 1.34658 18.7479C2.20581 17.8453 3.28472 17.3738 4.58333 17.3333H17.4167C18.7153 17.3738 19.7942 17.8453 20.6534 18.7479C21.5126 19.6505 21.9615 20.7839 22 22.1481V25.037C22 25.3182 21.9141 25.549 21.7424 25.7294C21.5707 25.9098 21.351 26 21.0833 26C20.8157 26 20.596 25.9098 20.4242 25.7294C20.2525 25.549 20.1667 25.3182 20.1667 25.037Z"
+                                            fill="#08080A" fill-opacity="0.96"/>
                                     </svg>
                                 </a>
                             </div>
@@ -357,8 +333,11 @@
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="#">
-                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z" stroke="#222222" stroke-width="1.8"/>
+                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z"
+                                            stroke="#222222" stroke-width="1.8"/>
                                     </svg>
                                     <span>0</span>
                                 </a>
@@ -384,7 +363,9 @@
         <div class="sidebar-about-area">
             <div class="title">
                 <h2>About Us</h2>
-                <p>We believe brand interaction is key in communication. Real innovations and a positive customer experience are the heart of successful communication. No fake products and services. The customer is king, their lives and needs are the inspiration.</p>
+                <p>We believe brand interaction is key in communication. Real innovations and a positive customer
+                    experience are the heart of successful communication. No fake products and services. The customer is
+                    king, their lives and needs are the inspiration.</p>
             </div>
         </div>
         <div class="sidebar-instagram-feed">
@@ -501,7 +482,8 @@
                             <a href="{{ route('home-page') }}">Orgo</a>
                         </h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
                     <ul class="social">
                         <li>
                             <a href="#" class="facebook" target="_blank">
@@ -713,8 +695,41 @@
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+<!-- Alert -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 {{-- Place for script --}}
+<script>
+    function AddCart(id) {
+        $.ajax({
+            url: 'Add-Cart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            RenderCart(response);
+            alertify.success('Add Success');
+        });
+    }
+
+    $("#change-item-cart").on('click', '.si-close i', function() {
+        $.ajax({
+            url: 'Delete-Item-Cart/'+$(this).data('id'),
+            type: 'GET',
+        }).done(function(response) {
+            RenderCart(response);
+            alertify.error('Delete Success');
+        });
+    });
+
+    function RenderCart(response) {
+        $("#change-item-cart").empty();
+        $("#change-item-cart").html(response);
+        $("#total-quanty-show").text($("#total-quanty-cart").val());
+    }
+</script>
 @yield('script-tag');
 </body>
 </html>

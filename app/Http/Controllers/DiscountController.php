@@ -82,4 +82,10 @@ class DiscountController extends Controller
     {
         //
     }
+
+    public function getDiscountName()
+    {
+        $discount_name = DB::table('discounts')->select('id', 'name')->get();
+        return view('admin.product.create', compact('discount_name'));
+    }
 }

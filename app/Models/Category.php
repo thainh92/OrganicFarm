@@ -12,14 +12,17 @@ class Category extends Model
     use SoftDeletes;
     protected $table = 'categories';
     protected $fillable = [
-        'name',
-        'code',
-        'thumbnail',
         'create_at',
-        'update_at'
+        'update_at',
+        'thumbnail',
+        'code',
+        'name',
+        'parent_id',
+        'url'
     ];
 
     public function product() {
         return $this->hasMany('App\Models\Product', 'id' ,'category_id');
     }
+
 }

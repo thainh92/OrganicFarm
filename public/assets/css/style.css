@@ -712,7 +712,7 @@ Navbar Area CSS
     font-size: 30px;
     color: #111111;
     position: relative;
-    padding: 1rem 0.5rem;
+    padding: 0 0 1rem 0.5rem;
 }
 
 .cart-btn a:hover {
@@ -742,8 +742,8 @@ Navbar Area CSS
     position: absolute;
     background-color: white;
     width: 400px;
-    -webkit-transition: all 1s linear;
-    transition: all 1s linear;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     z-index: 99;
@@ -782,7 +782,6 @@ Navbar Area CSS
 }
 .cart-btn-dropdown:hover {
     background: rgb(236, 236, 236);
-    width: 450px;
 }
 .cart-btn:hover .cart-btn-dropdown {
     display: block;
@@ -7701,4 +7700,87 @@ Modal CSS
 }
 
 /*# sourceMappingURL=style.css.map */
-
+.cart-btn:hover .cart-hover {
+	opacity: 1;
+	visibility: visible;
+	top: 60px;
+}
+.cart-hover {
+	position: absolute;
+	right: -70px;
+	top: 100px;
+	width: 350px;
+	background: #ffffff;
+	z-index: 99;
+	text-align: left;
+	padding: 30px;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
+	box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.cart-hover .select-items table {
+	width: 100%;
+}
+.cart-hover .select-items table tr td {
+	padding-bottom: 20px;
+}
+.cart-hover .select-items table tr td.si-pic img {
+	border: 1px solid #ebebeb;
+}
+.cart-hover .select-items table tr td.si-text {
+	padding-left: 18px;
+}
+.cart-hover .select-items table tr td.si-text .product-selected p {
+	color: #f35320;
+	line-height: 30px;
+	margin-bottom: 7px;
+}
+.cart-hover .select-items table tr td.si-text .product-selected h6 {
+	color: #232530;
+}
+.cart-hover .select-items table tr td.si-close {
+	color: #252525;
+	font-size: 16px;
+	cursor: pointer;
+}
+.cart-hover .select-total {
+	overflow: hidden;
+	border-top: 1px solid #e5e5e5;
+	padding-top: 26px;
+	margin-bottom: 30px;
+}
+.cart-hover .select-total span {
+	font-size: 14px;
+	color: #f35320;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	float: left;
+}
+.cart-hover .select-total h5 {
+	color: #f35320;
+	float: right;
+}
+.cart-hover .select-button .view-card {
+	font-size: 12px;
+	letter-spacing: 2px;
+	display: block;
+	text-align: center;
+	background: #191919;
+	color: #ffffff;
+	padding: 15px 30px 12px;
+	margin-bottom: 10px;
+}
+.cart-hover .select-button .checkout-btn {
+	font-size: 12px;
+	letter-spacing: 2px;
+	display: block;
+	text-align: center;
+	background: #f35320;
+	color: #ffffff;
+	padding: 15px 30px 12px;
+	margin-bottom: 10px;
+}

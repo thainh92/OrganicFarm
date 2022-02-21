@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/charts/c3charts/c3.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <title>Organic Farm - Admin Dashboard</title>
 </head>
 
 <body>
@@ -198,7 +198,7 @@
                                                     <a class="nav-link" href="#">List Users</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="ecommerce-product.html">Create New User</a>
+                                                    <a class="nav-link" href="#">Create New User</a>
                                                 </li>
                                             </ul>
                                         </div>
