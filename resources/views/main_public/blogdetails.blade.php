@@ -1,4 +1,4 @@
-@extends('layouts.PublicLayout')
+@extends('layouts.master')
 @section('title','Blogdetails')
 @section('content')
     <section class="blog-details-container">
