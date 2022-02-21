@@ -72,7 +72,7 @@ Route::get('/aboutus',function (){
 /*---------- End Main Route ----------*/
 
 /*---------- Shop Route ----------*/
-Route::get('/product', 'App\Http\Controllers\ProductController@getProducts')->name('product-page');
+Route::get('/products', 'App\Http\Controllers\ProductController@getProducts')->name('product-page');
 
 Route::get('/fruits', 'App\Http\Controllers\ProductController@getFruits')->name('fruits-page');
 

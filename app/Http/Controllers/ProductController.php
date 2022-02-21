@@ -232,13 +232,17 @@ class ProductController extends Controller
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
             ->paginate(10)->withQueryString();
+        $get_categories = DB::table('categories')
+            ->where('deleted_at', '=', null)
+            ->select('name', 'id')
+            ->get();
 //        $products->withPath('/admin/products');
 //        $products->appends(['sort' => 'created_at']);
 //        $products = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
 //            ->get();
-        return view('admin.product.index', compact('products'));
+        return view('admin.product.index', compact('products', 'get_categories'));
     }
 
     public function getProductById($id)
@@ -253,6 +257,12 @@ class ProductController extends Controller
             ->where('parent_id', '=', $request->id)
             ->get();
         return $get_sub_category;
+    }
+
+    public function searchProductByName($stringName)
+    {
+        $search_by_name = DB::table('products')->where('name', 'LIKE', '%$string_name%');
+
     }
 
 }
