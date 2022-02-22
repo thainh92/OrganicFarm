@@ -111,7 +111,7 @@
                                             <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
                                         </li>
                                     </ul>
-                                    <a href="#" class="default-btn">
+                                    <a href="{{ route('home') }}" class="default-btn">
                                         Proceed to Checkout
                                     </a>
                                 @endif

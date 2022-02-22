@@ -14,7 +14,26 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('order_number')->unique();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('status', ['pending', 'processing', 'completed', 'decline'])->default('pending');
+            $table->decimal('grand_total', 20, 6);
+            $table->unsignedInteger('item_count');
+            $table->boolean('payment_status')->default(1);
+            $table->string('payment_method')->nullable();
+            $table->string('country');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('company_name');
+            $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('email');
+            $table->string('phone');    
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

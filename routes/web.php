@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,7 +119,9 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- End Add Cart ----------*/
 
 /*---------- Check Out ----------*/
-Route::post('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@checkout');
+
+Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckoutController@save_checkout_customer');
 /*---------- End Check Out ----------*/
 
 
