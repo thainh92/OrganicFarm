@@ -36,4 +36,8 @@ class CheckoutController extends Controller
     public function payment() {
        
     }
+
+    public function checkout() {
+        return view('main_public.checkout');
+    }
 }

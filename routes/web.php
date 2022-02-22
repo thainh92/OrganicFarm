@@ -121,7 +121,11 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- Check Out ----------*/
 Route::get('/checkout', 'App\Http\Controllers\CheckoutController@checkout');
 
+<<<<<<< Updated upstream
 Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckoutController@save_checkout_customer');
+=======
+Route::get('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');
+>>>>>>> Stashed changes
 /*---------- End Check Out ----------*/
 
 
