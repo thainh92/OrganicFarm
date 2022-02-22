@@ -125,3 +125,6 @@ Route::post('/login-checkout', 'App\Http\Controllers\CheckoutController@login_ch
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
