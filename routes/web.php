@@ -115,6 +115,12 @@ Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartItemControll
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartItemController@SaveListItemCart');
 
 Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListItemCart');
+/*---------- End Add Cart ----------*/
+
+/*---------- Check Out ----------*/
+Route::post('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');
+/*---------- End Check Out ----------*/
+
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
