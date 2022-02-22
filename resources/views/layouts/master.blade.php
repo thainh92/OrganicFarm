@@ -60,7 +60,8 @@
                 <ul class="top-header-information">
                     <li>
                         <i class='bx bxs-phone'></i>
-                        (+84) 12 3456 789
+                        <span>HOT LINE:</span>
+                        <a href="tel:0123456789">(+84) 12 3456 789</a>
                     </li>
                 </ul>
             </div>
@@ -126,10 +127,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 @php
-                                    $categories_old = DB::table('categories')->where('parent_id', '=', null)->get();
+                                    $categories_old = DB::table('categories')->where([['parent_id', '=', null], ['deleted_at', '=', null]])->get();
                                     $categories = [];
                                     foreach($categories_old as $category) {
-                                        $sub_categories = DB::table('categories')->where('parent_id', '=', $category->id)->get();
+                                        $sub_categories = DB::table('categories')->where([['parent_id', '=', $category->id], ['deleted_at', '=', null]])->get();
                                         $category->sub_category = $sub_categories;
                                         array_push($categories ,$category);
                                     }
@@ -224,7 +225,7 @@
                                         <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
                                     @else
                                         <span id="total-quanty-show">0</span>
-                                    @endif 
+                                    @endif
                                 </a>
                                 <div class="cart-hover">
                                     <div id="change-item-cart">
@@ -717,7 +718,7 @@
         $.ajax({
             url: 'Delete-Item-Cart/'+$(this).data('id'),
             type: 'GET',
-        }).done(function(response) {               
+        }).done(function(response) {
             RenderCart(response);
             alertify.error('Delete Success');
         });

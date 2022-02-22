@@ -37,15 +37,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php
-                                    $id = 1;
-                                @endphp
-                                @foreach($categories as $category)
+                                @foreach($categories as $key => $category)
                                     <tr>
-                                        <td>{{$id}}</td>
-                                        @php
-                                            $id++;
-                                        @endphp
+                                        <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
                                         <td>
                                             <div class="m-r-10"><img
                                                     src="{{asset('assets/img/category/'.$category->thumbnail)}}"

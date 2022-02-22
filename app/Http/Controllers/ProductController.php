@@ -22,6 +22,19 @@ class ProductController extends Controller
     /*-- Product --*/
     public function getProducts()
     {
+////        $products = DB::table('products')
+////            ->join('categories', 'products.category_id', '=', 'category.id')
+////            ->select('products.*', 'categories.name as category_name')
+////            ->get();
+////        dd($products);
+////        $products = Product::select(DB::raw('categories.name as category_name'))
+////            ->join('products', 'products.id', '=', 'categories.id')
+////            ->get();
+//        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
+//            ->select('categories.name as category_name', 'products.*')
+//            ->get();
+//        return view('admin.product.index', compact('products'));
+
         $products = DB::table('products')->inRandomOrder()->limit(15)->get();
         return view('main_public.product', compact('products'));
     }
@@ -211,26 +224,33 @@ class ProductController extends Controller
         return redirect()->route('admin-product-index', '', 201);
     }
 
-    /*
+
     public function indexAdmin()
     {
         $products = DB::table('products')
             ->join('categories', function ($join) {
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
-            ->get();
-            
             ->paginate(10)->withQueryString();
+        $get_categories = DB::table('categories')
+            ->where('deleted_at', '=', null)
+            ->select('name', 'id')
+            ->get();
 //        $products->withPath('/admin/products');
 //        $products->appends(['sort' => 'created_at']);
-
 //        $products = DB::table('products')
 //            ->join('categories', 'products.category_id', '=', 'categories.id')
 //            ->select('categories.name as category_name', 'products.*')
 //            ->get();
-        return view('admin.product.index', compact('products'));
+        return view('admin.product.index', ['products' => $products,
+            'total' => $products->total(),
+            'perPage' => $products->perPage(),
+            'currentPage' => $products->currentPage(),
+            'get_categories' => $get_categories,
+            ]);
+//        return view('admin.product.index', compact('products', 'get_categories'));
     }
-*/
+
     public function getProductById($id)
     {
         $product = Product::find($id);
@@ -243,6 +263,12 @@ class ProductController extends Controller
             ->where('parent_id', '=', $request->id)
             ->get();
         return $get_sub_category;
+    }
+
+    public function searchProductByName($stringName)
+    {
+        $search_by_name = DB::table('products')->where('name', 'LIKE', '%$string_name%');
+
     }
 
 }
