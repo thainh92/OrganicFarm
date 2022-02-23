@@ -22,7 +22,7 @@ class Category extends Model
     ];
 
     public function product() {
-        return $this->hasMany('App\Models\Product', 'id' ,'category_id');
+        return $this->hasMany(Product::class);
     }
 
 }

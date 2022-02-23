@@ -134,7 +134,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('product-page') }}" class="nav-link">
+                            <a href="" class="nav-link">
                                 Shop
                                 <i class='bx bx-chevron-down'></i>
                             </a>
@@ -150,19 +150,20 @@
                                 @endphp
                                 @foreach($categories as $category)
                                     <li class="nav-item">
-                                        <a href="{{url($category->url)}}" class="nav-link">
+{{--                                        <a href="{{url($category->url)}}" class="nav-link">--}}
+                                        <a href="{{url('/category/'.$category->name)}}" class="nav-link">
                                             {{$category->name}}
-                                            <i class='bx bx-chevron-down'></i>
+{{--                                            <i class='bx bx-chevron-down'></i>--}}
                                         </a>
-                                        <ul class="dropdown-menu">
-                                            @foreach($category->sub_category as $item)
-                                                <li class="nav-item">
-                                                    <a href="{{ url($item->url) }}" class="nav-link">
-                                                        {{$item->name}}
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
+{{--                                        <ul class="dropdown-menu">--}}
+{{--                                            @foreach($category->sub_category as $item)--}}
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a href="{{url($item->url."1")}}" class="nav-link">--}}
+{{--                                                        {{$item->name}}--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                            @endforeach--}}
+{{--                                        </ul>--}}
                                     </li>
                                 @endforeach
                             </ul>

@@ -72,25 +72,8 @@ Route::get('/aboutus',function (){
 /*---------- End Main Route ----------*/
 
 /*---------- Shop Route ----------*/
-Route::get('/products', 'App\Http\Controllers\ProductController@getProducts')->name('product-page');
-
-Route::get('/fruits', 'App\Http\Controllers\ProductController@getFruits')->name('fruits-page');
-
-Route::get('/vegetables', 'App\Http\Controllers\ProductController@getVegetables')->name('vegetable-page');
-
-Route::get('/organic-vegetables', 'App\Http\Controllers\ProductController@getOrganicVegetables')->name('organic-vegetable-page');
-
-Route::get('/fresh-mushrooms', 'App\Http\Controllers\ProductController@getMushrooms')->name('mushroom-page');
-
-Route::get('/meats', 'App\Http\Controllers\ProductController@getMeats')->name('meat-page');
-
-Route::get('/pork', 'App\Http\Controllers\ProductController@getPorks')->name('pork-page');
-
-Route::get('/beef', 'App\Http\Controllers\ProductController@getBeefs')->name('beef-page');
-
-Route::get('/poultry', 'App\Http\Controllers\ProductController@getPoultrys')->name('poultry-page');
-
-Route::get('/milks', 'App\Http\Controllers\ProductController@getMilks')->name('milk-page');
+//Route::get('/products', 'App\Http\Controllers\ProductController@getProducts')->name('product-page');
+Route::get('/category/{category_name}', [ProductController::class, 'getProducts'])->name('product-page');
 
 Route::get('/pricing',function (){
     return view('main_public.pricing');
