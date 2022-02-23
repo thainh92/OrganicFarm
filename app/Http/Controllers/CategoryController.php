@@ -59,19 +59,24 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
+        $radio_value = $request->get('radio-inline');
+        $parent_id = $request->get('parent_id');
+        if ($radio_value == "1") {
+            $parent_id = null;
+        }
         $newImageName = time() . '-' . $request->name . '.' . $request->thumbnail->extension();
         $request->thumbnail->move(public_path('assets/img/category'), $newImageName);
 //        $main_category_url = CategoryController::getMainCategoryUrl($request->parent_id);
 //        $new_url = $main_category_url . CategoryController::convertNameToUrl($request->name);
         if (!CategoryController::checkNameExist($request->name)) {
             $category = Category::create([
-                'name' => $request->name,
+                'name' => $request->get('name'),
                 'code' => $request->code,
-                'parent_id' => $request->parent_id,
+                'parent_id' => $parent_id,
                 'thumbnail' => $newImageName,
 //                'url' => $new_url,
             ]);
+
             return redirect()->route('admin-category-index')->with('message', 'Create category success');
         } else {
             return redirect()->route('admin-category-index')->with('failed', 'Create category fail, category name already exist');
