@@ -25,4 +25,5 @@ Route::get('/admin/product/trash/{id}', [ProductController::class, 'trash'])->na
 
 
 Route::get('/admin/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
+Route::get('/admin/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
 /*---------- End Admin Route ----------*/

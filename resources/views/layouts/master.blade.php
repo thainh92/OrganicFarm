@@ -253,7 +253,7 @@
                                         <a href="{{route('login')}}" class="primary-btn checkout-btn">
                                             <p>Login</p>
                                         </a>
-                                    </div>                                
+                                    </div>
 
                                     <div class="cart-btn-dropdown-child">
                                         @if (Route::has('register'))

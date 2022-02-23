@@ -59,17 +59,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         $newImageName = time() . '-' . $request->name . '.' . $request->thumbnail->extension();
         $request->thumbnail->move(public_path('assets/img/category'), $newImageName);
-        $main_category_url = CategoryController::getMainCategoryUrl($request->parent_id);
-        $new_url = $main_category_url . CategoryController::convertNameToUrl($request->name);
+//        $main_category_url = CategoryController::getMainCategoryUrl($request->parent_id);
+//        $new_url = $main_category_url . CategoryController::convertNameToUrl($request->name);
         if (!CategoryController::checkNameExist($request->name)) {
             $category = Category::create([
                 'name' => $request->name,
                 'code' => $request->code,
                 'parent_id' => $request->parent_id,
                 'thumbnail' => $newImageName,
-                'url' => $new_url,
+//                'url' => $new_url,
             ]);
             return redirect()->route('admin-category-index')->with('message', 'Create category success');
         } else {
@@ -183,13 +184,13 @@ class CategoryController extends Controller
         return false;
     }
 
-    public function getMainCategoryUrl($parent_id)
-    {
-        $record = DB::table('categories')
-            ->where('id', '=', $parent_id)
-            ->select('url')
-            ->get()->first();
-        return $record->url;
-    }
+//    public function getMainCategoryUrl($parent_id)
+//    {
+//        $record = DB::table('categories')
+//            ->where('id', '=', $parent_id)
+//            ->select('url')
+//            ->first();
+//        return $record->url;
+//    }
 
 }

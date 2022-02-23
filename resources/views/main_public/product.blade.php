@@ -8,12 +8,12 @@
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Product</h2>
+                            <h2>{{$category->name}}</h2>
                             <ul>
                                 <li>
                                     <a href="{{ route('home-page') }}">Home</a>
                                 </li>
-                                <li>Product</li>
+                                <li>{{$category->name}}</li>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             <div class="col-lg-6 col-md-6 result-count">
                                 <p>We found <span class="count">15</span> products available for you</p>
                             </div>
-            
+
                             <div class="col-lg-6 col-md-6 ordering">
                                 <div class="select-box">
                                     <label>Sort By:</label>
@@ -51,7 +51,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="top-products-item">
                                     <div class="products-image">
-                                        <a href="shop-details.html"><img src="assets/img/product/{{$item->thumbnail}}" alt="image"></a>
+                                        <a href="shop-details.html"><img src="{{asset('assets/img/product/'.$item->thumbnail)}}" alt="image"></a>
 
                                         <ul class="products-action">
                                             <li>

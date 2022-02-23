@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Helper\Table;
 
 class ProductController extends Controller
 {
@@ -20,7 +21,7 @@ class ProductController extends Controller
     }
 
     /*-- Product --*/
-    public function getProducts()
+    public function getProducts($category_name)
     {
 ////        $products = DB::table('products')
 ////            ->join('categories', 'products.category_id', '=', 'category.id')
@@ -35,8 +36,22 @@ class ProductController extends Controller
 //            ->get();
 //        return view('admin.product.index', compact('products'));
 
-        $products = DB::table('products')->inRandomOrder()->limit(15)->get();
-        return view('main_public.product', compact('products'));
+//ver1
+//        $category_name = strtolower(str_replace(' ', '-', $category_name));
+//        $category = Category::with('product')->where('name', '=', $category_name)->first();
+//        if ($category != null) {
+//            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
+//            return view('main_public.product', compact('category', 'products'));
+//        }
+
+        $category_name = strtolower(str_replace(' ', '-', $category_name));
+        $category = Category::with('product')->where('name', '=', $category_name)->first();
+        if ($category != null) {
+            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
+            return view('main_public.product', compact('category', 'products'));
+        }
+//        $products = DB::table('products')->inRandomOrder()->limit(15)->get();
+//        return view('main_public.product', compact('products'));
     }
 
     public function getTrending()
@@ -46,58 +61,6 @@ class ProductController extends Controller
         return view('main_public.index ', compact('trending','featured'));
     }
 
-    public function getFruits()
-    {
-        $fruits = DB::table('products')->where('category_id', '=', 11)->get();
-        return view('main_public.fruits', compact('fruits'));
-    }
-
-    public function getVegetables()
-    {
-//        $vegetable = DB::table('products')->where('parent_category_id', '=', 2)->get();
-        $vegetable = DB::table('products')->where('category_id', '=', 1)->get();
-        return view('main_public.vegetable', compact('vegetable'));
-    }
-
-    public function getOrganicVegetables()
-    {
-        $organicvegetable = DB::table('products')->where('category_id', '=', 5)->get();
-        return view('main_public.organicvegetable', compact('organicvegetable'));
-    }
-
-    public function getMushrooms()
-    {
-        $mushroom = DB::table('products')->where('category_id', '=', 6)->get();
-        return view('main_public.mushroom', compact('mushroom'));
-    }
-
-    public function getMeats()
-    {
-        $meat = DB::table('products')->where('parent_category_id', '=', 3)->get();
-        return view('main_public.meat', compact('meat'));
-    }
-
-    public function getPorks()
-    {
-        $pork = DB::table('products')->where('category_id', '=', 7)->get();
-        return view('main_public.pork', compact('pork'));
-    }
-    public function getBeefs()
-    {
-        $beef = DB::table('products')->where('category_id', '=', 8)->get();
-        return view('main_public.beef', compact('beef'));
-    }
-    public function getPoultrys()
-    {
-        $poultry = DB::table('products')->where('category_id', '=', 9)->get();
-        return view('main_public.poultry', compact('poultry'));
-    }
-
-    public function getMilks()
-    {
-        $milk = DB::table('products')->where('parent_category_id', '=', 4)->get();
-        return view('main_public.milk', compact('milk'));
-    }
     /*-- End-Product --*/
 
     /**
@@ -269,6 +232,16 @@ class ProductController extends Controller
     {
         $search_by_name = DB::table('products')->where('name', 'LIKE', '%$string_name%');
 
+    }
+
+    public function getSpecialProducts($category_name)
+    {
+        $category_name = strtolower(str_replace(' ', '-', $category_name));
+        $category = Category::with('product')->where('name', '=', $category_name)->first();
+        if ($category != null) {
+            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
+            return view('main_public.product1', compact('category', 'products'));
+        }
     }
 
 }
