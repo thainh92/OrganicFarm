@@ -119,13 +119,9 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- End Add Cart ----------*/
 
 /*---------- Check Out ----------*/
-Route::get('/checkout', 'App\Http\Controllers\CheckoutController@checkout');
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
 
-<<<<<<< Updated upstream
-Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckoutController@save_checkout_customer');
-=======
-Route::get('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');
->>>>>>> Stashed changes
+Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder');
 /*---------- End Check Out ----------*/
 
 

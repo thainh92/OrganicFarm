@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{URL::to("/save-checkout-customer")}}" method="POST">
+                <form action="{{ url('place-oder') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
@@ -133,75 +133,38 @@
                         <div class="col-lg-6 col-md-12">
                             <div class="order-details">
                                 <h3 class="title">Your Order</h3>
-                                <div class="order-table table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Product Name</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="product-name">
-                                                    <a href="shop-details.html">Darling Oranges</a>
-                                                </td>
-                                                <td class="product-total">
-                                                    <span class="subtotal-amount">$455.00</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-name">
-                                                    <a href="shop-details.html">Strawberry</a>
-                                                </td>
-                                                <td class="product-total">
-                                                    <span class="subtotal-amount">$541.50</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-name">
-                                                    <a href="shop-details.html">Cabbage</a>
-                                                </td>
-                                                <td class="product-total">
-                                                    <span class="subtotal-amount">$140.50</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-name">
-                                                    <a href="shop-details.html">Nectarine</a>
-                                                </td>
-                                                <td class="product-total">
-                                                    <span class="subtotal-amount">$547.00</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="order-subtotal">
-                                                    <span>Seasoned Tomatoes</span>
-                                                </td>
-                                                <td class="order-subtotal-price">
-                                                    <span class="order-subtotal-amount">$1683.50</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="order-shipping">
-                                                    <span>Seasoned Carrot</span>
-                                                </td>
-                                                <td class="shipping-price">
-                                                    <span>$30.00</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="total-price">
-                                                    <span>Order Total</span>
-                                                </td>
-                                                <td class="product-subtotal">
-                                                    <span class="subtotal-amount">$1713.50</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                                @if(Session::has("Cart") != null)
+                                    <div class="order-table table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Product Name</th>
+                                                    <th scope="col">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach(Session::get('Cart')->products as $item)
+                                                    <tr>
+                                                        <td class="product-name">
+                                                            <a href="#">{{$item['productInfo']->name}}</a>
+                                                        </td>
+                                                        <td class="product-total">
+                                                            <span class="subtotal-amount">${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</span>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                <tr>
+                                                    <td class="total-price">
+                                                        <span>Order Total</span>
+                                                    </td>
+                                                    <td class="product-subtotal">
+                                                        <span class="subtotal-amount">${{number_format(Session::get('Cart')->totalPrice) + 10}}</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                @endif
                                 <div class="payment-box">
                                     <div class="payment-method">
                                         <p>
@@ -218,9 +181,10 @@
                                             <label for="cash-on-delivery">Cash on Delivery</label>
                                         </p>
                                     </div>
-                                    <a href="#" class="default-btn">
+                                    
+                                    <button class="default-btn" type="submit">
                                         Place Order
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
