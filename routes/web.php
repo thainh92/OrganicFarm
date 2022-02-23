@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +116,14 @@ Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartItemControll
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartItemController@SaveListItemCart');
 
 Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListItemCart');
+/*---------- End Add Cart ----------*/
+
+/*---------- Check Out ----------*/
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
+
+Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder');
+/*---------- End Check Out ----------*/
+
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
