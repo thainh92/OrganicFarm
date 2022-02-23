@@ -38,14 +38,31 @@
                                     Please input category code.
                                 </div>
                             </div>
-                            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <div class="mt-2 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" name="radio-inline" checked class="custom-control-input"><span class="custom-control-label">Create main category</span>
+                                </label>
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="2" name="radio-inline" class="custom-control-input"><span class="custom-control-label">Create sub category</span>
+                                </label>
+                            </div>
+                            <div id="getMainCategory" class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="input-select">Select Main Category</label>
                                 <select class="form-control form-control-sm" name="parent_id" id="input-select">
+                                    <option value="" selected>Select category</option>
                                     @foreach($get_parent_category as $item)
                                         <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
+{{--                            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">--}}
+{{--                                <label class="pt-2" for="input-select">Select Main Category</label>--}}
+{{--                                <select class="form-control form-control-sm" name="parent_id" id="input-select">--}}
+{{--                                    @foreach($get_parent_category as $item)--}}
+{{--                                        <option value="{{$item->id}}">{{$item->name}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">Image upload</label>
                                 <input type="file" class="form-control" id="validationCustom02" placeholder="File input"
@@ -94,5 +111,23 @@
                 });
             }, false);
         })();
+        $(document).ready(function (){
+            let valueRatio = $('input[name="radio-inline"]:checked').val();
+            if (valueRatio === "1") {
+                $('#getMainCategory').css('display', 'none');
+            } else {
+                $('#getMainCategory').css('display', 'inline');
+            }
+             $('input[type=radio][name=radio-inline]').change(function() {
+                if (this.value === "1") {
+                    $('#getMainCategory').css('display', 'none');
+                    valueRatio = this.value;
+                }
+                else {
+                    $('#getMainCategory').css('display', 'inline');
+                    valueRatio = this.value;
+                }
+             });
+        })
     </script>
 @endsection
