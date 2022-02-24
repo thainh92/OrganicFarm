@@ -508,6 +508,7 @@ Navbar Area CSS
     transition: all 0.3s ease-in-out;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .main-navbar .navbar .navbar-nav .nav-item .dropdown-menu li {
@@ -704,6 +705,8 @@ Navbar Area CSS
 
 /* CART BTN*/
 .cart-btn {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     position: relative;
     display: inline-block;
 }
@@ -735,21 +738,23 @@ Navbar Area CSS
 }
 
 .cart-btn-dropdown {
-    left: -150px;
-    text-align: center;
-    padding: 0.5rem 0;
+    left: -40px;
+    text-align: left;
+    /*padding: 0.5rem 0;*/
     display: none;
     position: absolute;
     background-color: white;
-    width: 400px;
+    width: 15vw;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     z-index: 99;
     margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    /*border-radius: 5px;*/
 }
 .cart-btn-dropdown a {
     color: black;
@@ -758,9 +763,15 @@ Navbar Area CSS
     display: block;
 }
 .cart-btn-dropdown-child {
-    background-color: beige;
-    padding: 1rem 0.5rem;
+    word-wrap: break-word;
+    background-color: white;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    /*-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);*/
+    /*padding: 1rem 0.5rem;*/
     margin: 0.3rem 0.3rem 0;
+    border-radius: 3px;
 }
 .cart-btn-dropdown-anime {
     padding: 0 1.5rem;
@@ -780,11 +791,32 @@ Navbar Area CSS
 .cart-btn-dropdown-singin h4 {
     color: white;
 }
-.cart-btn-dropdown:hover {
-    background: rgb(236, 236, 236);
+
+.cart-btn-dropdown-child a p {
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
 }
+
+.cart-btn-dropdown:hover {
+    /*background: rgb(236, 236, 236);*/
+    transition: all 0.3s ease-in-out;
+}
+
+/*.cart-btn-dropdown-child:hover {
+    background: rgb(236, 236, 236);
+}*/
+
+.cart-btn-dropdown-child:hover a p {
+    color: #f35320;
+}
+
 .cart-btn:hover .cart-btn-dropdown {
     display: block;
+  /*opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition: 0.3s;*/
 }
 
 /*      SEARCH BOX       */
@@ -4284,6 +4316,13 @@ Register Area CSS
     font-style: italic;
     font-size: 13.5px;
     margin-top: -10px;
+    margin-bottom: 0;
+}
+
+.register-form form .agree-term {
+    font-style: italic;
+    font-size: 13.5px;
+    margin-top: 10px;
     margin-bottom: 0;
 }
 

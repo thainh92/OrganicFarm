@@ -4,6 +4,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,8 +111,11 @@ Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
 
-Route::get('/cart', 'App\Http\Controllers\CartItemController@ViewListCart')->name('cart-page');
+Route::group(['middleware' => ['auth']], function() {
+   // define your route, route groups here
 
+Route::get('/cart', 'App\Http\Controllers\CartItemController@ViewListCart')->name('cart-page');
+});
 Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteListItemCart');
 
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartItemController@SaveListItemCart');
@@ -119,6 +125,30 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
 
+
+/*---------- Auth Route ----------*/
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/email/verify', function () {
+//     return view('auth.verify');
+// })->middleware('auth')->name('verification.notice');
+
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//     $request->fulfill();
+ 
+//     return redirect('/home');
+// })->middleware(['auth', 'signed'])->name('verification.verify');
+
+// Route::post('/email/verification-notification', function (Request $request) {
+//     $request->user()->sendEmailVerificationNotification();
+ 
+//     return back()->with('message', 'Verification link sent!');
+// })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
+
+// Route::get('/forgot-password', function () {
+//     return view('auth.passwords.email');
+// })->middleware('guest')->name('password.request');
+
+/*---------- End Auth Route ----------*/
