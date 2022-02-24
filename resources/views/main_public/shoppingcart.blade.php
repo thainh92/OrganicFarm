@@ -114,7 +114,7 @@
                                             <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
                                         </li>
                                     </ul>
-                                    <a href="#" class="default-btn">
+                                    <a href="{{ route('checkout-page') }}" class="default-btn">
                                         Proceed to Checkout
                                     </a>
                                 @endif
@@ -137,6 +137,7 @@
                 url: 'Delete-Item-List-Cart/'+id,
                 type: 'GET',
             }).done(function(response){
+                //location.reload();
                 RenderListCart(response);
                 alertify.error('Delete Success');
             });
@@ -147,6 +148,7 @@
                 url: 'Save-Item-List-Cart/'+id+'/'+$("#quanty-item-"+id).val(),
                 type: 'GET',
             }).done(function(response){
+                //location.reload();
                 RenderListCart(response);
                 alertify.success('Save Success');
             });

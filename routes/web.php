@@ -4,9 +4,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,16 +113,26 @@ Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
 
+/* -- Add Auth to Cart -- */
 Route::group(['middleware' => ['auth']], function() {
    // define your route, route groups here
-
 Route::get('/cart', 'App\Http\Controllers\CartItemController@ViewListCart')->name('cart-page');
 });
+/* -- Add Auth to Cart -- */
+
 Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteListItemCart');
 
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartItemController@SaveListItemCart');
 
 Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListItemCart');
+/*---------- End Add Cart ----------*/
+
+/*---------- Check Out ----------*/
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
+
+Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder');
+/*---------- End Check Out ----------*/
+
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
