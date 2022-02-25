@@ -21,7 +21,7 @@ class ProductController extends Controller
     }
 
     /*-- Product --*/
-    public function getProducts($category_name)
+    public function getProducts(Request $request, $category_name)
     {
 ////        $products = DB::table('products')
 ////            ->join('categories', 'products.category_id', '=', 'category.id')
@@ -43,7 +43,9 @@ class ProductController extends Controller
 //            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
 //            return view('main_public.product', compact('category', 'products'));
 //        }
+        if (isset($request->title)) {
 
+        }
         $category_name = strtolower(str_replace(' ', '-', $category_name));
         $category = Category::with('product')->where('name', '=', $category_name)->first();
         if ($category != null) {
