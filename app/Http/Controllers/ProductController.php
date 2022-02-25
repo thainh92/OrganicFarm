@@ -46,7 +46,6 @@ class ProductController extends Controller
         if (isset($request->title)) {
 
         }
-        $category_name = strtolower(str_replace(' ', '-', $category_name));
         $category = Category::with('product')->where('name', '=', $category_name)->first();
         if ($category != null) {
             $products = DB::table('products')->where('category_id', '=', $category->id)->get();

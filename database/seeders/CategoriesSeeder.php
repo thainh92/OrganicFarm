@@ -20,7 +20,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'fruit-1.jpg',
                 'code' => '01',
                 'name' => 'Fruits',
-                'url' => '/fruits',
+                'url' => 'fruits',
                 'parent_id' => null,
             ],
             [
@@ -28,7 +28,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'vegetable-1.jpg',
                 'code' => '02',
                 'name' => 'Vegetables',
-                'url' => '/vegetables',
+                'url' => 'vegetables',
                 'parent_id' => null,
             ],
             [
@@ -36,7 +36,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'meat-1.jpg',
                 'code' => '03',
                 'name' => 'Meats',
-                'url' => '/meats',
+                'url' => 'meats',
                 'parent_id' => null,
             ],
             [
@@ -44,7 +44,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'milk-1.jpg',
                 'code' => '04',
                 'name' => 'Milks',
-                'url' => '/milks',
+                'url' => 'milks',
                 'parent_id' => null,
             ],
             [
@@ -52,7 +52,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'vegetable-2.jpg',
                 'code' => '05',
                 'name' => 'Organic vegetables',
-                'url' => '/organic-vegetables',
+                'url' => 'organic-vegetables',
                 'parent_id' => 2,
             ],
             [
@@ -60,7 +60,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'mushroom-1.jpg',
                 'code' => '06',
                 'name' => 'Fresh mushrooms',
-                'url' => '/fresh-mushrooms',
+                'url' => 'fresh-mushrooms',
                 'parent_id' => 2,
             ],
             [
@@ -68,7 +68,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'pork-1.jpg',
                 'code' => '07',
                 'name' => 'Pork',
-                'url' => '/pork',
+                'url' => 'pork',
                 'parent_id' => 3,
             ],
             [
@@ -76,7 +76,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'beef-1.jpg',
                 'code' => '08',
                 'name' => 'Beef',
-                'url' => '/beef',
+                'url' => 'beef',
                 'parent_id' => 3,
             ],
             [
@@ -84,7 +84,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'poultry-1.jpg',
                 'code' => '09',
                 'name' => 'Poultry',
-                'url' => '/poultry',
+                'url' => 'poultry',
                 'parent_id' => 3,
             ],
             [
@@ -92,7 +92,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'milk-1.jpg',
                 'code' => '10',
                 'name' => 'Organic Milk',
-                'url' => '/organic-milk',
+                'url' => 'organic-milk',
                 'parent_id' => 4,
             ],
             [
@@ -100,7 +100,7 @@ class CategoriesSeeder extends Seeder
                 'thumbnail' => 'fruits-1.jpg',
                 'code' => '11',
                 'name' => 'Fresh Fruit',
-                'url' => '/fresh-fruit',
+                'url' => 'fresh-fruit',
                 'parent_id' => 1,
             ]
         ]);
