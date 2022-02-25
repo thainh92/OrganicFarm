@@ -151,7 +151,7 @@
                                 @foreach($categories as $category)
                                     <li class="nav-item">
 {{--                                        <a href="{{url($category->url)}}" class="nav-link">--}}
-                                        <a href="{{url('/category/'.$category->name)}}" class="nav-link">
+                                        <a href="{{route('product-page', $category->name)}}" class="nav-link">
                                             {{$category->name}}
 {{--                                            <i class='bx bx-chevron-down'></i>--}}
                                         </a>
