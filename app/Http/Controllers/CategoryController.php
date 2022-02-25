@@ -24,6 +24,7 @@ class CategoryController extends Controller
 //        $categories = Category::all();
         $categories = DB::table('categories')
             ->where('categories.deleted_at','=',null)
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         return view('admin.category.index', [
             'categories' => $categories,
@@ -66,18 +67,19 @@ class CategoryController extends Controller
         }
         $newImageName = time() . '-' . $request->name . '.' . $request->thumbnail->extension();
         $request->thumbnail->move(public_path('assets/img/category'), $newImageName);
-        $sub_category_url = CategoryController::genCategoryUrl($request->name);
-        $main_category_url = DB::table('categories')->where('id', '=', $parent_id)->value('url');
-        if ($parent_id != null) {
-            $new_url = $main_category_url . "/" .$sub_category_url;
-        } else {
-            $new_url = $sub_category_url;
-        }
+        $new_url = CategoryController::genCategoryUrl($request->name);
+//        $sub_category_url = CategoryController::genCategoryUrl($request->name);
+//        $main_category_url = DB::table('categories')->where('id', '=', $parent_id)->value('url');
+//        if ($parent_id != null) {
+//            $new_url = $main_category_url . "/" .$sub_category_url;
+//        } else {
+//            $new_url = $sub_category_url;
+//        }
         if (!CategoryController::checkNameExist($request->name)) {
             $category = new Category();
             $category->name = $request->name;
             $category->code = $request->code;
-            $category->parent_id = $request->parent_id;
+            $category->parent_id = $parent_id;
             $category->thumbnail = $newImageName;
             $category->url = $new_url;
             $category->save();

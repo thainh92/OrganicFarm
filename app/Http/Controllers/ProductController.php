@@ -46,7 +46,16 @@ class ProductController extends Controller
         if (isset($request->title)) {
 
         }
-        $category = Category::with('product')->where('name', '=', $category_name)->first();
+        $category = Category::with('product')->where('url', '=', $category_name)->first();
+        if ($category->parent_id == null) {
+            $get_list_category_id = DB::table('categories')
+                ->where('parent_id', '=', $category->id)
+                ->get();
+            $category_ids = array_column($get_list_category_id->toArray(), 'id');
+            array_push($category_ids, $category->id);
+            $products = DB::table('products')->whereIn('category_id', $category_ids)->get();
+            return view('main_public.product', compact('category', 'products'));
+        }
         if ($category != null) {
             $products = DB::table('products')->where('category_id', '=', $category->id)->get();
             return view('main_public.product', compact('category', 'products'));
@@ -114,11 +123,13 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
+        $product = DB::table('products')->where('id', '=', $id)->first();
+        return view('main_public.product_detail', compact('product'));
     }
 
     /**
@@ -130,7 +141,6 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::with('category')->where('id', '=', $id)->first();
-//        dd($product->category);
         $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
 
         // $product->category
@@ -195,6 +205,7 @@ class ProductController extends Controller
             ->join('categories', function ($join) {
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
+            ->orderBy('created_at', 'desc')
             ->paginate(10)->withQueryString();
         $get_categories = DB::table('categories')
             ->where('deleted_at', '=', null)
@@ -215,11 +226,11 @@ class ProductController extends Controller
 //        return view('admin.product.index', compact('products', 'get_categories'));
     }
 
-    public function getProductById($id)
-    {
-        $product = Product::find($id);
-        return view('main_public.product_detail', compact('product'));
-    }
+//    public function getProductById($id)
+//    {
+//        $product = Product::find($id);
+//        return view('main_public.product_detail', compact('product'));
+//    }
 
     public function getSubCategoryProduct(Request $request)
     {

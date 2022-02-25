@@ -74,7 +74,7 @@
 
                                     <div class="products-content">
                                         <h3>
-                                            <a href="shop-details.html">{{$item->name}}</a>
+                                            <a href="{{route('product-detail', $item->id)}}">{{$item->name}}</a>
                                         </h3>
                                         <div class="price">
                                             <span class="new-price">${{number_format($item->price,2)}}</span>

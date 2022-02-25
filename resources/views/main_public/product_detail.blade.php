@@ -9,7 +9,7 @@
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
-                                <div class="product-details-image"><img src="{{$product->thumbnail}}"></div>
+                                <div class="product-details-image"><img src="{{asset('assets/img/product/'.$product->thumbnail)}}"></div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
