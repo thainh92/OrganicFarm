@@ -59,22 +59,17 @@
                                                     </td>
                                                     <td class="product-quantity">
                                                         <div class="input-counter">
-                                                            <span class="minus-btn">
+                                                            <span class="minus-btn" onclick="this.parentNode.stepDown();" id="decrease">
                                                                 <i class='bx bx-minus'></i>
                                                             </span>
-                                                            <input data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
-                                                            <span class="plus-btn">
+                                                            <input class="quantity" min="1" max="10" data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
+                                                            <span class="plus-btn" onclick="this.parentNode.stepUp();" id="increment">
                                                                 <i class='bx bx-plus'></i>
                                                             </span>
                                                         </div>
                                                     </td>
                                                     <td class="product-subtotal">
                                                         <span class="subtotal-amount">${{number_format($item['price'])}}</span>
-                                                        <a href="#" class="remove">
-                                                            <i class='bx bx-save' onclick="SaveListItemCart({{$item['productInfo']->id}})"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td class="product-subtotal">
                                                         <a href="#" class="remove">
                                                             <i class='bx bx-trash' onclick="DeleteListItemCart({{$item['productInfo']->id}})"></i>
                                                         </a>
@@ -137,7 +132,6 @@
                 url: 'Delete-Item-List-Cart/'+id,
                 type: 'GET',
             }).done(function(response){
-                //location.reload();
                 RenderListCart(response);
                 alertify.error('Delete Success');
             });
@@ -148,7 +142,6 @@
                 url: 'Save-Item-List-Cart/'+id+'/'+$("#quanty-item-"+id).val(),
                 type: 'GET',
             }).done(function(response){
-                //location.reload();
                 RenderListCart(response);
                 alertify.success('Save Success');
             });
@@ -206,7 +199,6 @@
                 }
             }).done(function(response){
                 location.reload();
-                alertify.success('Update Success');
             });
         });
     </script>

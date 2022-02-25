@@ -1,9 +1,8 @@
 @extends('layouts.master')
 @section('title','Product Detail')
 @section('content')
-    <div class="product-details__container">
+    <div class="product-details-container">
         <!-- Start Product Details Area -->
-{{--        {{dd($product)}}--}}
         <section class="product-details-area pt-100 pb-70">
             <div class="container">
                 <div class="row">

@@ -37,11 +37,6 @@
                         </td>
                         <td class="product-subtotal">
                             <span class="subtotal-amount">${{number_format($item['price'])}}</span>
-                            <a href="#" class="remove" onclick="SaveListItemCart({{$item['productInfo']->id}})">
-                                <i class='bx bx-save'></i>
-                            </a>
-                        </td>
-                        <td class="product-subtotal">
                             <a href="#" class="remove" onclick="DeleteListItemCart({{$item['productInfo']->id}})">
                                 <i class='bx bx-trash'></i>
                             </a>
