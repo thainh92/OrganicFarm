@@ -29,7 +29,7 @@
                                         </div>
                                         <a href="#" class="rating-count">3 reviews</a>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                                    <p>{{$product->description}}</p>
                                     <div class="product-add-to-cart">
                                         <div class="input-counter">
                                             <span class="minus-btn">
