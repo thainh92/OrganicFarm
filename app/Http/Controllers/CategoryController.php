@@ -183,7 +183,7 @@ class CategoryController extends Controller
     {
         $get_list_name = DB::table('categories')->select('name')->get();
         foreach ($get_list_name as $item) {
-            if ($name == $item->name)
+            if (strtolower($name) == strtolower($item->name))
                 return true;
         }
         return false;

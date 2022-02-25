@@ -116,10 +116,10 @@
                             <section class="widget widget_search">
                                 <h3 class="widget-title">Search</h3>
 
-                                <form class="search-form">
+                                <form class="search-form" method="get">
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" class="search-field" placeholder="Search...">
+                                        <input name="title" type="search" class="search-field" placeholder="Search...">
                                     </label>
                                     <button type="submit">
                                         <i class="flaticon-search"></i>
