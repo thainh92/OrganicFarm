@@ -84,11 +84,7 @@ Route::get('/pricing',function (){
     return view('main_public.pricing');
 })->name('pricing-page');
 
-Route::get('/product-detail',function (){
-    return view('main_public.product_detail');
-})->name('product-detail');
-
-Route::get('/product-detail/{id}',[ProductController::class,'getProductById']);
+Route::get('/product-detail/{id}',[ProductController::class,'show'])->name('product-detail');
 /*---------- End Shop Route ----------*/
 
 /*---------- Add Cart ----------*/
