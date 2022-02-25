@@ -131,6 +131,8 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
 
 Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder');
+
+Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@paymentsuccess');
 /*---------- End Check Out ----------*/
 
 

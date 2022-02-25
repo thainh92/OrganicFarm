@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Models\OrderDetail;
+use Session;
+
 
 class CheckoutController extends Controller
 {
@@ -34,14 +36,25 @@ class CheckoutController extends Controller
         $order->email = $request->input("email");
         $order->notes = $request->input("notes");
         $order->save();
-
         $order->id;
-        return Redirect('/payment');
+        
+        $cartDetails = Session('Cart')->products;
+        foreach ($cartDetails as $key => $item)
+        {
+            session(['product_id' => 'value']);
+            OrderDetail::create ([
+                'order_id' => $order->id,
+                'product_id' => $key,
+                'quantity' => $item['quanty'],
+                'price' => $item['price'],
+            ]);
+        }
+        return Redirect('/payment');      
     }
 
-    public function payment(Request $request)
+    public function paymentsuccess(Request $request)
     {
-        
+        return view('main_public.payment-success');
     }
 
     /**
