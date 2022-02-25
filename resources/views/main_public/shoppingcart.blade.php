@@ -1,6 +1,9 @@
 @extends('layouts.master')
 @section('title','Cart')
 @section('content')
+
+
+
     <section class="cart-container">
         <!-- Start Page Banner -->
         <div class="page-banner-area item-bg2">
@@ -123,6 +126,9 @@
         </section>
 		<!-- End Cart Area -->
     </section>
+
+
+
 @endsection
 @section('script-tag')
     <script>

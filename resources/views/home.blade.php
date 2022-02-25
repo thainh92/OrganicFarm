@@ -1,4 +1,8 @@
+
+<!-- @extends('layouts.master')
+=======
 @extends('layouts.app')
+>>>>>>> 613515d77f09cb6f8564e4bafb26101dd2e625ff
 
 @section('content')
 <div class="container">
@@ -20,4 +24,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection -->
