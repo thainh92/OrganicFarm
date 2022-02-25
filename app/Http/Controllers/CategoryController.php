@@ -66,17 +66,21 @@ class CategoryController extends Controller
         }
         $newImageName = time() . '-' . $request->name . '.' . $request->thumbnail->extension();
         $request->thumbnail->move(public_path('assets/img/category'), $newImageName);
-//        $main_category_url = CategoryController::getMainCategoryUrl($request->parent_id);
-//        $new_url = $main_category_url . CategoryController::convertNameToUrl($request->name);
+        $sub_category_url = CategoryController::genCategoryUrl($request->name);
+        $main_category_url = DB::table('categories')->where('id', '=', $parent_id)->value('url');
+        if ($parent_id != null) {
+            $new_url = $main_category_url . "/" .$sub_category_url;
+        } else {
+            $new_url = $sub_category_url;
+        }
         if (!CategoryController::checkNameExist($request->name)) {
-            $category = Category::create([
-                'name' => $request->get('name'),
-                'code' => $request->code,
-                'parent_id' => $parent_id,
-                'thumbnail' => $newImageName,
-//                'url' => $new_url,
-            ]);
-
+            $category = new Category();
+            $category->name = $request->name;
+            $category->code = $request->code;
+            $category->parent_id = $request->parent_id;
+            $category->thumbnail = $newImageName;
+            $category->url = $new_url;
+            $category->save();
             return redirect()->route('admin-category-index')->with('message', 'Create category success');
         } else {
             return redirect()->route('admin-category-index')->with('failed', 'Create category fail, category name already exist');
@@ -189,13 +193,9 @@ class CategoryController extends Controller
         return false;
     }
 
-//    public function getMainCategoryUrl($parent_id)
-//    {
-//        $record = DB::table('categories')
-//            ->where('id', '=', $parent_id)
-//            ->select('url')
-//            ->first();
-//        return $record->url;
-//    }
+    public function genCategoryUrl($name)
+    {
+        return strtolower(str_replace(" ", "-", $name));
+    }
 
 }
