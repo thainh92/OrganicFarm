@@ -36,16 +36,7 @@ class ProductController extends Controller
 //            ->get();
 //        return view('admin.product.index', compact('products'));
 
-//ver1
-//        $category_name = strtolower(str_replace(' ', '-', $category_name));
-//        $category = Category::with('product')->where('name', '=', $category_name)->first();
-//        if ($category != null) {
-//            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
-//            return view('main_public.product', compact('category', 'products'));
-//        }
-        if (isset($request->title)) {
 
-        }
         $category = Category::with('product')->where('url', '=', $category_name)->first();
         if ($category->parent_id == null) {
             $get_list_category_id = DB::table('categories')
@@ -53,7 +44,17 @@ class ProductController extends Controller
                 ->get();
             $category_ids = array_column($get_list_category_id->toArray(), 'id');
             array_push($category_ids, $category->id);
-            $products = DB::table('products')->whereIn('category_id', $category_ids)->get();
+            $products = DB::table('products')->whereIn('category_id', $category_ids);
+            if (isset($request->input_name)) {
+                $products = $products->where('name', 'like', '%'.$request->input_name.'%');
+            }
+            if (isset($request->start_price)) {
+                $products = $products->where('price', '>=', $request->start_price);
+            }
+            if (isset($request->end_price)) {
+                $products = $products->where('price', '<=', $request->end_price);
+            }
+            $products = $products->get();
             return view('main_public.product', compact('category', 'products'));
         }
         if ($category != null) {
@@ -240,20 +241,18 @@ class ProductController extends Controller
         return $get_sub_category;
     }
 
-    public function searchProductByName($stringName)
+    public function searchProductByName($string_name)
     {
-        $search_by_name = DB::table('products')->where('name', 'LIKE', '%$string_name%');
-
+        return DB::table('products')->where('name', 'LIKE', '%'.$string_name.'%');
     }
 
-    public function getSpecialProducts($category_name)
+    public function searchProductByStartPrice($price)
     {
-        $category_name = strtolower(str_replace(' ', '-', $category_name));
-        $category = Category::with('product')->where('name', '=', $category_name)->first();
-        if ($category != null) {
-            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
-            return view('main_public.product1', compact('category', 'products'));
-        }
+        return DB::table('products')->where('price', '>=', '%'.$price.'%');
     }
 
+    public function searchProductByEndPrice($price)
+    {
+        return DB::table('products')->where('price', '<=', '%'.$price.'%');
+    }
 }

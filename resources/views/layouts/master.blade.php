@@ -39,6 +39,7 @@
             width: 70px;
         }
     </style>
+
 </head>
 
 <body>
@@ -150,20 +151,9 @@
                                 @endphp
                                 @foreach($categories as $category)
                                     <li class="nav-item">
-{{--                                        <a href="{{url($category->url)}}" class="nav-link">--}}
                                         <a href="{{route('product-page', $category->url)}}" class="nav-link">
                                             {{$category->name}}
-{{--                                            <i class='bx bx-chevron-down'></i>--}}
                                         </a>
-{{--                                        <ul class="dropdown-menu">--}}
-{{--                                            @foreach($category->sub_category as $item)--}}
-{{--                                                <li class="nav-item">--}}
-{{--                                                    <a href="{{url($item->url."1")}}" class="nav-link">--}}
-{{--                                                        {{$item->name}}--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                            @endforeach--}}
-{{--                                        </ul>--}}
                                     </li>
                                 @endforeach
                             </ul>

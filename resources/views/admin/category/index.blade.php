@@ -60,12 +60,12 @@
                                         <td>{{$category->created_at}}</td>
                                         <td>{{$category->updated_at}}</td>
                                         <td>
-                                            @if($category->parent_id != null)
+{{--                                            @if($category->parent_id != null)--}}
                                                 <a href="{{route('admin-edit-category', $category->id)}}"
                                                    class="p-1 f-icon fas fa-edit text-primary"></a>
                                                 <a href="javascript:void(0)" onclick="deleteRecord({{$category->id}})"
                                                    class="p-1 f-icon fas fa-trash-alt text-danger"></a>
-                                            @endif
+{{--                                            @endif--}}
                                         </td>
                                     </tr>
                                 @endforeach
