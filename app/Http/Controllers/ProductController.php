@@ -23,29 +23,6 @@ class ProductController extends Controller
     /*-- Product --*/
     public function getProducts(Request $request, $category_name)
     {
-////        $products = DB::table('products')
-////            ->join('categories', 'products.category_id', '=', 'category.id')
-////            ->select('products.*', 'categories.name as category_name')
-////            ->get();
-////        dd($products);
-////        $products = Product::select(DB::raw('categories.name as category_name'))
-////            ->join('products', 'products.id', '=', 'categories.id')
-////            ->get();
-//        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->select('categories.name as category_name', 'products.*')
-//            ->get();
-//        return view('admin.product.index', compact('products'));
-
-//ver1
-//        $category_name = strtolower(str_replace(' ', '-', $category_name));
-//        $category = Category::with('product')->where('name', '=', $category_name)->first();
-//        if ($category != null) {
-//            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
-//            return view('main_public.product', compact('category', 'products'));
-//        }
-        if (isset($request->title)) {
-
-        }
         $category = Category::with('product')->where('url', '=', $category_name)->first();
         if ($category->parent_id == null) {
             $get_list_category_id = DB::table('categories')
@@ -53,15 +30,23 @@ class ProductController extends Controller
                 ->get();
             $category_ids = array_column($get_list_category_id->toArray(), 'id');
             array_push($category_ids, $category->id);
-            $products = DB::table('products')->whereIn('category_id', $category_ids)->get();
+            $products = DB::table('products')->whereIn('category_id', $category_ids);
+            if (isset($request->input_name)) {
+                $products = $products->where('name', 'like', '%'.$request->input_name.'%');
+            }
+            if (isset($request->start_price)) {
+                $products = $products->where('price', '>=', $request->start_price);
+            }
+            if (isset($request->end_price)) {
+                $products = $products->where('price', '<=', $request->end_price);
+            }
+            $products = $products->get();
             return view('main_public.product', compact('category', 'products'));
         }
         if ($category != null) {
             $products = DB::table('products')->where('category_id', '=', $category->id)->get();
             return view('main_public.product', compact('category', 'products'));
         }
-//        $products = DB::table('products')->inRandomOrder()->limit(15)->get();
-//        return view('main_public.product', compact('products'));
     }
 
     public function getTrending()
@@ -82,12 +67,6 @@ class ProductController extends Controller
     {
         $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
         return view('admin.product.create', compact('get_parent_category'));
-//        $data = DB::table('products')
-//            ->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->join('discounts', 'products.discount_id', '=', 'discounts.id')
-//            ->select('products.*', 'categories.name as category_name', 'discounts.name as discount_name')
-//            ->get();
-//        return view('admin.product.create',compact('data'));
     }
 
     /**
@@ -127,7 +106,6 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
         $product = DB::table('products')->where('id', '=', $id)->first();
         return view('main_public.product_detail', compact('product'));
     }
@@ -142,12 +120,7 @@ class ProductController extends Controller
     {
         $product = Product::with('category')->where('id', '=', $id)->first();
         $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
-
-        // $product->category
-//        dd($product);
-//        $get_product_category_id = DB::table('products')->where('category_id', '=', $id);
         $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
-
         return view('admin.product.edit', compact('product', 'get_parent_category', 'current_parent_category'));
     }
 
@@ -211,26 +184,13 @@ class ProductController extends Controller
             ->where('deleted_at', '=', null)
             ->select('name', 'id')
             ->get();
-//        $products->withPath('/admin/products');
-//        $products->appends(['sort' => 'created_at']);
-//        $products = DB::table('products')
-//            ->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->select('categories.name as category_name', 'products.*')
-//            ->get();
         return view('admin.product.index', ['products' => $products,
             'total' => $products->total(),
             'perPage' => $products->perPage(),
             'currentPage' => $products->currentPage(),
             'get_categories' => $get_categories,
-            ]);
-//        return view('admin.product.index', compact('products', 'get_categories'));
+        ]);
     }
-
-//    public function getProductById($id)
-//    {
-//        $product = Product::find($id);
-//        return view('main_public.product_detail', compact('product'));
-//    }
 
     public function getSubCategoryProduct(Request $request)
     {
@@ -238,22 +198,6 @@ class ProductController extends Controller
             ->where('parent_id', '=', $request->id)
             ->get();
         return $get_sub_category;
-    }
-
-    public function searchProductByName($stringName)
-    {
-        $search_by_name = DB::table('products')->where('name', 'LIKE', '%$string_name%');
-
-    }
-
-    public function getSpecialProducts($category_name)
-    {
-        $category_name = strtolower(str_replace(' ', '-', $category_name));
-        $category = Category::with('product')->where('name', '=', $category_name)->first();
-        if ($category != null) {
-            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
-            return view('main_public.product1', compact('category', 'products'));
-        }
     }
 
 }

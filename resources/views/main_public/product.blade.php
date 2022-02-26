@@ -29,7 +29,7 @@
                     <div class="col-lg-8 col-md-12">
                         <div class="orgo-grid-sorting row align-items-center">
                             <div class="col-lg-6 col-md-6 result-count">
-                                <p>We found <span class="count">15</span> products available for you</p>
+                                <p>We found <span class="count">{{$products->count()}}</span> products available for you</p>
                             </div>
 
                             <div class="col-lg-6 col-md-6 ordering">
@@ -48,50 +48,56 @@
 
                         <div class="row">
                             @foreach ($products as $item)
-                            <div class="col-lg-4 col-md-6">
-                                <div class="top-products-item">
-                                    <div class="products-image">
-                                        <a href="shop-details.html"><img src="{{asset('assets/img/product/'.$item->thumbnail)}}" alt="image"></a>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="top-products-item">
+                                        <div class="products-image">
+                                            <a href="{{route('product-detail', $item->id)}}"><img
+                                                    src="{{asset('assets/img/product/'.$item->thumbnail)}}" alt="image"></a>
 
-                                        <ul class="products-action">
-                                            <li>
-                                                <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                                    <i class="flaticon-search"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                            <ul class="products-action">
+                                                <li>
+                                                    <a onclick="AddCart({{$item->id}})" href="javascript:"
+                                                       data-tooltip="tooltip" data-placement="top"
+                                                       title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-tooltip="tooltip" data-placement="top"
+                                                       title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-tooltip="tooltip" data-placement="top"
+                                                       title="Quick View" data-toggle="modal"
+                                                       data-target="#productsQuickView">
+                                                        <i class="flaticon-search"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
 
-                                        <div class="sale">
-                                            <span>Sale</span>
+                                            <div class="sale">
+                                                <span>Sale</span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="products-content">
-                                        <h3>
-                                            <a href="{{route('product-detail', $item->id)}}">{{$item->name}}</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="new-price">${{number_format($item->price,2)}}</span>
-                                            <span class="old-price">${{number_format($item->price * 1.1,2)}}</span>
+                                        <div class="products-content">
+                                            <h3>
+                                                <a href="{{route('product-detail', $item->id)}}">{{$item->name}}</a>
+                                            </h3>
+                                            <div class="price">
+                                                <span class="new-price">${{number_format($item->price,2)}}</span>
+                                                <span class="old-price">${{number_format($item->price * 1.1,2)}}</span>
+                                            </div>
+                                            <ul class="rating">
+                                                <li>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bx-star'></i>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class='bx bxs-star'></i>
-                                                <i class='bx bxs-star'></i>
-                                                <i class='bx bxs-star'></i>
-                                                <i class='bx bxs-star'></i>
-                                                <i class='bx bx-star'></i>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
 
                             <div class="col-lg-12 col-md-12">
@@ -119,22 +125,29 @@
                                 <form class="search-form" method="get">
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
-                                        <input name="title" type="search" class="search-field" placeholder="Search...">
+                                        <input name="input_name" type="search" class="mt-2 search-field" placeholder="Search by name">
+                                        <input name="start_price" type="text" class="mt-2 search-field" placeholder="Start price">
+                                        <input name="end_price" type="text" class="mt-2 search-field" placeholder="End price">
                                     </label>
-                                    <button type="submit">
+                                    <button class="" type="submit">
                                         <i class="flaticon-search"></i>
                                     </button>
                                 </form>
                             </section>
 
                             <section class="widget price_list_widget">
-                                <h3 class="widget-title">Price</h3>
-
-                                <form>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="$10">
-                                    </div>
-                                </form>
+                                <h3 class="widget-title">Product Type</h3>
+                                @php
+                                    $sub_category = DB::table('categories')->where('parent_id', '=', $category->id)->get();
+                                @endphp
+                                @foreach($sub_category as $item)
+                                    <form>
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"><span
+                                                class="custom-control-label">{{$item->name}}</span>
+                                        </label>
+                                    </form>
+                                @endforeach
                             </section>
 
                             <section class="widget widget_popular_products">
@@ -146,7 +159,8 @@
                                     </a>
                                     <div class="info">
                                         <span>$49.00</span>
-                                        <h4 class="title usmall"><a href="#">Random Romance Novel Title Generator</a></h4>
+                                        <h4 class="title usmall"><a href="#">Random Romance Novel Title Generator</a>
+                                        </h4>
                                         <div class="rating">
                                             <i class='bx bxs-star'></i>
                                             <i class='bx bxs-star'></i>
@@ -163,7 +177,8 @@
                                     </a>
                                     <div class="info">
                                         <span>$59.00</span>
-                                        <h4 class="title usmall"><a href="#">Writing Exercises Story Title Ideas</a></h4>
+                                        <h4 class="title usmall"><a href="#">Writing Exercises Story Title Ideas</a>
+                                        </h4>
                                         <div class="rating">
                                             <i class='bx bxs-star'></i>
                                             <i class='bx bxs-star'></i>
