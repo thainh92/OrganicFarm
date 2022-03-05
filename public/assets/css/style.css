@@ -705,8 +705,6 @@ Navbar Area CSS
 
 /* CART BTN*/
 .cart-btn {
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
     position: relative;
     display: inline-block;
 }
@@ -740,13 +738,13 @@ Navbar Area CSS
 .cart-btn-dropdown {
     left: -40px;
     text-align: left;
-    /*padding: 0.5rem 0;*/
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     background-color: white;
     width: 15vw;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 1s;
+    transition: all 1s;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     z-index: 99;
@@ -776,9 +774,6 @@ Navbar Area CSS
 .cart-btn-dropdown-anime {
     padding: 0 1.5rem;
 }
-.cart-btn-dropdown-create {
-    background-color: rgb(207, 124, 124);
-}
 .cart-btn-dropdown-create p {
     padding: 0 1rem;
     color: white;
@@ -798,25 +793,17 @@ Navbar Area CSS
     color: black;
 }
 
-.cart-btn-dropdown:hover {
-    /*background: rgb(236, 236, 236);*/
-    transition: all 0.3s ease-in-out;
-}
-
-/*.cart-btn-dropdown-child:hover {
+.cart-btn-dropdown-child:hover {
     background: rgb(236, 236, 236);
-}*/
+}
 
 .cart-btn-dropdown-child:hover a p {
     color: #f35320;
 }
 
 .cart-btn:hover .cart-btn-dropdown {
-    display: block;
-  /*opacity: 1;
-  z-index: 1;
-  transform: translateY(0%);
-  transition: 0.3s;*/
+    opacity: 1;
+    visibility: visible;
 }
 
 /*      SEARCH BOX       */
@@ -1956,7 +1943,6 @@ Top Products Area CSS
 
 .orgo-grid-sorting .ordering .nice-select {
     display: inline-block;
-    float: unset;
     width: 215px;
     background: #f8f8f8;
     border-color: #eeeeee;
@@ -2210,7 +2196,7 @@ Department Area CSS
 Why Choose Area CSS
 =================================================*/
 .why-choose-area {
-    background-image: url(../../assets/img/why-choose-bg.jpg);
+    background-image: url(../../assets/img/client/client-5.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -3554,7 +3540,7 @@ Team Area CSS
 Client Area CSS
 =================================================*/
 .client-area {
-    background-image: url(../../assets/img/client-bg.jpg);
+    background-image: url(../../assets/img/client/client-4.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -3850,6 +3836,10 @@ About Area CSS
 .about-content .about-btn {
     margin-top: 30px;
 }
+.about-image-child {
+    min-width: 100%;
+    min-height: 100%;
+}
 
 /*================================================
 Fun Facts Area CSS
@@ -3948,7 +3938,7 @@ Page Banner CSS
 .page-banner-area {
     position: relative;
     z-index: 1;
-    background-image: url(../../assets/img/page-banner/page-banner-1.jpg);
+    background-image: url(../../assets/img/client/header.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -7757,9 +7747,9 @@ Modal CSS
 	visibility: hidden;
 	-webkit-box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
     box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 10%);
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
 }
 .cart-hover .select-items table {
 	width: 100%;
