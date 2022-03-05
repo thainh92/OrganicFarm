@@ -73,9 +73,9 @@
                                                 </li>
                                             </ul>
 
-                                            <div class="sale">
-                                                <span>Sale</span>
-                                            </div>
+{{--                                            <div class="sale">--}}
+{{--                                                <span>Sale</span>--}}
+{{--                                            </div>--}}
                                         </div>
 
                                         <div class="products-content">
@@ -84,7 +84,7 @@
                                             </h3>
                                             <div class="price">
                                                 <span class="new-price">${{number_format($item->price,2)}}</span>
-                                                <span class="old-price">${{number_format($item->price * 1.1,2)}}</span>
+{{--                                                <span class="old-price">${{number_format($item->price * 1.1,2)}}</span>--}}
                                             </div>
                                             <ul class="rating">
                                                 <li>
@@ -150,77 +150,15 @@
                                 @endforeach
                             </section>
 
-                            <section class="widget widget_popular_products">
-                                <h3 class="widget-title">Popular Products</h3>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>$49.00</span>
-                                        <h4 class="title usmall"><a href="#">Random Romance Novel Title Generator</a>
-                                        </h4>
-                                        <div class="rating">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>$59.00</span>
-                                        <h4 class="title usmall"><a href="#">Writing Exercises Story Title Ideas</a>
-                                        </h4>
-                                        <div class="rating">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>$69.00</span>
-                                        <h4 class="title usmall"><a href="#">Amaze Story Kitt Net's Book Ideas</a></h4>
-                                        <div class="rating">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </article>
-                            </section>
-
                             <section class="widget widget_tag_cloud">
                                 <h3 class="widget-title">Popular Tags</h3>
-
+                                @php
+                                    $category_tag = DB::table('categories')->where([['parent_id', '=', null], ['deleted_at', '=', null]])->get();
+                                @endphp
                                 <div class="tagcloud">
-                                    <a href="#">Architecture</a>
-                                    <a href="#">Interior Design</a>
-                                    <a href="#">Designing</a>
-                                    <a href="#">Construction</a>
-                                    <a href="#">Buildings</a>
-                                    <a href="#">Industrial Factory</a>
-                                    <a href="#">Material</a>
-                                    <a href="#">Organic</a>
-                                    <a href="#">Food</a>
-                                    <a href="#">Tasty</a>
+                                    @foreach($category_tag as $item)
+                                        <a href="{{route('product-page', $item->url)}}">{{$item->name}}</a>
+                                    @endforeach
                                 </div>
                             </section>
                         </aside>
