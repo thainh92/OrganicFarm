@@ -122,12 +122,12 @@
                             <section class="widget widget_search">
                                 <h3 class="widget-title">Search</h3>
 
-                                <form class="search-form" method="get">
+                                <form name="searchForm" class="search-form" method="get" onsubmit="return validateForm()">
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
                                         <input name="input_name" type="search" class="mt-2 search-field" placeholder="Search by name">
-                                        <input name="start_price" type="text" class="mt-2 search-field" placeholder="Start price">
-                                        <input name="end_price" type="text" class="mt-2 search-field" placeholder="End price">
+                                        <input name="start_price" class="mt-2 search-field" placeholder="Start price">
+                                        <input name="end_price" class="mt-2 search-field" placeholder="End price">
                                     </label>
                                     <button class="" type="submit">
                                         <i class="flaticon-search"></i>
@@ -231,7 +231,19 @@
         <!-- End Top Products Area -->
     </section>
 @endsection
-<script>
-</script>
 @section('script-tag')
+    <script>
+        function validateForm() {
+            let x = document.forms["searchForm"]["start_price"].value;
+            let y = document.forms['searchForm']['end_price'].value;
+            if (isNaN(x)) {
+                alert("Start price must be a number");
+                return false
+            }
+            if (isNaN(y)) {
+                alert("End price must be a number");
+                return false
+            }
+        }
+    </script>
 @endsection
