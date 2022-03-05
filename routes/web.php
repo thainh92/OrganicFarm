@@ -88,7 +88,7 @@ Route::get('/product-detail/{id}',[ProductController::class,'show'])->name('prod
 /*---------- End Shop Route ----------*/
 
 /*---------- Add Cart ----------*/
-Route::get('/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
+Route::get('/category/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
 
@@ -145,3 +145,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // })->middleware('guest')->name('password.request');
 
 /*---------- End Auth Route ----------*/
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
