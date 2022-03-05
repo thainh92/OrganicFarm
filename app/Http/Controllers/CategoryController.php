@@ -24,6 +24,7 @@ class CategoryController extends Controller
 //        $categories = Category::all();
         $categories = DB::table('categories')
             ->where('categories.deleted_at','=',null)
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         return view('admin.category.index', [
             'categories' => $categories,
@@ -59,18 +60,29 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $radio_value = $request->get('radio-inline');
+        $parent_id = $request->get('parent_id');
+        if ($radio_value == "1") {
+            $parent_id = null;
+        }
         $newImageName = time() . '-' . $request->name . '.' . $request->thumbnail->extension();
         $request->thumbnail->move(public_path('assets/img/category'), $newImageName);
-        $main_category_url = CategoryController::getMainCategoryUrl($request->parent_id);
-        $new_url = $main_category_url . CategoryController::convertNameToUrl($request->name);
+        $new_url = CategoryController::genCategoryUrl($request->name);
+//        $sub_category_url = CategoryController::genCategoryUrl($request->name);
+//        $main_category_url = DB::table('categories')->where('id', '=', $parent_id)->value('url');
+//        if ($parent_id != null) {
+//            $new_url = $main_category_url . "/" .$sub_category_url;
+//        } else {
+//            $new_url = $sub_category_url;
+//        }
         if (!CategoryController::checkNameExist($request->name)) {
-            $category = Category::create([
-                'name' => $request->name,
-                'code' => $request->code,
-                'parent_id' => $request->parent_id,
-                'thumbnail' => $newImageName,
-                'url' => $new_url,
-            ]);
+            $category = new Category();
+            $category->name = $request->name;
+            $category->code = $request->code;
+            $category->parent_id = $parent_id;
+            $category->thumbnail = $newImageName;
+            $category->url = $new_url;
+            $category->save();
             return redirect()->route('admin-category-index')->with('message', 'Create category success');
         } else {
             return redirect()->route('admin-category-index')->with('failed', 'Create category fail, category name already exist');
@@ -177,19 +189,15 @@ class CategoryController extends Controller
     {
         $get_list_name = DB::table('categories')->select('name')->get();
         foreach ($get_list_name as $item) {
-            if ($name == $item->name)
+            if (strtolower($name) == strtolower($item->name))
                 return true;
         }
         return false;
     }
 
-    public function getMainCategoryUrl($parent_id)
+    public function genCategoryUrl($name)
     {
-        $record = DB::table('categories')
-            ->where('id', '=', $parent_id)
-            ->select('url')
-            ->get()->first();
-        return $record->url;
+        return strtolower(str_replace(" ", "-", $name));
     }
 
 }

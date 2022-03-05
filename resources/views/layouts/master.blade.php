@@ -143,36 +143,26 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('product-page') }}" class="nav-link">
+                                <a href="" class="nav-link">
                                     Shop
                                     <i class='bx bx-chevron-down'></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     @php
-                                    $categories_old = DB::table('categories')->where([['parent_id', '=', null], ['deleted_at', '=', null]])->get();
-                                    $categories = [];
-                                    foreach($categories_old as $category) {
-                                        $sub_categories = DB::table('categories')->where([['parent_id', '=', $category->id], ['deleted_at', '=', null]])->get();
-                                        $category->sub_category = $sub_categories;
-                                        array_push($categories ,$category);
-                                    }
+                                        $categories_old = DB::table('categories')->where([['parent_id', '=', null], ['deleted_at', '=', null]])->get();
+                                        $categories = [];
+                                        foreach($categories_old as $category) {
+                                            $sub_categories = DB::table('categories')->where([['parent_id', '=', $category->id], ['deleted_at', '=', null]])->get();
+                                            $category->sub_category = $sub_categories;
+                                            array_push($categories ,$category);
+                                        }
                                     @endphp
                                     @foreach($categories as $category)
-                                    <li class="nav-item">
-                                        <a href="{{url($category->url)}}" class="nav-link">
-                                            {{$category->name}}
-                                            <i class='bx bx-chevron-down'></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            @foreach($category->sub_category as $item)
-                                            <li class="nav-item">
-                                                <a href="{{ url($item->url) }}" class="nav-link">
-                                                    {{$item->name}}
-                                                </a>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('product-page', $category->url)}}" class="nav-link">
+                                                {{$category->name}}
+                                            </a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -253,7 +243,7 @@
                                         <a href="{{route('login')}}" class="primary-btn checkout-btn">
                                             <p>Login</p>
                                         </a>
-                                    </div>                                
+                                    </div>
 
                                     <div class="cart-btn-dropdown-child">
                                         @if (Route::has('register'))

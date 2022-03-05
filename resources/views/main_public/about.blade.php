@@ -29,7 +29,10 @@
                     <div class="col-lg-6">
                         <div class="about-content">
                             <h3>About Us</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse fugiat nulla pariatur. Excepteur sint occaecat.</p>
+                            <p>
+                                Health is the wholeness and integrity of living systems. In a time where humans are taking away the goodness of nature, we strive to turn the wheel full circle by preserving it. Our philosophy is based on the principles of health, ecology, fairness, and care. We are making an effort towards a sustainable agro-ecosystem that ensures soil & water conservation and reduced pollution.<br/>
+                                Organic is not just a healthy way of eating but also one which is guilt free. When we take care of the earth, it takes care of us too. Founded on the belief that nature need not lose out in our quest for advancement, Organic Tattva strives to support a wholesome life print. We do our bit for Mother Nature. And by making just one right change in life, so can everyone else. We can change the course of the things to come. Come to be part of the Organic Tattva story.
+                            </p>
 
                             <ul class="about-list">
                                 <li><i class='bx bx-check'></i> Natural Process</li>
@@ -47,7 +50,7 @@
 
                     <div class="col-lg-6">
                         <div class="about-image">
-                            <img src="assets/img/about.jpg" alt="image">
+                            <img src="assets/img/client/aboutus.jpg" alt="image" class="about-image-child">
                         </div>
                     </div>
                 </div>
@@ -104,7 +107,6 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Client’s Feedback</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
                 <div class="client-slider owl-carousel owl-theme">
@@ -113,10 +115,10 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Your level of customer service is exemplary and a rarity in this age where customers are not always treated with the seriousness that they deserve. Even though the mistake concerning the sell-by-date was down to my misinterpretation, your handling of the situation was totally appreciated. I will continue to use and recommend NHR Organic Oils to my friends and/or anyone who is interested in purchasing good quality base and essential oils. Many thanks and well done for setting such a high standard of customer service</p>
 
                         <div class="client-info">
-                            <img src="assets/img/client/client-1.jpg" alt="image">
+                            <img src="assets/img/client/client-1.png" alt="image">
                             <h3>Jacinda Meri</h3>
                             <span>Founder</span>
                         </div>
@@ -127,7 +129,7 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Just wanted to say I absolutely love your OILS they are my top favourites.   I spoke to the man who is behind the company many years ago before he launched it. I must congratulate him on his taste and aromas, BEST OF THE BEST! and thank you for the orange oil complimentary !  I am so excited to use these oils, my favourite is peppermint!  Thank you order received with grattitude,</p>
 
                         <div class="client-info">
                             <img src="assets/img/client/client-2.jpg" alt="image">
@@ -141,7 +143,7 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>An aromatherapist friend told me about NHR, and I immediately fell in love with them. I haven’t bought any other brands since! Our company Raw Living promotes the raw foods lifestyle to people in many ways, and one of these is our own brand range of foods. Our most popular line is the raw chocolate bars – this is chocolate that is healthy as it is delicious, and many people become addicted (in a good way!). We use NHR oils in two of our bars: the Hi-Buzz, which contains orange oil as well as pollen and Chinese herbs, and Hi-Lovers, which contains rose oil, and other plant foods said to open the heart chakra. We also put the oils in several of our raw chocolate cakes: my favourite is the Lavender and Purple corn cake.</p>
 
                         <div class="client-info">
                             <img src="assets/img/client/client-3.jpg" alt="image">
@@ -158,8 +160,7 @@
         <section class="team-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <h2>Our Farm Land Farmers</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <h2>OUR TEAM</h2>
                 </div>
 
                 <div class="row">
@@ -316,7 +317,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Pricing Plan</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p>Best combo for you</p>
                 </div>
 
                 <div class="row">
@@ -466,7 +467,6 @@
                     <div class="content">
                         <span>Why Choose Us</span>
                         <h3>We are Ensure of These Types</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                     </div>
 
                     <div class="inner-content">
@@ -474,7 +474,7 @@
                             <i class="flaticon-leaf"></i>
                         </div>
                         <h4>Organic</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                        <p>To help people live a better, healthier, and wholesome life by providing them with 100% certified, authentic organic food.</p>
                     </div>
 
                     <div class="inner-content">
@@ -482,7 +482,7 @@
                             <i class="flaticon-heart"></i>
                         </div>
                         <h4>Fast and Easy</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                        <p>Large service and shipping team serving all days of the week</p>
                     </div>
 
                     <div class="inner-content">
@@ -490,7 +490,7 @@
                             <i class="flaticon-plant"></i>
                         </div>
                         <h4>High Quality</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                        <p>You can enjoy food that is hygienically packed and retains all the benefits of organic food, without any chemical interference. We’ve always been supportive of food that is more tasty, nutritious and holistic. Having seen the highest numbers when it comes to customers talking about the benefit of shifting to a more organic diet, we believe it’s time for a change and that time is now!.</p>
                     </div>
                 </div>
             </div>
@@ -498,6 +498,7 @@
         <!-- End Why Choose Area -->
 
         <!-- Start Features Area -->
+        <!--
         <section class="features-area pt-100 pb-70">
             <div class="container-fluid">
                 <div class="row align-items-center">
@@ -543,6 +544,7 @@
                 </div>
             </div>
         </section>
+    -->
         <!-- End Features Area -->
 
         <!-- Start Newsletter Area -->
@@ -552,7 +554,7 @@
                     <div class="col-lg-6">
                         <div class="newsletter-content">
                             <h2>Subscribe To Our Newsletter</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                            <p></p>
                         </div>
                     </div>
 
@@ -561,7 +563,7 @@
                             <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL" required autocomplete="off">
 
                             <button type="submit">Subscribe Now</button>
-                            
+
                             <div id="validator-newsletter" class="form-result"></div>
                         </form>
                     </div>
@@ -571,6 +573,7 @@
         <!-- End Newsletter Area -->
 
         <!-- Start Partner Area -->
+        <!--
         <div class="partner-area ptb-100">
             <div class="container">
                 <div class="partner-slider owl-carousel owl-theme">
@@ -596,6 +599,7 @@
                 </div>
             </div>
         </div>
+    -->
         <!-- End Partner Area -->
     </section>
 @endsection

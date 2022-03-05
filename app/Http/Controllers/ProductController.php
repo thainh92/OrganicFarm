@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Helper\Table;
 
 class ProductController extends Controller
 {
@@ -20,23 +21,32 @@ class ProductController extends Controller
     }
 
     /*-- Product --*/
-    public function getProducts()
+    public function getProducts(Request $request, $category_name)
     {
-////        $products = DB::table('products')
-////            ->join('categories', 'products.category_id', '=', 'category.id')
-////            ->select('products.*', 'categories.name as category_name')
-////            ->get();
-////        dd($products);
-////        $products = Product::select(DB::raw('categories.name as category_name'))
-////            ->join('products', 'products.id', '=', 'categories.id')
-////            ->get();
-//        $products = DB::table('products')->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->select('categories.name as category_name', 'products.*')
-//            ->get();
-//        return view('admin.product.index', compact('products'));
-
-        $products = DB::table('products')->inRandomOrder()->limit(15)->get();
-        return view('main_public.product', compact('products'));
+        $category = Category::with('product')->where('url', '=', $category_name)->first();
+        if ($category->parent_id == null) {
+            $get_list_category_id = DB::table('categories')
+                ->where('parent_id', '=', $category->id)
+                ->get();
+            $category_ids = array_column($get_list_category_id->toArray(), 'id');
+            array_push($category_ids, $category->id);
+            $products = DB::table('products')->whereIn('category_id', $category_ids);
+            if (isset($request->input_name)) {
+                $products = $products->where('name', 'like', '%'.$request->input_name.'%');
+            }
+            if (isset($request->start_price)) {
+                $products = $products->where('price', '>=', $request->start_price);
+            }
+            if (isset($request->end_price)) {
+                $products = $products->where('price', '<=', $request->end_price);
+            }
+            $products = $products->get();
+            return view('main_public.product', compact('category', 'products'));
+        }
+        if ($category != null) {
+            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
+            return view('main_public.product', compact('category', 'products'));
+        }
     }
 
     public function getTrending()
@@ -46,58 +56,6 @@ class ProductController extends Controller
         return view('main_public.index ', compact('trending','featured'));
     }
 
-    public function getFruits()
-    {
-        $fruits = DB::table('products')->where('category_id', '=', 11)->get();
-        return view('main_public.fruits', compact('fruits'));
-    }
-
-    public function getVegetables()
-    {
-//        $vegetable = DB::table('products')->where('parent_category_id', '=', 2)->get();
-        $vegetable = DB::table('products')->where('category_id', '=', 1)->get();
-        return view('main_public.vegetable', compact('vegetable'));
-    }
-
-    public function getOrganicVegetables()
-    {
-        $organicvegetable = DB::table('products')->where('category_id', '=', 5)->get();
-        return view('main_public.organicvegetable', compact('organicvegetable'));
-    }
-
-    public function getMushrooms()
-    {
-        $mushroom = DB::table('products')->where('category_id', '=', 6)->get();
-        return view('main_public.mushroom', compact('mushroom'));
-    }
-
-    public function getMeats()
-    {
-        $meat = DB::table('products')->where('parent_category_id', '=', 3)->get();
-        return view('main_public.meat', compact('meat'));
-    }
-
-    public function getPorks()
-    {
-        $pork = DB::table('products')->where('category_id', '=', 7)->get();
-        return view('main_public.pork', compact('pork'));
-    }
-    public function getBeefs()
-    {
-        $beef = DB::table('products')->where('category_id', '=', 8)->get();
-        return view('main_public.beef', compact('beef'));
-    }
-    public function getPoultrys()
-    {
-        $poultry = DB::table('products')->where('category_id', '=', 9)->get();
-        return view('main_public.poultry', compact('poultry'));
-    }
-
-    public function getMilks()
-    {
-        $milk = DB::table('products')->where('parent_category_id', '=', 4)->get();
-        return view('main_public.milk', compact('milk'));
-    }
     /*-- End-Product --*/
 
     /**
@@ -109,12 +67,6 @@ class ProductController extends Controller
     {
         $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
         return view('admin.product.create', compact('get_parent_category'));
-//        $data = DB::table('products')
-//            ->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->join('discounts', 'products.discount_id', '=', 'discounts.id')
-//            ->select('products.*', 'categories.name as category_name', 'discounts.name as discount_name')
-//            ->get();
-//        return view('admin.product.create',compact('data'));
     }
 
     /**
@@ -150,11 +102,12 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = DB::table('products')->where('id', '=', $id)->first();
+        return view('main_public.product_detail', compact('product'));
     }
 
     /**
@@ -166,14 +119,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::with('category')->where('id', '=', $id)->first();
-//        dd($product->category);
         $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
-
-        // $product->category
-//        dd($product);
-//        $get_product_category_id = DB::table('products')->where('category_id', '=', $id);
         $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
-
         return view('admin.product.edit', compact('product', 'get_parent_category', 'current_parent_category'));
     }
 
@@ -231,30 +178,18 @@ class ProductController extends Controller
             ->join('categories', function ($join) {
                 $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
             })->select('categories.name as category_name', 'products.*')
+            ->orderBy('created_at', 'desc')
             ->paginate(10)->withQueryString();
         $get_categories = DB::table('categories')
             ->where('deleted_at', '=', null)
             ->select('name', 'id')
             ->get();
-//        $products->withPath('/admin/products');
-//        $products->appends(['sort' => 'created_at']);
-//        $products = DB::table('products')
-//            ->join('categories', 'products.category_id', '=', 'categories.id')
-//            ->select('categories.name as category_name', 'products.*')
-//            ->get();
         return view('admin.product.index', ['products' => $products,
             'total' => $products->total(),
             'perPage' => $products->perPage(),
             'currentPage' => $products->currentPage(),
             'get_categories' => $get_categories,
-            ]);
-//        return view('admin.product.index', compact('products', 'get_categories'));
-    }
-
-    public function getProductById($id)
-    {
-        $product = Product::find($id);
-        return view('main_public.product_detail', compact('product'));
+        ]);
     }
 
     public function getSubCategoryProduct(Request $request)
@@ -263,12 +198,6 @@ class ProductController extends Controller
             ->where('parent_id', '=', $request->id)
             ->get();
         return $get_sub_category;
-    }
-
-    public function searchProductByName($stringName)
-    {
-        $search_by_name = DB::table('products')->where('name', 'LIKE', '%$string_name%');
-
     }
 
 }

@@ -553,7 +553,7 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
-            ],
+            ]
             /*--- end-milks ---*/
         ]);
     }
