@@ -91,35 +91,6 @@
 
                     <div class="col-lg-4 col-md-12">
                         <aside class="widget-area">
-                            {{--                            <section class="widget widget_search">--}}
-                            {{--                                <h3 class="widget-title">Search</h3>--}}
-
-                            {{--                                <form name="searchForm" class="search-form" method="get" onsubmit="return validateForm()">--}}
-                            {{--                                    <label>--}}
-                            {{--                                        <span class="screen-reader-text">Search for:</span>--}}
-                            {{--                                        <input name="input_name" type="search" class="mt-2 search-field" placeholder="Search by name">--}}
-                            {{--                                        <input name="start_price" class="mt-2 search-field" placeholder="Start price">--}}
-                            {{--                                        <input name="end_price" class="mt-2 search-field" placeholder="End price">--}}
-                            {{--                                    </label>--}}
-                            {{--                                    <button class="" type="submit">--}}
-                            {{--                                        <i class="flaticon-search"></i>--}}
-                            {{--                                    </button>--}}
-                            {{--                                </form>--}}
-                            {{--                            </section>--}}
-                            {{--                            <section class="widget price_list_widget">--}}
-                            {{--                                <h3 class="widget-title">Product Type</h3>--}}
-                            {{--                                @php--}}
-                            {{--                                    $sub_category = DB::table('categories')->where('parent_id', '=', $category->id)->get();--}}
-                            {{--                                @endphp--}}
-                            {{--                                @foreach($sub_category as $item)--}}
-                            {{--                                    <form>--}}
-                            {{--                                        <label class="custom-control custom-checkbox">--}}
-                            {{--                                            <input type="checkbox" class="custom-control-input"><span--}}
-                            {{--                                                class="custom-control-label">{{$item->name}}</span>--}}
-                            {{--                                        </label>--}}
-                            {{--                                    </form>--}}
-                            {{--                                @endforeach--}}
-                            {{--                            </section>--}}
                             <section class="widget widget_search">
                                 <h3 class="widget-title">Search</h3>
                                 <form id="searchForm" name="searchForm" class="search-form" method="get"
