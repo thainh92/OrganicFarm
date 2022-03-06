@@ -129,6 +129,32 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="address">{{ __('Address') }}
+                            </label>
+                            
+                            <input id="address" type="text" class="form-control" placeholder="Address" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+
+                            @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">{{ __('Phone') }}
+                            </label>
+                            
+                            <input id="phone" type="text" class="form-control" placeholder="Phone" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+
+                            @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label for="password">{{ __('Password') }}
                             </label>
 
