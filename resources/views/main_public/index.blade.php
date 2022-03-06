@@ -150,11 +150,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/product/{{$item->thumbnail}}" alt="image"></a>
+                                <a href="#"><img src="{{asset('assets/img/product/'.$item->thumbnail)}}" alt="image"></a>
 
                                 <ul class="products-action">
                                     <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     <li>
                                         <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
