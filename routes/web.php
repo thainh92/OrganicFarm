@@ -90,7 +90,7 @@ Route::get('/product-detail/{id}',[ProductController::class,'show'])->name('prod
 /*---------- Add Cart ----------*/
 Route::get('/category/Add-Cart/{id}', 'App\Http\Controllers\CartItemController@AddCart');
 
-Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
+Route::get('/category/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartItemController@DeleteItemCart');
 
 /* -- Add Auth to Cart -- */
 Route::group(['middleware' => ['auth']], function() {
@@ -111,7 +111,7 @@ Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('
 
 Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder');
 
-Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@paymentsuccess');
+Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@paymentsuccess')->name('payment-success');
 /*---------- End Check Out ----------*/
 
 

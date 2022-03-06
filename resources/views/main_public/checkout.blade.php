@@ -158,7 +158,7 @@
                                                         <span>Order Total</span>
                                                     </td>
                                                     <td class="product-subtotal">
-                                                        <span class="subtotal-amount">${{number_format(Session::get('Cart')->totalPrice) + 10}}</span>
+                                                        <span class="subtotal-amount" name="total">${{number_format(Session::get('Cart')->totalPrice) + 10}}</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -181,10 +181,9 @@
                                             <label for="cash-on-delivery">Cash on Delivery</label>
                                         </p>
                                     </div>
-                                    
-                                    <button class="default-btn" type="submit">
+                                    <a href="{{route('payment-success')}}" class="default-btn">
                                         Place Order
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

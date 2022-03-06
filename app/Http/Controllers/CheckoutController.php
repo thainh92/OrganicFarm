@@ -35,8 +35,10 @@ class CheckoutController extends Controller
         $order->phone = $request->input("phone");
         $order->email = $request->input("email");
         $order->notes = $request->input("notes");
-        $order->save();
+        $order->total = $request->input("total");
         $order->id;
+        $order->save();
+        
         
         $cartDetails = Session('Cart')->products;
         foreach ($cartDetails as $key => $item)
