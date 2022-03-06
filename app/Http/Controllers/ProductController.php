@@ -32,7 +32,7 @@ class ProductController extends Controller
             array_push($category_ids, $category->id);
             $products = DB::table('products')->whereIn('category_id', $category_ids);
             if (isset($request->input_name)) {
-                $products = $products->where('name', 'like', '%'.$request->input_name.'%');
+                $products = $products->where('name', 'like', '%' . $request->input_name . '%');
             }
             if (isset($request->start_price)) {
                 $products = $products->where('price', '>=', $request->start_price);
@@ -40,12 +40,43 @@ class ProductController extends Controller
             if (isset($request->end_price)) {
                 $products = $products->where('price', '<=', $request->end_price);
             }
-            $products = $products->get();
-            return view('main_public.product', compact('category', 'products'));
+            if (isset($request->sub_category_id)) {
+                $sub_category_ids = $request->sub_category_id;
+                $products = $products->whereIn('category_id', $sub_category_ids);
+            }
+            if (isset($request->sort_by)) {
+                if ($request->sort_by == 'default') {
+                    $products = $products->reorder();
+                }
+                if ($request->sort_by == 'lastest') {
+                    $products = $products->orderBy('created_date', 'desc');
+                }
+                if ($request->sort_by == 'low_to_high') {
+                    $products = $products->orderBy('price', 'asc');
+                }
+                if ($request->sort_by == 'high_to_low') {
+                    $products = $products->orderBy('price', 'desc');
+                }
+            }
+            $products = $products->paginate(5)->withQueryString();;
+//            return view('main_public.product', compact('category', 'products'));
+            return view('main_public.product', ['products' => $products,
+                'total' => $products->total(),
+                'perPage' => $products->perPage(),
+                'currentPage' => $products->currentPage(),
+                'category' => $category,
+            ]);
         }
         if ($category != null) {
-            $products = DB::table('products')->where('category_id', '=', $category->id)->get();
-            return view('main_public.product', compact('category', 'products'));
+            $products = DB::table('products')->where('category_id', '=', $category->id)->paginate(5)->withQueryString();
+//            return view('main_public.product', compact('category', 'products'));
+
+            return view('main_public.product', ['products' => $products,
+                'total' => $products->total(),
+                'perPage' => $products->perPage(),
+                'currentPage' => $products->currentPage(),
+                'category' => $category,
+            ]);
         }
     }
 
@@ -53,7 +84,7 @@ class ProductController extends Controller
     {
         $trending = DB::table('products')->inRandomOrder()->limit(8)->get();
         $featured = DB::table('products')->inRandomOrder()->limit(8)->get();
-        return view('main_public.index ', compact('trending','featured'));
+        return view('main_public.index ', compact('trending', 'featured'));
     }
 
     /*-- End-Product --*/
@@ -176,7 +207,7 @@ class ProductController extends Controller
     {
         $products = DB::table('products')
             ->join('categories', function ($join) {
-                $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at','=',null);
+                $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at', '=', null);
             })->select('categories.name as category_name', 'products.*')
             ->orderBy('created_at', 'desc')
             ->paginate(10)->withQueryString();

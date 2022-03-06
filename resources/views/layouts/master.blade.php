@@ -48,6 +48,50 @@
             background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='white' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
             background-color:#f35320;
         }
+        .pagination-area .page-numbers.current, .pagination-area .page-numbers:hover, .pagination-area .page-numbers:focus {
+            background: #f99459;
+            color: #ffffff;
+            -webkit-box-shadow: 0 2px 10px 0 #d8dde6;
+            box-shadow: 0 2px 10px 0 #d8dde6;
+        }
+        .pagination-area {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination{
+            width: 35px;
+            height: 35px;
+            margin: 0 3px;
+            background-color: #ffffff;
+            line-height: 35px;
+            color: #111111;
+            -webkit-box-shadow: 0 2px 10px 0 #d8dde6;
+            box-shadow: 0 2px 10px 0 #d8dde6;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .pagination. page-item {
+            margin-left: 20px;
+        }
+        .page-item.active .page-link {
+            background: #f99459;
+            border-color:#f99459;
+        }
+        .page-link {
+            color: #111111;
+        }
+        .page-link:hover {
+            color:#ffffff;
+            text-decoration:none;
+            background-color:#f99459;
+            border-color:#f99459;
+        }
+        .page-link:focus{
+            z-index:2;
+            outline:0;
+            box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
+        }.
     </style>
 </head>
 
