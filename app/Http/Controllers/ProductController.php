@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Helper\Table;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
