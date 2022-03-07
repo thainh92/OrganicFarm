@@ -6,13 +6,13 @@
         <section class="product-details-area pt-100 pb-70">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="product-details-image"><img src="{{asset('assets/img/product/'.$product->thumbnail)}}"></div>
+                    <div class="col-lg-12">
+                        <div class="row d-flex d-flex justify-content-around">
+                            <div class="col-lg-4 col-md-12">
+                                <div class="product-details-image d-flex justify-content-center"><img src="{{asset('assets/img/product/'.$product->thumbnail)}}"></div>
                             </div>
 
-                            <div class="col-lg-6 col-md-12">
+                            <div class="col-lg-4 col-md-12">
                                 <div class="product-details-desc">
                                     <h3>{{$product->name}}</h3>
                                     <div class="price">
@@ -394,105 +394,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-12">
-                        <aside class="widget-area">
-                            <section class="widget widget_search">
-                                <h3 class="widget-title">Search</h3>
 
-                                <form class="search-form">
-                                    <label>
-                                        <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" class="search-field" placeholder="Search...">
-                                    </label>
-                                    <button type="submit">
-                                        <i class="flaticon-search"></i>
-                                    </button>
-                                </form>
-                            </section>
-
-                            <section class="widget price_list_widget">
-                                <h3 class="widget-title">Price</h3>
-
-                                <form>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="$10">
-                                    </div>
-                                </form>
-                            </section>
-
-                            <section class="widget widget_popular_products">
-                                <h3 class="widget-title">Popular Products</h3>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>$49.00</span>
-                                        <h4 class="title usmall"><a href="#">Random Romance Novel Title Generator</a></h4>
-                                        <div class="rating">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>$59.00</span>
-                                        <h4 class="title usmall"><a href="#">Writing Exercises Story Title Ideas</a></h4>
-                                        <div class="rating">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>$69.00</span>
-                                        <h4 class="title usmall"><a href="#">Amaze Story Kitt Net's Book Ideas</a></h4>
-                                        <div class="rating">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </article>
-                            </section>
-
-                            <section class="widget widget_tag_cloud">
-                                <h3 class="widget-title">Popular Tags</h3>
-
-                                <div class="tagcloud">
-                                    <a href="#">Architecture</a>
-                                    <a href="#">Interior Design</a>
-                                    <a href="#">Designing</a>
-                                    <a href="#">Construction</a>
-                                    <a href="#">Buildings</a>
-                                    <a href="#">Industrial Factory</a>
-                                    <a href="#">Material</a>
-                                    <a href="#">Organic</a>
-                                    <a href="#">Food</a>
-                                    <a href="#">Tasty</a>
-                                </div>
-                            </section>
-                        </aside>
-                    </div>
                 </div>
             </div>
         </section>
