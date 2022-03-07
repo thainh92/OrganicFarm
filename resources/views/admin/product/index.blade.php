@@ -67,15 +67,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-{{--                                @php--}}
-{{--                                    $id = 1;--}}
-{{--                                @endphp--}}
                                 @foreach($products as $key => $product)
                                     <tr>
                                         <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
-{{--                                        @php--}}
-{{--                                            $id++;--}}
-{{--                                        @endphp--}}
                                         <td>
                                             <div class="m-r-10"><img
                                                     src="{{asset('assets/img/product/'.$product->thumbnail)}}"

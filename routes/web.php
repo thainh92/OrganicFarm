@@ -111,12 +111,14 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- Check Out ----------*/
 Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
 
-Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder')->name('place-oder');
 Route::post('/place-order', 'App\Http\Controllers\CheckoutController@placeorder')->name('place-order');
 
 Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@paymentsuccess')->name('payment-success');
 /*---------- End Check Out ----------*/
 
+/*---------- Profile page ----------*/
+Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
+/*---------- End Profile page ----------*/
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);

@@ -268,7 +268,8 @@
                                 @auth
                                 <div class="cart-btn-dropdown">
                                     <div class="cart-btn-dropdown-child">
-                                        <a class="primary-btn checkout-btn" href="#">
+                                        <a class="primary-btn checkout-btn"
+                                           href="{{ route('profile-page', Auth::user()->id) }}">
                                             <p>{{ Auth::user()->name }}'s account</p>
                                         </a>
                                     </div>
