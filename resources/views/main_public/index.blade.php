@@ -14,17 +14,19 @@
                                         <div class="main-slider-content">
                                             <span>Take Natural Taste From Our Shop</span>
                                             <h1>Organic Food Is Good For Health</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                                            <p>Meats produced conventionally may have a higher occurrence of bacteria resistant to antibiotic treatment. The overall risk of bacterial contamination of organic foods is the same as conventional foods.</p>
+                                            <!--
                                             <div class="slider-btn">
                                                 <a href="shop-1.html" class="default-btn">Our Shop</a>
                                                 <a href="cart.html" class="optional-btn">Add to Cart</a>
                                             </div>
+                                            -->
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="main-slider-image-wrap">
-                                            <img src="assets/img/main-slider/main-slider-2.jpg" alt="image">
+                                            <img src="assets/img/main-slider/main-slider-2.png" alt="image" class="main-slider-image-wrap-1" style="height: 1000px">
 
                                             <div class="slider-shape">
                                                 <img src="assets/img/main-slider/main-slider-shape.png" alt="image">
@@ -46,17 +48,19 @@
                                         <div class="main-slider-content">
                                             <span>Take Natural Taste From Our Shop</span>
                                             <h1>Vegetables Good For Health</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                                            <p>Studies have shown small to moderate increases in some nutrients in organic produce. The best evidence of a significant increase is in certain types of flavonoids, which have antioxidant properties.</p>
+                                            <!--
                                             <div class="slider-btn">
                                                 <a href="shop-1.html" class="default-btn">Our Shop</a>
                                                 <a href="cart.html" class="optional-btn">Add to Cart</a>
                                             </div>
+                                            -->
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="main-slider-image-wrap">
-                                            <img src="assets/img/main-slider/main-slider-3.jpg" alt="image">
+                                            <img src="assets/img/main-slider/main-slider-3a.jpg" alt="image" class="main-slider-image-wrap-1" style="height: 1000px">
 
                                             <div class="slider-shape">
                                                 <img src="assets/img/main-slider/main-slider-shape.png" alt="image">
@@ -87,19 +91,19 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Special Features</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p>The special features on our website will help you access clean products in the fastest and most effective way.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="single-special-features">
                             <div class="image">
-                                <img src="assets/img/special-features/special-features-1.png" alt="image">
+                                <img src="assets/img/special-features/1.jpg" alt="image" style="height: 600px">
                             </div>
 
                             <div class="content">
                                 <h3>Fresh Organic Food Provides</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</p>
+                                <p>Organic products are grown, harvested and preserved according to best practices, resulting in fresh, delicious products, essential nutrients are preserved</p>
                                 <a href="#" class="read-btn">Read More +</a>
                             </div>
                         </div>
@@ -108,12 +112,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-special-features">
                             <div class="image">
-                                <img src="assets/img/special-features/special-features-2.png" alt="image">
+                                <img src="assets/img/special-features/2.jpg" alt="image" style="height: 600px">
                             </div>
 
                             <div class="content">
                                 <h3>Fast & Easy Food Delivery</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</p>
+                                <p>Enthusiastic customer care team, large shipping team, continuous service throughout the day, you can order the desired products and receive the fastest</p>
                                 <a href="#" class="read-btn">Read More +</a>
                             </div>
                         </div>
@@ -122,12 +126,12 @@
                     <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
                         <div class="single-special-features">
                             <div class="image">
-                                <img src="assets/img/special-features/special-features-3.png" alt="image">
+                                <img src="assets/img/special-features/3.jpg" alt="image" style="height: 600px">
                             </div>
 
                             <div class="content">
                                 <h3>Very Easy Payment System</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</p>
+                                <p>Diverse payment methods, help you pay easily, save time. You can choose to pay online by phone, reducing face-to-face contact</p>
                                 <a href="#" class="read-btn">Read More +</a>
                             </div>
                         </div>
@@ -142,7 +146,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Trending Products</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p>The most popular products (sorted by the number of purchases in the month)</p>
                 </div>
 
                 <div class="row">
@@ -192,7 +196,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>What Services We Provide</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p></p>
                 </div>
 
                 <div class="row">
@@ -202,7 +206,6 @@
                                 <i class="flaticon-apple"></i>
                             </div>
                             <h3>Natural Food</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -213,7 +216,6 @@
                                 <i class="flaticon-nature"></i>
                             </div>
                             <h3>Biologically Safe</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -224,7 +226,6 @@
                                 <i class="flaticon-forest"></i>
                             </div>
                             <h3>Biodiversity</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -235,7 +236,6 @@
                                 <i class="flaticon-organic"></i>
                             </div>
                             <h3>100% Organic</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -246,7 +246,6 @@
                                 <i class="flaticon-plant"></i>
                             </div>
                             <h3>Gardening</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -257,7 +256,6 @@
                                 <i class="flaticon-leaf"></i>
                             </div>
                             <h3>Organic Vegetables</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -268,7 +266,6 @@
                                 <i class="flaticon-heart"></i>
                             </div>
                             <h3>Fresh & Organic</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -279,7 +276,6 @@
                                 <i class="flaticon-apple"></i>
                             </div>
                             <h3>Organic Food</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
                             <a href="#" class="read-btn">Read More +</a>
                         </div>
                     </div>
@@ -294,7 +290,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="features-image">
-                            <img src="assets/img/features-2.png" alt="image">
+                            <img src="assets/img/features-2.png" alt="image" style="width: 900px; height: 900px;">
                         </div>
                     </div>
 
@@ -303,7 +299,7 @@
                             <div class="features-content">
                                 <span>Features</span>
                                 <h3>Special Product For Orgo Loving People</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                                <p></p>
                             </div>
 
                             <div class="features-inner-content">
@@ -311,7 +307,7 @@
                                     <i class="flaticon-nature"></i>
                                 </div>
                                 <h4>Natural Products</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p>To help people live a better, healthier, and wholesome life by providing them with 100% certified, authentic organic food.</p>
                             </div>
 
                             <div class="features-inner-content">
@@ -319,7 +315,7 @@
                                     <i class="flaticon-leaf"></i>
                                 </div>
                                 <h4>Best Food For Health</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p>You can enjoy food that is hygienically packed and retains all the benefits of organic food, without any chemical interference. We’ve always been supportive of food that is more tasty, nutritious and holistic. Having seen the highest numbers when it comes to customers talking about the benefit of shifting to a more organic diet, we believe it’s time for a change and that time is now!.</p>
                             </div>
 
                             <div class="features-inner-content">
@@ -327,7 +323,7 @@
                                     <i class="flaticon-medal"></i>
                                 </div>
                                 <h4>Award-Winning Company</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p>Tested and recognized by USDA Organic as a reputable and quality place to sell clean food</p>
                             </div>
                         </div>
                     </div>
@@ -341,7 +337,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Featured  Products</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p>The most popular products (Sorted by the number of purchases per day)</p>
                 </div>
 
                 <div class="row">
@@ -398,7 +394,7 @@
                     <div class="col-lg-6">
                         <div class="newsletter-content">
                             <h2>Subscribe To Our Newsletter</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                            <p></p>
                         </div>
                     </div>
 
@@ -436,7 +432,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Pricing Plan</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p>Best combo for you</p>
                 </div>
 
                 <div class="row">
@@ -584,17 +580,16 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Client’s Feedback</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
                 <div class="testimonial-slider owl-carousel owl-theme">
                     <div class="testimonial-item">
                         <div class="info">
-                            <img src="assets/img/client/client-1.jpg" alt="image">
+                            <img src="assets/img/client/client-1.png" alt="image">
                             <h3>Ken Morris</h3>
                             <span>Organic Farmer</span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+                        <p>Your level of customer service is exemplary and a rarity in this age where customers are not always treated with the seriousness that they deserve. Even though the mistake concerning the sell-by-date was down to my misinterpretation, your handling of the situation was totally appreciated. I will continue to use and recommend NHR Organic Oils to my friends and/or anyone who is interested in purchasing good quality base and essential oils. Many thanks and well done for setting such a high standard of customer service.</p>
 
                         <div class="icon">
                             <i class="flaticon-right-quotes-symbol"></i>
@@ -607,7 +602,7 @@
                             <h3>Johansen Lisa</h3>
                             <span>Organic Farmer</span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+                        <p>Just wanted to say I absolutely love your OILS they are my top favourites.   I spoke to the man who is behind the company many years ago before he launched it. I must congratulate him on his taste and aromas, BEST OF THE BEST! and thank you for the orange oil complimentary !  I am so excited to use these oils, my favourite is peppermint!  Thank you order received with grattitude.</p>
 
                         <div class="icon">
                             <i class="flaticon-right-quotes-symbol"></i>
@@ -620,7 +615,7 @@
                             <h3>Lodi Kheda</h3>
                             <span>Organic Farmer</span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+                        <p>An aromatherapist friend told me about NHR, and I immediately fell in love with them. I haven’t bought any other brands since! Our company Raw Living promotes the raw foods lifestyle to people in many ways, and one of these is our own brand range of foods. Our most popular line is the raw chocolate bars – this is chocolate that is healthy as it is delicious, and many people become addicted (in a good way!). We use NHR oils in two of our bars: the Hi-Buzz, which contains orange oil as well as pollen and Chinese herbs, and Hi-Lovers, which contains rose oil, and other plant foods said to open the heart chakra. We also put the oils in several of our raw chocolate cakes: my favourite is the Lavender and Purple corn cake.</p>
 
                         <div class="icon">
                             <i class="flaticon-right-quotes-symbol"></i>
@@ -636,7 +631,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Latest Blog</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                    <p>Share with everyone our health insights, experiences in building delicious and nutritious meals from our clean food.</p>
                 </div>
 
                 <div class="row">

@@ -84,6 +84,7 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
             ]);
         }
+        $request->session()->forget('Cart');
         return Redirect('/payment-success');
     }
 

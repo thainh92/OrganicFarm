@@ -171,7 +171,7 @@
                 <div class="main-responsive-menu">
                     <div class="logo">
                         <a href="{{ route('home-page') }}">
-                            <img src="{{asset('assets/img/logo.png')}}" alt="image">
+                            <img src="{{asset('assets/img/logo2.png')}}" alt="image">
                         </a>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="{{ route('home-page') }}">
-                        <img src="{{asset('assets/img/logo.png')}}" alt="image">
+                        <img src="{{asset('assets/img/logo2.png')}}" alt="image">
                     </a>
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav">
@@ -216,7 +216,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    Pages
+                                    About Us
                                     <i class='bx bx-chevron-down'></i>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -305,107 +305,110 @@
                                 </div>
                             </div>
                             @endif
-
-                    <div class="option-item">
-                        <div class="cart-btn">
-                            @if (Route::has('login'))
-                            @auth
-                            <a href="{{ url('/cart') }}">
-                                <i class='flaticon-shopping-cart'></i>
-                                @if(Session::has('Cart') != null)
-                                <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
-                                @else
-                                <span id="total-quanty-show">0</span>
-                                @endif
-                            </a>
-                            @else
-                            <a href="{{ route('login') }}">
-                                <i class='flaticon-shopping-cart'></i>
-                                @if(Session::has('Cart') != null)
-                                <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
-                                @else
-                                <span id="total-quanty-show">0</span>
-                                @endif
-                            </a>
-                            @endauth
-                            @endif
-                            <div class="cart-hover">
-                                <div id="change-item-cart">
-                                    @if(Session::has('Cart') != null)
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                @foreach(Session::get('Cart')->products as $item)
-                                                <tr>
-                                                    <td class="si-pic"><img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</p>
-                                                            <h6>{{$item['productInfo']->name}}</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close" data-id="{{$item['productInfo']->id}}"></i>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>${{number_format(Session::get('Cart')->totalPrice)}}</h5>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div class="select-button">
+                            <div class="option-item">
+                                <div class="cart-btn">
                                     @if (Route::has('login'))
                                     @auth
-                                    <a href="{{ url('/cart') }}" class="primary-btn view-card">VIEW CART</a>
+                                    <a href="{{ url('/cart') }}">
+                                        <i class='flaticon-shopping-cart'></i>
+                                        @if(Session::has('Cart') != null)
+                                        <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
+                                        @else
+                                        <span id="total-quanty-show">0</span>
+                                        @endif
+                                    </a>
                                     @else
-                                    <a href="{{ route('login') }}" class="primary-btn view-card">LOGIN TO VIEW CART</a>
+                                    <a href="{{ route('login') }}">
+                                        <i class='flaticon-shopping-cart'></i>
+                                        @if(Session::has('Cart') != null)
+                                        <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
+                                        @else
+                                        <span id="total-quanty-show">0</span>
+                                        @endif
+                                    </a>
                                     @endauth
                                     @endif
-                                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                    <div class="cart-hover">
+                                        <div id="change-item-cart">
+                                            @if(Session::has('Cart') != null)
+                                            <div class="select-items">
+                                                <table>
+                                                    <tbody>
+                                                        @foreach(Session::get('Cart')->products as $item)
+                                                        <tr>
+                                                            <td class="si-pic"><img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt=""></td>
+                                                            <td class="si-text">
+                                                                <div class="product-selected">
+                                                                    <p>${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</p>
+                                                                    <h6>{{$item['productInfo']->name}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="si-close">
+                                                                <i class="ti-close" data-id="{{$item['productInfo']->id}}"></i>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="select-total">
+                                                <span>total:</span>
+                                                <h5>${{number_format(Session::get('Cart')->totalPrice)}}</h5>
+                                            </div>
+                                            @endif
+                                        </div>
+                                        <div class="select-button">
+                                            @if (Route::has('login'))
+                                            @auth
+                                            <a href="{{ url('/cart') }}" class="primary-btn view-card">VIEW CART</a>
+                                            @else
+                                            <a href="{{ route('login') }}" class="primary-btn view-card">LOGIN TO VIEW CART</a>
+                                            @endauth
+                                            @endif
+                                            <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="option-item">
-                        <div class="cart-btn">
-                            <a href="#">
-                                <svg width="27" height="26" viewBox="0 0 27 26" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z"
-                                stroke="#222222" stroke-width="1.8"/>
-                            </svg>
-                            <span>0</span>
-                        </a>
-                        <div class="cart-btn-dropdown">
-                            <div class="cart-btn-dropdown-child">
-                                <p>Save your favorite items</p>
-                                <a href="#" class="cart-btn-dropdown-create">
-                                    <p>CREATE ORGANIC FARM ACCOUNT</p>
+                            <!--
+                            <div class="option-item">
+                                <div class="cart-btn">
+                                    <a href="#">
+                                        <svg width="27" height="26" viewBox="0 0 27 26" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                        d="M12.8533 3.01879L13.5 3.68683L14.1467 3.01879C16.8813 0.193737 21.3025 0.193737 24.0371 3.01879C26.7876 5.86027 26.7876 10.479 24.0371 13.3204L13.5718 24.1318C13.5326 24.1724 13.4674 24.1724 13.4281 24.1318L2.9629 13.3204C0.212368 10.479 0.212368 5.86027 2.9629 3.01879C5.69752 0.193737 10.1187 0.193737 12.8533 3.01879Z"
+                                        stroke="#222222" stroke-width="1.8"/>
+                                    </svg>
+                                    <span>0</span>
                                 </a>
+                                <div class="cart-btn-dropdown">
+                                    <div class="cart-btn-dropdown-child">
+                                        <p>Save your favorite items</p>
+                                        <a href="#" class="cart-btn-dropdown-create">
+                                            <p>CREATE ORGANIC FARM ACCOUNT</p>
+                                        </a>
+                                    </div>
+                                    <a href="#" class="cart-btn-dropdown-singin">
+                                        <h4>SIGN OUT</h4>
+                                    </a>
+                                </div>
                             </div>
-                            <a href="#" class="cart-btn-dropdown-singin">
-                                <h4>SIGN OUT</h4>
-                            </a>
+                            -->
                         </div>
+                        <!--
+                        <div class="option-item">
+                            <form class="search-box">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <button type="submit"><i class="flaticon-search"></i></button>
+                            </form>
+                        </div>
+                        -->
                     </div>
-                </div>
-                <div class="option-item">
-                    <form class="search-box">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <button type="submit"><i class="flaticon-search"></i></button>
-                    </form>
-                </div>
+                </nav>
             </div>
         </div>
-    </nav>
-</div>
-</div>
+    </div>
 <div class="others-option-for-responsive">
     <div class="container">
         <div class="dot-menu">
@@ -438,6 +441,7 @@
                         </a>
                     </div>
                 </div>
+                /*
                 <div class="option-item">
                     <div class="cart-btn">
                         <a href="#">
@@ -450,13 +454,16 @@
                         <span>0</span>
                     </a>
                 </div>
+                */
             </div>
+            /*
             <div class="option-item">
                 <form class="search-box">
                     <input type="text" class="form-control" placeholder="Search">
                     <button type="submit"><i class="flaticon-search"></i></button>
                 </form>
             </div>
+            */
         </div>
     </div>
 </div>
@@ -471,8 +478,7 @@
         <div class="sidebar-about-area">
             <div class="title">
                 <h2>About Us</h2>
-                <p>We believe brand interaction is key in communication. Real innovations and a positive customer
-                    experience are the heart of successful communication. No fake products and services. The customer is
+                <p>We believe brand interaction is key in communication. Real innovations and a positive customer experience are the heart of successful communication. No fake products and services. The customer is
                 king, their lives and needs are the inspiration.</p>
             </div>
         </div>
@@ -587,11 +593,10 @@
                 <div class="single-footer-widget">
                     <div class="logo">
                         <h2>
-                            <a href="{{ route('home-page') }}">Orgo</a>
+                            <a href="{{ route('home-page') }}">Organic Farm</a>
                         </h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.</p>
+                    <p>Contact us ... </p>
                     <ul class="social">
                         <li>
                             <a href="#" class="facebook" target="_blank">
@@ -622,65 +627,65 @@
                     <ul class="instagram-list">
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram1.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/1.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram2.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/2.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram3.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/3.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram4.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/4.webp')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram5.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/5.WEBP')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram6.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/6.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram7.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/7.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram8.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/8.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                         <li>
                             <div class="box">
-                                <img src="{{asset('assets/img/instagram/instagram1.jpg')}}" alt="image">
+                                <img src="{{asset('assets/img/instagram/9.jpg')}}" alt="image" style="width: 300px; height: 300px;">
                                 <i class="bx bxl-instagram"></i>
-                                <a href="#" target="_blank" class="link-btn"></a>
+                                <a target="_blank" class="link-btn"></a>
                             </div>
                         </li>
                     </ul>
@@ -836,6 +841,10 @@
         $("#change-item-cart").empty();
         $("#change-item-cart").html(response);
         $("#total-quanty-show").text($("#total-quanty-cart").val());
+    }
+    let cart = {!! json_encode(session('Cart')) !!};
+    function getCart() {
+        console.log(cart);
     }
 </script>
 @yield('script-tag');

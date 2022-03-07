@@ -438,6 +438,10 @@ Navbar Area CSS
     padding-left: 0;
     padding-bottom: 0;
 }
+.navbar-brand img{
+    max-width: 10rem;
+    max-height: 8rem;
+}
 
 .main-navbar .navbar ul {
     padding-left: 0;
@@ -1658,6 +1662,9 @@ Main Slider Area CSS
     bottom: 0;
     left: 0;
     right: 0;
+}
+.main-slider-image-wrap-1 {
+    max-height: 700px;
 }
 
 /*================================================
@@ -3352,6 +3359,11 @@ Features Area CSS
     padding-left: 0;
 }
 
+.features-area img {
+    max-height: 500px;
+    max-width: 550px;
+}
+
 .features-item {
     max-width: 570px;
 }
@@ -3676,7 +3688,9 @@ Special Features Area CSS
     text-align: center;
     margin-bottom: 30px;
 }
-
+.single-special-features img {
+    max-height: 250px;
+}
 .single-special-features .content {
     margin-top: 25px;
 }
@@ -7093,6 +7107,7 @@ Footer Area CSS
 .single-footer-widget .instagram-list li .box img {
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    max-height: 100px;
 }
 
 .single-footer-widget .instagram-list li .box::before {

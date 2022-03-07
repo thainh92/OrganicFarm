@@ -129,7 +129,7 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>Just wanted to say I absolutely love your OILS they are my top favourites.   I spoke to the man who is behind the company many years ago before he launched it. I must congratulate him on his taste and aromas, BEST OF THE BEST! and thank you for the orange oil complimentary !  I am so excited to use these oils, my favourite is peppermint!  Thank you order received with grattitude,</p>
+                        <p>Just wanted to say I absolutely love your OILS they are my top favourites.   I spoke to the man who is behind the company many years ago before he launched it. I must congratulate him on his taste and aromas, BEST OF THE BEST! and thank you for the orange oil complimentary !  I am so excited to use these oils, my favourite is peppermint!  Thank you order received with grattitude</p>
 
                         <div class="client-info">
                             <img src="assets/img/client/client-2.jpg" alt="image">
