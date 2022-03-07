@@ -150,14 +150,10 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
-                                <a href="#"><img src="assets/img/product/{{$item->thumbnail}}" alt="image"></a>
-
+                                <a href={{route('product-detail', $item->id)}}><img src="{{asset('assets/img/product/'.$item->thumbnail)}}" alt="image"></a>
                                 <ul class="products-action">
                                     <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                        <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     <li>
                                         <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
@@ -165,19 +161,13 @@
                                         </a>
                                     </li>
                                 </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
                             </div>
-
                             <div class="products-content">
                                 <h3>
                                     <a href="#">{{$item->name}}</a>
                                 </h3>
                                 <div class="price">
                                     <span class="new-price">{{$item->price}}</span>
-                                    <span class="old-price">{{$item->price}}</span>
                                 </div>
                                 <ul class="rating">
                                     <li>
@@ -363,10 +353,7 @@
 
                                 <ul class="products-action">
                                     <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Add to Wishlist"><i class="flaticon-heart"></i></a>
+                                        <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     <li>
                                         <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
@@ -374,7 +361,6 @@
                                         </a>
                                     </li>
                                 </ul>
-
                                 <div class="new">
                                     <span>New</span>
                                 </div>
@@ -386,7 +372,6 @@
                                 </h3>
                                 <div class="price">
                                     <span class="new-price">{{$item->price}}</span>
-                                    <span class="old-price">{{$item->price}}</span>
                                 </div>
                                 <ul class="rating">
                                     <li>

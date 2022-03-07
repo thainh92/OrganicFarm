@@ -16,13 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     public function indexAdmin()
     {
-        //admin
-//        $categories = Category::all();
         $categories = DB::table('categories')
             ->where('categories.deleted_at','=',null)
             ->orderBy('created_at', 'desc')
@@ -33,7 +31,6 @@ class CategoryController extends Controller
             'perPage' => $categories->perPage(),
             'currentPage' => $categories->currentPage()
         ]);
-//        return view('admin.category.index', compact('categories'));
     }
 
     public function getCategoriesName()

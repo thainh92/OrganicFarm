@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*---------- Admin Route ----------*/
@@ -32,10 +34,12 @@ Route::group(['middleware' => ['admin']], function() {
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin-edit-product');
     Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('admin-update-product');
     Route::get('/product/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-product');
-
-
     Route::get('/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
     Route::get('/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
+    /*---------- Admin User Route ----------*/
+    Route::get('/users', [UserController::class, 'index'])->name('admin-user-index');
+    /*---------- Admin Order Route ----------*/
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin-order-index');
     /*---------- End Admin Route ----------*/
 });
 
