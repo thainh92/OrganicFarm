@@ -35,9 +35,11 @@ class CheckoutController extends Controller
         $order->phone = $request->input("phone");
         $order->email = $request->input("email");
         $order->notes = $request->input("notes");
-        $order->save();
+//        $order->total = $request->input("total");
         $order->id;
-        
+        $order->save();
+
+
         $cartDetails = Session('Cart')->products;
         foreach ($cartDetails as $key => $item)
         {
@@ -49,7 +51,40 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
             ]);
         }
-        return Redirect('/payment');      
+        return Redirect('/payment-success');
+    }
+
+    public function placeorder(Request $request)
+    {
+        $order = new Order();
+        $order->country = $request->input("country");
+        $order->first_name = $request->input("first_name");
+        $order->last_name = $request->input("last_name");
+        $order->company_name = $request->input("company_name");
+        $order->address = $request->input("address");
+        $order->city = $request->input("city");
+        $order->state = $request->input("state");
+        $order->zip = $request->input("zip");
+        $order->phone = $request->input("phone");
+        $order->email = $request->input("email");
+        $order->notes = $request->input("notes");
+//        $order->total = $request->input("total");
+        $order->id;
+        $order->save();
+
+
+        $cartDetails = Session('Cart')->products;
+        foreach ($cartDetails as $key => $item)
+        {
+            session(['product_id' => 'value']);
+            OrderDetail::create ([
+                'order_id' => $order->id,
+                'product_id' => $key,
+                'quantity' => $item['quanty'],
+                'price' => $item['price'],
+            ]);
+        }
+        return Redirect('/payment-success');
     }
 
     public function paymentsuccess(Request $request)

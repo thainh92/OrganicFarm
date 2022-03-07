@@ -228,6 +228,17 @@
                                             </ul>
                                         </div>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                           data-target="#submenu-1-4" aria-controls="submenu-1-4">Order</a>
+                                        <div id="submenu-1-4" class="collapse submenu" style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{route('admin-order-index')}}">List Orders</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

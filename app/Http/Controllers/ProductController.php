@@ -60,7 +60,6 @@ class ProductController extends Controller
                 }
             }
             $products = $products->paginate(5)->withQueryString();;
-//            return view('main_public.product', compact('category', 'products'));
             return view('main_public.product', ['products' => $products,
                 'total' => $products->total(),
                 'perPage' => $products->perPage(),
@@ -70,8 +69,6 @@ class ProductController extends Controller
         }
         if ($category != null) {
             $products = DB::table('products')->where('category_id', '=', $category->id)->paginate(5)->withQueryString();
-//            return view('main_public.product', compact('category', 'products'));
-
             return view('main_public.product', ['products' => $products,
                 'total' => $products->total(),
                 'perPage' => $products->perPage(),

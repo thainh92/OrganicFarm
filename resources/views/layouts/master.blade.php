@@ -814,7 +814,7 @@
 <script>
     function AddCart(id) {
         $.ajax({
-            url: 'Add-Cart/'+id,
+            url: '/category/Add-Cart/'+id,
             type: 'GET',
         }).done(function(response){
             RenderCart(response);
@@ -824,7 +824,7 @@
 
     $("#change-item-cart").on('click', '.si-close i', function() {
         $.ajax({
-            url: 'Delete-Item-Cart/'+$(this).data('id'),
+            url: '/category/Delete-Item-Cart/'+$(this).data('id'),
             type: 'GET',
         }).done(function(response) {
             RenderCart(response);

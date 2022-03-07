@@ -37,9 +37,9 @@ Route::group(['middleware' => ['admin']], function() {
     Route::get('/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
     Route::get('/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
     /*---------- Admin User Route ----------*/
-    Route::get('/users', [UserController::class, 'index'])->name('admin-user-index');
-    /*---------- Admin Order Route ----------*/
-    Route::get('/orders', [OrderController::class, 'index'])->name('admin-order-index');
+//    Route::get('/users', [UserController::class, 'index'])->name('admin-user-index');
+//    /*---------- Admin Order Route ----------*/
+//    Route::get('/orders', [OrderController::class, 'index'])->name('admin-order-index');
     /*---------- End Admin Route ----------*/
 });
 
