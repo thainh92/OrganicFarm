@@ -29,6 +29,7 @@
                                                 <tr>
                                                     <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
                                                     <td>{{$order->id}}</td>
+                                                    <td>{{$order->total}}</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
