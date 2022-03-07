@@ -16,8 +16,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = DB::table('orders')->get();
-        return view('admin.order.index', compact('orders'));
+        $orders = DB::table('orders')->paginate(10);
+        return view('admin.order.index', [
+            'orders' => $orders,
+            'total' => $orders->total(),
+            'perPage' => $orders->perPage(),
+            'currentPage' => $orders->currentPage(),
+        ]);
     }
 
     /**

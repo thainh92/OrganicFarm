@@ -4,7 +4,7 @@
             <tbody>
                 @foreach(Session::get('Cart')->products as $item)
                     <tr>
-                        <td class="si-pic"><img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt=""></td>
+                        <td class="si-pic"><img src="{{asset('assets/img/product/'.$item['productInfo']->thumbnail)}}" alt=""></td>
                         <td class="si-text">
                             <div class="product-selected">
                                 <p>${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</p>
