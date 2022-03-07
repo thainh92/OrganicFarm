@@ -51,7 +51,7 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
             ]);
         }
-        return Redirect('/payment-success');      
+        return Redirect('/place-oder');      
     }
 
     public function paymentsuccess(Request $request)
