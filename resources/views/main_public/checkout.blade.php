@@ -29,13 +29,13 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="user-actions">
                             <i class='bx bx-link-external'></i>
-                            <span>Returning customer? 
+                            <span>Returning customer?
                                 <a href="login.html">Click here to login</a>
                             </span>
                         </div>
                     </div>
                 </div>
-                <form action="{{ url('place-oder') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('place-order') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
@@ -120,7 +120,7 @@
                                             <input type="text" class="form-control"  name="phone">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Order Notes" class="form-control"></textarea>
@@ -181,9 +181,9 @@
                                             <label for="cash-on-delivery">Cash on Delivery</label>
                                         </p>
                                     </div>
-                                    <a href="{{route('payment-success')}}" class="default-btn">
+                                    <button class="default-btn" type="submit">
                                         Place Order
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>

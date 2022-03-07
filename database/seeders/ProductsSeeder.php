@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ProductsSeeder extends Seeder
@@ -25,6 +26,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 2,
@@ -35,6 +38,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 3,
@@ -45,6 +50,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 20,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 4,
@@ -55,6 +62,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 23,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 5,
@@ -65,6 +74,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 14,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 6,
@@ -75,6 +86,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 12,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 7,
@@ -85,6 +98,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 13,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 8,
@@ -95,6 +110,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 9,
@@ -105,6 +122,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 10,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 10,
@@ -115,6 +134,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 21,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 11,
@@ -125,6 +146,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 22,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 12,
@@ -135,6 +158,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 16,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 13,
@@ -145,6 +170,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 7,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 14,
@@ -155,6 +182,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 30,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 15,
@@ -165,6 +194,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             /*--- end-fruits ---*/
 
@@ -178,6 +209,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 17,
@@ -188,6 +221,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 18,
@@ -198,6 +233,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 19,
@@ -208,6 +245,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 23,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 20,
@@ -218,6 +257,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 21,
@@ -228,6 +269,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 12,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 22,
@@ -238,6 +281,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 12,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 23,
@@ -248,6 +293,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ], [
                 'id' => 24,
                 'name' => 'Spinach',
@@ -257,6 +304,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 10,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 25,
@@ -267,6 +316,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 13,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 26,
@@ -277,6 +328,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 22,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 27,
@@ -287,6 +340,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 28,
@@ -297,6 +352,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 7,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 29,
@@ -307,6 +364,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 3,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 30,
@@ -317,6 +376,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             /*--- end-vegetables ---*/
 
@@ -330,6 +391,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 32,
@@ -340,6 +403,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 30,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 33,
@@ -350,6 +415,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 35,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 34,
@@ -360,6 +427,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 46,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 35,
@@ -370,6 +439,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 20,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 36,
@@ -380,6 +451,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 35,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 37,
@@ -390,6 +463,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 30,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 38,
@@ -400,6 +475,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 27,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 39,
@@ -410,6 +487,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 38,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 40,
@@ -420,6 +499,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 22,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 41,
@@ -430,6 +511,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 32,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 42,
@@ -440,6 +523,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 32,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 43,
@@ -450,6 +535,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 30,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 44,
@@ -460,6 +547,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 25,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 45,
@@ -470,6 +559,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 12,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             /*--- end-meats ---*/
 
@@ -483,6 +574,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 47,
@@ -493,6 +586,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 48,
@@ -503,6 +598,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 20,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 49,
@@ -513,6 +610,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 12,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 50,
@@ -523,6 +622,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 18,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 51,
@@ -533,6 +634,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 12,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 52,
@@ -543,6 +646,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 24,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
             [
                 'id' => 53,
@@ -553,6 +658,8 @@ class ProductsSeeder extends Seeder
                 'discount_id' => null,
                 'price' => 15,
                 'status' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ]
             /*--- end-milks ---*/
         ]);

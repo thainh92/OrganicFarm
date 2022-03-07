@@ -94,18 +94,18 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="cart-totals">
                                 <h3>Cart Totals</h3>
                                 @if(Session::has("Cart") != null)
                                     <ul>
-                                        <li>Subtotal 
+                                        <li>Subtotal
                                             <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
                                         </li>
-                                        <li>Shipping 
+                                        <li>Shipping
                                             <span>$10</span>
                                         </li>
-                                        <li>Total 
+                                        <li>Total
                                             <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
                                         </li>
                                     </ul>
@@ -136,7 +136,7 @@
                 alertify.error('Delete Success');
             });
         }
-        
+
         function SaveListItemCart(id) {
             $.ajax({
                 url: 'Save-Item-List-Cart/'+id+'/'+$("#quanty-item-"+id).val(),
@@ -158,7 +158,7 @@
                 btnDown = spinner.find('.minus-btn'),
                 min = input.attr('min'),
                 max = input.attr('max');
-            
+
                 btnUp.on('click', function() {
                     var oldValue = parseFloat(input.val());
                     if (oldValue >= max) {
@@ -181,7 +181,7 @@
                 });
 		    });
         }
-    
+
         $(".edit-all").on("click", function(){
             var lists = [];
             $("table tbody tr td").each(function(){

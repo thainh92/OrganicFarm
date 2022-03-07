@@ -17,7 +17,7 @@ class CartItemController extends Controller
             $newCart = new Cart($oldCart);
             $newCart->AddCart($product, $id);
 
-            $request->Session()->put('Cart', $newCart);      
+            $request->Session()->put('Cart', $newCart);
         }
         return view('cart');
     }
@@ -26,7 +26,6 @@ class CartItemController extends Controller
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->DeleteItemCart($id);
-
         if(Count($newCart->products)>0) {
             $request->Session()->put('Cart', $newCart);
         } else{
@@ -40,10 +39,10 @@ class CartItemController extends Controller
     }
 
     public function DeleteListItemCart(Request $request, $id) {
+
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->DeleteItemCart($id);
-
         if(Count($newCart->products)>0) {
             $request->Session()->put('Cart', $newCart);
         } else{
@@ -58,7 +57,7 @@ class CartItemController extends Controller
         $newCart->UpdateItemCart($id, $quanty);
 
         $request->Session()->put('Cart', $newCart);
-        
+
         return view('list-cart');
     }
 

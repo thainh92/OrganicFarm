@@ -16,8 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             //$table->string('order_number')->unique();
-            //$table->unsignedInteger('user_id');
-            //$table->foreign('user_id')->references('id')->on('users');
+//            $table->unsignedBigInteger('user_id')->nullable();
+//            $table->foreign('user_id')->references('id')->on('users');
             $table->enum('status', ['pending', 'processing', 'completed', 'decline'])->default('pending');
             //$table->decimal('total', 20, 6);
             //$table->unsignedInteger('item_count');
@@ -32,12 +32,12 @@ class CreateOrdersTable extends Migration
             $table->string('state');
             $table->string('zip');
             $table->string('email');
-            $table->string('phone');    
+            $table->string('phone');
             $table->text('notes')->nullable();
-            $table->string('total');
+//            $table->string('total');
             $table->timestamps();
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.

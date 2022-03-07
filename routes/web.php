@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -109,7 +111,8 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- Check Out ----------*/
 Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
 
-Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder');
+Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder')->name('place-oder');
+Route::post('/place-order', 'App\Http\Controllers\CheckoutController@placeorder')->name('place-order');
 
 Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@paymentsuccess')->name('payment-success');
 /*---------- End Check Out ----------*/
@@ -173,9 +176,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/product/edit/{id}', [ProductController::class, 'edit'])->name('admin-edit-product');
     Route::put('/admin/product/update/{id}', [ProductController::class, 'update'])->name('admin-update-product');
     Route::get('/product/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-product');
-
-
     Route::get('/admin/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
     Route::get('/admin/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
+    /*---------- Admin User Route ----------*/
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin-user-index');
+    /*---------- Admin Order Route ----------*/
+    Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin-order-index');
     /*---------- End Admin Route ----------*/
 });

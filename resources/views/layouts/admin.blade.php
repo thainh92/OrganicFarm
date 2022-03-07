@@ -28,7 +28,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="{{route('admin-index')}}">Concept</a>
+            <a class="navbar-brand" href="{{route('admin-index')}}">Dash Board</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -156,7 +156,19 @@
                             </div>
                             <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            <!-- <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout
+                            </a> -->
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                <i class="fas fa-power-off mr-2"></i>
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </li>
                 </ul>
@@ -195,10 +207,7 @@
                                         <div id="submenu-1-2" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="#">List Users</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Create New User</a>
+                                                    <a class="nav-link" href="{{url('admin/users')}}">Users List</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -227,6 +236,17 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="{{route('admin-create-product')}}">Create New Product</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                           data-target="#submenu-1-4" aria-controls="submenu-1-4">Order</a>
+                                        <div id="submenu-1-4" class="collapse submenu" style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{route('admin-order-index')}}">List Orders</a>
                                                 </li>
                                             </ul>
                                         </div>

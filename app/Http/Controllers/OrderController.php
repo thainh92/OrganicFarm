@@ -12,11 +12,12 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        
+        $orders = DB::table('orders')->get();
+        return view('admin.order.index', compact('orders'));
     }
 
     /**
