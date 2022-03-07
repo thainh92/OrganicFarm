@@ -139,7 +139,7 @@
                             </div>
 
                             <div class="col-lg-8 col-md-8 col-sm-8 lost-your-password">
-                                <div class="row align-items-center">
+                                <!-- <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6 col-sm-6" >
                                         @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}" class="lost-your-password">{{ __('Forgot Your Password?') }}
@@ -152,7 +152,12 @@
                                         </a>
                                         @endif
                                     </div>
-                                </div>
+                                </div> -->
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="lost-your-password">{{ __('Register A New Account?') }}
+                                    </a>
+                                @endif
                             </div>
                         </div>
 
