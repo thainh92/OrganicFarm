@@ -26,9 +26,13 @@
         <section class="terms-of-service-area ptb-100">
             <div class="container">
 				<div class="terms-of-service-content">
-					<h3>1. Welcome To Orgo Terms of Service</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    
+					<h3>1. Welcome To Organic Farm Terms of Service</h3>
+                    <p>
+                        By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content. <br/>
+
+                        Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.
+                    </p>
+
                     <h3>2. The Best Trusted Farms For You</h3>
                     <p>We may collect different  from or about you depending on how you use the Services. Below are some examples to help you better understand the  we collect.</p>
                     <h3>3. Calculate the cost by your needs</h3>
@@ -61,7 +65,6 @@
                     <div class="col-lg-6">
                         <div class="newsletter-content">
                             <h2>Subscribe To Our Newsletter</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                         </div>
                     </div>
 
@@ -70,7 +73,7 @@
                             <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL" required autocomplete="off">
 
                             <button type="submit">Subscribe Now</button>
-                            
+
                             <div id="validator-newsletter" class="form-result"></div>
                         </form>
                     </div>
