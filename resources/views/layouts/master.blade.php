@@ -39,7 +39,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        @yield('style');
         <style>
         .si-pic img {
             width: 70px;
@@ -305,7 +305,7 @@
                                 </div>
                             </div>
                             @endif
-                            <div class="option-item">
+                            <div class="option-item" id="cart-icon">
                                 <div class="cart-btn">
                                     @if (Route::has('login'))
                                     @auth
