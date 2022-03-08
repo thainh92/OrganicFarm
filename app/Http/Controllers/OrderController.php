@@ -103,4 +103,18 @@ class OrderController extends Controller
             'currentPage' => $orders->currentPage(),
         ]);
     }
+
+    public function changeOrderStatus(Request $request)
+    {
+        $order = DB::table('orders')
+            ->where('id', '=', $request->id);
+        if($request->status == 1) {
+            $order->update(['status' => 'approve']);
+            $order->update(['updated_at' => now()]);
+        }
+        if($request->status == 0) {
+            $order->update(['status' => 'cancel']);
+            $order->update(['updated_at' => now()]);
+        }
+    }
 }

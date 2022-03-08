@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
         <!-- themify CSS -->
         <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}" type="text/css">
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <title>@yield('title')</title>
 
         <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
