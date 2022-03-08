@@ -1,9 +1,14 @@
+
 @extends('layouts.master')
 @section('title','Cart')
+@section('style')
+<style>
+    #cart-icon {
+        display: none;
+    }
+</style>
+@endsection
 @section('content')
-
-
-
     <section class="cart-container">
         <!-- Start Page Banner -->
         <div class="page-banner-area item-bg2">
@@ -62,7 +67,8 @@
                                                             <span class="minus-btn" onclick="this.parentNode.stepDown();" id="decrease">
                                                                 <i class='bx bx-minus'></i>
                                                             </span>
-                                                            <input class="quantity" min="1" max="10" data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
+                                                            <input onkeypress='javascript: return isNumber(event)'
+                                                            autocomplete='off' class="quantity" min="1" data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
                                                             <span class="plus-btn" onclick="this.parentNode.stepUp();" id="increment">
                                                                 <i class='bx bx-plus'></i>
                                                             </span>
@@ -201,5 +207,13 @@
                 location.reload();
             });
         });
+
+        function isNumber(evt) {
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                return false;
+            
+            return true;
+        }
     </script>
 @endsection

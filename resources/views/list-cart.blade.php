@@ -29,7 +29,8 @@
                                 <span class="minus-btn">
                                     <i class='bx bx-minus'></i>
                                 </span>
-                                <input data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
+                                <input onkeypress='javascript: return isNumber(event)'
+                                                            autocomplete='off' class="quantity" min="1" data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
                                 <span class="plus-btn">
                                     <i class='bx bx-plus'></i>
                                 </span>
