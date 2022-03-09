@@ -50,7 +50,7 @@
                                     <tbody>
                                         @if(Session::has("Cart") != null)
                                             @foreach(Session::get('Cart')->products as $item)
-                                                <tr>
+                                                <tr class="product-line">
                                                     <td class="product-thumbnail">
                                                         <a href="#">
                                                             <img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt="item">
@@ -59,23 +59,24 @@
                                                     <td class="product-name">
                                                         <a href="shop-details.html">{{$item['productInfo']->name}}</a>
                                                     </td>
-                                                    <td class="product-price">
-                                                        <span class="unit-amount">${{number_format($item['productInfo']->price)}}</span>
+                                                    <td class="product-price">              
+                                                        <span class="unit-amount">{{number_format($item['productInfo']->price, 2)}}</span>
+                                                        <span>$</span>
                                                     </td>
                                                     <td class="product-quantity">
                                                         <div class="input-counter">
-                                                            <span class="minus-btn" onclick="this.parentNode.stepDown();" id="decrease">
+                                                            <span class="minus-btn" id="decrease">
                                                                 <i class='bx bx-minus'></i>
                                                             </span>
-                                                            <input onkeypress='javascript: return isNumber(event)'
-                                                            autocomplete='off' class="quantity" min="1" data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
-                                                            <span class="plus-btn" onclick="this.parentNode.stepUp();" id="increment">
+                                                            <input onkeypress='javascript: return isNumber(event)' autocomplete='off' class="quantity" min="1" data-id="{{$item['productInfo']->id}}" id="quanty-item-{{$item['productInfo']->id}}" type="text" value="{{$item['quanty']}}">
+                                                            <span class="plus-btn" id="increment">
                                                                 <i class='bx bx-plus'></i>
                                                             </span>
                                                         </div>
                                                     </td>
-                                                    <td class="product-subtotal">
-                                                        <span class="subtotal-amount">${{number_format($item['price'])}}</span>
+                                                    <td class="product-subtotal">              
+                                                        <span class="subtotal-amount" id="refresh-section">{{number_format($item['price'], 2)}}</span>
+                                                        <span>$</span>
                                                         <a href="#" class="remove">
                                                             <i class='bx bx-trash' onclick="DeleteListItemCart({{$item['productInfo']->id}})"></i>
                                                         </a>
@@ -93,11 +94,12 @@
                                             Back to Shop
                                         </a>
                                     </div>
+                                    
                                     <div class="col-lg-5 col-sm-5 col-md-5 text-right">
                                         <a href="#" class="default-btn edit-all">
                                             Update Cart
                                         </a>
-                                    </div>
+                                    </div>                 
                                 </div>
                             </div>
 
@@ -106,13 +108,16 @@
                                 @if(Session::has("Cart") != null)
                                     <ul>
                                         <li>Subtotal
-                                            <span>${{number_format(Session::get('Cart')->totalPrice)}}</span>
+                                            <span>$</span>
+                                            <span class="totals-value" id="cart-subtotal">{{number_format(Session::get('Cart')->totalPrice, 2)}}</span>
                                         </li>
                                         <li>Shipping
-                                            <span>$10</span>
+                                            <span>$</span>
+                                            <span class="totals-value" id="cart-shipping">10</span>
                                         </li>
                                         <li>Total
-                                            <span><b>${{number_format(Session::get('Cart')->totalPrice) + 10}}</b></span>
+                                            <span>$</span>
+                                            <span class="totals-value" id="cart-total"><b>{{number_format(Session::get('Cart')->totalPrice, 2)}}</b></span>
                                         </li>
                                     </ul>
                                     <a href="{{route('checkout-page')}}" class="default-btn">
@@ -214,6 +219,65 @@
                 return false;
             
             return true;
-        }
+        };
+        
+        $(document).ready(function() {
+            /* Set rates + misc */
+            
+            var fadeTime = 300;
+
+            $('.input-counter input').change(function() {
+                updateQuantity(this);
+            });
+
+            /* Recalculate cart */
+            
+            function recalculateCart() {  
+                var subtotal = 0;
+              /* Sum up row totals */
+              $('.product-line').each(function() {
+                subtotal += parseFloat($(this).children().children('.product-subtotal .subtotal-amount').text());    
+                console.log($(this).children().children('.product-subtotal .subtotal-amount').text());        
+              });
+              /* Calculate totals */
+              var total = subtotal + 10;
+              console.log(total);
+              /* Update totals display */
+              $('.totals-value').fadeOut(fadeTime, function() {
+                $('#cart-subtotal').html(subtotal.toFixed(2));
+                $('#cart-total').html(total.toFixed(2));
+                if (total == 0) {
+                  $('.checkout').fadeOut(fadeTime);
+                } else {
+                  $('.checkout').fadeIn(fadeTime);
+                }
+                $('.totals-value').fadeIn(fadeTime);
+              });
+            }
+
+            /* Update quantity */
+            function updateQuantity(quantityInput) {
+              /* Calculate line price */
+              var productRow = $(quantityInput).parent().parent().parent();
+              var price = parseFloat(productRow.children().children('.unit-amount').text());
+              var quantity = $(quantityInput).val();
+              var linePrice = price * quantity;
+            
+            
+              /* Update line price display and recalc cart totals */
+              productRow.children().children('.product-subtotal .subtotal-amount').each(function() {
+                
+                $(this).fadeOut(fadeTime, function() {
+                  $(this).text(linePrice.toFixed(2));
+                  recalculateCart();
+                  $(this).fadeIn(fadeTime);     
+                });
+                
+              });
+            }
+            
+            });
+        
+        
     </script>
 @endsection
