@@ -40,7 +40,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        @yield('style');
+        @yield('style')
         <style>
         .si-pic img {
             width: 70px;
@@ -59,7 +59,6 @@
             text-align: center;
             margin-top: 20px;
         }
-
         .pagination{
             width: 35px;
             height: 35px;
@@ -92,6 +91,10 @@
             z-index:2;
             outline:0;
             box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
+        }
+        #change-item-cart {
+            max-height: 450px;
+            overflow: auto;
         }
     </style>
 </head>

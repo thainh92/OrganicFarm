@@ -30,7 +30,7 @@
                                     <th class="border-0">Image</th>
                                     <th class="border-0">Name</th>
                                     <th class="border-0">Code</th>
-                                    <th class="border-0">Category Level</th>
+{{--                                    <th class="border-0">Category Level</th>--}}
                                     <th class="border-0">Create At</th>
                                     <th class="border-0">Update At</th>
                                     <th class="border-0">Action</th>
@@ -48,15 +48,15 @@
                                         </td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->code}}</td>
-                                        @if($category->parent_id == null)
-                                            <td>
-                                                <div class="btn btn-outline-primary btn-sm">Lv. 1</div>
-                                            </td>
-                                        @else
-                                            <td>
-                                                <div class="btn btn-outline-secondary btn-sm">Lv. 2</div>
-                                            </td>
-                                        @endif
+{{--                                        @if($category->parent_id == null)--}}
+{{--                                            <td>--}}
+{{--                                                <div class="btn btn-outline-primary btn-sm">Lv. 1</div>--}}
+{{--                                            </td>--}}
+{{--                                        @else--}}
+{{--                                            <td>--}}
+{{--                                                <div class="btn btn-outline-secondary btn-sm">Lv. 2</div>--}}
+{{--                                            </td>--}}
+{{--                                        @endif--}}
                                         <td>{{$category->created_at}}</td>
                                         <td>{{$category->updated_at}}</td>
                                         <td>
