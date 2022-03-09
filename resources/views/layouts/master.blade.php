@@ -40,7 +40,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        @yield('style');
+        @yield('style')
         <style>
         .si-pic img {
             width: 70px;

@@ -179,6 +179,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/product/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-product');
     Route::get('/admin/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
     Route::get('/admin/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
+    Route::get('/admin/product/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-product');
     /*---------- Admin User Route ----------*/
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin-user-index');
     /*---------- Admin Order Route ----------*/

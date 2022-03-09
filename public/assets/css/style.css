@@ -7765,6 +7765,8 @@ Modal CSS
 	-webkit-transition: all 1s;
 	-o-transition: all 1s;
 	transition: all 1s;
+    max-height: 450px;
+    overflow: auto;
 }
 .cart-hover .select-items table {
 	width: 100%;

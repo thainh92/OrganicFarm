@@ -108,6 +108,7 @@
     <script>
         function deleteRecord(id) {
             if (confirm("Do you really want to delete this record")) {
+                console.log(id);
                 let obj = {};
                 obj.id = id;
                 obj._method = "delete";
