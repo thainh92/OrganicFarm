@@ -44,80 +44,65 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-										    <label>Country <span class="required">*</span></label>
+										    <label for="validationTooltip03">Country <span class="required">*</span></label>
                                             <div class="select-box">
-                                                <select class="form-control" name="country">
-                                                    <option value="5">United Arab Emirates</option>
+                                                <select class="form-control" name="country" id="validationTooltip04">
+                                                    <option value="5">Vietnam</option>
                                                     <option value="1">China</option>
                                                     <option value="2">United Kingdom</option>
                                                     <option value="0">Germany</option>
                                                     <option value="3">France</option>
                                                     <option value="4">Japan</option>
-                                                </select>
+                                                </select>  
+                                            </div>
+                                            <div class="invalid-tooltip">
+                                                Please select a valid state.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <label>First Name <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="first_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <label>Last Name <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="last_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label>Company Name</label>
-                                            <input type="text" class="form-control" name="company_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6">
-                                        <div class="form-group">
-                                            <label>Address <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="address">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6">
-                                        <div class="form-group">
-                                            <label>Town / City <span class="required">*</span></label>
-                                            <div class="select-box">
-                                                <select class="form-control" name="city">
-                                                    <option value="5">Hanoi</option>
-                                                    <option value="1">China</option>
-                                                    <option value="2">United Kingdom</option>
-                                                    <option value="0">Germany</option>
-                                                    <option value="3">France</option>
-                                                    <option value="4">Japan</option>
-                                                </select>
+                                            <label for="validationTooltip01">First Name <span class="required">*</span></label>
+                                            <input type="text" class="form-control" name="first_name" id="validationTooltip01">
+                                            <div class="invalid-tooltip">
+                                                Please choose a unique and valid first name.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <label>State / County <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="state">
+                                            <label for="validationTooltip02">Last Name <span class="required">*</span></label>
+                                            <input type="text" class="form-control" name="last_name" id="validationTooltip02">
+                                            <div class="invalid-tooltip">
+                                                Please choose a unique and valid last name.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="validationTooltip03">Address <span class="required">*</span></label>
+                                            <input type="text" class="form-control" name="address" id="validationTooltip03">
+                                            <div class="invalid-tooltip">
+                                                Please choose a unique and valid address.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <label>Postcode / Zip <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="zip">
+                                            <label for="exampleInputEmail1">Email Address<span class="required">*</span></label>
+                                            <input type="email" class="form-control" name="email" id="exampleInputEmail1">
+                                            <div class="invalid-tooltip">
+                                                Please provide a valid email.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <label>Email Address<span class="required">*</span></label>
-                                            <input type="email" class="form-control" name="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <label>Phone <span class="required">*</span></label>
-                                            <input type="text" class="form-control"  name="phone">
+                                            <label for="validationTooltip05">Phone <span class="required">*</span></label>
+                                            <input type="text" class="form-control" name="phone" id="validationTooltip05">
+                                            <div class="invalid-tooltip">
+                                                Please provide a valid phone.
+                                            </div>
                                         </div>
                                     </div>
 
@@ -195,5 +180,25 @@
     </section>
 @endsection
 @section('script-tag')
-    <script></script>
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+
+                  form.classList.add('was-validated')
+                }, false)
+              })
+        })()
+    </script>
 @endsection
