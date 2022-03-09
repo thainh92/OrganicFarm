@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/charts/c3charts/c3.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <title>Organic Farm - Admin Dashboard</title>
 </head>
 
@@ -318,6 +319,7 @@
 <script src="{{asset('admin/assets/vendor/charts/c3charts/d3-5.4.0.min.js')}}"></script>
 <script src="{{asset('admin/assets/vendor/charts/c3charts/C3chartjs.js')}}"></script>
 <script src="{{asset('admin/assets/libs/js/dashboard-ecommerce.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 {{--Script Tag--}}
 @yield('script-tag')
 </body>

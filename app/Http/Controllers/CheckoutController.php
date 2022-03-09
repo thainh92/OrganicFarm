@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\OrderDetail;
 use Session;
@@ -57,6 +58,7 @@ class CheckoutController extends Controller
     public function placeorder(Request $request)
     {
         $order = new Order();
+        $order->user_id = Auth::user()->id;
         $order->country = $request->input("country");
         $order->first_name = $request->input("first_name");
         $order->last_name = $request->input("last_name");
@@ -68,11 +70,8 @@ class CheckoutController extends Controller
         $order->phone = $request->input("phone");
         $order->email = $request->input("email");
         $order->notes = $request->input("notes");
-//        $order->total = $request->input("total");
-        $order->id;
         $order->save();
-
-
+        $order->id;
         $cartDetails = Session('Cart')->products;
         foreach ($cartDetails as $key => $item)
         {
@@ -84,6 +83,16 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
             ]);
         }
+        $record = DB::table('order_details')
+            ->where('order_id', '=', $order->id)
+            ->select('quantity', 'price')
+            ->get();
+        $sum = 0;
+        foreach ($record as $item) {
+            $sum += ($item->quantity * $item->price);
+        }
+        $order->total = $sum;
+        $order->save();
         $request->session()->forget('Cart');
         return Redirect('/payment-success');
     }

@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = DB::table('orders')->paginate(10);
+        $orders = DB::table('orders')->paginate(10)->withQueryString();
         return view('admin.order.index', [
             'orders' => $orders,
             'total' => $orders->total(),
@@ -89,5 +89,32 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function showListOrder($id) {
+        $orders = DB::table('orders')
+            ->where('user_id', '=', $id)
+            ->paginate(10)
+            ->withQueryString();
+        return view('main_public.profile', [
+            'orders' => $orders,
+            'total' => $orders->total(),
+            'perPage' => $orders->perPage(),
+            'currentPage' => $orders->currentPage(),
+        ]);
+    }
+
+    public function changeOrderStatus(Request $request)
+    {
+        $order = DB::table('orders')
+            ->where('id', '=', $request->id);
+        if($request->status == 1) {
+            $order->update(['status' => 'approve']);
+            $order->update(['updated_at' => now()]);
+        }
+        if($request->status == 0) {
+            $order->update(['status' => 'cancel']);
+            $order->update(['updated_at' => now()]);
+        }
     }
 }

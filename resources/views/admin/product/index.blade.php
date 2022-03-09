@@ -56,9 +56,9 @@
                                     <th class="border-0">#</th>
                                     <th class="border-0">Image</th>
                                     <th class="border-0">Name</th>
-                                    <th class="border-0">Description</th>
+{{--                                    <th class="border-0">Description</th>--}}
                                     <th class="border-0">Category</th>
-                                    <th class="border-0">Discount</th>
+{{--                                    <th class="border-0">Discount</th>--}}
                                     <th class="border-0">Price</th>
                                     <th class="border-0">Status</th>
                                     <th class="border-0">Create At</th>
@@ -67,15 +67,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-{{--                                @php--}}
-{{--                                    $id = 1;--}}
-{{--                                @endphp--}}
                                 @foreach($products as $key => $product)
                                     <tr>
                                         <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
-{{--                                        @php--}}
-{{--                                            $id++;--}}
-{{--                                        @endphp--}}
                                         <td>
                                             <div class="m-r-10"><img
                                                     src="{{asset('assets/img/product/'.$product->thumbnail)}}"
@@ -83,9 +77,9 @@
                                                     class="rounded" width="45"></div>
                                         </td>
                                         <td>{{$product->name}}</td>
-                                        <td>{{$product->description}}</td>
+{{--                                        <td>{{$product->description}}</td>--}}
                                         <td>{{$product->category_name}}</td>
-                                        <td>{{($product->discount_id != null) ? $item->discount : 'None'}}</td>
+{{--                                        <td>{{($product->discount_id != null) ? $item->discount : 'None'}}</td>--}}
                                         <td>{{$product->price}}</td>
                                         <td>{{ ($product->status == 1) ? 'Active' : 'Disable'}}</td>
                                         <td>{{$product->created_at}}</td>

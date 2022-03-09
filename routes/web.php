@@ -111,16 +111,17 @@ Route::post('/Save-All', 'App\Http\Controllers\CartItemController@SaveAllListIte
 /*---------- Check Out ----------*/
 Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index')->name('checkout-page');
 
-Route::post('/place-oder', 'App\Http\Controllers\CheckoutController@placeoder')->name('place-oder');
 Route::post('/place-order', 'App\Http\Controllers\CheckoutController@placeorder')->name('place-order');
 
 Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@paymentsuccess')->name('payment-success');
 /*---------- End Check Out ----------*/
 
+/*---------- Profile page ----------*/
+Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
+/*---------- End Profile page ----------*/
 
 /*---------- Home Controller ----------*/
 //Route::get('/home', [HomeController::class, 'getMainCategory']);
-
 
 /*---------- Auth Route ----------*/
 Auth::routes();
@@ -182,5 +183,6 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin-user-index');
     /*---------- Admin Order Route ----------*/
     Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin-order-index');
+    Route::get('/admin/changeOrderStatus', [OrderController::class, 'changeOrderStatus'])->name('change-order-status');
     /*---------- End Admin Route ----------*/
 });

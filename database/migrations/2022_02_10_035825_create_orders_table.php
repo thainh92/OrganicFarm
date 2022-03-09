@@ -16,10 +16,10 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             //$table->string('order_number')->unique();
-//            $table->unsignedBigInteger('user_id')->nullable();
-//            $table->foreign('user_id')->references('id')->on('users');
-            $table->enum('status', ['pending', 'processing', 'completed', 'decline'])->default('pending');
-            //$table->decimal('total', 20, 6);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('status', ['pending', 'approve', 'cancel'])->default('pending');
+            $table->decimal('total', 20, 2)->nullable();
             //$table->unsignedInteger('item_count');
             //$table->boolean('payment_status')->default(1);
             //$table->string('payment_method')->nullable();
