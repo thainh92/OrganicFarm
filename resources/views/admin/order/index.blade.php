@@ -82,7 +82,7 @@
                                             {{--                                                   data-toggle="toggle" data-size="sm" data-on="approve"--}}
                                             {{--                                                   data-off="not approve" data-onstyle="success">--}}
                                                 <input name="" type="checkbox"
-                                                       id="changeOrderStatus"
+                                                       class="changeOrderStatus"
                                                        data-order-id="{{$order->id}}"
                                                        {{$order->status === "approve" ? "checked disabled" : ""}}
                                                        {{$order->status === "cancel" ? "disabled" : ""}}
@@ -105,15 +105,15 @@
 @endsection
 @section('script-tag')
     <script>
-        $('#changeOrderStatus').change(function () {
+        $('.changeOrderStatus').change(function () {
+            let dataId = $(this).attr('data-order-id');
             let returnVal = confirm("Confirm change order status? You cannot go back to this action! ");
             if (returnVal) {
                 if (this.checked) {
-                    console.log(this.checked)
-                    $('#changeOrderStatus').attr('disabled', 'disabled');
+                    $(this).attr('disabled', 'disabled');
                     $.ajax({
                         type: 'GET',
-                        data: {id: $('#changeOrderStatus').attr('data-order-id'), status: 1},
+                        data: {id: dataId, status: 1},
                         url: "{{route('change-order-status')}}",
                         success: (result) => {
                             console.log();
@@ -125,9 +125,19 @@
                 }
             } else {
                 console.log('hehe')
-                $('#changeOrderStatus').prop('checked', false);
+                $('.changeOrderStatus').prop('checked', false);
                 location.reload();
             }
         });
+
+        // $(".changeOrderStatus").change(function() {
+        //     console.log(this);
+        // });
+        //     // $(".changeOrderStatus").each(changeInput);
+        //     // function changeInput (e){
+        //     //     $(this).on('click',function (){
+        //     //         alert('Hello');
+        //     //     })
+        //     // }
     </script>
 @endsection

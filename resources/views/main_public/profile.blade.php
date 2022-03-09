@@ -39,9 +39,8 @@
                                                     </td>
                                                     <td>
                                                         <button onclick="cancelOrder()"
-                                                                id="cancelOrder"
                                                                 data-order-id="{{$order->id}}"
-                                                                class="btn btn-secondary"{{$order->status === "cancel" ? "disabled" : ""}}>
+                                                                class="cancelOrder btn btn-secondary"{{$order->status === "cancel" ? "disabled" : ""}}>
                                                             cancel
                                                         </button>
                                                     </td>
@@ -154,12 +153,12 @@
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script>
         // function cancelOrder() {
-            $('#cancelOrder').on('click', function(){
+            $('.cancelOrder').on('click', function(){
+                let dataId = $(this).attr('data-order-id');
                 if (confirm("Do you want cancel order? You can't go to back this action")) {
-                    console.log('hehe')
                     $.ajax({
                         type: 'GET',
-                        data: {id: $('#cancelOrder').attr('data-order-id'), status: 0},
+                        data: {id: $(this).attr('data-order-id'), status: 0},
                         url: "{{route('change-order-status')}}",
                         success: (result) => {
                             console.log();
