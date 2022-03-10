@@ -100,7 +100,7 @@
                 <div class="register-form">
                     <h2>{{ __('Register') }}</h2>
 
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate id="register-form">
                         @csrf
                         <div class="form-group">
                             <label for="name">{{ __('Username') }}
@@ -108,11 +108,18 @@
                             
                             <input id="name" type="text" class="form-control" placeholder="Username" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                            @error('name')
+                            <!-- @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                            @enderror -->
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please input username.
+                            </div>
+
                         </div>
 
                         <div class="form-group">
@@ -126,6 +133,12 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please input valid email.
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -139,6 +152,12 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please input address.
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -152,56 +171,171 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please input phone.
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">{{ __('Password') }}
+                            <label for="password">
+                                {{ __('Password') }}
+                                <!-- <span id="password-feedback" style="font-size: 12px; float: right;"></span> -->
                             </label>
 
                             <input id="password" type="password" class="form-control" placeholder="Password" name="password" required autocomplete="new-password">
+                            <!-- <i class="bi bi-eye-slash" id="togglePassword" style="
+                              /*margin-top: -55px;*/
+                              position: relative;
+                              z-index: 1;"></i> -->
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-
+                            <!-- <div class="valid-feedback" id="password-valid">
+                                Looks good!</span>
+                            </div>
+                            <div class="invalid-feedback">
+                                <span id="#password-invalid">Please input password.</span>
+                            </div> -->
+                            <span id="password-feedback" style="font-size: 80%;"></span>
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm">{{ __('ConfirmPassword') }}
+                            <label for="password-confirm">
+                                {{ __('Confirm Password') }}
+                                
                             </label>
                             
                             <input id="password-confirm" type="password" class="form-control" placeholder="Password" name="password_confirmation" required autocomplete="new-password">
+                            <!-- <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please confirm password.
+                            </div> -->
+                            <span id="password-confirm-feedback" style="font-size: 80%;"></span>
                         </div>
 
-                        <p class="description">The password must be at least eight characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & )</p>
-                        <!-- <div class="row align-items-center">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="agree">
+                        <!-- <p class="description">The password must be at least eight characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & )</p> -->
 
-                                    <label class="form-check-label" for="remember">I have read and agreed with our <a href="#" style="text-decoration: underline;">Terms and Conditions</a> and <a href="#" style="text-decoration: underline;">Privacy Statement</a>
-                                    </label>
+                            <p class="description">By clicking Register, you read and agree with our <a href="#" style="text-decoration: underline;">Terms and Conditions</a> and <a href="#" style="text-decoration: underline;">Privacy Statement</a></p>
+
+                        <button id="submit-button-register" type="submit" class="default-btn" style="margin-top: 5px">{{ __('Register') }}</button>
+
+                        
+                        <div class="form-group">
+                            <div class="row align-items-center">
+                                <div class="col-lg-12 col-md-8 col-sm-8 lost-your-password">
+                                    @if (Route::has('login'))
+                                        <a href="{{ route('login') }}" class="lost-your-password" style="float: right; font-size: 90%; margin-top: 15px">{{ __('Already has an account?') }}
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
-
-                            <div class="col-lg-12 col-md-12 col-sm-12 lost-your-password">
-                                @if (Route::has('login'))
-                                <a href="{{ route('login') }}" class="lost-your-password">{{ __('Already have an account?') }}
-                                </a>
-                                @endif
-                            </div>
-                        </div> -->
-
-                        <button type="submit" class="default-btn">{{ __('Register') }}</button>
-
-                        <div class="form-group">
-                            <p class="agree-term">By clicking Register, you read and agree with our <a href="#" style="text-decoration: underline;">Terms and Conditions</a> and <a href="#" style="text-decoration: underline;">Privacy Statement</a></p>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
 <!-- End Register Area -->
+@endsection
+@section('script-tag')
+    <script>
+        // const togglePassword = document.querySelector("#togglePassword");
+        // const password = document.querySelector("#password");
+
+        // togglePassword.addEventListener("click", function () {
+        //     // toggle the type attribute
+        //     const type = password.getAttribute("type") === "password" ? "text" : "password";
+        //     password.setAttribute("type", type);
+            
+        //     // toggle the icon
+        //     this.classList.toggle("bi-eye");
+        // });
+
+        // // prevent form submit
+        // const form = document.querySelector("form");
+        // form.addEventListener('submit', function (e) {
+        //     e.preventDefault();
+        // });
+
+        $('#password, #password-confirm').on('keyup', function () {
+            if ($('#password').val().length < 8 && $('#password-confirm').val().length < 8) {
+                $('#password-feedback').html('Password must be at least eight characters long.').css({'color': '#dc3545'});
+                $('#submit-button-register').prop('disabled', true);
+                $('#submit-button-register').css('cursor', 'default');
+                $('#password').css({'borderColor': '#dc3545'});
+            } else {
+                $('#password-feedback').html('Valid password').css('color', 'green');
+                $('#submit-button-register').prop('disabled', false);
+                $('#submit-button-register').css('cursor', 'pointer');
+                $('#password').css({'borderColor': '#28a745'});
+
+                if ($('#password').val() == $('#password-confirm').val()) {
+                    $('#password-confirm-feedback').html('Password matched').css('color', 'green');
+                    $('#submit-button-register').prop('disabled', false);
+                    $('#password-confirm').css({'borderColor': '#28a745'});
+                  } else {
+                    $('#password-confirm-feedback').html('Password unmatched').css('color', '#dc3545');
+                    $('#submit-button-register').prop('disabled', true);
+                    $('#submit-button-register').css('cursor', 'default');
+                    $('#password-confirm').css({'borderColor': '#dc3545'});
+                  }
+            }       
+        });
+
+        $(document).ready(function() {
+            $("#register-form").validate({
+                rules: {
+                    name : {
+                        required: true,
+                        minlength: 3
+                        },
+                    
+                    email: {
+                        required: true,
+                        email: true
+                        }
+                    // weight: {
+                    //     required: {
+                    //         depends: function(elem) {
+                    //         return $("#age").val() > 50
+                    //         }
+                    //     },
+                    //     number: true,
+                    //     min: 0
+                    // }
+                }
+            });
+            // prevent form submit
+            const form = document.querySelector("form");
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+            });
+        });
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                let forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                let validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 @endsection

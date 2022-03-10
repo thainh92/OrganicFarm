@@ -6,6 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -96,12 +97,18 @@ class OrderController extends Controller
             ->where('user_id', '=', $id)
             ->paginate(10)
             ->withQueryString();
-        return view('main_public.profile', [
-            'orders' => $orders,
-            'total' => $orders->total(),
-            'perPage' => $orders->perPage(),
-            'currentPage' => $orders->currentPage(),
-        ]);
+
+        if (Auth::user()->id == $id) {
+            return view('main_public.profile', [
+                'orders' => $orders,
+                'total' => $orders->total(),
+                'perPage' => $orders->perPage(),
+                'currentPage' => $orders->currentPage(),
+            ]);
+        } else {
+            return redirect()->route('home-page');
+        }
+        
     }
 
     public function changeOrderStatus(Request $request)

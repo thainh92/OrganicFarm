@@ -117,7 +117,9 @@ Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@payments
 /*---------- End Check Out ----------*/
 
 /*---------- Profile page ----------*/
-Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
+});
 /*---------- End Profile page ----------*/
 
 /*---------- Home Controller ----------*/
@@ -150,10 +152,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /*---------- End Auth Route ----------*/
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+/*---------- Admin Category Route ----------*/
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
     // Route::get('/', [HomeController::class, 'index'])->name('admin-index');
@@ -163,14 +163,16 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     })->name('admin-index');
 
 
-    /*---------- Admin Category Route ----------*/
+    
     Route::get('/admin/categories', [CategoryController::class, 'indexAdmin'])->name('admin-category-index');
     Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('admin-create-category');
     Route::post('/admin/category/create', [CategoryController::class, 'store'])->name('admin-store-category');
     Route::get('/admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin-edit-category');
     Route::put('/admin/category/update/{id}', [CategoryController::class, 'update'])->name('admin-update-category');
     Route::get('/admin/category/trash/{id}', [CategoryController::class, 'trash'])->name('admin-trash-category');
+
     /*---------- Admin Product Route ----------*/
+    
     Route::get('/admin/products', [ProductController::class, 'indexAdmin'])->name('admin-product-index');
     Route::get('/admin/product/create', [ProductController::class, 'create'])->name('admin-create-product');
     Route::post('/admin/product/create', [ProductController::class, 'store'])->name('admin-store-product');
@@ -180,11 +182,25 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/product/getSubCategoryProduct', [ProductController::class, 'getSubCategoryProduct']);
     Route::get('/admin/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
     Route::get('/admin/product/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-product');
+
+
     Route::get('/admin/product/detail/{id}', [ProductController::class, 'showProductDetail'])->name('admin-product-detail');
+
     /*---------- Admin User Route ----------*/
+
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin-user-index');
+    Route::get('/admin/user/create', [UserController::class, 'create'])->name('admin-create-user');
+    Route::post('/admin/user/create', [UserController::class, 'store'])->name('admin-store-user');
+    Route::get('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('admin-edit-user');
+    Route::put('/admin/user/update/{id}', [UserController::class, 'update'])->name('admin-update-user');
+    Route::get('/user/trash/{id}', [UserController::class, 'trash'])->name('admin-trash-user');
+    Route::get('/admin/user/trash/{id}', [UserController::class, 'trash'])->name('admin-trash-user');
+
     /*---------- Admin Order Route ----------*/
     Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin-order-index');
+    
     Route::get('/admin/changeOrderStatus', [OrderController::class, 'changeOrderStatus'])->name('change-order-status');
     /*---------- End Admin Route ----------*/
 });
+
+/*---------- End Admin Route ----------*/

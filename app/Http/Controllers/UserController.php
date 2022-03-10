@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -31,7 +33,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // $get_role_category = DB::table('users')->where('is_admin', '=', null)->get();
+        // // $users = DB::table('users');
+        // // return view('admin.user.create', ['users' => $users]);
+        // // $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
+        // return view('admin.user.create', compact('get_role_category'));
+        return view('admin.user.create');
     }
 
     /**
@@ -42,7 +49,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->password = $request->password;
+        $user->is_admin = $request->role;
+        $user->save();
+        return redirect()->route('admin-user-index')->with('message', 'Create new user success');
     }
 
     /**
@@ -64,7 +79,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = DB::table('users')->where('id', '=', $id)->first();
+        // dd($user);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -76,7 +93,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->password = $request->password;
+        $user->is_admin = $request->role;
+        $user->save();
+        return redirect()->route('admin-user-index')->with('message', 'Update user success');
     }
 
     /**
@@ -88,5 +113,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function trash($id)
+    {
+        User::where('id', $id)->delete();
+        return redirect()->route('admin-user-index', '', 201);
     }
 }
