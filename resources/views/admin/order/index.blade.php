@@ -72,10 +72,22 @@
                                         <td>{{$order->created_at}}</td>
                                         <td>{{$order->updated_at}}</td>
                                         <td>
-                                            {{--                                            <a href="{{route('admin-edit-product', $order->id)}}"--}}
-                                            {{--                                               class="p-1 f-icon fas fa-edit text-primary"></a>--}}
-                                            {{--                                            <a href="javascript:void(0)" onclick="deleteRecord({{$product->id}})"--}}
-                                            {{--                                               class="p-1 f-icon fas fa-trash-alt text-danger"></a>--}}
+                                            {{--                                            <input name="" type="checkbox"--}}
+                                            {{--                                                   id="changeOrderStatus"--}}
+                                            {{--                                                   @if($order->status == "approve")--}}
+                                            {{--                                                   checked--}}
+                                            {{--                                                   @elseif($order->status == "cancel")--}}
+                                            {{--                                                   disabled--}}
+                                            {{--                                                   @endif--}}
+                                            {{--                                                   data-toggle="toggle" data-size="sm" data-on="approve"--}}
+                                            {{--                                                   data-off="not approve" data-onstyle="success">--}}
+                                                <input name="" type="checkbox"
+                                                       class="changeOrderStatus"
+                                                       data-order-id="{{$order->id}}"
+                                                       {{$order->status === "approve" ? "checked disabled" : ""}}
+                                                       {{$order->status === "cancel" ? "disabled" : ""}}
+                                                       data-toggle="toggle" data-size="sm" data-on="approve"
+                                                       data-off="not approve" data-onstyle="success">
                                         </td>
                                     </tr>
                                 @endforeach
@@ -90,4 +102,42 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script-tag')
+    <script>
+        $('.changeOrderStatus').change(function () {
+            let dataId = $(this).attr('data-order-id');
+            let returnVal = confirm("Confirm change order status? You cannot go back to this action! ");
+            if (returnVal) {
+                if (this.checked) {
+                    $(this).attr('disabled', 'disabled');
+                    $.ajax({
+                        type: 'GET',
+                        data: {id: dataId, status: 1},
+                        url: "{{route('change-order-status')}}",
+                        success: (result) => {
+                            console.log();
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(this.checked)
+                }
+            } else {
+                console.log('hehe')
+                $('.changeOrderStatus').prop('checked', false);
+                location.reload();
+            }
+        });
+
+        // $(".changeOrderStatus").change(function() {
+        //     console.log(this);
+        // });
+        //     // $(".changeOrderStatus").each(changeInput);
+        //     // function changeInput (e){
+        //     //     $(this).on('click',function (){
+        //     //         alert('Hello');
+        //     //     })
+        //     // }
+    </script>
 @endsection

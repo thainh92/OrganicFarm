@@ -128,7 +128,7 @@ class UserController extends Controller
 
     public function trash($id)
     {
-        Product::where('id', $id)->delete();
-        return redirect()->route('admin-product-index', '', 201);
+        User::where('id', $id)->delete();
+        return redirect()->route('admin-user-index', '', 201);
     }
 }

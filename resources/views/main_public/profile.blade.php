@@ -33,7 +33,35 @@
                                                         <td>{{$order->total}}</td>
                                                     </tr>
                                                 @endforeach
-                                                
+
+                                            <tr class="border-0">
+                                                <th class="border-0">#</th>
+                                                <th class="border-0">Order Id</th>
+                                                <th class="border-0">Total price</th>
+                                                <th class="border-0">Order status</th>
+                                                <th class="border-0">Cancel order</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($orders as $key => $order)
+                                                <tr>
+                                                    <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
+                                                    <td>{{$order->id}}</td>
+                                                    <td>{{$order->total}}</td>
+                                                    <td>
+                                                        <div class="btn btn-success disabled">
+                                                            {{$order->status === 'cancel' ? 'canceled' : $order->status}}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="cancelOrder()"
+                                                                data-order-id="{{$order->id}}"
+                                                                class="cancelOrder btn btn-secondary"{{$order->status === "cancel" ? "disabled" : ""}}>
+                                                            cancel
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                         <div class="mt-3">
@@ -138,5 +166,24 @@
     </div>
 @endsection
 @section('script-tag')
-    <script></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script>
+        // function cancelOrder() {
+            $('.cancelOrder').on('click', function(){
+                let dataId = $(this).attr('data-order-id');
+                if (confirm("Do you want cancel order? You can't go to back this action")) {
+                    $.ajax({
+                        type: 'GET',
+                        data: {id: $(this).attr('data-order-id'), status: 0},
+                        url: "{{route('change-order-status')}}",
+                        success: (result) => {
+                            console.log();
+                            location.reload();
+                        }
+                    });
+                }
+            })
+
+        // }
+    </script>
 @endsection

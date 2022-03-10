@@ -125,8 +125,7 @@ class CategoryController extends Controller
         $old_name = $category->name;
         $category->name = $request->input('name');
         $category->code = $request->input('code');
-        $main_category_url = CategoryController::getMainCategoryUrl($request->parent_id);
-        $new_url = $main_category_url . CategoryController::convertNameToUrl($request->name);
+        $new_url = CategoryController::genCategoryUrl($request->name);
         $category->url = $new_url;
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');

@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <title>@yield('title')</title>
 
         <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
@@ -48,7 +49,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        @yield('style');
+        @yield('style')
         <style>
         .si-pic img {
             width: 70px;
@@ -67,7 +68,6 @@
             text-align: center;
             margin-top: 20px;
         }
-
         .pagination{
             width: 35px;
             height: 35px;
@@ -100,6 +100,10 @@
             z-index:2;
             outline:0;
             box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
+        }
+        #change-item-cart {
+            max-height: 450px;
+            overflow: auto;
         }
     </style>
 </head>
@@ -204,7 +208,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="#" class="nav-link">
                                     Shop
                                     <i class='bx bx-chevron-down'></i>
                                 </a>
@@ -248,11 +252,13 @@
                                             Terms of Service
                                         </a>
                                     </li>
+                                    <!--
                                     <li class="nav-item">
                                         <a href="{{ route('private-page') }}" class="nav-link">
                                             Privacy Policy
                                         </a>
                                     </li>
+                                -->
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -455,7 +461,7 @@
                         </a>
                     </div>
                 </div>
-                /*
+                <!--
                 <div class="option-item">
                     <div class="cart-btn">
                         <a href="#">
@@ -470,14 +476,13 @@
                 </div>
                 */
             </div>
-            /*
             <div class="option-item">
                 <form class="search-box">
                     <input type="text" class="form-control" placeholder="Search">
                     <button type="submit"><i class="flaticon-search"></i></button>
                 </form>
             </div>
-            */
+        -->
         </div>
     </div>
 </div>

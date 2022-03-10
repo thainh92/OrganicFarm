@@ -95,4 +95,33 @@
     </div>
 @endsection
 @section('script-tag')
+    <script>
+        function deleteRecord(id) {
+            if (confirm("Do you really want to delete this record")) {
+                console.log(id);
+                let obj = {};
+                obj.id = id;
+                obj._method = "delete";
+                obj._token = $("input[name='_token']").val();
+                $.ajax({
+                    url: '/admin/user/trash/' + id,
+                    method: "get",
+                    data: obj,
+                    success: function (response) {
+                        if (response.indexOf('Success')) {
+                            alert("Deleted success");
+                            location.reload();
+                        } else {
+                            alert("Deleted not success");
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+    <script>
+        setTimeout(()=>{
+            document.getElementById('showMessage').style.display = 'none';
+        }, 2000);
+    </script>
 @endsection

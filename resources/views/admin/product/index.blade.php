@@ -56,9 +56,9 @@
                                     <th class="border-0">#</th>
                                     <th class="border-0">Image</th>
                                     <th class="border-0">Name</th>
-                                    <th class="border-0">Description</th>
+{{--                                    <th class="border-0">Description</th>--}}
                                     <th class="border-0">Category</th>
-                                    <th class="border-0">Discount</th>
+{{--                                    <th class="border-0">Discount</th>--}}
                                     <th class="border-0">Price</th>
                                     <th class="border-0">Status</th>
                                     <th class="border-0">Create At</th>
@@ -77,9 +77,9 @@
                                                     class="rounded" width="45"></div>
                                         </td>
                                         <td>{{$product->name}}</td>
-                                        <td>{{$product->description}}</td>
+{{--                                        <td>{{$product->description}}</td>--}}
                                         <td>{{$product->category_name}}</td>
-                                        <td>{{($product->discount_id != null) ? $item->discount : 'None'}}</td>
+{{--                                        <td>{{($product->discount_id != null) ? $item->discount : 'None'}}</td>--}}
                                         <td>{{$product->price}}</td>
                                         <td>{{ ($product->status == 1) ? 'Active' : 'Disable'}}</td>
                                         <td>{{$product->created_at}}</td>
@@ -108,6 +108,7 @@
     <script>
         function deleteRecord(id) {
             if (confirm("Do you really want to delete this record")) {
+                console.log(id);
                 let obj = {};
                 obj.id = id;
                 obj._method = "delete";

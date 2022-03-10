@@ -67,16 +67,16 @@
                                         <ul class="social">
                                             <li><span>Share:</span></li>
                                             <li>
-                                                <a href="#" class="facebook" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                                <a href="https://www.facebook.com/organicfarmfoods/" class="facebook" target="_blank"><i class='bx bxl-facebook'></i></a>
                                             </li>
                                             <li>
-                                                <a href="#" class="twitter" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                                <a href="https://twitter.com/toforganic" class="twitter" target="_blank"><i class='bx bxl-twitter'></i></a>
                                             </li>
                                             <li>
-                                                <a href="#" class="linkedin" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                                                <a href="https://in.linkedin.com/company/letsgrowfood" class="linkedin" target="_blank"><i class='bx bxl-linkedin'></i></a>
                                             </li>
                                             <li>
-                                                <a href="#" class="instagram" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                                <a href="https://www.instagram.com/theorganicfarm/" class="instagram" target="_blank"><i class='bx bxl-instagram'></i></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -106,7 +106,7 @@
                                     <div class="tab_content">
                                         <div class="tabs_item">
                                             <div class="products-details-tab-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+                                                <p>Clean, healthy products.</p>
                                             </div>
                                         </div>
 
@@ -137,9 +137,9 @@
                                                                 <i class='bx bxs-star'></i>
                                                             </div>
                                                             <h3>Good</h3>
-                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2020</strong></span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                                            <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2021</strong></span>
+                                                            <p>Good product, I'm very satisfied</p>
+                                                            <a class="review-report-link" style="cursor: pointer;">Report as Inappropriate</a>
                                                         </div>
                                                         <div class="review-item">
                                                             <div class="rating">
@@ -150,9 +150,9 @@
                                                                 <i class='bx bxs-star'></i>
                                                             </div>
                                                             <h3>Good</h3>
-                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2020</strong></span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                                            <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                            <span><strong>Admin</strong> on <strong>Sep 24, 2021</strong></span>
+                                                            <p>We run a 137-year-old family owned and operated organic apple farming & management company serving about 90 parcels (approx. 200 acres). We have been certified with Organic Certifiers (OC) since 2008 after switching from one of the larger certifying agencies where we were getting lost in the corporate shuffle after 15 years of loyalty. From our initial phone call to OC, we could sense that this is a company run like a family-owned business–something we could relate to. We have been very pleased with the personal, professional and friendly service that we receive and the relationship that we have built with OC over the past 5 years. We look forward to working with Organic Certifiers for years to come.</p>
+                                                            <a class="review-report-link" style="cursor: pointer;">Report as Inappropriate</a>
                                                         </div>
                                                         <div class="review-item">
                                                             <div class="rating">
@@ -163,9 +163,9 @@
                                                                 <i class='bx bxs-star'></i>
                                                             </div>
                                                             <h3>Good</h3>
-                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2020</strong></span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                                            <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                            <span><strong>Admin</strong> on <strong>Mar 9, 2022</strong></span>
+                                                            <p>When we first decided to look into becoming organic certified, we were scared of the process and unknown. We investigated several organic agencies for help. Organic Certifiers were very helpful and patient in the certifying process. We love the personal attention with any question or request. They are very good about keeping us updated on new regulatory requirements. We appreciate their kind and cooperative approach in their communication. Organic Certifiers have been great business partners in helping us expand our organic products. We are so grateful we choose Organic Certifiers.</p>
+                                                            <a class="review-report-link" style="cursor: pointer;">Report as Inappropriate</a>
                                                         </div>
                                                     </div>
                                                     <div class="review-form">
