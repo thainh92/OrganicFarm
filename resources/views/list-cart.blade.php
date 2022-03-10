@@ -20,7 +20,7 @@
                                 </a>
                             </td>
                             <td class="product-name">
-                                <a href="shop-details.html">{{$item['productInfo']->name}}</a>
+                                <a href="#">{{$item['productInfo']->name}}</a>
                             </td>
                             <td class="product-price">              
                                 <span class="unit-amount">{{number_format($item['productInfo']->price, 2)}}</span>
