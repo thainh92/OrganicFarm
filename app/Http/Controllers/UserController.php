@@ -79,10 +79,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('category')->where('id', '=', $id)->first();
-        $current_parent_category = Category::query()->where('id', '=', $product->category->parent_id)->first();
-        $get_parent_category = DB::table('categories')->where('parent_id', '=', null)->get();
-        return view('admin.product.edit', compact('product', 'get_parent_category', 'current_parent_category'));
+        $user = DB::table('users')->where('id', '=', $id)->first();
+        // dd($user);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -94,25 +93,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->hasFile('thumbnail')) {
-            $file = $request->file('thumbnail');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('assets/img/product', $filename);
-        }
-        $product = Product::find($id);
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->category_id = $request->parent_category;
-        if ($request->sub_category) {
-            $product->category_id = $request->sub_category;
-        }
-        $product->discount_id = $request->discount_id;
-        $product->status = $request->status;
-        $product->thumbnail = $filename;
-        $product->save();
-        return redirect()->route('admin-product-index')->with('message', 'Update product success');
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->password = $request->password;
+        $user->is_admin = $request->role;
+        $user->save();
+        return redirect()->route('admin-user-index')->with('message', 'Update user success');
     }
 
     /**

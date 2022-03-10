@@ -142,23 +142,6 @@
                 });
             }, false);
         })();
-
-        // function getSubCategory(id) {
-        //     $.ajax({
-        //         url: `getSubCategoryProduct`,
-        //         data: {id: id},
-        //         method: 'GET',
-        //         success: (result) => {
-        //             // let optList = ``;
-        //             // for(let i = 0; i < result.length;i++){
-        //             //     let optItem = `<option value="${result[i]}">${ten}</option>`;
-        //             //     optList += optItem;
-        //             // }
-        //             // $('#sub-input-category').html('').append(optList);
-        //         }
-        //     })
-        //     $('#sub-input-category').removeAttr("disabled");
-        // }
         function getSubCategory(id) {
             $.ajax({
                 url: `/admin/product/getSubCategoryProduct?id=` + id,
