@@ -142,6 +142,7 @@
                 });
             }, false);
         })();
+
         function getSubCategory(id) {
             $.ajax({
                 url: `/admin/product/getSubCategoryProduct?id=` + id,

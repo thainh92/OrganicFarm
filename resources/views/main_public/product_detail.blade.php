@@ -40,10 +40,12 @@
                                                 <i class='bx bx-plus'></i>
                                             </span>
                                         </div>
-                                        <button type="submit" class="default-btn">
-                                            Add to cart
-                                            <span></span>
-                                        </button>
+                                        <a onclick="AddCart({{$product->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart">
+                                            <button type="submit" class="default-btn">
+                                                Add to cart
+                                                <span></span>
+                                            </button>
+                                        </a>
                                     </div>
 
                                     <div class="buy-checkbox-btn">
@@ -86,6 +88,7 @@
 
                         <div class="tab products-details-tab">
                             <div class="row">
+                                <!--
                                 <div class="col-lg-12 col-md-12">
                                     <ul class="tabs">
                                         <li>
@@ -102,14 +105,20 @@
                                         </li>
                                     </ul>
                                 </div>
+                            -->
                                 <div class="col-lg-12 col-md-12">
                                     <div class="tab_content">
                                         <div class="tabs_item">
+                                            <a href="#">
+                                                <div class="dot"></div>
+                                                <h3>Description</h3>
+                                            </a>
                                             <div class="products-details-tab-content">
                                                 <p>Clean, healthy products.</p>
                                             </div>
                                         </div>
-
+                                    </div>
+                                    <div class="tab_content">
                                         <div class="tabs_item">
                                             <div class="products-details-tab-content">
                                                 <div class="product-review-form">
@@ -207,7 +216,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!--
                         <div class="related-shop">
                             <h4>Related Products</h4>
                             <div class="row">
@@ -392,6 +401,7 @@
                                 </div>
                             </div>
                         </div>
+                    -->
                     </div>
 
 
@@ -401,6 +411,7 @@
         <!-- End Product Details Area -->
 
         <!-- Start Featured Products Area -->
+        <!--
         <section class="featured-products-area pb-70">
             <div class="container">
                 <div class="section-title">
@@ -771,6 +782,7 @@
                 </div>
             </div>
         </section>
+    -->
         <!-- End Featured Products Area -->
     </div>
 @endsection

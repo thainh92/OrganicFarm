@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','About')
+@section('title', 'About')
 @section('content')
     <section class="about-container">
         <!-- Start Page Banner -->
@@ -8,12 +8,12 @@
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>About</h2>
+                            <h2>About Us</h2>
                             <ul>
                                 <li>
                                     <a href="index.html">Home</a>
                                 </li>
-                                <li>About</li>
+                                <li>About Us</li>
                             </ul>
                         </div>
                     </div>
@@ -30,8 +30,17 @@
                         <div class="about-content">
                             <h3>About Us</h3>
                             <p>
-                                Health is the wholeness and integrity of living systems. In a time where humans are taking away the goodness of nature, we strive to turn the wheel full circle by preserving it. Our philosophy is based on the principles of health, ecology, fairness, and care. We are making an effort towards a sustainable agro-ecosystem that ensures soil & water conservation and reduced pollution.<br/>
-                                Organic is not just a healthy way of eating but also one which is guilt free. When we take care of the earth, it takes care of us too. Founded on the belief that nature need not lose out in our quest for advancement, Organic Tattva strives to support a wholesome life print. We do our bit for Mother Nature. And by making just one right change in life, so can everyone else. We can change the course of the things to come. Come to be part of the Organic Tattva story.
+                                Health is the wholeness and integrity of living systems. In a time where humans are taking
+                                away the goodness of nature, we strive to turn the wheel full circle by preserving it. Our
+                                philosophy is based on the principles of health, ecology, fairness, and care. We are making
+                                an effort towards a sustainable agro-ecosystem that ensures soil & water conservation and
+                                reduced pollution.<br />
+                                Organic is not just a healthy way of eating but also one which is guilt free. When we take
+                                care of the earth, it takes care of us too. Founded on the belief that nature need not lose
+                                out in our quest for advancement, Organic Tattva strives to support a wholesome life print.
+                                We do our bit for Mother Nature. And by making just one right change in life, so can
+                                everyone else. We can change the course of the things to come. Come to be part of the
+                                Organic Tattva story.
                             </p>
 
                             <ul class="about-list">
@@ -43,7 +52,7 @@
                             </ul>
 
                             <div class="about-btn">
-                                <a href="#" class="default-btn">About Us</a>
+                                <a href="{{ route('about-page') }}" class="default-btn">About Us</a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +124,12 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>Your level of customer service is exemplary and a rarity in this age where customers are not always treated with the seriousness that they deserve. Even though the mistake concerning the sell-by-date was down to my misinterpretation, your handling of the situation was totally appreciated. I will continue to use and recommend NHR Organic Oils to my friends and/or anyone who is interested in purchasing good quality base and essential oils. Many thanks and well done for setting such a high standard of customer service</p>
+                        <p>Your level of customer service is exemplary and a rarity in this age where customers are not
+                            always treated with the seriousness that they deserve. Even though the mistake concerning the
+                            sell-by-date was down to my misinterpretation, your handling of the situation was totally
+                            appreciated. I will continue to use and recommend NHR Organic Oils to my friends and/or anyone
+                            who is interested in purchasing good quality base and essential oils. Many thanks and well done
+                            for setting such a high standard of customer service</p>
 
                         <div class="client-info">
                             <img src="assets/img/client/client-1.png" alt="image">
@@ -129,7 +143,10 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>Just wanted to say I absolutely love your OILS they are my top favourites.   I spoke to the man who is behind the company many years ago before he launched it. I must congratulate him on his taste and aromas, BEST OF THE BEST! and thank you for the orange oil complimentary !  I am so excited to use these oils, my favourite is peppermint!  Thank you order received with grattitude</p>
+                        <p>Just wanted to say I absolutely love your OILS they are my top favourites. I spoke to the man who
+                            is behind the company many years ago before he launched it. I must congratulate him on his taste
+                            and aromas, BEST OF THE BEST! and thank you for the orange oil complimentary ! I am so excited
+                            to use these oils, my favourite is peppermint! Thank you order received with grattitude</p>
 
                         <div class="client-info">
                             <img src="assets/img/client/client-2.jpg" alt="image">
@@ -143,7 +160,14 @@
                             <i class="flaticon-right-quotes-symbol"></i>
                         </div>
 
-                        <p>An aromatherapist friend told me about NHR, and I immediately fell in love with them. I haven’t bought any other brands since! Our company Raw Living promotes the raw foods lifestyle to people in many ways, and one of these is our own brand range of foods. Our most popular line is the raw chocolate bars – this is chocolate that is healthy as it is delicious, and many people become addicted (in a good way!). We use NHR oils in two of our bars: the Hi-Buzz, which contains orange oil as well as pollen and Chinese herbs, and Hi-Lovers, which contains rose oil, and other plant foods said to open the heart chakra. We also put the oils in several of our raw chocolate cakes: my favourite is the Lavender and Purple corn cake.</p>
+                        <p>An aromatherapist friend told me about NHR, and I immediately fell in love with them. I haven’t
+                            bought any other brands since! Our company Raw Living promotes the raw foods lifestyle to people
+                            in many ways, and one of these is our own brand range of foods. Our most popular line is the raw
+                            chocolate bars – this is chocolate that is healthy as it is delicious, and many people become
+                            addicted (in a good way!). We use NHR oils in two of our bars: the Hi-Buzz, which contains
+                            orange oil as well as pollen and Chinese herbs, and Hi-Lovers, which contains rose oil, and
+                            other plant foods said to open the heart chakra. We also put the oils in several of our raw
+                            chocolate cakes: my favourite is the Lavender and Purple corn cake.</p>
 
                         <div class="client-info">
                             <img src="assets/img/client/client-3.jpg" alt="image">
@@ -171,25 +195,31 @@
 
                                 <ul class="social">
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.facebook.com/organicfarmfoods/" target="_blank">
                                             <i class='bx bxl-facebook'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://twitter.com/toforganic" target="_blank">
                                             <i class='bx bxl-twitter'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.pinterest.com/mozingomary/organic-farming/" target="_blank">
+                                            <i class='bx bxl-pinterest-alt'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://in.linkedin.com/company/letsgrowfood" target="_blank">
                                             <i class='bx bxl-linkedin'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
+                                        <a href="https://www.instagram.com/theorganicfarm/">
+                                            <img src="{{ asset('assets/img/instagram/instagram1.jpg') }}" alt="image">
                                         </a>
                                     </li>
+
                                 </ul>
                             </div>
 
@@ -207,25 +237,31 @@
 
                                 <ul class="social">
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.facebook.com/organicfarmfoods/" target="_blank">
                                             <i class='bx bxl-facebook'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://twitter.com/toforganic" target="_blank">
                                             <i class='bx bxl-twitter'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.pinterest.com/mozingomary/organic-farming/" target="_blank">
+                                            <i class='bx bxl-pinterest-alt'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://in.linkedin.com/company/letsgrowfood" target="_blank">
                                             <i class='bx bxl-linkedin'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
+                                        <a href="https://www.instagram.com/theorganicfarm/">
+                                            <img src="{{ asset('assets/img/instagram/instagram1.jpg') }}" alt="image">
                                         </a>
                                     </li>
+
                                 </ul>
                             </div>
 
@@ -243,25 +279,32 @@
 
                                 <ul class="social">
                                     <li>
-                                        <a href="#" target="_blank">
+                                    <li>
+                                        <a href="https://www.facebook.com/organicfarmfoods/" target="_blank">
                                             <i class='bx bxl-facebook'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://twitter.com/toforganic" target="_blank">
                                             <i class='bx bxl-twitter'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.pinterest.com/mozingomary/organic-farming/" target="_blank">
+                                            <i class='bx bxl-pinterest-alt'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://in.linkedin.com/company/letsgrowfood" target="_blank">
                                             <i class='bx bxl-linkedin'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
+                                        <a href="https://www.instagram.com/theorganicfarm/">
+                                            <img src="{{ asset('assets/img/instagram/instagram1.jpg') }}" alt="image">
                                         </a>
                                     </li>
+
                                 </ul>
                             </div>
 
@@ -279,25 +322,31 @@
 
                                 <ul class="social">
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.facebook.com/organicfarmfoods/" target="_blank">
                                             <i class='bx bxl-facebook'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://twitter.com/toforganic" target="_blank">
                                             <i class='bx bxl-twitter'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.pinterest.com/mozingomary/organic-farming/" target="_blank">
+                                            <i class='bx bxl-pinterest-alt'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://in.linkedin.com/company/letsgrowfood" target="_blank">
                                             <i class='bx bxl-linkedin'></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
+                                        <a href="https://www.instagram.com/theorganicfarm/">
+                                            <img src="{{ asset('assets/img/instagram/instagram1.jpg') }}" alt="image">
                                         </a>
                                     </li>
+
                                 </ul>
                             </div>
 
@@ -474,7 +523,8 @@
                             <i class="flaticon-leaf"></i>
                         </div>
                         <h4>Organic</h4>
-                        <p>To help people live a better, healthier, and wholesome life by providing them with 100% certified, authentic organic food.</p>
+                        <p>To help people live a better, healthier, and wholesome life by providing them with 100%
+                            certified, authentic organic food.</p>
                     </div>
 
                     <div class="inner-content">
@@ -490,7 +540,11 @@
                             <i class="flaticon-plant"></i>
                         </div>
                         <h4>High Quality</h4>
-                        <p>You can enjoy food that is hygienically packed and retains all the benefits of organic food, without any chemical interference. We’ve always been supportive of food that is more tasty, nutritious and holistic. Having seen the highest numbers when it comes to customers talking about the benefit of shifting to a more organic diet, we believe it’s time for a change and that time is now!.</p>
+                        <p>You can enjoy food that is hygienically packed and retains all the benefits of organic food,
+                            without any chemical interference. We’ve always been supportive of food that is more tasty,
+                            nutritious and holistic. Having seen the highest numbers when it comes to customers talking
+                            about the benefit of shifting to a more organic diet, we believe it’s time for a change and that
+                            time is now!.</p>
                     </div>
                 </div>
             </div>
@@ -499,52 +553,52 @@
 
         <!-- Start Features Area -->
         <!--
-        <section class="features-area pt-100 pb-70">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="features-image">
-                            <img src="assets/img/features.png" alt="image">
+            <section class="features-area pt-100 pb-70">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="features-image">
+                                <img src="assets/img/features.png" alt="image">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-6">
-                        <div class="features-item">
-                            <div class="features-content">
-                                <span>Features</span>
-                                <h3>Special Product For Orgo Loving People</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-                            </div>
-
-                            <div class="features-inner-content">
-                                <div class="icon">
-                                    <i class="flaticon-nature"></i>
+                        <div class="col-lg-6">
+                            <div class="features-item">
+                                <div class="features-content">
+                                    <span>Features</span>
+                                    <h3>Special Product For Orgo Loving People</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                                 </div>
-                                <h4>Natural Products</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
 
-                            <div class="features-inner-content">
-                                <div class="icon">
-                                    <i class="flaticon-leaf"></i>
+                                <div class="features-inner-content">
+                                    <div class="icon">
+                                        <i class="flaticon-nature"></i>
+                                    </div>
+                                    <h4>Natural Products</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                                 </div>
-                                <h4>Best Food For Health</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
 
-                            <div class="features-inner-content">
-                                <div class="icon">
-                                    <i class="flaticon-medal"></i>
+                                <div class="features-inner-content">
+                                    <div class="icon">
+                                        <i class="flaticon-leaf"></i>
+                                    </div>
+                                    <h4>Best Food For Health</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                                 </div>
-                                <h4>Award-Winning Company</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+
+                                <div class="features-inner-content">
+                                    <div class="icon">
+                                        <i class="flaticon-medal"></i>
+                                    </div>
+                                    <h4>Award-Winning Company</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    -->
+            </section>
+        -->
         <!-- End Features Area -->
 
         <!-- Start Newsletter Area -->
@@ -560,7 +614,8 @@
 
                     <div class="col-lg-6">
                         <form class="newsletter-form">
-                            <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL" required autocomplete="off">
+                            <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL"
+                                required autocomplete="off">
 
                             <button type="submit">Subscribe Now</button>
 
@@ -574,32 +629,32 @@
 
         <!-- Start Partner Area -->
         <!--
-        <div class="partner-area ptb-100">
-            <div class="container">
-                <div class="partner-slider owl-carousel owl-theme">
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-1.png" alt="image">
-                    </div>
+            <div class="partner-area ptb-100">
+                <div class="container">
+                    <div class="partner-slider owl-carousel owl-theme">
+                        <div class="partner-item">
+                            <img src="assets/img/partner/partner-1.png" alt="image">
+                        </div>
 
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-2.png" alt="image">
-                    </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/partner-2.png" alt="image">
+                        </div>
 
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-3.png" alt="image">
-                    </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/partner-3.png" alt="image">
+                        </div>
 
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-4.png" alt="image">
-                    </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/partner-4.png" alt="image">
+                        </div>
 
-                    <div class="partner-item">
-                        <img src="assets/img/partner/partner-5.png" alt="image">
+                        <div class="partner-item">
+                            <img src="assets/img/partner/partner-5.png" alt="image">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    -->
+        -->
         <!-- End Partner Area -->
     </section>
 @endsection
