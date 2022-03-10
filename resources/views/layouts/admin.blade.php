@@ -209,6 +209,9 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="{{url('admin/users')}}">Users List</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{route('admin-create-user')}}">Create New User</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>
@@ -274,7 +277,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        Copyright © 2022 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">

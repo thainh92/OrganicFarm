@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="">
-                            <h5>Products List</h5>
-                            <a class="text-success" href="#">
-                                Create new product
+                            <h5>Users List</h5>
+                            <a class="text-success" href="{{route('admin-create-user')}}">
+                                Create new user
                             </a>
                         </div>
                         <div>
@@ -27,20 +27,19 @@
                                         <input style="height: 38px" id="inputDefault" type="text" value="Default input" class="form-control">
                                     </div>
                                     <div class="form-group col-lg-4 col-sm-6">
-                                        <label for="inputDefault" class="col-form-label">Search by category</label>
+                                        <label for="inputDefault" class="col-form-label">Search by role</label>
                                         <select class="form-control">
                                             @foreach($users as $user)
-                                                <option>{{$user->name}}</option>
+                                                <option>{{$user->is_admin == 1 ? 'Admin' : 'User'}}</option>
                                             @endforeach
                                         </select>
-
                                     </div>
-                                    <div class="form-group col-lg-4 col-sm-6">
+                                    <!-- <div class="form-group col-lg-4 col-sm-6">
                                         <label for="inputDefault" class="col-form-label">Search by status</label>
                                         <select class="form-control">
                                             <option>Default select</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="btn btn-success">
                                     Search
@@ -71,12 +70,12 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->address}}</td>
-                                        <td>{{($user->phone}}</td>
+                                        <td>{{$user->phone}}</td>
                                         <td>{{$user->is_admin == 1 ? 'Admin' : 'User'}}</td>
                                         <td>{{$user->created_at}}</td>
                                         <td>{{$user->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('admin-edit-product', $user->id)}}"
+                                            <a href="{{route('admin-edit-user', $user->id)}}"
                                                class="p-1 f-icon fas fa-edit text-primary"></a>
                                             <a href="javascript:void(0)" onclick="deleteRecord({{$user->id}})"
                                                class="p-1 f-icon fas fa-trash-alt text-danger"></a>

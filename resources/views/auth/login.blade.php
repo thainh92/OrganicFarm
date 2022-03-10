@@ -106,11 +106,18 @@
                             <div class="">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
 
-                                @error('email')
+                                <!-- @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror -->
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Wrong username
+                                </div>
                             </div>
                         </div>
 
@@ -125,6 +132,13 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                                <div class="valid-feedback">
+                                Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Wrong password.
+                                </div>
                             </div>
                         </div>
 
@@ -166,4 +180,25 @@
                 </div>
             </div>
 </section>
+@endsection
+@section('script-tag')
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                let forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                let validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 @endsection

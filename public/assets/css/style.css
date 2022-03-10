@@ -740,7 +740,7 @@ Navbar Area CSS
 }
 
 .cart-btn-dropdown {
-    left: -40px;
+    left: -60px;
     text-align: left;
     opacity: 0;
     visibility: hidden;
@@ -4315,6 +4315,18 @@ Register Area CSS
 .register-form form .form-group .form-control:focus {
     border-color: #f99459;
 }
+
+/*.form-group i {
+    cursor: pointer;
+    position: absolute;
+    float: right;
+}
+
+#togglePassword {
+    padding: 10px;
+    min-width: 40px;
+    float: right;
+}*/
 
 .register-form form .description {
     font-style: italic;

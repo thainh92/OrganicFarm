@@ -30,12 +30,21 @@
         <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
         <!-- themify CSS -->
         <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
         <title>@yield('title')</title>
 
         <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+        </script>
+        <script src='//cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js'>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="//cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js">
+        </script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -141,8 +150,8 @@
                                 <i class='bx bxl-linkedin'></i>
                             </a>
                         </li>
-                        <!-- <li>
-                            @if (Route::has('login'))
+                        <li>
+                            <!-- @if (Route::has('login'))
                             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                                 @auth
                                 <a href="{{ url('home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
@@ -154,8 +163,12 @@
                                 @endif
                                 @endauth
                             </div>
-                            @endif
-                        </li> -->
+                            @endif -->
+
+                            <!-- <a href="{{url('admin/index')}}" target="_blank">
+                                <i class='bx bxl-linkedin'></i>
+                            </a> -->
+                        </li>
                     </ul>
                 </div>
 

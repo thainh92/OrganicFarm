@@ -18,20 +18,22 @@
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">#</th>
-                                                <th class="border-0">Order Id</th>
-                                                <th class="border-0">Total price</th>
-                                            </tr>
+                                                <tr class="border-0">
+                                                    <th class="border-0">#</th>
+                                                    <th class="border-0">Order Id</th>
+                                                    <th class="border-0">Total price</th>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($orders as $key => $order)
-                                                <tr>
-                                                    <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
-                                                    <td>{{$order->id}}</td>
-                                                    <td>{{$order->total}}</td>
-                                                </tr>
-                                            @endforeach
+                                                
+                                                @foreach($orders as $key => $order)
+                                                    <tr>
+                                                        <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
+                                                        <td>{{$order->id}}</td>
+                                                        <td>{{$order->total}}</td>
+                                                    </tr>
+                                                @endforeach
+                                                
                                             </tbody>
                                         </table>
                                         <div class="mt-3">

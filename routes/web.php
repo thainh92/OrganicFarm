@@ -117,7 +117,9 @@ Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@payments
 /*---------- End Check Out ----------*/
 
 /*---------- Profile page ----------*/
-Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
+});
 /*---------- End Profile page ----------*/
 
 /*---------- Home Controller ----------*/
@@ -151,10 +153,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /*---------- End Auth Route ----------*/
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+/*---------- Admin Category Route ----------*/
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
     // Route::get('/', [HomeController::class, 'index'])->name('admin-index');
@@ -164,7 +164,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     })->name('admin-index');
 
 
-    /*---------- Admin Category Route ----------*/
+    
     Route::get('/admin/categories', [CategoryController::class, 'indexAdmin'])->name('admin-category-index');
     Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('admin-create-category');
     Route::post('/admin/category/create', [CategoryController::class, 'store'])->name('admin-store-category');
@@ -182,7 +182,15 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/category/getMainCategory', [CategoryController::class, 'getMainCategories']);
     /*---------- Admin User Route ----------*/
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin-user-index');
+    Route::get('/admin/user/create', [UserController::class, 'create'])->name('admin-create-user');
+    Route::post('/admin/user/create', [UserController::class, 'store'])->name('admin-store-user');
+    Route::get('/admin/user/edit/{id}', [ProductController::class, 'edit'])->name('admin-edit-user');
+    Route::put('/admin/user/update/{id}', [ProductController::class, 'update'])->name('admin-update-user');
+    Route::get('/user/trash/{id}', [ProductController::class, 'trash'])->name('admin-trash-user');
+    Route::get('/admin/user/getRoleUser', [UserController::class, 'getRoleUser']);
     /*---------- Admin Order Route ----------*/
     Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin-order-index');
-    /*---------- End Admin Route ----------*/
+    
 });
+
+/*---------- End Admin Route ----------*/
