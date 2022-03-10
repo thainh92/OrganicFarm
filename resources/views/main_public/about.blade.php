@@ -11,7 +11,7 @@
                             <h2>About Us</h2>
                             <ul>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="{{ route('home-page') }}">Home</a>
                                 </li>
                                 <li>About Us</li>
                             </ul>
