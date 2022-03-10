@@ -8,7 +8,7 @@
 
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
-                <h5 class="card-header mt-3">Create new product</h5>
+                <h5 class="card-header mt-3">Edit product</h5>
                 <div class="card-body">
                     <form action="{{route('admin-update-product', $product)}}" enctype="multipart/form-data"
                           method="post"

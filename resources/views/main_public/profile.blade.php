@@ -56,7 +56,7 @@
                                                     <td>
                                                         <button onclick="cancelOrder()"
                                                                 data-order-id="{{$order->id}}"
-                                                                class="cancelOrder btn btn-danger"{{$order->status === "cancel" ? "disabled" : ""}}>
+                                                                class="cancelOrder btn btn-secondary"{{($order->status === "cancel" || $order->status === "approve") ? "disabled" : ""}}>
                                                             cancel
                                                         </button>
                                                     </td>
