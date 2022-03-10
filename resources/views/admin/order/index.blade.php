@@ -7,7 +7,6 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="">
-                            <h5>Orders List</h5>
                         </div>
                     </div>
                     {{--                    <div class="card-header">--}}

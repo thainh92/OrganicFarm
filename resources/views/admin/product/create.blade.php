@@ -48,7 +48,8 @@
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="input-select">Select Category</label>
-                                <select class="form-control form-control-sm" name="parent_category" id="input-select">
+                                <select class="form-control form-control-sm" required name="parent_category" id="input-select">
+                                    <option value="" selected>Select category</option>
                                     @foreach($get_parent_category as $item)
                                         <option
                                             value="{{$item->id}}"
@@ -56,6 +57,12 @@
                                             {{$item->name}}</option>
                                     @endforeach
                                 </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please select category.
+                                </div>
                             </div>
                             <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="input-select">Select Sub-Category</label>

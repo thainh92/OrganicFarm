@@ -5,9 +5,8 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="">
-                            <h5>Categories List</h5>
+                    <div class="card-header">
+                        <div class="mt-3">
                             <a class="text-success" href="{{route('admin-create-category')}}">
                                 Create new category
                             </a>
@@ -30,7 +29,7 @@
                                     <th class="border-0">Image</th>
                                     <th class="border-0">Name</th>
                                     <th class="border-0">Code</th>
-                                    <th class="border-0">Category Level</th>
+{{--                                    <th class="border-0">Category Level</th>--}}
                                     <th class="border-0">Create At</th>
                                     <th class="border-0">Update At</th>
                                     <th class="border-0">Action</th>
@@ -48,15 +47,15 @@
                                         </td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->code}}</td>
-                                        @if($category->parent_id == null)
-                                            <td>
-                                                <div class="btn btn-outline-primary btn-sm">Lv. 1</div>
-                                            </td>
-                                        @else
-                                            <td>
-                                                <div class="btn btn-outline-secondary btn-sm">Lv. 2</div>
-                                            </td>
-                                        @endif
+{{--                                        @if($category->parent_id == null)--}}
+{{--                                            <td>--}}
+{{--                                                <div class="btn btn-outline-primary btn-sm">Lv. 1</div>--}}
+{{--                                            </td>--}}
+{{--                                        @else--}}
+{{--                                            <td>--}}
+{{--                                                <div class="btn btn-outline-secondary btn-sm">Lv. 2</div>--}}
+{{--                                            </td>--}}
+{{--                                        @endif--}}
                                         <td>{{$category->created_at}}</td>
                                         <td>{{$category->updated_at}}</td>
                                         <td>

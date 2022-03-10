@@ -131,7 +131,7 @@
                                                 @foreach(Session::get('Cart')->products as $item)
                                                     <tr>
                                                         <td class="product-name">
-                                                            <a href="#">{{$item['productInfo']->name}}</a>
+                                                            <a style="cursor: pointer">{{$item['productInfo']->name}}</a>
                                                         </td>
                                                         <td class="product-total">
                                                             <span class="subtotal-amount">${{number_format($item['productInfo']->price)}} x {{$item['quanty']}}</span>

@@ -40,7 +40,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        @yield('style');
+        @yield('style')
         <style>
         .si-pic img {
             width: 70px;
@@ -127,22 +127,22 @@
                 <div class="col-lg-6">
                     <ul class="top-header-social">
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.facebook.com/organicfarmfoods/" target="_blank">
                                 <i class='bx bxl-facebook'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://twitter.com/toforganic" target="_blank">
                                 <i class='bx bxl-twitter'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.pinterest.com/mozingomary/organic-farming/" target="_blank">
                                 <i class='bx bxl-pinterest-alt'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://in.linkedin.com/company/letsgrowfood" target="_blank">
                                 <i class='bx bxl-linkedin'></i>
                             </a>
                         </li>
@@ -196,7 +196,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a class="nav-link" style="cursor: pointer">
                                     Shop
                                     <i class='bx bx-chevron-down'></i>
                                 </a>
@@ -220,14 +220,14 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    About Us
+                                <a class="nav-link" style="cursor: pointer">
+                                    About
                                     <i class='bx bx-chevron-down'></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a href="{{ route('about-page') }}" class="nav-link">
-                                            About
+                                            About Us
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -240,11 +240,13 @@
                                             Terms of Service
                                         </a>
                                     </li>
+                                    <!--
                                     <li class="nav-item">
                                         <a href="{{ route('private-page') }}" class="nav-link">
                                             Privacy Policy
                                         </a>
                                     </li>
+                                -->
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -447,7 +449,7 @@
                         </a>
                     </div>
                 </div>
-                /*
+                <!--
                 <div class="option-item">
                     <div class="cart-btn">
                         <a href="#">
@@ -462,14 +464,13 @@
                 </div>
                 */
             </div>
-            /*
             <div class="option-item">
                 <form class="search-box">
                     <input type="text" class="form-control" placeholder="Search">
                     <button type="submit"><i class="flaticon-search"></i></button>
                 </form>
             </div>
-            */
+        -->
         </div>
     </div>
 </div>
@@ -492,42 +493,42 @@
             <h2>Instagram</h2>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram1.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram2.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram3.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram4.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram5.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram6.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram7.jpg')}}" alt="image">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theorganicfarm/">
                         <img src="{{asset('assets/img/instagram/instagram8.jpg')}}" alt="image">
                     </a>
                 </li>
@@ -541,40 +542,22 @@
                             +088 130 629 8615
                         </a>
                         <span>OR</span>
-                        <a href="mailto:orgo@gmail.com">
-                            orgo@gmail.com
+                        <a href="mailto:organicfarm@gmail.com">
+                            organicfarm@gmail.com
                         </a>
                     </h2>
                     <ul class="social">
                         <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
+                            <a href="https://www.facebook.com/organicfarmfoods/" class="facebook" target="_blank"><i class='bx bxl-facebook'></i></a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
+                            <a href="https://twitter.com/toforganic" class="twitter" target="_blank"><i class='bx bxl-twitter'></i></a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
+                            <a href="https://in.linkedin.com/company/letsgrowfood" class="linkedin" target="_blank"><i class='bx bxl-linkedin'></i></a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-linkedin'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-pinterest-alt'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-youtube'></i>
-                            </a>
+                            <a href="https://www.instagram.com/theorganicfarm/" class="instagram" target="_blank"><i class='bx bxl-instagram'></i></a>
                         </li>
                     </ul>
                 </div>
@@ -605,22 +588,22 @@
                     <p>Contact us ... </p>
                     <ul class="social">
                         <li>
-                            <a href="#" class="facebook" target="_blank">
+                            <a href="https://www.facebook.com/organicfarmfoods" class="facebook" target="_blank">
                                 <i class='bx bxl-facebook'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="twitter" target="_blank">
+                            <a href="https://twitter.com/toforganic" class="twitter" target="_blank">
                                 <i class='bx bxl-twitter'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="pinterest" target="_blank">
+                            <a href="https://www.pinterest.com/mozingomary/organic-farming/" class="pinterest" target="_blank">
                                 <i class='bx bxl-pinterest-alt'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="linkedin" target="_blank">
+                            <a href="https://in.linkedin.com/company/letsgrowfood" class="linkedin" target="_blank">
                                 <i class='bx bxl-linkedin'></i>
                             </a>
                         </li>
@@ -702,22 +685,16 @@
                     <h3>Quick Links</h3>
                     <ul class="quick-links">
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="{{ route('about-page') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="#">Our Services</a>
+                            <a href="{{ route('blog-page') }}">Blog</a>
                         </li>
                         <li>
-                            <a href="#">Shop</a>
+                            <a href="{{ route('faq-page') }}">Faq</a>
                         </li>
                         <li>
-                            <a href="#">Blog</a>
-                        </li>
-                        <li>
-                            <a href="#">Faq</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
+                            <a href="{{ route('contact-page') }}">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -758,7 +735,7 @@
                     <p>
                         <i class="far fa-copyright"></i>
                         Copyright @2020 OrganicFarm. All Rights Reserved by
-                        <a href="#" target="_blank">
+                        <a href="{{ route('home-page') }}" target="_blank">
                             OrganicFarm
                         </a>
                     </p>

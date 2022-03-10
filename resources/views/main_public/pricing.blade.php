@@ -27,7 +27,6 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Pricing Plan</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
                 <div class="row">
