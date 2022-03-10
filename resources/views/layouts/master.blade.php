@@ -94,6 +94,7 @@
         }
         #change-item-cart {
             max-height: 450px;
+            max-width: 350px;
             overflow: auto;
         }
     </style>

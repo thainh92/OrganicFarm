@@ -11,7 +11,7 @@
                             <h2>Checkout</h2>
                             <ul>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="{{ route('home-page') }}">Home</a>
                                 </li>
                                 <li>Checkout</li>
                             </ul>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{ url('place-order') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('place-order') }}" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
@@ -44,8 +44,9 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-										    <label>Country <span class="required">*</span></label>
+										    <label for="validationTooltip03">Country <span class="required">*</span></label>
                                             <div class="select-box">
+
                                                 <select required class="form-control" name="country">
                                                     <option value="5">United Arab Emirates</option>
                                                     <option value="1">China</option>
@@ -53,7 +54,10 @@
                                                     <option value="0">Germany</option>
                                                     <option value="3">France</option>
                                                     <option value="4">Japan</option>
-                                                </select>
+                                                </select>  
+                                            </div>
+                                            <div class="invalid-tooltip">
+                                                Please select a valid state.
                                             </div>
                                         </div>
                                     </div>
@@ -195,5 +199,25 @@
     </section>
 @endsection
 @section('script-tag')
-    <script></script>
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+
+                  form.classList.add('was-validated')
+                }, false)
+              })
+        })()
+    </script>
 @endsection
