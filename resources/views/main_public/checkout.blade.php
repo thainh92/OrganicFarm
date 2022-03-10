@@ -46,7 +46,7 @@
                                         <div class="form-group">
 										    <label>Country <span class="required">*</span></label>
                                             <div class="select-box">
-                                                <select class="form-control" name="country">
+                                                <select required class="form-control" name="country">
                                                     <option value="5">United Arab Emirates</option>
                                                     <option value="1">China</option>
                                                     <option value="2">United Kingdom</option>
@@ -60,32 +60,32 @@
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>First Name <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="first_name">
+                                            <input required type="text" class="form-control" name="first_name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>Last Name <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="last_name">
+                                            <input required type="text" class="form-control" name="last_name">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label>Company Name</label>
-                                            <input type="text" class="form-control" name="company_name">
+                                            <input required type="text" class="form-control" name="company_name">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label>Address <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="address">
+                                            <input required type="text" class="form-control" name="address">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label>Town / City <span class="required">*</span></label>
                                             <div class="select-box">
-                                                <select class="form-control" name="city">
+                                                <select required class="form-control" name="city">
                                                     <option value="5">Hanoi</option>
                                                     <option value="1">China</option>
                                                     <option value="2">United Kingdom</option>
@@ -99,25 +99,25 @@
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>State / County <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="state">
+                                            <input required type="text" class="form-control" name="state">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>Postcode / Zip <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="zip">
+                                            <input required type="text" class="form-control" name="zip">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>Email Address<span class="required">*</span></label>
-                                            <input type="email" class="form-control" name="email">
+                                            <input required type="email" class="form-control" name="email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>Phone <span class="required">*</span></label>
-                                            <input type="text" class="form-control"  name="phone">
+                                            <input required type="text" class="form-control"  name="phone">
                                         </div>
                                     </div>
 
