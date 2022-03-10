@@ -109,9 +109,8 @@
                                         <td>{{$product->created_at}}</td>
                                         <td>{{$product->updated_at}}</td>
                                         <td>
-                                            <a onclick="getDetailProduct({{$product->id}})" href="" data-toggle="modal"
+                                            <a class="p-1 f-icon fas fa-eye text-success" onclick="getDetailProduct({{$product->id}})" href="" data-toggle="modal"
                                                data-target="#exampleModal">
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
                                             </a>
                                             <a href="{{route('admin-edit-product', $product->id)}}"
                                                class="p-1 f-icon fas fa-edit text-primary"></a>
@@ -137,7 +136,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -193,7 +192,7 @@
     </script>
     <script>
         let productDetailContainer = $('#product-detail');
-
+        let productTitle = $('#exampleModalLabel');
         function getDetailProduct(id) {
             $.ajax({
                 url: '/admin/product/detail/' + id,
@@ -205,14 +204,17 @@
                         <div class="d-flex">
                             <img style="height: 200px; width: 250px" src="http://localhost:8000/assets/img/product/${result.thumbnail}">
                             <div class="ml-3">
-                                <h5>${result.name}</h5>
-                                <p>Description: ${result.description}</p>
-                                <p>Price: ${result.price}</p>
-                                <p>Status: ((${result.description} == 1) ? "Active" : "Inactive")</p>
+                                <h5>Description</h5>
+                                <p>${result.description}</p>
+                                <h5>Price: ${result.price}</h5>
                             </div>
                         </div>
                         `
+                        let item2 = `
+                        ${result.name}
+                        `
                         productDetailContainer.html("").append(item);
+                        productTitle.html("").append(item2);
                     }
                 }
             })
