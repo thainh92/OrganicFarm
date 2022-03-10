@@ -36,12 +36,12 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li>
-                                            <span>Posted On:</span> 
-                                            <a href="#">September 31, 2020</a>
+                                            <span>Posted On:</span>
+                                            <a style="cursor: pointer"> September 31, 2020></a>
                                         </li>
                                         <li>
-                                            <span>Posted By:</span> 
-                                            <a href="#">John Anderson</a>
+                                            <span>Posted By:</span>
+                                            <a  style="cursor: pointer">John Anderson</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -75,7 +75,7 @@
                                         </figure>
                                     </li>
                                 </ul>
-                                
+
                                 <h3>Lead A Healthier Life With Organic Food</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
                                 <h3>Vegetables Good For Health</h3>
@@ -87,28 +87,29 @@
                                     <span>
                                         <i class='bx bxs-bookmark'></i>
                                     </span>
-                                    <a href="#">Architecture</a>,
-                                    <a href="#">Organic Food</a>
+                                    <a  style="cursor: pointer">Architecture</a>,
+                                    <a href="{{ route('home-page') }}">Organic Food</a>
                                 </div>
 
                                 <div class="article-share">
                                     <ul class="social">
                                         <li><span>Share:</span></li>
                                         <li>
-                                            <a href="#" target="_blank">
-                                                <i class='bx bxl-facebook'></i>
-                                            </a>
+                                        <a href="https://www.facebook.com/organicfarmfoods/" target="_blank">
+                                        <i class='bx bxl-facebook'></i>
+                                              </a>
                                         </li>
                                         <li>
-                                            <a href="#" target="_blank">
-                                                <i class='bx bxl-twitter'></i>
-                                            </a>
+                                        <a href="https://twitter.com/toforganic" target="_blank">
+                                        <i class='bx bxl-twitter'></i>
+                                        </a>
                                         </li>
                                         <li>
-                                            <a href="#" target="_blank">
-                                                <i class='bx bxl-instagram'></i>
-                                            </a>
+                                        <a href="https://www.pinterest.com/mozingomary/organic-farming/" target="_blank">
+                                        <i class='bx bxl-pinterest-alt'></i>
+                                        </a>
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -123,7 +124,7 @@
                                     </div>
                                     <div class="nav-next">
                                         <a href="index.html">
-                                            Next Post 
+                                            Next Post
                                             <i class="flaticon-right-arrow"></i>
                                         </a>
                                     </div>
@@ -151,7 +152,7 @@
                                                 <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
                                             </div>
                                             <div class="reply">
-                                                <a href="#" class="comment-reply-link">Reply</a>
+                                                <a class="comment-reply-link" style="cursor: pointer">Reply</a>
                                             </div>
                                         </article>
 
@@ -173,7 +174,7 @@
                                                         <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
                                                     </div>
                                                     <div class="reply">
-                                                        <a href="#" class="comment-reply-link">Reply</a>
+                                                        <a style="cursor: pointer" class="comment-reply-link">Reply</a>
                                                     </div>
                                                 </article>
                                             </li>
@@ -195,7 +196,7 @@
                                                 <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
                                             </div>
                                             <div class="reply">
-                                                <a href="#" class="comment-reply-link">Reply</a>
+                                                <a style="cursor: pointer" class="comment-reply-link">Reply</a>
                                             </div>
                                         </article>
                                     </li>
@@ -207,7 +208,7 @@
                                     <form class="comment-form">
                                         <p class="comment-notes">
                                             <span id="email-notes">Your email address will not be published.</span>
-                                            Required fields are marked 
+                                            Required fields are marked
                                             <span class="required">*</span>
                                         </p>
                                         <p class="comment-form-author">
@@ -269,32 +270,32 @@
                                 </article>
 
                                 <article class="item">
-                                    <a href="#" class="thumb">
+                                    <a style="cursor: pointer" class="thumb">
                                         <span class="fullimage cover bg2" role="img"></span>
                                     </a>
                                     <div class="info">
                                         <span>June 21, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Better Hot Drink Elegant You Can Order By Online</a></h4>
+                                        <h4 class="title usmall"><a style="cursor: pointer"> Better Hot Drink Elegant You Can Order By Online</a></h4>
                                     </div>
                                 </article>
 
                                 <article class="item">
-                                    <a href="#" class="thumb">
+                                    <a style="cursor: pointer" class="thumb">
                                         <span class="fullimage cover bg3" role="img"></span>
                                     </a>
                                     <div class="info">
                                         <span>June 30, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Role Of Genetics In Treating Low-Grade Glioma</a></h4>
+                                        <h4 class="title usmall"><a style="cursor: pointer">Role Of Genetics In Treating Low-Grade Glioma</a></h4>
                                     </div>
                                 </article>
 
                                 <article class="item">
-                                    <a href="#" class="thumb">
+                                    <a style="cursor: pointer" class="thumb">
                                         <span class="fullimage cover bg4" role="img"></span>
                                     </a>
                                     <div class="info">
                                         <span>May 10, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Organic Food Is Good For Health</a></h4>
+                                        <h4 class="title usmall"><a style="cursor: pointer">Organic Food Is Good For Health</a></h4>
                                     </div>
                                 </article>
 
@@ -355,7 +356,7 @@
             </div>
         </section>
         <!-- End Blog Details Area -->
-        
+
     </section>
 @endsection
 @section('script-tag')

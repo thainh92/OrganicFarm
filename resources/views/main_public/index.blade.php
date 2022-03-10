@@ -104,7 +104,7 @@
                             <div class="content">
                                 <h3>Fresh Organic Food Provides</h3>
                                 <p>Organic products are grown, harvested and preserved according to best practices, resulting in fresh, delicious products, essential nutrients are preserved</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                             <div class="content">
                                 <h3>Fast & Easy Food Delivery</h3>
                                 <p>Enthusiastic customer care team, large shipping team, continuous service throughout the day, you can order the desired products and receive the fastest</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                             <div class="content">
                                 <h3>Very Easy Payment System</h3>
                                 <p>Diverse payment methods, help you pay easily, save time. You can choose to pay online by phone, reducing face-to-face contact</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,9 @@
                                 <a href={{route('product-detail', $item->id)}}><img src="{{asset('assets/img/product/'.$item->thumbnail)}}" alt="image"></a>
                                 <ul class="products-action">
                                     <li>
-                                        <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a onclick="AddCart({{$item->id}})" href="javascript:" data-tooltip="tooltip" data-placement="top" title="Add to Cart">
+                                            <i class="flaticon-shopping-cart"></i>
+                                        </a>
                                     </li>
                                     <li>
                                         <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
@@ -206,7 +208,7 @@
                                 <i class="flaticon-apple"></i>
                             </div>
                             <h3>Natural Food</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -216,7 +218,7 @@
                                 <i class="flaticon-nature"></i>
                             </div>
                             <h3>Biologically Safe</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -226,7 +228,7 @@
                                 <i class="flaticon-forest"></i>
                             </div>
                             <h3>Biodiversity</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -236,7 +238,7 @@
                                 <i class="flaticon-organic"></i>
                             </div>
                             <h3>100% Organic</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -246,7 +248,7 @@
                                 <i class="flaticon-plant"></i>
                             </div>
                             <h3>Gardening</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -256,7 +258,7 @@
                                 <i class="flaticon-leaf"></i>
                             </div>
                             <h3>Organic Vegetables</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -266,7 +268,7 @@
                                 <i class="flaticon-heart"></i>
                             </div>
                             <h3>Fresh & Organic</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
 
@@ -276,7 +278,7 @@
                                 <i class="flaticon-apple"></i>
                             </div>
                             <h3>Organic Food</h3>
-                            <a href="#" class="read-btn">Read More +</a>
+                            <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                         </div>
                     </div>
                 </div>

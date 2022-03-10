@@ -8,12 +8,12 @@
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Blog Three Column</h2>
+                            <h2>Blog</h2>
                             <ul>
                                 <li>
                                     <a href="index.html">Home</a>
                                 </li>
-                                <li>Blog Three Column</li>
+                                <li>Blog</li>
                             </ul>
                         </div>
                     </div>

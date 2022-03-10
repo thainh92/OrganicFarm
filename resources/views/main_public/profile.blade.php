@@ -101,9 +101,7 @@
                                     <i class="flaticon-apple"></i>
                                 </div>
                                 <h3>Natural Food</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
-                                    incididunt.</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
 
@@ -113,9 +111,7 @@
                                     <i class="flaticon-nature"></i>
                                 </div>
                                 <h3>Biologically Safe</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
-                                    incididunt.</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
 
@@ -125,9 +121,7 @@
                                     <i class="flaticon-forest"></i>
                                 </div>
                                 <h3>Biodiversity</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
-                                    incididunt.</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
 
@@ -137,9 +131,7 @@
                                     <i class="flaticon-organic"></i>
                                 </div>
                                 <h3>100% Organic</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
-                                    incididunt.</p>
-                                <a href="#" class="read-btn">Read More +</a>
+                                <a href="{{ route('about-page') }}" class="read-btn">Read More +</a>
                             </div>
                         </div>
                     </div>
