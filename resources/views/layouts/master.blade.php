@@ -239,11 +239,13 @@
                                             Terms of Service
                                         </a>
                                     </li>
+                                    <!--
                                     <li class="nav-item">
                                         <a href="{{ route('private-page') }}" class="nav-link">
                                             Privacy Policy
                                         </a>
                                     </li>
+                                -->
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -446,7 +448,7 @@
                         </a>
                     </div>
                 </div>
-                /*
+                <!--
                 <div class="option-item">
                     <div class="cart-btn">
                         <a href="#">
@@ -461,14 +463,13 @@
                 </div>
                 */
             </div>
-            /*
             <div class="option-item">
                 <form class="search-box">
                     <input type="text" class="form-control" placeholder="Search">
                     <button type="submit"><i class="flaticon-search"></i></button>
                 </form>
             </div>
-            */
+        -->
         </div>
     </div>
 </div>
