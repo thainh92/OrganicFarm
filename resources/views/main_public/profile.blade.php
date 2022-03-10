@@ -3,13 +3,28 @@
 @section('content')
     <div class="profile-page">
         <!-- Start Services Details Area -->
-        <section class="services-details-area pt-100 pb-70">
+        <section class="services-details-area pb-70">
+            <div class="page-banner-area item-bg1">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="page-banner-content">
+                                <h2>Order</h2>
+                                <ul>
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li>Order</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-12">
-                        <div class="services-details-image">
-                            <img src="{{asset('assets/img/main-slider/main-slider-2.png')}}" alt="image">
-                        </div>
                         <div class="services-details-desc">
                             @if($orders == null)
                                 <div>No data found</div>
@@ -37,9 +52,10 @@
                                             <tr class="border-0">
                                                 <th class="border-0">#</th>
                                                 <th class="border-0">Order Id</th>
-                                                <th class="border-0">Total price</th>
-                                                <th class="border-0">Order status</th>
-                                                <th class="border-0">Cancel order</th>
+                                                <th class="border-0">Total Price</th>
+                                                <th class="border-0">Order Status</th>
+                                                <th class="border-0">Cancel Order</th>
+                                                <th class="border-0">View Detail</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -47,7 +63,7 @@
                                                 <tr>
                                                     <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
                                                     <td>{{$order->id}}</td>
-                                                    <td>{{$order->total}}</td>
+                                                    <td>{{$order->total}}$</td>
                                                     <td>
                                                         <div class="btn btn-success disabled">
                                                             {{$order->status === 'cancel' ? 'canceled' : $order->status}}
@@ -59,6 +75,9 @@
                                                                 class="cancelOrder btn btn-secondary"{{($order->status === "cancel" || $order->status === "approve") ? "disabled" : ""}}>
                                                             cancel
                                                         </button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info">Info</button>
                                                     </td>
                                                 </tr>
                                             @endforeach

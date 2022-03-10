@@ -15,12 +15,12 @@
                     @foreach(Session::get('Cart')->products as $item)
                         <tr class="product-line">
                             <td class="product-thumbnail">
-                                <a href="#">
+                                <a href="{{route('product-detail', $item->id)}}">
                                     <img src="assets/img/product/{{$item['productInfo']->thumbnail}}" alt="item">
                                 </a>
                             </td>
                             <td class="product-name">
-                                <a href="shop-details.html">{{$item['productInfo']->name}}</a>
+                                <a href="{{route('product-detail', $item->id)}}">{{$item['productInfo']->name}}</a>
                             </td>
                             <td class="product-price">              
                                 <span class="unit-amount">{{number_format($item['productInfo']->price, 2)}}</span>
@@ -53,7 +53,7 @@
     <div class="cart-buttons">
         <div class="row align-items-center">
             <div class="col-lg-7 col-sm-7 col-md-7">
-                <a href="shop-1.html" class="default-btn">
+                <a href="{{ route('home-page') }}" class="default-btn">
                     Back to Shop
                 </a>
             </div>
