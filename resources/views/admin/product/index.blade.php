@@ -6,8 +6,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <div class="">
-                            <h5>Products List</h5>
+                        <div class="mt-3">
                             <a class="text-success" href="{{route('admin-create-product')}}">
                                 Create new product
                             </a>
@@ -19,31 +18,51 @@
                         </div>
                     </div>
                     <div class="card-header">
-                        <form>
+                        <form method="get" id="searchFormAdmin" name="searchFormAdmin" onsubmit="return validateForm()">
                             <div>
                                 <div class="row">
                                     <div class="form-group col-lg-4 col-sm-6" >
                                         <label for="inputDefault" class="col-form-label">Search by name</label>
-                                        <input style="height: 38px" id="inputDefault" type="text" value="Default input" class="form-control">
+                                        <input name="input_name" style="height: 38px" id="inputDefault" type="text" class="form-control" placeholder="Input product name">
                                     </div>
                                     <div class="form-group col-lg-4 col-sm-6">
                                         <label for="inputDefault" class="col-form-label">Search by category</label>
-                                            <select class="form-control">
-                                                @foreach($get_categories as $categories)
-                                                <option>{{$categories->name}}</option>
+                                            <select name="input_category" class="form-control">
+                                                <option value="all" selected="selected">All category</option>
+                                                @foreach($get_categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
                                                 @endforeach
                                             </select>
 
                                     </div>
                                     <div class="form-group col-lg-4 col-sm-6">
                                         <label for="inputDefault" class="col-form-label">Search by status</label>
-                                        <select class="form-control">
-                                            <option>Default select</option>
+                                        <select name="input_status" class="form-control">
+                                            <option value="1" selected="selected">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-sm-6">
+                                        <label for="inputDefault" class="col-form-label">Min price</label>
+                                        <input name="input_min_price" style="height: 38px" class="form-control" placeholder="Input min price">
+                                    </div>
+                                    <div class="form-group col-lg-4 col-sm-6">
+                                        <label for="inputDefault" class="col-form-label">Max price</label>
+                                        <input name="input_max_price" style="height: 38px" class="form-control" placeholder="Input min price">
+                                    </div>
+                                    <div class="form-group col-lg-4 col-sm-6">
+                                        <label for="inputDefault" class="col-form-label">Order By</label>
+                                        <select name="input_sort_by" class="form-control">
+                                            <option value="1" selected="selected">Default</option>
+                                            <option value="2">Latest</option>
+                                            <option value="3">Price: Low to high</option>
+                                            <option value="4">Price: High to low</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="btn btn-success">
-                                    Search
+                                <div>
+                                    <button class="btn btn-success" type="submit">Search</button>
+                                    <button class="btn btn-danger" type="submit"> <a href="{{route('admin-product-index')}}"></a>Clear</button>
                                 </div>
                             </div>
                         </form>
@@ -133,5 +152,19 @@
         setTimeout(()=>{
             document.getElementById('showMessage').style.display = 'none';
         }, 2000);
+    </script>
+    <script>
+        function validateForm() {
+            let x = document.forms["searchFormAdmin"]["input_min_price"].value;
+            let y = document.forms['searchFormAdmin']['input_max_price'].value;
+            if (isNaN(x)) {
+                alert("Min price must be a number");
+                return false
+            }
+            if (isNaN(y)) {
+                alert("Max price must be a number");
+                return false
+            }
+        }
     </script>
 @endsection

@@ -50,7 +50,7 @@ class ProductController extends Controller
                     $products = $products->reorder();
                 }
                 if ($request->sort_by == 'lastest') {
-                    $products = $products->orderBy('created_date', 'desc');
+                    $products = $products->orderBy('created_at', 'desc');
                 }
                 if ($request->sort_by == 'low_to_high') {
                     $products = $products->orderBy('price', 'asc');
@@ -59,7 +59,7 @@ class ProductController extends Controller
                     $products = $products->orderBy('price', 'desc');
                 }
             }
-            $products = $products->paginate(5)->withQueryString();;
+            $products = $products->paginate(15)->withQueryString();;
             return view('main_public.product', ['products' => $products,
                 'total' => $products->total(),
                 'perPage' => $products->perPage(),
@@ -68,7 +68,7 @@ class ProductController extends Controller
             ]);
         }
         if ($category != null) {
-            $products = DB::table('products')->where('category_id', '=', $category->id)->paginate(5)->withQueryString();
+            $products = DB::table('products')->where('category_id', '=', $category->id)->paginate(15)->withQueryString();
             return view('main_public.product', ['products' => $products,
                 'total' => $products->total(),
                 'perPage' => $products->perPage(),
@@ -201,18 +201,58 @@ class ProductController extends Controller
     }
 
 
-    public function indexAdmin()
+    public function indexAdmin(Request $request)
     {
-        $products = DB::table('products')
-            ->join('categories', function ($join) {
-                $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at', '=', null);
-            })->select('categories.name as category_name', 'products.*')
-            ->orderBy('created_at', 'desc')
-            ->paginate(10)->withQueryString();
+        $products = DB::table('products');
+        if (isset($request->input_name)) {
+            $products = $products->where('name', 'like', '%'.$request->input_name.'%');
+        }
         $get_categories = DB::table('categories')
             ->where('deleted_at', '=', null)
             ->select('name', 'id')
             ->get();
+        $get_list_category_id = DB::table('categories')
+            ->where('parent_id', '=', $request->input_category)
+            ->get();
+        $category_ids = array_column($get_list_category_id->toArray(), 'id');
+        array_push($category_ids, $request->input_category);
+        if (isset($request->input_category)) {
+            if ($request->input_category == 'all') {
+                $products = DB::table('products');
+            } else {
+                $products = $products->whereIn('category_id', $category_ids);
+            }
+        }
+        if (isset($request->input_status)) {
+            $products = $products->where('status', '=', $request->input_status);
+        }
+        if (isset($request->input_min_price)) {
+            $products = $products->where('price', '>=', $request->input_min_price);
+        }
+        if (isset($request->input_max_price)) {
+            $products = $products->where('price', '<=', $request->input_max_price);
+        }
+        if (isset($request->input_sort_by)) {
+            if ($request->input_sort_by == '1') {
+                $products = $products->orderBy('created_at', 'asc');
+            }
+            if ($request->input_sort_by == '2') {
+                $products = $products->orderBy('created_at', 'desc');
+            }
+            if ($request->input_sort_by == '3') {
+                $products = $products->orderBy('price', 'asc');
+            }
+            if ($request->input_sort_by == '4') {
+                $products = $products->orderBy('price', 'desc');
+            }
+        }
+        $products = $products
+            ->join('categories', function ($join) {
+                $join->on('products.category_id', '=', 'categories.id')->where('products.deleted_at', '=', null);
+            })->select('categories.name as category_name', 'products.*');
+        $products = $products->orderBy('created_at', 'desc')
+            ->paginate(10)->withQueryString();
+
         return view('admin.product.index', ['products' => $products,
             'total' => $products->total(),
             'perPage' => $products->perPage(),
