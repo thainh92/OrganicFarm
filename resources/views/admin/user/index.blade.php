@@ -18,32 +18,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="card-header">
-                        <form method="get" id="searchFormAdmin" name="searchFormAdmin" onsubmit="return validateForm()">
-                            <div>
-                                <div class="row">
-                                    <div class="form-group col-lg-4 col-sm-6">
-                                        <label for="inputDefault" class="col-form-label">Search by name</label>
-                                        <input name="input_name" style="height: 38px" id="inputDefault" type="text"
-                                               class="form-control" placeholder="Input product name">
-                                    </div>
-                                    <div class="form-group col-lg-4 col-sm-6">
-                                        <label for="inputDefault" class="col-form-label">Search by Role</label>
-                                        <select name="is_admin" class="form-control">
-                                            <option value="1" selected="selected">Admin</option>
-                                            <option value="0">User</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button class="btn btn-success" type="submit">Search</button>
-                                    <button class="btn btn-danger" type="submit"><a
-                                            href="{{route('admin-user-index')}}"></a>Clear
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table">

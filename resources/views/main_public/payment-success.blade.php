@@ -18,7 +18,7 @@
 	   border-radius:100%;
 	   background:#fff;
 	   text-align:center;
-    } 
+    }
     .check i {
 	   vertical-align:middle;
 	   line-height:50px;
@@ -53,7 +53,7 @@
                         </div>
                         <div class="content">
                             <h1>Payment Success !</h1>
-                            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </p>
+                            <p>Thank you for purchase, your order will be processing</p>
                             <a href="{{ route('home-page') }}">Go to Home</a>
                       </div>
                    </div>

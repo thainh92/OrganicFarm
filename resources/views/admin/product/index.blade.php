@@ -21,11 +21,11 @@
                         <form method="get" id="searchFormAdmin" name="searchFormAdmin" onsubmit="return validateForm()">
                             <div>
                                 <div class="row">
-                                    <div class="form-group col-lg-4 col-sm-6">
-                                        <label for="inputDefault" class="col-form-label">Search by name</label>
-                                        <input name="input_name" style="height: 38px" id="inputDefault" type="text"
-                                               class="form-control" placeholder="Input product name">
-                                    </div>
+{{--                                    <div class="form-group col-lg-4 col-sm-6">--}}
+{{--                                        <label for="inputDefault" class="col-form-label">Search by name</label>--}}
+{{--                                        <input name="input_name" style="height: 38px" id="inputDefault" type="text"--}}
+{{--                                               class="form-control" placeholder="Input product name">--}}
+{{--                                    </div>--}}
                                     <div class="form-group col-lg-4 col-sm-6">
                                         <label for="inputDefault" class="col-form-label">Search by category</label>
                                         <select name="input_category" class="form-control">

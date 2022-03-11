@@ -22,6 +22,8 @@ class UsersSeeder extends Seeder
                 'phone' => '111-111-111',
                 'password' => bcrypt('admin123'),
                 'is_admin' => 1,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
 
             [
@@ -31,8 +33,10 @@ class UsersSeeder extends Seeder
                 'phone' => '000-000-000',
                 'password' => bcrypt('user123'),
                 'is_admin' => 0,
+                'created_at' => '2022-03-07 21:25:42',
+                'updated_at' => '2022-03-07 21:25:42',
             ],
-            
+
         ]);
     }
 }
