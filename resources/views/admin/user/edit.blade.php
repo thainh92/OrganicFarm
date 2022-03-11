@@ -60,7 +60,7 @@
                                     Please input user's phone number.
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">
                                     Password
                                     
@@ -81,8 +81,7 @@
                                 <input type="password" class="form-control" id="password-confirm"
                                        placeholder="Confirm Password" value="" name="password_confirmation" required>
                                 <span id="password-confirm-feedback-admin" style="font-size: 12px;"></span>
-                                <!-- <span id="password-confirm-feedback"></span> -->
-                            </div>
+                            </div> -->
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 <label class="pt-2" for="validationCustom01">Role</label>
                                 <label class="custom-control custom-radio">
@@ -120,48 +119,48 @@
 @endsection
 @section('script-tag')
     <script>
-        const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
+        // const togglePassword = document.querySelector("#togglePassword");
+        // const password = document.querySelector("#password");
 
-        togglePassword.addEventListener("click", function () {
-            // toggle the type attribute
-            const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
+        // togglePassword.addEventListener("click", function () {
+        //     // toggle the type attribute
+        //     const type = password.getAttribute("type") === "password" ? "text" : "password";
+        //     password.setAttribute("type", type);
             
-            // toggle the icon
-            this.classList.toggle("bi-eye");
-        });
+        //     // toggle the icon
+        //     this.classList.toggle("bi-eye");
+        // });
 
-        // prevent form submit
-        const form = document.querySelector("form");
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-        });
+        // // prevent form submit
+        // const form = document.querySelector("form");
+        // form.addEventListener('submit', function (e) {
+        //     e.preventDefault();
+        // });
 
-        $('#password, #password-confirm').on('keyup', function () {
-            if ($('#password').val().length < 8 && $('#password-confirm').val().length < 8) {
-                $('#password-feedback-admin').html('Password must be at least eight characters long.').css({'color': '#dc3545'});
-                $('#submit-button-create-user').prop('disabled', true);
-                $('#submit-button-create-user').css('cursor', 'default');
-                $('#password').css({'borderColor': '#dc3545'});
-            } else {
-                $('#password-feedback-admin').html('Valid password').css('color', 'green');
-                $('#submit-button-create-user').prop('disabled', false);
-                $('#submit-button-create-user').css('cursor', 'pointer');
-                $('#password').css({'borderColor': '#28a745'});
+        // $('#password, #password-confirm').on('keyup', function () {
+        //     if ($('#password').val().length < 8 && $('#password-confirm').val().length < 8) {
+        //         $('#password-feedback-admin').html('Password must be at least eight characters long.').css({'color': '#dc3545'});
+        //         $('#submit-button-create-user').prop('disabled', true);
+        //         $('#submit-button-create-user').css('cursor', 'default');
+        //         $('#password').css({'borderColor': '#dc3545'});
+        //     } else {
+        //         $('#password-feedback-admin').html('Valid password').css('color', 'green');
+        //         $('#submit-button-create-user').prop('disabled', false);
+        //         $('#submit-button-create-user').css('cursor', 'pointer');
+        //         $('#password').css({'borderColor': '#28a745'});
 
-                if ($('#password').val() == $('#password-confirm').val()) {
-                    $('#password-confirm-feedback-admin').html('Password matched').css('color', 'green');
-                    $('#submit-button-create-user').prop('disabled', false);
-                    $('#password-confirm').css({'borderColor': '#28a745'});
-                  } else {
-                    $('#password-confirm-feedback-admin').html('Password unmatched').css('color', '#dc3545');
-                    $('#submit-button-create-user').prop('disabled', true);
-                    $('#submit-button-create-user').css('cursor', 'default');
-                    $('#password-confirm').css({'borderColor': '#dc3545'});
-                  }
-            }       
-        });
+        //         if ($('#password').val() == $('#password-confirm').val()) {
+        //             $('#password-confirm-feedback-admin').html('Password matched').css('color', 'green');
+        //             $('#submit-button-create-user').prop('disabled', false);
+        //             $('#password-confirm').css({'borderColor': '#28a745'});
+        //           } else {
+        //             $('#password-confirm-feedback-admin').html('Password unmatched').css('color', '#dc3545');
+        //             $('#submit-button-create-user').prop('disabled', true);
+        //             $('#submit-button-create-user').css('cursor', 'default');
+        //             $('#password-confirm').css({'borderColor': '#dc3545'});
+        //           }
+        //     }       
+        // });
 
 
         let user = {!! json_encode($user) !!};

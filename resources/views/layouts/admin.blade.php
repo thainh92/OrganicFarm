@@ -104,7 +104,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown connection">
+                    <!-- <li class="nav-item dropdown connection">
                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
@@ -142,7 +142,7 @@
                                 <div class="conntection-footer"><a href="#">More</a></div>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"><img src="{{asset('admin/assets/images/avatar-1.jpg')}}" alt=""

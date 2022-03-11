@@ -19,30 +19,27 @@
                         </div>
                     </div>
                     <div class="card-header">
-                        <form>
+                        <form method="get" id="searchFormAdmin" name="searchFormAdmin" onsubmit="return validateForm()">
                             <div>
                                 <div class="row">
-                                    <div class="form-group col-lg-4 col-sm-6" >
+                                    <div class="form-group col-lg-4 col-sm-6">
                                         <label for="inputDefault" class="col-form-label">Search by name</label>
-                                        <input style="height: 38px" id="inputDefault" type="text" value="Default input" class="form-control">
+                                        <input name="input_name" style="height: 38px" id="inputDefault" type="text"
+                                               class="form-control" placeholder="Input product name">
                                     </div>
                                     <div class="form-group col-lg-4 col-sm-6">
-                                        <label for="inputDefault" class="col-form-label">Search by role</label>
-                                        <select class="form-control">
-                                            @foreach($users as $user)
-                                                <option>{{$user->is_admin == 1 ? 'Admin' : 'User'}}</option>
-                                            @endforeach
+                                        <label for="inputDefault" class="col-form-label">Search by Role</label>
+                                        <select name="is_admin" class="form-control">
+                                            <option value="1" selected="selected">Admin</option>
+                                            <option value="0">User</option>
                                         </select>
                                     </div>
-                                    <!-- <div class="form-group col-lg-4 col-sm-6">
-                                        <label for="inputDefault" class="col-form-label">Search by status</label>
-                                        <select class="form-control">
-                                            <option>Default select</option>
-                                        </select>
-                                    </div> -->
                                 </div>
-                                <div class="btn btn-success">
-                                    Search
+                                <div>
+                                    <button class="btn btn-success" type="submit">Search</button>
+                                    <button class="btn btn-danger" type="submit"><a
+                                            href="{{route('admin-user-index')}}"></a>Clear
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -123,5 +120,19 @@
         setTimeout(()=>{
             document.getElementById('showMessage').style.display = 'none';
         }, 2000);
+    </script>
+    <script>
+        function validateForm() {
+            let x = document.forms["searchFormAdmin"]["input_min_price"].value;
+            let y = document.forms['searchFormAdmin']['input_max_price'].value;
+            if (isNaN(x)) {
+                alert("Min price must be a number");
+                return false
+            }
+            if (isNaN(y)) {
+                alert("Max price must be a number");
+                return false
+            }
+        }
     </script>
 @endsection

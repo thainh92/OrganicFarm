@@ -90,7 +90,7 @@
                             <div class="cart-buttons">
                                 <div class="row align-items-center">
                                     <div class="col-lg-7 col-sm-7 col-md-7">
-                                        <a href="shop-1.html" class="default-btn">
+                                        <a href="{{route('home-page')}}" class="default-btn">
                                             Back to Shop
                                         </a>
                                     </div>
@@ -112,8 +112,7 @@
                                             <span class="totals-value" id="cart-subtotal">{{number_format(Session::get('Cart')->totalPrice, 2)}}</span>
                                         </li>
                                         <li>Shipping
-                                            <span>$</span>
-                                            <span class="totals-value" id="cart-shipping">10</span>
+                                            <span class="totals-value" id="cart-shipping">Free Shipping</span>
                                         </li>
                                         <li>Total
                                             <span>$</span>
