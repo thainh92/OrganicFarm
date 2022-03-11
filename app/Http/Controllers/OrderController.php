@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -128,6 +129,6 @@ class OrderController extends Controller
     }
 
     public function showOrderDetail($id) {
-        return DB::table('order_details')->where('order_id', '=', $id)->get();
+        return OrderDetail::with('product')->where('order_id', '=', $id)->get();
     }
 }

@@ -65,8 +65,10 @@
                                                         </button>
                                                     </td>
                                                     <td>
-                                                        <button onclick="getDetailOrder({{$order->id}})" type="button" class="btn btn-info" data-toggle="modal"
-                                                                data-target="#exampleModal">Info</button>
+                                                        <button onclick="getDetailOrder({{$order->id}})" type="button"
+                                                                class="btn btn-info" data-toggle="modal"
+                                                                data-target="#exampleModal">Info
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -165,18 +167,30 @@
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <div class="modal-header border-bottom-0">
+                            <h5 class="modal-title font-italic" id="exampleModalLabel"><i class="fas fa-clipboard-list mr-2"></i>Order detail</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
-                        <div class="modal-body" id="order-detail"></div>
+                        <div class="modal-body" style="font-weight: normal">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Thumbnail</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Unit price</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody id="order-detail"></tbody>
+                            </table>
+                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
         <!-- Start Services Details Area -->
     </div>
@@ -185,20 +199,20 @@
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script>
         // function cancelOrder() {
-            $('.cancelOrder').on('click', function(){
-                let dataId = $(this).attr('data-order-id');
-                if (confirm("Do you want cancel order? You can't go to back this action")) {
-                    $.ajax({
-                        type: 'GET',
-                        data: {id: $(this).attr('data-order-id'), status: 0},
-                        url: "{{route('change-order-status')}}",
-                        success: (result) => {
-                            console.log();
-                            location.reload();
-                        }
-                    });
-                }
-            })
+        $('.cancelOrder').on('click', function () {
+            let dataId = $(this).attr('data-order-id');
+            if (confirm("Do you want cancel order? You can't go to back this action")) {
+                $.ajax({
+                    type: 'GET',
+                    data: {id: $(this).attr('data-order-id'), status: 0},
+                    url: "{{route('change-order-status')}}",
+                    success: (result) => {
+                        console.log();
+                        location.reload();
+                    }
+                });
+            }
+        })
 
         // }
     </script>
@@ -207,31 +221,33 @@
         let productTitle = $('#exampleModalLabel');
         let currentDomain = window.location.origin;
         let pathImageProduct = '/assets/img/product/';
+
         function getDetailOrder(id) {
             $.ajax({
                 url: '/order/detail/' + id,
                 method: "get",
                 success: (result) => {
                     if (result.length != 0) {
+                        productDetailContainer.html('');
                         console.log(result);
-                        // for (let i = 0; i < result.length; i++) {
-                        //
-                        // }
-                        let item = `
-                        <div class="d-flex">
-                            <img style="height: 50px; width: 50px" src="${currentDomain + pathImageProduct + result.thumbnail}">
-                            <span>Name</span>
-                            <span>${result.description}</span>
-                        </div>
-                        `
-                        let item2 = `
-                        ${result.name}
-                        `
-                        productDetailContainer.html("").append(item);
-                        productTitle.html("").append(item2);
+                        for (let i = 0; i < result.length; i++) {
+                            let sum = (result[i].quantity * result[i].price).toFixed(2);
+                            let itemGet = `
+                                 <tr>
+                                  <th scope="col" >${i + 1}</th>
+                                  <th scope="col" ><img style="height: 50px; width: 50px" src="${currentDomain + pathImageProduct + result[i].product.thumbnail}"></th>
+                                  <th scope="col" >${result[i].product.name}</th>
+                                  <th scope="col" >${(result[i].quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+                                  <th scope="col" class="font-italic"><span>$</span>${(result[i].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+                                  <th scope="col" class="font-italic"><span>$</span> ${sum}</th>
+                                </tr>
+                            `
+                        productDetailContainer.append(itemGet);
+                        }
                     }
                 }
             })
         }
     </script>
 @endsection
+.
