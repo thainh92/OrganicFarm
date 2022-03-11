@@ -373,7 +373,7 @@
                                             <a href="{{ route('login') }}" class="primary-btn view-card">LOGIN TO VIEW CART</a>
                                             @endauth
                                             @endif
-                                            <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                            <a href="{{route('checkout-page')}}" class="primary-btn checkout-btn">CHECK OUT</a>
                                         </div>
                                     </div>
                                 </div>
