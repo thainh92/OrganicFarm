@@ -58,7 +58,6 @@ class CheckoutController extends Controller
         $order->country = $request->input("country");
         $order->first_name = $request->input("first_name");
         $order->last_name = $request->input("last_name");
-
         $order->address = $request->input("address");
         $order->phone = $request->input("phone");
         $order->email = $request->input("email");
