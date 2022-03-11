@@ -113,7 +113,7 @@
                                         </li>
                                         <li>Shipping
                                             <span>$</span>
-                                            <span class="totals-value" id="cart-shipping">10</span>
+                                            <span class="totals-value" id="cart-shipping">Free Shipping</span>
                                         </li>
                                         <li>Total
                                             <span>$</span>
