@@ -176,11 +176,7 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    @if(session('message'))
-                        <p id="showMessage" class="alert alert-success"><em>{{session('message')}}</em></p>
-                    @endif
-                </div>
+                
 
             </div>
         </div>
@@ -850,11 +846,6 @@
     function getCart() {
         console.log(cart);
     }
-</script>
-<script>
-    setTimeout(()=>{
-        document.getElementById('showMessage').style.display = 'none';
-    }, 2000);
 </script>
 @yield('script-tag');
 </body>

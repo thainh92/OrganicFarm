@@ -157,7 +157,7 @@
 
         <!-- Start FAQ Contact Area -->
         <div class="faq-contact-area ptb-100">
-            <div class="container">
+            <!-- <div class="container">
                 <div class="section-title">
                     <h2>Do You Have Any Questions?</h2>
                     <p>Fill in the information, write a question and send it to us.</p>
@@ -213,7 +213,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- End FAQ Contact Area -->
     </section>

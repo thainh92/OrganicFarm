@@ -35,8 +35,7 @@ class LoginController extends Controller
           {
             return 'admin/index';  // admin dashboard path
           } else {
-            // return 'home';
-            return redirect()->route('home-page')->with('message', 'Login Successfully');  // member dashboard path
+            return 'home'; // member dashboard path
           }
         }
 

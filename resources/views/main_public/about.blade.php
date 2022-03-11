@@ -183,7 +183,7 @@
         <!-- Start Team Area -->
         <section class="team-area pt-100 pb-70">
             <div class="container">
-                <div class="section-title">
+                <!-- <div class="section-title">
                     <h2>OUR TEAM</h2>
                 </div>
 
@@ -356,7 +356,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <!-- End Team Area -->
@@ -604,7 +604,7 @@
         <!-- Start Newsletter Area -->
         <div class="newsletter-area ptb-100">
             <div class="container">
-                <div class="row align-items-center">
+                <!-- <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="newsletter-content">
                             <h2>Subscribe To Our Newsletter</h2>
@@ -622,7 +622,7 @@
                             <div id="validator-newsletter" class="form-result"></div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- End Newsletter Area -->
