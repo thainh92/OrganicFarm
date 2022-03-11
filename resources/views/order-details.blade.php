@@ -23,7 +23,7 @@
                         <span>Order Total</span>
                     </td>
                     <td class="product-subtotal">
-                        <span class="subtotal-amount">{{number_format(Session::get('Cart')->totalPrice) + 10}}$</span>
+                        <span class="subtotal-amount">{{number_format(Session::get('Cart')->totalPrice)}}$</span>
                     </td>
                 </tr>
             </tbody>
