@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{ url('place-order') }}" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+                <form action="{{ url('place-order') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
