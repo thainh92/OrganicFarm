@@ -193,6 +193,8 @@
     <script>
         let productDetailContainer = $('#product-detail');
         let productTitle = $('#exampleModalLabel');
+        let currentDomain = window.location.origin;
+        let pathImageProduct = '/assets/img/product/';
         function getDetailProduct(id) {
             $.ajax({
                 url: '/admin/product/detail/' + id,
@@ -202,7 +204,7 @@
                         console.log(result);
                         let item = `
                         <div class="d-flex">
-                            <img style="height: 200px; width: 250px" src="http://localhost:8000/assets/img/product/${result.thumbnail}">
+                            <img style="height: 200px; width: 250px" src="${currentDomain + pathImageProduct + result.thumbnail}">
                             <div class="ml-3">
                                 <h5>Description</h5>
                                 <p>${result.description}</p>
