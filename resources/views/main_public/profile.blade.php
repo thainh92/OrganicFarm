@@ -40,11 +40,8 @@
                                                     <td>
                                                         <button onclick="cancelOrder()"
                                                                 data-order-id="{{$order->id}}"
-<<<<<<< HEAD
+
                                                                 class="cancelOrder btn btn-secondary"{{($order->status === "cancel" || $order->status === "approve") ? "disabled" : ""}}>
-=======
-                                                                class="cancelOrder btn btn-secondary"{{$order->status === "cancel" ? "disabled" : ""}}>
->>>>>>> parent of 6f70bfa (a)
                                                             cancel
                                                         </button>
                                                     </td>
