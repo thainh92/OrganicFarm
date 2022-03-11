@@ -32,22 +32,8 @@
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead class="bg-light">
-                                                <tr class="border-0">
-                                                    <th class="border-0">#</th>
-                                                    <th class="border-0">Order Id</th>
-                                                    <th class="border-0">Total price</th>
-                                                </tr>
-                                            </thead>
                                             <tbody>
-                                                
-                                                @foreach($orders as $key => $order)
-                                                    <tr>
-                                                        <td>{{ ($currentPage - 1) * $perPage + $key + 1 }}</td>
-                                                        <td>{{$order->id}}</td>
-                                                        <td>{{$order->total}}</td>
-                                                    </tr>
-                                                @endforeach
+
 
                                             <tr class="border-0">
                                                 <th class="border-0">#</th>
@@ -79,7 +65,8 @@
                                                         </button>
                                                     </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info">Info</button>
+                                                        <button onclick="getDetailOrder({{$order->id}})" type="button" class="btn btn-info" data-toggle="modal"
+                                                                data-target="#exampleModal">Info</button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -106,23 +93,24 @@
                                             <i class='bx bx-user-pin'></i>
                                         </div>
                                         <span>Phone:</span>
-                                        <a href="tel:+21453545413">+2145 354 5413</a>
+                                        <a href="tel:+{{$user->phone}}">{{$user->phone}}</a>
                                     </li>
                                     <li>
                                         <div class="icon">
                                             <i class='bx bx-map'></i>
                                         </div>
                                         <span>Location:</span>
-                                        New York, USA
+                                        {{$user->address}}
                                     </li>
                                     <li>
                                         <div class="icon">
                                             <i class='bx bx-envelope'></i>
                                         </div>
                                         <span>Email:</span>
-                                        <a href="mailto:hello@orgo.com">hello@orgo.com</a>
+                                        <a href="mailto:{{$user->email}}">{{$user->email}}</a>
                                     </li>
                                 </ul>
+
                             </div>
                         </div>
                     </div>
@@ -174,6 +162,21 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="order-detail"></div>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- Start Services Details Area -->
     </div>
@@ -198,5 +201,37 @@
             })
 
         // }
+    </script>
+    <script>
+        let productDetailContainer = $('#order-detail');
+        let productTitle = $('#exampleModalLabel');
+        let currentDomain = window.location.origin;
+        let pathImageProduct = '/assets/img/product/';
+        function getDetailOrder(id) {
+            $.ajax({
+                url: '/order/detail/' + id,
+                method: "get",
+                success: (result) => {
+                    if (result.length != 0) {
+                        console.log(result);
+                        // for (let i = 0; i < result.length; i++) {
+                        //
+                        // }
+                        let item = `
+                        <div class="d-flex">
+                            <img style="height: 50px; width: 50px" src="${currentDomain + pathImageProduct + result.thumbnail}">
+                            <span>Name</span>
+                            <span>${result.description}</span>
+                        </div>
+                        `
+                        let item2 = `
+                        ${result.name}
+                        `
+                        productDetailContainer.html("").append(item);
+                        productTitle.html("").append(item2);
+                    }
+                }
+            })
+        }
     </script>
 @endsection

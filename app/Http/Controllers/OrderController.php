@@ -99,16 +99,18 @@ class OrderController extends Controller
             ->withQueryString();
 
         if (Auth::user()->id == $id) {
+            $user = Auth::user();
             return view('main_public.profile', [
                 'orders' => $orders,
                 'total' => $orders->total(),
                 'perPage' => $orders->perPage(),
                 'currentPage' => $orders->currentPage(),
+                'user' => $user,
             ]);
         } else {
             return redirect()->route('home-page');
         }
-        
+
     }
 
     public function changeOrderStatus(Request $request)
@@ -123,5 +125,9 @@ class OrderController extends Controller
             $order->update(['status' => 'cancel']);
             $order->update(['updated_at' => now()]);
         }
+    }
+
+    public function showOrderDetail($id) {
+        return DB::table('order_details')->where('order_id', '=', $id)->get();
     }
 }

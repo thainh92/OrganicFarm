@@ -120,6 +120,7 @@ Route::get('/payment-success', 'App\Http\Controllers\CheckoutController@payments
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/profile/{id}', [OrderController::class, 'showListOrder'])->name('profile-page');
 });
+Route::get('/order/detail/{id}', [OrderController::class, 'showOrderDetail'])->name('order-detail-page');
 /*---------- End Profile page ----------*/
 
 /*---------- Home Controller ----------*/
@@ -163,7 +164,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     })->name('admin-index');
 
 
-    
+
     Route::get('/admin/categories', [CategoryController::class, 'indexAdmin'])->name('admin-category-index');
     Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('admin-create-category');
     Route::post('/admin/category/create', [CategoryController::class, 'store'])->name('admin-store-category');
@@ -172,7 +173,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/category/trash/{id}', [CategoryController::class, 'trash'])->name('admin-trash-category');
 
     /*---------- Admin Product Route ----------*/
-    
+
     Route::get('/admin/products', [ProductController::class, 'indexAdmin'])->name('admin-product-index');
     Route::get('/admin/product/create', [ProductController::class, 'create'])->name('admin-create-product');
     Route::post('/admin/product/create', [ProductController::class, 'store'])->name('admin-store-product');
@@ -198,7 +199,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
     /*---------- Admin Order Route ----------*/
     Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin-order-index');
-    
+
     Route::get('/admin/changeOrderStatus', [OrderController::class, 'changeOrderStatus'])->name('change-order-status');
     /*---------- End Admin Route ----------*/
 });
