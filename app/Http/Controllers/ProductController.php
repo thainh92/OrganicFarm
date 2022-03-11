@@ -269,4 +269,8 @@ class ProductController extends Controller
         return $get_sub_category;
     }
 
+    public function showProductDetail($id){
+        return DB::table('products')->where('id', '=', $id)->first();
+    }
+
 }
