@@ -8,7 +8,11 @@
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
+<<<<<<< HEAD
                             <h2>Blog</h2>
+=======
+                            <h2>Blog</h2>h
+>>>>>>> hong
                             <ul>
                                 <li>
                                     <a href="{{ route('home-page') }}">Home</a>
